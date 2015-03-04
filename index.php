@@ -26,7 +26,7 @@ $request = new Request();
 
 
 //Par défaut, l’utilisateur n’est pas identifié, sauf s’il l’est.
-$_SESSION['valid'] = isset($_SESSION['valid']) ? $_SESSION['valid'] : false;
+$_SESSION['valid'] = isset($_SESSION['session_valid']) ? $_SESSION['session_valid'] : false;
 /*
 * Après a’être connecté, je regarde ma requête HTTP pour savoir ce que veut l’utilisateur
 * Par convention, je décide qu’une URI doit toujours contenir une action et un modèle
