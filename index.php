@@ -26,7 +26,7 @@ $request = new Request();
 
 
 //Par défaut, l’utilisateur n’est pas identifié, sauf s’il l’est.
-$_SESSION['valid'] = isset($_SESSION['session_valid']) ? $_SESSION['session_valid'] : false;
+$_SESSION['session_valid'] = isset($_SESSION['session_valid']) ? $_SESSION['session_valid'] : false;
 /*
 * Après a’être connecté, je regarde ma requête HTTP pour savoir ce que veut l’utilisateur
 * Par convention, je décide qu’une URI doit toujours contenir une action et un modèle
@@ -59,6 +59,8 @@ $controller = new $controllerName($request);
 * - un nom de vue à inclure dans le layout ('clé view')
 */
 $data = call_user_func([$controller, $request->a]);
-
 // Finalement, on inclut le layout…
+var_dump($_COOKIE);
+die();
+
 include(VIEW_DIR . 'layout.php');
