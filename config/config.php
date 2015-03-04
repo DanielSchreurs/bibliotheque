@@ -7,8 +7,8 @@
  * Définition de la langue par défaut
  */
 $language = 'fr_BE';
-define('CHARSET','UTF-8');
-define('TITLE','La joie de livre');// le titre générale du site
+define('CHARSET', 'UTF-8');
+define('TITLE', 'La joie de livre');// le titre générale du site
 
 
 /*
@@ -16,7 +16,7 @@ define('TITLE','La joie de livre');// le titre générale du site
  * problèmes de noms
 */
 $tables = array(
-    'entite'=>'entites'
+    'entite' => 'entites'
 );
 
 
@@ -24,7 +24,7 @@ $tables = array(
  * La liste des types de fichier que l’utilisateur peut éventuellement uploader
  */
 $types = array(
-    'jpg'=>'image/jpeg'
+    'jpg' => 'image/jpeg'
 );
 
 
@@ -49,7 +49,8 @@ define('CARBON_DIR', 'vendor/Carbon/');
  * Initialisation éventuelles de diverses variables comme par exemple,
  * un booléen qui tient la trace de la connexion à un espace privé
 */
- $connected = FALSE ;
+$userConnec = false;
+$adminConnec = false;
 
 /*
  * définir une constante pour la durée du coikies
