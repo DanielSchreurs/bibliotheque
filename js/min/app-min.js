@@ -1,0 +1,1 @@
+function show(e){event.target.childNodes[0].nodeValue=("password"==e.type?"Cahcher ":"Montrer ")+"le mot de passe",e.type="password"==e.type?"text":"password"}var inputpassword=document.getElementById("password");document.getElementById("showPassword").addEventListener("click",function(){show(inputpassword)},!1);

@@ -1,0 +1,31 @@
+.main_nav_Bibli_Small{
+  padding-top:15px;
+
+  li{
+    display: inline-block;
+    a{
+      padding-right:5px;
+      color:$vert;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+    }
+  }
+
+}
+.liste_Bibliotheques h3 a:after,.main_nav_Bibli_Small a:after{
+    content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: $vert;
+      margin-bottom: -15px;
+      padding: 0;
+      -webkit-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s;
+}
+.liste_Bibliotheques h3 a:hover:after, .main_nav_Bibli_Small a:hover:after{
+  
+      width: 100%;
+}

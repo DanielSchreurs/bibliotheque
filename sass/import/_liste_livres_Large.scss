@@ -1,0 +1,15 @@
+.liste_livres{
+ 
+   
+  li{
+    float:left;
+    width: 44.444444444%;/*480px*/
+    margin:0 2.7777777778%;/*30px*/
+  }
+}
+.liste_livres:after{
+   content:"";
+    display: block;
+    clear: both;
+  
+}

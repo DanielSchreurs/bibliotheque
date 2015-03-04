@@ -1,0 +1,39 @@
+header{
+     position: fixed;
+     padding:0 30px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    max-width: 1080px;
+    margin: 0 auto;
+    border-bottom: 5px solid $vert;
+  
+      background-color: rgba(245, 245,245,.8);
+    h1{
+      float:left;
+      a{
+      border:none;
+      padding:18px 0;
+      background:none;    
+      }
+    }
+    nav{
+      text-align: right;
+    }
+     li{
+      display: inline-block;
+      a,span{
+        padding:30px 15px;
+         background:none; 
+         border:none ;
+      }
+    }    
+li:not(:last-child){
+  margin-right: -4px;
+}
+}
+header nav.header_nav li>a,header nav.header_nav li>span{
+  background-color:transparent;
+  border:none;
+}

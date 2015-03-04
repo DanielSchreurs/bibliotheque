@@ -1,0 +1,57 @@
+html{
+  // background:url(./img/grid.png) 50% 0 ;
+  background-color:white;
+  min-height:100%;
+ 
+}
+body{
+  // opacity:.8;
+  font: 14px/1.8 'NexaLight' 'Helvetica Neue' 'Helvetica' Arial 'sans-serif';
+  min-height:100%;
+  
+}
+img{
+  max-width: 100%;
+}
+a{
+  text-decoration: none;
+  cursor: pointer;
+  color:$grisFonce;
+}
+p{
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  word-wrap: break-word;
+
+}
+.clearfix{
+  clear: both;
+}
+input[type="submit"]:hover{
+    background-color: $vert;
+    color: white;
+}
+input,textarea{
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  transition: .5s;
+}
+textarea:focus:invalid,
+input[type="email"]:focus:invalid,input[type="password"]:focus:invalid,
+input[type="text"]:focus:invalid {
+  outline: none;
+  -webkit-box-shadow: 0 0 5px 2px red;
+  box-shadow: 0 0  5px 2px red;
+ }
+textarea:focus:valid,
+input[type="email"]:focus:valid,input[type="password"]:focus:valid,
+input[type="text"]:focus:valid {
+    outline: none;
+  -webkit-box-shadow: 0 0 5px 2px green;
+  box-shadow: 0 0  5px 2px green;
+ }
+html body .inline{
+  display: inline;
+}

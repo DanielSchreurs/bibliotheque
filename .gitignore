@@ -1,0 +1,16 @@
+
+.idea/.name
+
+*.iml
+
+.idea/encodings.xml
+
+.idea/misc.xml
+
+*.xml
+
+config.codekit
+
+config/database.php
+
+*.scssc

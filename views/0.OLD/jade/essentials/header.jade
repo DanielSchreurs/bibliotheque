@@ -1,0 +1,28 @@
+header
+	h1
+			a(href="#") La joie de Livre
+	nav(class="header_nav")
+
+		ul
+			li
+				a(href="#" title="Renvois vers la page d\'accueil") accueil
+			each  val, index in listePrincipale
+				li
+					a(href=""+index title="Renvois vers la page "+val)=val
+			li
+				span Mon compte
+				form(action="index.php" method="post" id="connexion" class="formulaire_De_Connexion")
+					fieldset
+						label(for="login") Identifiant&nbsp;
+						input(type="text" name="login" id="login" required placeholder="Votre login")
+						label(for="pwd") Mot de passe&nbsp;
+						input(type="password" name="pwd" id="pwd" required placeholder="Votre mot de passe")
+						input(type="submit" value="Se connecter")
+						a(href="index.php?m=creer&amp;c=account" class="bGris") S'incrire
+		
+
+
+
+
+		
+

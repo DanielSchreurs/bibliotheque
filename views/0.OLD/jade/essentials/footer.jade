@@ -1,0 +1,22 @@
+footer		
+	p(class="copy") Designed by &copy; 
+		a(href="daniel.schreurs.com") Daniel Schreurs
+			time 2015
+	ul
+		if accueil
+			li
+				a(href="./vues/admin/admin.php") Se connecter
+
+		else		
+			li
+				a(href="../admin/admin.php") Se connecter			
+				
+		each val in['Déconecter','Espace privé']
+
+			li
+				a(href="#" title="Renvois vers la page"+val)= val			
+	
+			
+				
+					
+

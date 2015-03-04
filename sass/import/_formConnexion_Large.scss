@@ -1,0 +1,21 @@
+
+header li:hover .formulaire_De_Connexion{
+  margin-top: 5px;
+  opacity: 1;
+  top:96px ;
+
+}
+.formulaire_De_Connexion{
+  position: absolute;
+  left: -180px;
+  width: 300px;
+  top: -40px;
+  .inline{
+    position: relative;
+    left: -2px;
+  }
+  input[type="text"],input[type="password"]{
+    width: 100%;
+  }
+  
+}

@@ -1,0 +1,38 @@
+.liste_livres{
+  img{
+    float: left;
+    padding-right:30px;
+    padding-bottom:30px;
+  }
+  p{
+    text-align: justify;
+  }
+
+}
+.info_Livre{
+  dt:after{
+    content:"";
+    display: block;
+    clear: both;
+  }
+  dd a{
+    color:$grisFonce;
+    display: inline;
+    background: none;
+  }
+  dd:not(:last-child) a:after{
+    content: "/";
+    display: inline-block;
+    margin: 0 15px;
+  }
+  dd a:hover{
+    color: $vert;
+  }
+  dt:hover+dd a{
+     color: $vert;
+  }
+  dd,dt{
+    display: inline-block;
+    background: none;
+  }
+}
