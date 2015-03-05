@@ -36,7 +36,8 @@
       <li><a href="./vues/public/bibliotheques.php" title="Renvois vers la page Nos blibliothèques">Nos blibliothèques</a></li>
       <li><a href="./vues/public/commentMarche.php" title="Renvois vers la page Comment ça marche">Comment ça marche</a></li>
       <li><span>Mon compte</span>
-        <form action="index.php" method="post" id="connexion" class="formulaire_De_Connexion">
+
+          <form action="index.php" method="post" id="connexion" class="userLog">
           <fieldset>
             <label for="login">Identifiant&nbsp;</label>
             <input type="text" name="login" id="login" required placeholder="Votre login">

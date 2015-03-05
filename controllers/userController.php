@@ -13,7 +13,7 @@ class UserController extends BaseController
 {
     function login()
     {
-        if ($_SESSION['session_valid']) {
+        if ($_SESSION['first_name']) {
             header('Location: index.php');
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,14 +21,22 @@ class UserController extends BaseController
                 $user = new User;
                 if (($user->exists($this->request->sent->username, $this->request->sent->password))) {
                     if (isset($this->request->sent->remember)) {
-                        setcookie('session_valid', true, LIVETIME);
+                        //var_dump($user->getUserInfo($this->request->sent->username, $this->request->sent->password));
+                        foreach ($user->getUserInfo($this->request->sent->username,
+                            $this->request->sent->password) as $c => $v) {
+                            setcookie($c, $v, LIVETIME);
+                        }
                     } else {
-                        $_SESSION['session_valid'] = true;
+                        foreach ($user->getUserInfo($this->request->sent->username,
+                            $this->request->sent->password) as $c => $v) {
+                            $_SESSION[$c] = $v;
+                        }
                     }
+
                     header('Location:http://localhost:8888/bibliotheque');
                 } else {
-                    $_SESSION['session_valid'] = false;
-                    setcookie('session_valid', false, LIVETIME);
+                    $_SESSION['first_name'] = false;
+                    setcookie('first_name', false, LIVETIME);
                     die('vos identifiants sont incorrects');
                 }
             } else {
@@ -46,11 +54,15 @@ class UserController extends BaseController
     {
         die('je crée un user');
     }
+
     public function logout()
     {
-        unset($_SESSION);
-        unset($_COOKIE);
         session_destroy();
+        unset($_SESSION);
+        setcookie('first_name', false, time() - (3600));
+        setcookie('last_name', false, time() - (3600));
+        setcookie('photo', false, time() - (3600));
+        setcookie('role', false, time() - (3600));
         header('Location:http://localhost:8888/bibliotheque/index.php');
     }
 }

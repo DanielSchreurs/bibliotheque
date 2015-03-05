@@ -3,7 +3,6 @@
 class User extends Model
 {
     protected $table = 'users';
-
     public function __construct()
     {
         parent::__construct($this->table);
@@ -18,5 +17,13 @@ class User extends Model
             return false;
         }
         return true;
+    }
+
+    public function getUserInfo($username, $password)
+    {
+        $sql = 'SELECT first_name,last_name,photo,role FROM users where username=:username and password=:password';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([':username' => $username, 'password' => $password]);
+        return $pdost->fetch();
     }
 }

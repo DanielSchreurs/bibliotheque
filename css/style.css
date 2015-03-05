@@ -418,12 +418,12 @@ header li {
   position: relative; }
 
 /* line 4, ../sass/import/_formConnexion_Small.scss */
-header li:hover .formulaire_De_Connexion {
+header li:hover .userLog {
   margin-top: 0;
   opacity: 1; }
 
 /* line 8, ../sass/import/_formConnexion_Small.scss */
-.formulaire_De_Connexion {
+.userLog {
   -webkit-transition: 0.5s cubic-bezier(0.13, 0.69, 0.94, 1.84);
   -o-transition: 0.5s cubic-bezier(0.13, 0.69, 0.94, 1.84);
   transition: 0.5s cubic-bezier(0.13, 0.69, 0.94, 1.84);
@@ -432,10 +432,10 @@ header li:hover .formulaire_De_Connexion {
   margin-top: -216px;
   opacity: 1; }
   /* line 16, ../sass/import/_formConnexion_Small.scss */
-  .formulaire_De_Connexion label + .btnVert {
+.userLog label + .btnVert {
     display: inline-block !important; }
   /* line 19, ../sass/import/_formConnexion_Small.scss */
-  .formulaire_De_Connexion input[type="text"], .formulaire_De_Connexion input[type="password"] {
+.userLog input[type="text"], .userLog input[type="password"] {
     display: block;
     font-size: 16px;
     border: 1px solid #026660;
@@ -447,14 +447,14 @@ header li:hover .formulaire_De_Connexion {
     -o-border-radius: 5px;
     border-radius: 5px; }
   /* line 31, ../sass/import/_formConnexion_Small.scss */
-  .formulaire_De_Connexion label {
+.userLog label {
     display: block; }
   /* line 34, ../sass/import/_formConnexion_Small.scss */
-  .formulaire_De_Connexion .btnVert {
+.userLog .btnVert {
     font-size: 16px; }
 
 /* line 39, ../sass/import/_formConnexion_Small.scss */
-.formulaire_De_Connexion .btnVert {
+.userLog .btnVert {
   display: inline-block;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -470,19 +470,19 @@ header li:hover .formulaire_De_Connexion {
   cursor: pointer;
   margin-top: 5px; }
 /* line 56, ../sass/import/_formConnexion_Small.scss */
-.formulaire_De_Connexion .smallInfo {
+.userLog .smallInfo {
   padding: 5px;
   font-size: 13px;
   display: inline; }
 /* line 61, ../sass/import/_formConnexion_Small.scss */
-.formulaire_De_Connexion a.btnVert {
+.userLog a.btnVert {
   margin-right: 5px !important; }
 /* line 64, ../sass/import/_formConnexion_Small.scss */
-.formulaire_De_Connexion .btnVert:hover {
+.userLog .btnVert:hover {
   background-color: #026660;
   color: white; }
 /* line 68, ../sass/import/_formConnexion_Small.scss */
-.formulaire_De_Connexion .btnVert {
+.userLog .btnVert {
   display: inline;
   font-size: 20px;
   color: #026660; }
@@ -545,11 +545,11 @@ style pour les medium
     background: none; }
 
   /* line 2, ../sass/import/_formConnexion_Medium.scss */
-  .formulaire_De_Connexion input[type="text"], .formulaire_De_Connexion input[type="password"] {
+    .userLog input[type="text"], .userLog input[type="password"] {
     font-size: 20px;
     width: 50%; }
   /* line 6, ../sass/import/_formConnexion_Medium.scss */
-  .formulaire_De_Connexion label {
+    .userLog label {
     text-align: left;
     font-size: 20px; } }
 /*
@@ -563,23 +563,23 @@ Style large
     margin: 140px auto 0 auto; }
 
   /* line 2, ../sass/import/_formConnexion_Large.scss */
-  header li:hover .formulaire_De_Connexion {
+    header li:hover .userLog {
     margin-top: 5px;
     opacity: 1;
     top: 96px; }
 
   /* line 8, ../sass/import/_formConnexion_Large.scss */
-  .formulaire_De_Connexion {
+    .userLog {
     position: absolute;
     left: -180px;
     width: 300px;
     top: -40px; }
     /* line 13, ../sass/import/_formConnexion_Large.scss */
-    .formulaire_De_Connexion .inline {
+    .userLog .inline {
       position: relative;
       left: -2px; }
     /* line 17, ../sass/import/_formConnexion_Large.scss */
-    .formulaire_De_Connexion input[type="text"], .formulaire_De_Connexion input[type="password"] {
+    .userLog input[type="text"], .userLog input[type="password"] {
       width: 100%; }
 
   /* line 1, ../sass/import/_header_Large.scss */

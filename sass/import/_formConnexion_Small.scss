@@ -1,11 +1,13 @@
 header li{
 position: relative;
 }
-header li:hover .formulaire_De_Connexion{
+
+header li:hover .userLog {
   margin-top: 0;
   opacity: 1;
 }
-.formulaire_De_Connexion{
+
+.userLog {
   -webkit-transition: .5s cubic-bezier(.13,.69,.94,1.84);
   -o-transition: .5s cubic-bezier(.13,.69,.94,1.84);
   transition: .5s cubic-bezier(.13,.69,.94,1.84);
@@ -35,7 +37,8 @@ label{
   font-size: 16px;
 }
 }
-.formulaire_De_Connexion{
+
+.userLog {
   .btnVert{
     display: inline-block;
     -webkit-border-radius: 5px;

@@ -20,32 +20,11 @@ spl_autoload_register(
 );
 // On démarre une session
 session_start();
-
 $request = new Request();
-
 //Par défaut, l’utilisateur n’est pas identifié, sauf s’il l’est.
-$_SESSION['session_valid'] = isset($_SESSION['session_valid']) ? $_SESSION['session_valid'] : false;
-$_COOKIE['session_valid'] = isset($_COOKIE['session_valid']) ? $_COOKIE['session_valid'] : false;
-(isset($_SESSION['session_valid']) && $_SESSION['session_valid'] == true) || (isset($_COOKIE['session_valid']) && $_COOKIE['session_valid'] == true) ? $userConnec = true : $userConnec = false;
-/*
-* Après a’être connecté, je regarde ma requête HTTP pour savoir ce que veut l’utilisateur
-* Par convention, je décide qu’une URI doit toujours contenir une action et un modèle
-* Je nomme 'm' le paramètre de l’action, 'a', le paramètre du modèle
-* Par exemple, pour lister les livres, m=index&a=book
-* Mon but est de tenter de transformer ces deux paramètres en variables $m et $a
-* mais pour le faire, je dois a’assurer que ces paramètres existent bien et qu’ils sont
-* permis.
-* Je définis tout d’abord $m et $a sur les valeurs prévues dans la route par défaut, peu importe
-* ce qui est demandé.
-*/
-
-
-/*
-* Une fois que m et a sont déterminées, je sais quel contrôleur et quelle méthode
-* je dois utiliser. Je crée donc le nom du controlleur (la convention est de concaténer
-* le contenu de a avec une majuscule pour commencer avec le mot Controller. Toutes les
-* classes de controlleur sont nommées ainsi).
-*/
+$_SESSION['first_name'] = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : false;
+$_COOKIE['first_name'] = isset($_COOKIE['first_name']) ? $_COOKIE['first_name'] : false;
+(isset($_SESSION['first_name']) && $_SESSION['first_name'] == true) || (isset($_COOKIE['first_name']) && $_COOKIE['first_name'] == true) ? $userConnec = true : $userConnec = false;
 
 $controllerName = ucfirst($request->m) . 'Controller';
 
@@ -60,4 +39,5 @@ $controller = new $controllerName($request);
 */
 $data = call_user_func([$controller, $request->a]);
 // Finalement, on inclut le layout…
+var_dump($_COOKIE, $_SESSION);
 include(VIEW_DIR . 'layout.php');
