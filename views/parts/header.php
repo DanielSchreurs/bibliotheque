@@ -35,6 +35,7 @@
                         </form>
                     <?php endif; ?>
                     <?php if ($userConnec): ?>
+                        <p>Bonjour <?php echo($_COOKIE['first_name']); ?></p>
                         <a href="<?php echo($_SERVER['PHP_SELF']); ?>?m=user&a=logout" class="btnVert">Se
                             déconnecter</a>
                     <?php endif; ?>
