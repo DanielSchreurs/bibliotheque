@@ -84,9 +84,6 @@ class Book extends Model
 		$pds = $this->cx->prepare($sql);
 		$pds->execute([':book_id' => $book_id]);
 	}
-	/**
-	 *
-	 */
 	function create()
 	{
 	;
