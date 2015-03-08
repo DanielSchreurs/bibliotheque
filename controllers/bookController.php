@@ -20,13 +20,13 @@ class bookController extends BaseController
     {
         $book = new Book;
         $data = $book->all();
-        $title= 'acceuil';
+        $title = 'acceuil';
         $view = 'index.php';
 
         return [
             'data' => $data,
             'view' => $view,
-            'title'=> $title
+            'title' => $title
         ];
     }
 
@@ -45,5 +45,10 @@ class bookController extends BaseController
     public function update()
     {
 
+    }
+
+    public function getBookFromAuthor($autor)
+    {
+        return getBookFromAuthor($autor);
     }
 }
