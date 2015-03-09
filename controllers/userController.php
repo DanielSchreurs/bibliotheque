@@ -52,9 +52,12 @@ class UserController extends BaseController
 
     public function create()
     {
+        $title = 'S’inscrire en quelques clics';
+        $view = 'create.php';
         return [
-            'data' => null,
-            'view' => 'usercreate.php'
+            // 'data' => $this->create,
+            'view' => $view,
+            'title' => $title
         ];
     }
 
