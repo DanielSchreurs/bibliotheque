@@ -50,7 +50,7 @@ class bookController extends BaseController
     public function getBookFromAuthor($autor)
     {
         $book = new Book;
-        $data = $book->all();
+        $data = $book->getBookfromUser($book_id);
         $title = 'Un livre';
         $view = 'index.php';
         return [

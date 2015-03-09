@@ -40,4 +40,5 @@ $controller = new $controllerName($request);
 $data = call_user_func([$controller, $request->a]);
 // Finalement, on inclut le layout…
 //var_dump($_COOKIE, $_SESSION);
+var_dump($data);
 include(VIEW_DIR . 'layout.php');
