@@ -1,0 +1,27 @@
+.ceateUser {
+  font-size: 21px; //21px
+  label {
+    display: block;
+  }
+  input[type="text"], input[type="email"], input[type="password"] {
+    display: block;
+    width: 100%;
+    font-size: 21px;
+    padding: .2380952381em percentage(5/366);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid $vert;
+  }
+  legend {
+    color: $grisFonce;
+  }
+  fieldset {
+    margin-bottom: 2.5em;
+  }
+  .btnVert {
+    width: 100%;
+    padding: 10px;
+  }
+  margin-bottom: 3em;
+}
