@@ -16,10 +16,8 @@
                             <fieldset>
                                 <label for="username">Identifiant&nbsp;</label>
                                 <input type="text" name="username" id="username" required placeholder="Votre login">
-                                <label for="password" class="inline">Mot de passe&nbsp;</label><a id="showPassword"
-                                                                                                  class="smallInfo"
-                                                                                                  href="#"
-                                                                                                  title="Afficher le mot de pass">
+                                <label for="password" class="inline">Mot de passe&nbsp;</label>
+                                <a id="showPassword" class="smallInfo" href="#" title="Afficher le mot de pass">
                                     Montrer le mot de passe</a>
                                 <input type="password" name="password" id="password" required
                                        placeholder="Votre mot de passe">
