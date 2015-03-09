@@ -10,11 +10,16 @@
  4/03/2015                 Daniel               création
  ****************************************************************************************************/
 
-var inputpassword = document.getElementById('password');
-document.getElementById('showPassword').addEventListener('click', function () {
-    show(inputpassword);
+var i, linkShowPassword = document.getElementById('linkShowPassword');
+var showedpassword = document.getElementsByClassName('showedpassword');
+linkShowPassword.addEventListener('click', function () {
+    show(showedpassword, linkShowPassword);
 }, false);
-function show(element) {
-    event.target.childNodes[0].nodeValue = (element.type == 'password' ? 'Cahcher ' : 'Montrer ') + 'le mot de passe';
-    element.type == 'password' ? element.type = 'text' : element.type = 'password';
+function show(elements, link) {
+    for (i = 0; i < elements.length; i++) {
+        elements[i].type == 'password' ? elements[i].type = 'text' : elements[i].type = 'password';
+    }
+    link.childNodes[0].nodeValue = (elements[0].type == 'password' ? 'Montrer ' : 'Cahcher ') + 'le mot de passe';
+    link.className = (elements[0].type == 'password' ? 'ouvrir ' : 'fermer ') + 'icon smallInfo';
+
 }
