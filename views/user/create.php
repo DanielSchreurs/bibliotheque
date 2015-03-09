@@ -1,3 +1,4 @@
+
 <main>
     <form>
         <fieldset>
@@ -28,5 +29,6 @@
             <label for="reponse">réponse à cette question</label>
             <input type="text" name="reponse" id="reponse" value="" title="Introduisez une question de sécurité"/>
         </fieldset>
+        <input type="submit" value="Soumettre l'inscription"/>
     </form>
 </main>
