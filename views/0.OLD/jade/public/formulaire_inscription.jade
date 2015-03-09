@@ -1,6 +1,8 @@
-
 main
+    h1 Créer un nouveau compte
+    h2 Faites partie de la communauté de la Biblio-toile en quelques clics !
     form(class="ceateUser")
+        p!= ' Les champs précédés d’un <strong>(*)</strong> sont obligatoires!'
         fieldset
             legend Qui êtes vous ?
             label(for="first_name") Votre prénom
@@ -10,9 +12,9 @@ main
         fieldset
             legend Votre compte
             label(for="username") Votre nom d'utilisateur
-            input(type="text" name="username" id="username" value="" title="Introduisez votre nom d’utilisateur")
+            input(type="text" name="username" id="username" value="" title="Introduisez votre nom d’utilisateur" placeholder="Janette")
             label(for="email") Votre adresse mail
-            input(type="email" name="email" id="email" value="" title="Introduisez votre adressse mail")
+            input(type="email" name="email" id="email" value="" title="Introduisez votre adressse mail" placeholder="jane.doe@outlook.com")
             a(id="showPassword" class="smallInfo" href="#" title="Afficher le mot de pass") Montrer le mot de passe
             label(for="password") Votre Mot de passes
             input(type="password" name="password" id="password" value="" title="Introduisez votre mot de pass")
@@ -21,7 +23,7 @@ main
         fieldset
             legend Sécurité
             label(for="question") Question de sécurité
-            input(type="text" name="question" id="question" value="" title="Introduisez une question de sécurité")
+            input(type="text" name="question" id="question" value="" title="Introduisez une question de sécurité" placeholder="Quel est le nom de mon premier copain")
             label(for="reponse") réponse à cette question
-            input(type="text" name="reponse" id="reponse" value="" title="Introduisez une question de sécurité")
+            input(type="text" name="reponse" id="reponse" value="" title="Introduisez une question de sécurité" placeholder="Mystère")
         input(type="submit" value="Soumettre l'inscription" class="btnVert")
