@@ -1,5 +1,5 @@
 <header>
-    <h1><a href="#"><?php echo(TITLE); ?></a></h1>
+    <h1><a href="<?php echo($_SERVER['PHP_SELF']) ?>"><?php echo(TITLE); ?></a></h1>
     <nav class="header_nav">
         <ul>
             <li><a href="#" title="Renvois vers la page d'accueil">accueil</a></li>
