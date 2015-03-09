@@ -88,4 +88,11 @@ class Book extends Model
 	{
 	;
 	}
+
+    function getBookfromUser($book_id)
+    {
+        $sql = '';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([':book_id' => $book_id]);
+    }
 }
