@@ -2,11 +2,10 @@ header li{
 position: relative;
 }
 
-header li:hover .userLog {
+header li .userLog {
   margin-top: 0;
   opacity: 1;
 }
-
 .userLog {
   -webkit-transition: .5s cubic-bezier(.13,.69,.94,1.84);
   -o-transition: .5s cubic-bezier(.13,.69,.94,1.84);
