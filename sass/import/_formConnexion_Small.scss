@@ -37,24 +37,25 @@ label{
 }
 }
 
+.btnVert {
+  display: inline-block;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid $vert;
+  background: none;
+  font-size: 16px !important;
+  color: $vert;
+  padding: 5px;
+  font-family: 'NexaLight' 'Helvetica Neue' 'Helvetica' Arial 'sans-serif';
+  cursor: pointer;
+  margin-top: 5px;
+
+}
 .userLog {
-  .btnVert{
-    display: inline-block;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px;
-    border:1px solid $vert;
-    background: none;
-    font-size: 16px !important;
-    color: $vert;
-    padding: 5px;
-    font-family: 'NexaLight' 'Helvetica Neue' 'Helvetica' Arial 'sans-serif';
-    cursor: pointer;
-    margin-top: 5px;
-  
-  }
+
   .smallInfo{
     padding: 5px;
     font-size: 13px;
