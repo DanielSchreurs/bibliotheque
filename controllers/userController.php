@@ -52,7 +52,10 @@ class UserController extends BaseController
 
     public function create()
     {
-        die('je crée un user');
+        return [
+            'data' => null,
+            'view' => 'usercreate.php'
+        ];
     }
 
     public function logout()
