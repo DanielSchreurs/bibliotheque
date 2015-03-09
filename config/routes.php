@@ -17,3 +17,4 @@ $routes['not_found'] = 'error/e_404';
 $routes['db_error'] = 'error/e_database';
 $routes['userlogin'] = 'user/login';
 $routes['userlogout'] = 'user/logout';
+$routes['usercreate'] = 'user/create';
