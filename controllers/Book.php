@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+use \Models\Book as BookModel;
+
 class Book extends Base
 {
     private $modelbook = null;
@@ -11,13 +13,14 @@ class Book extends Base
     public function __construct($request)
     {
         parent::__construct($request);
-        $this->modelbook = new book();
+        $this->modelbook = new BookModel();
         //$this->modellibrary= new library();
     }
 
     public function index()
     {
-        $book = new Book;
+
+        $book = new BookModel();
         $data = $book->all();
         $title = 'acceuil';
         $view = 'index.php';
@@ -48,7 +51,7 @@ class Book extends Base
 
     public function getBookFromAuthor($book_id)
     {
-        $book = new Book;
+        $book = new BookModel();
         $data = $book->getBookfromUser($book_id);
         $title = 'Un livre';
         $view = 'index.php';
