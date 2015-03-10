@@ -3,6 +3,7 @@
 /**
  *
  */
+namespace Controllers;
 class baseController
 {
     public $view=null;
