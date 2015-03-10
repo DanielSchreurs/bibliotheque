@@ -9,6 +9,7 @@
  * définie dans le fichier config). Si l’utilisateur ne veut pas garder sa session active, on stoke la variable
  * dans la « $_SESSION».
  **/
+namespace Controllers;
 class UserController extends BaseController
 {
     function login()
