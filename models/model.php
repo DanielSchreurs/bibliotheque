@@ -22,7 +22,6 @@ class model
     public function all()
     {
         $sql = 'SELECT * FROM %s';
-
         return $this->cx->query(sprintf($sql, $this->table));
     }
 
