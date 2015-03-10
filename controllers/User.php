@@ -10,7 +10,10 @@
  * dans la « $_SESSION».
  **/
 namespace Controllers;
-class UserController extends BaseController
+
+use \Models\User as UserModel;
+
+class User extends Base
 {
     function login()
     {
@@ -19,7 +22,7 @@ class UserController extends BaseController
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($this->request->sent->username) && isset($this->request->sent->password)) {
-                $user = new User;
+                $user = new UserModel();
                 if (($user->exists($this->request->sent->username, $this->request->sent->password))) {
                     if (isset($this->request->sent->remember)) {
                         //var_dump($user->getUserInfo($this->request->sent->username, $this->request->sent->password));
