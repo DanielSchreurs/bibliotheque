@@ -7,7 +7,7 @@ use Models\Book as BookModel;
 class Page extends Base
 {
 
-    public function home()
+    public function index()
     {
         $book = new BookModel();
         $data = $book->all();

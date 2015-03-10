@@ -4,7 +4,7 @@
  */
 
 
-$routes['default'] = 'page/home';
+$routes['default'] = 'page/index';
 $routes['bookindex'] = 'book/index';
 $routes['bookshow'] = 'book/show';
 $routes['bookedit'] = 'book/edit';
