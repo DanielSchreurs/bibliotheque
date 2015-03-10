@@ -30,7 +30,7 @@ class Request
                 $this->id = $_REQUEST['id'];
             }
             if (!empty($_POST)) {
-                $this->sent = new stdClass();
+                $this->sent = new \stdClass();
                 foreach ($_POST as $c => $v) {
                     if (empty($v)) {
                         $this->errors[$c] = $v;
