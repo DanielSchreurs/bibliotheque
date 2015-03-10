@@ -17,9 +17,7 @@ class Base
     protected function loadModel($nomDuModel = null)
     {
         if (is_null($nomDuModel)) {// On passe ici à la première fois quand le model n'existe pas encore
-
-
-            $nomDuModel = ucfirst($this->request->m);
+            $nomDuModel = '\Models\\' . ucfirst($this->request->m);
         }
         $this->$nomDuModel = new $nomDuModel();
     }
