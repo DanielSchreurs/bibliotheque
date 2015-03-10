@@ -3,6 +3,7 @@
 /**
  *
  */
+namespace Controllers;
 class bookController extends BaseController
 {
     private $modelbook = null;
@@ -47,7 +48,7 @@ class bookController extends BaseController
 
     }
 
-    public function getBookFromAuthor($autor)
+    public function getBookFromAuthor($book_id)
     {
         $book = new Book;
         $data = $book->getBookfromUser($book_id);
