@@ -1,16 +1,14 @@
-
 header li:hover .userLog {
   margin-top: 5px;
   opacity: 1;
   top:96px ;
 
 }
-
 .userLog {
   position: absolute;
   left: -180px;
   width: 300px;
-  top: -40px;
+  top: -270px;
   .inline{
     position: relative;
     left: -2px;
@@ -18,5 +16,4 @@ header li:hover .userLog {
   input[type="text"],input[type="password"]{
     width: 100%;
   }
-  
 }

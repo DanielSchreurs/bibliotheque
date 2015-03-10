@@ -2,11 +2,12 @@
   width: 560px;
   font-size: 21px; //21px
   label {
-    display: block;
+    display: inline-block;
+    width: 45%;
   }
   input[type="text"], input[type="email"], input[type="password"] {
-    display: block;
-    width: 100%;
+    width: 50%;
+    display: inline-block;
     font-size: 21px;
     padding: .2380952381em percentage(5/366);
     -moz-border-radius: 5px;
@@ -19,9 +20,21 @@
   }
   fieldset {
     margin-bottom: 2.5em;
+    position: relative;
   }
   .btnVert {
     width: 100%;
   }
-
+  .smallInfo{
+    position: absolute;
+    bottom: -34px;
+    width: 50%;
+    left: 262px;
+  }
+  .ouvrir:before{
+    content: "\e98f";
+  }
+  .fermer:before{
+    content: "\e990";
+  }
 }
