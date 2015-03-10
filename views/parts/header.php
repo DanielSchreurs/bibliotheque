@@ -23,7 +23,6 @@
                                     Montrer le mot de passe</a>
                                 <input type="password" name="password" id="password" required
                                        placeholder="Votre mot de passe" class="showedpassword">
-
                                 <div>
                                     <label class="smallInfo" for="remember">Se souvenir de moi</label>
                                     <input type="checkbox" name="remember" value="remember" id="remember"/>
@@ -43,7 +42,6 @@
                         <a href="<?php echo($_SERVER['PHP_SELF']); ?>" class="btnVert">Retour à l'acceuil</a>
                     <?php endif; ?>
                 </div>
-
             </li>
         </ul>
     </nav>
