@@ -3,6 +3,7 @@
 /**
  *
  */
+namespace Controllers;
 class AuthorController extends BaseController
 {
     function __construct()
