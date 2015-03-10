@@ -3,6 +3,7 @@
 /**
  *
  */
+namespace Controllers;
 class editorController extends BaseController
 {
     function __construct()
