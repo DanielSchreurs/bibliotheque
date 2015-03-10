@@ -1,8 +1,6 @@
 <?php
 
-/**
- *
- */
+namespace Models;
 class Book extends Model
 {
 	/**
@@ -91,7 +89,7 @@ class Book extends Model
 
     function getBookfromUser($book_id)
     {
-        $sql = '';
+        $sql = 'SELECT * FROM books JOIN author_book ON book_id=books.id JOIN authors ON author_id=authors.id';//atention *
         $pdost = $this->cx->prepare($sql);
         $pdost->execute([':book_id' => $book_id]);
     }

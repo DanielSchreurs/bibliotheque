@@ -13,20 +13,16 @@ set_include_path(
 );
 // Mise en place de l’auto-chargement des classes
 
-spl_autoload_register(
-    function ($class) {
-        include $class . '.php';
-    }
-);
+require './vendor/autoload.php';
 // On démarre une session
 session_start();
-$request = new Request();
+$request = new \Controllers\Request();
 //Par défaut, l’utilisateur n’est pas identifié, sauf s’il l’est.
 $_SESSION['first_name'] = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : false;
 $_COOKIE['first_name'] = isset($_COOKIE['first_name']) ? $_COOKIE['first_name'] : false;
 (isset($_SESSION['first_name']) && $_SESSION['first_name'] == true) || (isset($_COOKIE['first_name']) && $_COOKIE['first_name'] == true) ? $userConnec = true : $userConnec = false;
 
-$controllerName = ucfirst($request->m) . 'Controller';
+$controllerName = '\Controllers\\'.ucfirst($request->m);
 
 
 $controller = new $controllerName($request);

@@ -1,8 +1,5 @@
 <?php
-
-/**
- *
- */
+namespace Models;
 class Editor extends Model
 {
     protected $table = 'editors';

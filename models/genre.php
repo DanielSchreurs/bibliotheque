@@ -1,8 +1,6 @@
 <?php
 
-/**
- *
- */
+namespace Models;
 class Genre extends Model
 {
     protected $table = 'genres';

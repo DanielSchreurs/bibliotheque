@@ -1,10 +1,8 @@
 <?php
 
-/**
- *
- */
 namespace Controllers;
-class bookController extends BaseController
+
+class Book extends Base
 {
     private $modelbook = null;
     private $modellibrary = null;

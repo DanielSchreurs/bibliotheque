@@ -26,4 +26,7 @@ class User extends Model
         $pdost->execute([':username' => $username, 'password' => $password]);
         return $pdost->fetch();
     }
+    public function create(){
+        //atention il fait faire un exist avant.. Le user name doit être unique
+    }
 }
