@@ -26,30 +26,29 @@ class Book extends Model
     public function all()
     {//j'écrase la method 'all' de Model
         $sql = '
-SELECT
+                SELECT
+                books.id AS book_id,
+                genres.id AS genre_id,
+                editors.id AS editor_id,
+                librarys.id AS library_id,
+                title,
+                front_cover,
+                summary,
+                authors.first_name AS author_first_name,
+                authors.last_name AS author_last_name,
+                editors.name AS editor_name,
+                genres.name AS genre_name,
+                datepub,
+                librarys.name AS library_name
 
-books.id AS book_id,
-genres.id AS genre_id,
-editors.id AS editor_id,
-librarys.id AS library_id,
-title,
-front_cover,
-summary,
-authors.first_name AS author_first_name,
-authors.last_name AS author_last_name,
-editors.name AS editor_name,
-genres.name AS genre_name,
-datepub,
-librarys.name AS library_name
+                FROM
 
-FROM
-
-books
-JOIN genres ON genre_id=genres.id
-JOIN editors on editor_id=editors.id
-JOIN librarys on library_id=librarys.id
-JOIN author_book on book_id=author_book.id
-JOIN authors on author_id=authors.id';
+                books
+                JOIN genres ON genre_id=genres.id
+                JOIN editors on editor_id=editors.id
+                JOIN librarys on library_id=librarys.id
+                JOIN author_book on book_id=author_book.id
+                JOIN authors on author_id=authors.id';
         $pdost=$this->cx->query($sql);
         return $pdost->fetchAll();
     }
@@ -122,6 +121,7 @@ JOIN authors on author_id=authors.id';
     {
         ;
     }
+
 
     function getBookfromUser($book_id)
     {
