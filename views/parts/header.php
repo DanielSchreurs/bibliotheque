@@ -2,13 +2,12 @@
     <h1><a href="<?php echo($_SERVER['PHP_SELF']) ?>"><?php echo(TITLE); ?></a></h1>
     <nav class="header_nav">
         <ul>
-            <li><a href="#" title="Renvois vers la page d'accueil">accueil</a></li>
-            <li><a href="./vues/public/bibliotheques.php" title="Renvois vers la page Nos blibliothèques">Nos
+            <li><a href="<?php echo($_SERVER['PHP_SELF']); ?>" title="Renvois vers la page d'accueil">accueil</a></li>
+            <li><a href="<?php  echo($_SERVER['PHP_SELF']);?>?m=library&a=index" title="Renvois vers la page Nos blibliothèques">Nos
                     blibliothèques</a></li>
             <li><a href="./vues/public/commentMarche.php" title="Renvois vers la page Comment ça marche">Comment ça
                     marche</a></li>
             <li><span>Mon compte</span>
-
                 <div class="userLog">
 
                     <?php if (!$userConnec && $data['view'] != 'create.php'): ?>
