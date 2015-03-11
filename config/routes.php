@@ -4,15 +4,16 @@
  */
 
 
-$routes['default'] = 'page/index';
+$routes['default'] = 'book/index';
 $routes['bookindex'] = 'book/index';
-$routes['bookshow'] = 'book/show';
+$routes['bookview'] = 'book/view';
 $routes['bookedit'] = 'book/edit';
 $routes['bookupdate'] = 'book/update';
 $routes['editorindex'] = 'editor/index';
-$routes['editorshow'] = 'editor/show';
+$routes['editorview'] = 'editor/view';
 $routes['authorindex'] = 'author/index';
-$routes['authorshow'] = 'author/show';
+$routes['authorview'] = 'author/view';
+$routes['libraryindex'] = 'library/index';
 $routes['not_found'] = 'error/e_404';
 $routes['db_error'] = 'error/e_database';
 $routes['userlogin'] = 'user/login';
