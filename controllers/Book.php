@@ -28,10 +28,23 @@ class Book extends Base
         ];
     }
 
-    public function show()
+    public function find($author_id)
+    {
+        $data=$this->modelbook->find($author_id);
+        $title='livre d’un auteur';
+        $view='index.php';
+        return[
+            'data'=>$data,
+            'view'=>$view,
+            'title'=>$title
+        ];
+    }
+    public function view()
     {
 
     }
+
+
 
 
     public function edit()
