@@ -15,13 +15,14 @@ class editorController extends BaseController
     {
         $editor = new editor;
         $data = $editor->all();
-        $view = 'editorindex.php';
+        $title = 'Les auteurs';
+        $view = 'index.php';
         return [
             'data' => $data,
+            'title'=>$title,
             'view' => $view
         ];
     }
-
     function show()
     {
 
