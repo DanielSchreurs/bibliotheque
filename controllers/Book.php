@@ -14,17 +14,13 @@ class Book extends Base
     {
         parent::__construct($request);
         $this->modelbook = new BookModel();
-        //$this->modellibrary= new library();
     }
 
     public function index()
     {
-
-        $book = new BookModel();
-        $data = $book->all();
+        $data = $this->modelbook->all();
         $title = 'acceuil';
         $view = 'index.php';
-
         return [
             'data' => $data,
             'view' => $view,
