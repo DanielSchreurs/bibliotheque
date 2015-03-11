@@ -27,10 +27,12 @@ class Book extends Model
     {//j'écrase la method 'all' de Model
         $sql = '
                 SELECT
+                DISTINCT
                 books.id AS book_id,
                 genres.id AS genre_id,
                 editors.id AS editor_id,
                 librarys.id AS library_id,
+                authors.id as author_id,
                 title,
                 front_cover,
                 summary,
