@@ -24,7 +24,6 @@ $_COOKIE['first_name'] = isset($_COOKIE['first_name']) ? $_COOKIE['first_name'] 
 
 $controllerName = '\Controllers\\'.ucfirst($request->m);
 
-
 $controller = new $controllerName($request);
 
 /*
@@ -34,8 +33,5 @@ $controller = new $controllerName($request);
 * - un nom de vue à inclure dans le layout ('clé view')
 */
 $data = call_user_func([$controller, $request->a]);
-// Finalement, on inclut le layout…
-//var_dump($_COOKIE, $_SESSION);
-var_dump($data['data']);
 
 include(VIEW_DIR . 'layout.php');
