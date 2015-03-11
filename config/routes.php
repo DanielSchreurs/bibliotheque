@@ -7,6 +7,7 @@
 $routes['default'] = 'book/index';
 $routes['bookindex'] = 'book/index';
 $routes['bookview'] = 'book/view';
+$routes['booklist'] = 'book/find';
 $routes['bookedit'] = 'book/edit';
 $routes['bookupdate'] = 'book/update';
 $routes['editorindex'] = 'editor/index';
