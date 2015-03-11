@@ -41,8 +41,5 @@ class Author extends Model
         return $pds->fetchAll();
     }
 
-    public function find($id){
-    die('Je suis dans le models Author et je j’affiche un livre d’un auteur');
-        //$sql='SELECT'
-    }
+
 }
