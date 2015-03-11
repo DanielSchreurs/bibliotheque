@@ -123,12 +123,37 @@ class Book extends Model
     {
         ;
     }
-
-
-    function getBookfromUser($book_id)
+    public function find($author_id)
     {
-        $sql = 'SELECT * FROM books JOIN author_book ON book_id=books.id JOIN authors ON author_id=authors.id';//atention *
+        $sql = 'SELECT
+                DISTINCT
+                books.id AS book_id,
+                genres.id AS genre_id,
+                editors.id AS editor_id,
+                librarys.id AS library_id,
+                authors.id as author_id,
+                title,
+                front_cover,
+                summary,
+                authors.first_name AS author_first_name,
+                authors.last_name AS author_last_name,
+                editors.name AS editor_name,
+                genres.name AS genre_name,
+                datepub,
+                librarys.name AS library_name
+
+                FROM
+
+                books
+                JOIN genres ON genre_id=genres.id
+                JOIN editors on editor_id=editors.id
+                JOIN librarys on library_id=librarys.id
+                JOIN author_book on book_id=author_book.id
+                JOIN authors on author_id=authors.id
+
+                where author_id=:author_id';
         $pdost = $this->cx->prepare($sql);
-        $pdost->execute([':book_id' => $book_id]);
+        $pdost->execute([':author_id' => $author_id]);
+        return $pdost->fetchAll();
     }
 }
