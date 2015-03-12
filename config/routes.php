@@ -15,6 +15,7 @@ $routes['editorview'] = 'editor/view';
 $routes['authorindex'] = 'author/index';
 $routes['authorview'] = 'author/view';
 $routes['libraryindex'] = 'library/index';
+$routes['libraryview'] = 'library/view';
 $routes['not_found'] = 'error/e_404';
 $routes['db_error'] = 'error/e_database';
 $routes['userlogin'] = 'user/login';
