@@ -307,12 +307,12 @@ nav li > a, span {
 .liste_Bibliotheques h3 a:hover:after, .main_nav_Bibli_Small a:hover:after {
   width: 100%; }
 
-/* line 4, ../sass/import/_liste_livres_small.scss */
+/* line 3, ../sass/import/_liste_livres_small.scss */
 .liste_livres li:hover img, .liste_livres li:active img {
   -webkit-filter: grayscale(0);
   -o-filter: grayscale(0);
   filter: grayscale(0); }
-/* line 10, ../sass/import/_liste_livres_small.scss */
+/* line 9, ../sass/import/_liste_livres_small.scss */
 .liste_livres li:hover h3 a, .liste_livres li:active h3 a {
   color: #026660; }
 /* line 14, ../sass/import/_liste_livres_small.scss */
@@ -341,20 +341,20 @@ nav li > a, span {
 .liste_livres p {
   margin-bottom: 30px; }
 
-/* line 42, ../sass/import/_liste_livres_small.scss */
+/* line 43, ../sass/import/_liste_livres_small.scss */
 h3 {
   margin-bottom: 30px; }
 
-/* line 47, ../sass/import/_liste_livres_small.scss */
+/* line 49, ../sass/import/_liste_livres_small.scss */
 .info_Livre dd a, .info_Livre dt {
   font-size: 20px;
   vertical-align: middle;
   display: block; }
-/* line 52, ../sass/import/_liste_livres_small.scss */
+/* line 54, ../sass/import/_liste_livres_small.scss */
 .info_Livre dt {
   background-color: #f0f0f0;
   color: #3f3f3f; }
-/* line 56, ../sass/import/_liste_livres_small.scss */
+/* line 58, ../sass/import/_liste_livres_small.scss */
 .info_Livre dd a {
   background-color: #3f3f3f;
   color: #f0f0f0; }
@@ -443,7 +443,7 @@ header li .userLog {
   margin-top: 0;
   opacity: 1; }
 
-/* line 9, ../sass/import/_formConnexion_Small.scss */
+/* line 10, ../sass/import/_formConnexion_Small.scss */
 .userLog {
   -webkit-transition: 0.5s cubic-bezier(0.13, 0.69, 0.94, 1.84);
   -o-transition: 0.5s cubic-bezier(0.13, 0.69, 0.94, 1.84);
@@ -452,10 +452,10 @@ header li .userLog {
   background-color: #fbfbfb;
   margin-top: -216px;
   opacity: 1; }
-  /* line 17, ../sass/import/_formConnexion_Small.scss */
+  /* line 18, ../sass/import/_formConnexion_Small.scss */
   .userLog label + .btnVert {
     display: inline-block !important; }
-  /* line 20, ../sass/import/_formConnexion_Small.scss */
+  /* line 21, ../sass/import/_formConnexion_Small.scss */
   .userLog input[type="text"], .userLog input[type="password"] {
     display: block;
     font-size: 16px;
@@ -467,14 +467,14 @@ header li .userLog {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     border-radius: 5px; }
-  /* line 32, ../sass/import/_formConnexion_Small.scss */
+  /* line 33, ../sass/import/_formConnexion_Small.scss */
   .userLog label {
     display: block; }
-  /* line 35, ../sass/import/_formConnexion_Small.scss */
+  /* line 36, ../sass/import/_formConnexion_Small.scss */
   .userLog .btnVert {
     font-size: 16px; }
 
-/* line 40, ../sass/import/_formConnexion_Small.scss */
+/* line 41, ../sass/import/_formConnexion_Small.scss */
 .btnVert {
   display: inline-block;
   -webkit-border-radius: 5px;
@@ -492,18 +492,23 @@ header li .userLog {
   margin-top: 5px; }
 
 /* line 59, ../sass/import/_formConnexion_Small.scss */
+.btnVert:hover {
+  background-color: #026660;
+  color: white; }
+
+/* line 66, ../sass/import/_formConnexion_Small.scss */
 .userLog .smallInfo {
   padding: 5px;
   font-size: 13px;
   display: inline; }
-/* line 64, ../sass/import/_formConnexion_Small.scss */
+/* line 71, ../sass/import/_formConnexion_Small.scss */
 .userLog a.btnVert {
   margin-right: 5px !important; }
-/* line 67, ../sass/import/_formConnexion_Small.scss */
+/* line 74, ../sass/import/_formConnexion_Small.scss */
 .userLog .btnVert:hover {
   background-color: #026660;
   color: white; }
-/* line 71, ../sass/import/_formConnexion_Small.scss */
+/* line 78, ../sass/import/_formConnexion_Small.scss */
 .userLog .btnVert {
   display: inline;
   font-size: 20px;
