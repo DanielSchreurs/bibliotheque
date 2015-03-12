@@ -27,7 +27,6 @@ class Book extends Model
     {//j'écrase la method 'all' de Model
         $sql = '
                 SELECT
-                DISTINCT
                 books.id AS book_id,
                 genres.id AS genre_id,
                 editors.id AS editor_id,
@@ -49,7 +48,7 @@ class Book extends Model
                 JOIN genres ON genre_id=genres.id
                 JOIN editors on editor_id=editors.id
                 JOIN librarys on library_id=librarys.id
-                JOIN author_book on book_id=author_book.id
+                JOIN author_book on book_id=books.id
                 JOIN authors on author_id=authors.id';
         $pdost=$this->cx->query($sql);
         return $pdost->fetchAll();
