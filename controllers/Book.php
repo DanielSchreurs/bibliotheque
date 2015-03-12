@@ -28,9 +28,9 @@ class Book extends Base
         ];
     }
 
-    public function find($author_id)
+    public function find()
     {
-        $data=$this->modelbook->find($author_id);
+        $data=$this->modelbook->find($this->request->id);
         $title='livre d’un auteur';
         $view='index.php';
         return[
@@ -41,7 +41,14 @@ class Book extends Base
     }
     public function view()
     {
-
+        $data=$this->modelbook->find($this->request->id);
+        $title='Un livrer';
+        $view='index.php';
+        return[
+            'data'=>$data,
+            'view'=>$view,
+            'title'=>$title
+        ];
     }
 
 
