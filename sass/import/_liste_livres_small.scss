@@ -1,32 +1,32 @@
-
-.liste_livres{
-  li:hover,li:active{
-    img{
-       -webkit-filter: grayscale(0);
-    -o-filter: grayscale(0);
-    filter: grayscale(0);
+.liste_livres {
+  li:hover, li:active {
+    img {
+      -webkit-filter: grayscale(0);
+      -o-filter: grayscale(0);
+      filter: grayscale(0);
     }
 
-    h3 a{
-      color:$vert;
+    h3 a {
+      color: $vert;
     }
   }
-  li{
-  padding-bottom:30px;
-  margin-bottom:30px;
-  border-bottom:1px solid $grisFonce;
-  h3 a{
-    font-size: 26px;
-    -webkit-transition: all .3s;
-    -o-transition: all .3s;
-    transition: all .3s;
-    
+
+  li {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $grisFonce;
+    h3 a {
+      font-size: 26px;
+      -webkit-transition: all .3s;
+      -o-transition: all .3s;
+      transition: all .3s;
+
+    }
+    h3 a:hover {
+      color: $vert;
+    }
   }
-  h3 a:hover{
-    color:$vert;
-  }
-  }
-  img{
+  img {
     -webkit-filter: grayscale(60%);
     -o-filter: grayscale(60%);
     filter: grayscale(60%);
@@ -34,27 +34,29 @@
     -o-transition: all .3s;
     transition: all .3s;
   }
-  p{
+  p {
     margin-bottom: 30px;
   }
 
 }
-  h3{
-      margin-bottom: 30px ;
-      
-    }
-.info_Livre{
-  dd a,dt {  
-  font-size: 20px;
-  vertical-align: middle;
+
+h3 {
+  margin-bottom: 30px;
+
+}
+
+.info_Livre {
+  dd a, dt {
+    font-size: 20px;
+    vertical-align: middle;
     display: block;
   }
   dt {
-    background-color:$grisClair;
-    color:$grisFonce;
+    background-color: $grisClair;
+    color: $grisFonce;
   }
-  dd a{
-    background-color:$grisFonce;
-    color:$grisClair;
+  dd a {
+    background-color: $grisFonce;
+    color: $grisClair;
   }
 }
