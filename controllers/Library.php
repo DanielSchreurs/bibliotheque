@@ -28,4 +28,7 @@ class Library extends Base
             'title' => $title
         ];
     }
+    public function view(){
+        $data= $this->modelLibrary->view($this->request->id);
+    }
 }
