@@ -1,4 +1,3 @@
-<?php $html = new \Helpers\Html(); ?>
 <main>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
@@ -6,16 +5,18 @@
     <ul class="liste_livres">
         <?php foreach ($data['data'] as $book): ?>
             <li>
-                <h3><a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"
+                <h3>
+                    <a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"
                        title="Renvois vers une page avec uniquement le livre Anthologie de <?php echo($book->title); ?>"><?php echo($book->title); ?></a>
-                </h3><a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
+                </h3>
+                <a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
                         src="./img/books_covers/<?php echo($book->front_cover); ?>.jpg"
                         alt="première du <?php echo($book->title); ?>" width="180" height="270"></a>
 
-                <p><?php echo($book->summary); ?></p>
+                <p><?php echo($html->cutText($book->summary,200)); ?> <a class="btnVert" href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>">Lire la suite</a></p>
                 <dl class="info_Livre clearfix">
                     <dt>Auteur</dt>
-                    <dd><a href="<?php echo($html->createLink('author', 'view', ['id' => $book->author_id])); ?>"
+                    <dd><a href="<?php echo($html->createLink('author   ', 'view', ['id' => $book->author_id])); ?>"
                            title="Renvois vers une page qui reprend tous les livre de <?php echo($book->author_first_name . ' ' . $book->author_last_name); ?>"><?php echo($book->author_first_name . ' ' . $book->author_last_name); ?></a>
                     </dd>
                     <dt>Editeur</dt>
