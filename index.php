@@ -17,6 +17,7 @@ require './vendor/autoload.php';
 // On démarre une session
 session_start();
 $request = new \Controllers\Request();
+$html= new \Helpers\Html();
 //Par défaut, l’utilisateur n’est pas identifié, sauf s’il l’est.
 $_SESSION['first_name'] = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : false;
 $_COOKIE['first_name'] = isset($_COOKIE['first_name']) ? $_COOKIE['first_name'] : false;
