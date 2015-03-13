@@ -92,7 +92,7 @@ html {
 
 /* line 33, ../sass/import/_general.scss */
 body {
-  font: 14px/1.8 'NexaLight' 'Helvetica Neue' 'Helvetica' Arial 'sans-serif';
+  font: 14px/1.8 'NexaLight', 'Helvetica Neue', 'Helvetica', Arial, 'sans-serif';
   min-height: 100%; }
 
 /* line 39, ../sass/import/_general.scss */
@@ -631,23 +631,18 @@ Style large
 
   /* line 1, ../sass/import/_formConnexion_Large.scss */
   .userLog {
+    margin-top: 0;
     position: absolute;
-    left: -180px;
+    left: -165px;
     width: 300px;
-    top: -270px; }
-    /* line 6, ../sass/import/_formConnexion_Large.scss */
+    top: 132px; }
+    /* line 7, ../sass/import/_formConnexion_Large.scss */
     .userLog .inline {
       position: relative;
       left: -2px; }
-    /* line 10, ../sass/import/_formConnexion_Large.scss */
+    /* line 11, ../sass/import/_formConnexion_Large.scss */
     .userLog input[type="text"], .userLog input[type="password"] {
       width: 100%; }
-
-  /* line 14, ../sass/import/_formConnexion_Large.scss */
-  header li:hover .userLog {
-    margin-top: 5px;
-    opacity: 1;
-    top: 96px; }
 
   /* line 1, ../sass/import/_header_Large.scss */
   header {
@@ -668,23 +663,28 @@ Style large
     background: none;
     display: inline-block;
     padding: 44px 15px;
-    font-size: 22px; }
+    font-size: 22px;
+    vertical-align: middle; }
 
-  /* line 20, ../sass/import/_header_Large.scss */
+  /* line 22, ../sass/import/_header_Large.scss */
   .box_logo {
-    float: left;
     border: none;
-    margin-right: 100px;
-    padding: 18px 0; }
+    padding: 18px 0;
+    padding-right: 100px; }
 
-  /* line 26, ../sass/import/_header_Large.scss */
+  /* line 29, ../sass/import/_header_Large.scss */
+  nav, .box_logo {
+    display: table-cell; }
+
+  /* line 32, ../sass/import/_header_Large.scss */
   header nav.header_nav li > a, header nav.header_nav li > span {
     background-color: transparent;
     border: none; }
 
-  /* line 30, ../sass/import/_header_Large.scss */
+  /* line 36, ../sass/import/_header_Large.scss */
   .show_form_connexion {
-    display: inline-block; }
+    display: inline-block;
+    position: relative; }
 
   /* line 4, ../sass/import/_liste_livres_Large.scss */
   .liste_livres li {
