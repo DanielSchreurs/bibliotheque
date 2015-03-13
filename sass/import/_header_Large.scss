@@ -8,32 +8,25 @@ header{
     max-width: 1080px;
     margin: 0 auto;
     border-bottom: 5px solid $vert;
-  
       background-color: rgba(245, 245,245,.8);
-    h1{
-      float:left;
-      a{
-      border:none;
-      padding:18px 0;
-      background:none;    
-      }
-    }
-    nav{
-      text-align: right;
-    }
-     li{
-      display: inline-block;
-      a,span{
-        padding:30px 15px;
-         background:none; 
-         border:none ;
-      }
-    }    
-li:not(:last-child){
-  margin-right: -4px;
 }
+:root .nav_items{
+  border:none;
+  background:none;
+  display: inline-block;
+  padding:44px 15px;
+  font-size: 22px;
+}
+.box_logo{
+  float: left;
+  border: none;
+  margin-right: 100px;
+  padding: 18px 0;
 }
 header nav.header_nav li>a,header nav.header_nav li>span{
   background-color:transparent;
   border:none;
+}
+.show_form_connexion{
+  display: inline-block;
 }

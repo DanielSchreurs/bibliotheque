@@ -6,15 +6,19 @@ header li .userLog {
   margin-top: 0;
   opacity: 1;
 }
-
+.show_form_connexion:hover .userLog{
+  margin-top: 0;
+}
 .userLog {
-  -webkit-transition: .5s cubic-bezier(.13, .69, .94, 1.84);
-  -o-transition: .5s cubic-bezier(.13, .69, .94, 1.84);
-  transition: .5s cubic-bezier(.13, .69, .94, 1.84);
+  position: relative;
+  -webkit-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
   padding: 30px;
   background-color: rgb(251, 251, 251);
-  margin-top: -216px;
+  margin-top: -580px;
   opacity: 1;
+  z-index: -1;
   label + .btnVert {
     display: inline-block !important;
   }
