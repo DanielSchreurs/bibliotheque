@@ -13,15 +13,21 @@ header{
 :root .nav_items{
   border:none;
   background:none;
-  display: inline-block;
+  display:inline-block;
   padding:44px 15px;
   font-size: 22px;
+  vertical-align: middle;
+
 }
 .box_logo{
-  float: left;
+  //float: left;
   border: none;
-  margin-right: 100px;
+
   padding: 18px 0;
+  padding-right: 100px;
+}
+nav,.box_logo{
+  display: table-cell;
 }
 header nav.header_nav li>a,header nav.header_nav li>span{
   background-color:transparent;
@@ -29,4 +35,5 @@ header nav.header_nav li>a,header nav.header_nav li>span{
 }
 .show_form_connexion{
   display: inline-block;
+  position: relative;
 }
