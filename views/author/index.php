@@ -1,5 +1,7 @@
 <?php $html= new \Helpers\Html();?>
 <main>
+    <?php include('./views/parts/form_recherche.php'); ?>
+    <?php include('./views/parts/main_nav_bibli.php'); ?>
     <ul class="liste_Bibliotheques">
         <?php foreach($data['data'] as $author): ?>
         <li>
