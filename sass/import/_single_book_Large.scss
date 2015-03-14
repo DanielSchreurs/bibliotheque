@@ -1,12 +1,14 @@
 .single_book {
-  .flat_left, p {
+  .float_left, p {
     margin-top: 2em;
   }
-  p {
-    margin-left: 200px;
+  p{
+    font-size: 1.3em;
+  }
+  .float_left{
+    margin-right: 3em;
   }
   .btnVert {
     margin-left: 17px;
   }
-
 }

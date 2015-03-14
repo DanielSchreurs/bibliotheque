@@ -29,6 +29,30 @@ class Author extends Model
         return $pdost->fetchAll();
     }
 
+    function find($id)
+    {
+        $sql = '
+                SELECT
+                author_id,
+                book_id,
+                first_name,
+                last_name,
+                photo as author_photo,
+                books.logo as book_cover,
+                datebirth,
+                datedeath,
+                bio_text,
+                title as book_title,
+                summary
+                FROM authors
+                JOIN author_book ON authors.id=author_id
+                JOIN books ON book_id=books.id
+                WHERE book_id=:id';
+        $pds = $this->cx->prepare($sql);
+        $pds->execute([':id' => $id]);
+        return $pds->fetch();
+    }
+
     function books($id)
     {
         $sql = 'SELECT *, books.id as book_id

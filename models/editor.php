@@ -16,4 +16,7 @@ class Editor extends Model
         $pds->execute([':editor_id' => $id]);
         return $pds->fetchAll();
     }
+    public function index(){
+        die('ok');
+    }
 }

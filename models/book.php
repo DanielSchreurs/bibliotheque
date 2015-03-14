@@ -147,12 +147,11 @@ class Book extends Model
                 JOIN genres ON genre_id=genres.id
                 JOIN editors on editor_id=editors.id
                 JOIN librarys on library_id=librarys.id
-                JOIN author_book on book_id=author_book.id
+                JOIN author_book on book_id=books.id
                 JOIN authors on author_id=authors.id
-
                 where author_id=:author_id';
         $pdost = $this->cx->prepare($sql);
         $pdost->execute([':author_id' => $author_id]);
-        return $pdost->fetchAll();
+        return $pdost->fetch();
     }
 }

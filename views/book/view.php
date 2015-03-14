@@ -9,11 +9,9 @@
         </h2>
         <a class="float_left" href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
                 src="./img/books_covers/<?php echo($book->front_cover); ?>.jpg"
-                alt="première du <?php echo($book->title); ?>" width="180" height="270"></a>
+                alt="première du <?php echo($book->title); ?>" width="300" height="450"></a>
 
         <p class=""><?php echo($book->summary); ?> </p>
-        <a class="btnVert" href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>">Lire la
-            suite</a>
         <dl class="info_Livre clearfix">
             <dt>Auteur</dt>
             s

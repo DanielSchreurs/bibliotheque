@@ -1,19 +1,27 @@
-<?php $author = $data['data']; //var_dump($author)?>
+<?php $author = $data['data'];
+var_dump($author) ?>
 
 <main>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <article class="single_author">
         <h2>
-            <a href="<?php echo($html->createLink('book', 'view', ['id' => $author->id])); ?>"
-               title="Renvois vers une page avec uniquement le livre Anthologie de <?php echo($author->first_name . ' ' . $author->first_name); ?>"><?php echo($author->first_name . ' ' . $author->first_name); ?></a>
+            <a href="#"
+               title=""><?php echo($author->first_name . ' ' . $author->first_name); ?></a>
         </h2>
-        <a class="float_left" href="<?php echo($html->createLink('book', 'view', ['id' => $author->id])); ?>"><img
-                src="./img/authors_photos/<?php echo($author->photo); ?>.jpg"
+        <a class="float_left" href="#"><img
+                src="./img/authors_photo/<?php echo($author->author_photo); ?>.jpg"
                 alt="photo de  <?php echo($author->first_name . ' ' . $author->first_name); ?>" width="300"
                 height="450"></a>
+        <p class="first_text"> Né le: <abbr title="<?php echo($author->datebirth); ?>" class="dtstart"><?php echo($author->datebirth); ?><abbr></p>
+        <?php if($author->datedeath!=""):?>
+        <p> Mort le: <abbr title="<?php echo($author->datedeath); ?>" class="dtstart"><?php echo($author->datedeath); ?><abbr></p>
+        <?php endif; ?>
 
-        <p class=""><?php echo($author->bio_text); ?> </p>
+        <p class="">
+            <?php echo($author->bio_text); ?>
+        </p>
+
 
     </article>
 </main>

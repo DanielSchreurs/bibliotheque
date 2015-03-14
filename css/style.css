@@ -88,24 +88,25 @@ table {
 /* line 27, ../sass/import/_general.scss */
 html {
   background-color: white;
-  min-height: 100%; }
+  min-height: 100%;
+  position: relative; }
 
-/* line 33, ../sass/import/_general.scss */
+/* line 34, ../sass/import/_general.scss */
 body {
   font: 14px/1.8 'NexaLight', 'Helvetica Neue', 'Helvetica', Arial, 'sans-serif';
   min-height: 100%; }
 
-/* line 39, ../sass/import/_general.scss */
+/* line 40, ../sass/import/_general.scss */
 img {
   max-width: 100%; }
 
-/* line 42, ../sass/import/_general.scss */
+/* line 43, ../sass/import/_general.scss */
 a {
   text-decoration: none;
   cursor: pointer;
   color: #3f3f3f; }
 
-/* line 47, ../sass/import/_general.scss */
+/* line 48, ../sass/import/_general.scss */
 p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -113,24 +114,28 @@ p {
   hyphens: auto;
   word-wrap: break-word; }
 
-/* line 55, ../sass/import/_general.scss */
+/* line 57, ../sass/import/_general.scss */
+.clearfix {
+  clear: both; }
+
+/* line 60, ../sass/import/_general.scss */
 .clearfix:after {
   content: "";
   display: block;
   clear: both; }
 
-/* line 60, ../sass/import/_general.scss */
+/* line 65, ../sass/import/_general.scss */
 input[type="submit"]:hover {
   background-color: #026660;
   color: white; }
 
-/* line 64, ../sass/import/_general.scss */
+/* line 69, ../sass/import/_general.scss */
 input, textarea {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s; }
 
-/* line 69, ../sass/import/_general.scss */
+/* line 74, ../sass/import/_general.scss */
 textarea:focus:invalid,
 input[type="email"]:focus:invalid, input[type="password"]:focus:invalid,
 input[type="text"]:focus:invalid {
@@ -138,7 +143,7 @@ input[type="text"]:focus:invalid {
   -webkit-box-shadow: 0 0 5px 2px red;
   box-shadow: 0 0  5px 2px red; }
 
-/* line 76, ../sass/import/_general.scss */
+/* line 81, ../sass/import/_general.scss */
 textarea:focus:valid,
 input[type="email"]:focus:valid, input[type="password"]:focus:valid,
 input[type="text"]:focus:valid {
@@ -146,13 +151,21 @@ input[type="text"]:focus:valid {
   -webkit-box-shadow: 0 0 5px 2px green;
   box-shadow: 0 0  5px 2px green; }
 
-/* line 83, ../sass/import/_general.scss */
+/* line 88, ../sass/import/_general.scss */
 html body .inline {
   display: inline; }
 
-/* line 86, ../sass/import/_general.scss */
+/* line 91, ../sass/import/_general.scss */
 .hidden {
   display: none; }
+
+/* line 95, ../sass/import/_general.scss */
+.float_left {
+  float: left; }
+
+/* line 98, ../sass/import/_general.scss */
+.block {
+  display: block; }
 
 /* line 1, ../sass/import/_headerSmall.scss */
 header li a:first-letter {
@@ -554,14 +567,14 @@ header li .userLog {
     width: 100%;
     padding: 10px; }
 
-/* line 21, ../sass/style.scss */
+/* line 23, ../sass/style.scss */
 main {
   margin: 70px 30px 0; }
-  /* line 23, ../sass/style.scss */
+  /* line 25, ../sass/style.scss */
   main h2 {
     font-size: 30px;
     text-align: right; }
-  /* line 27, ../sass/style.scss */
+  /* line 29, ../sass/style.scss */
   main form + h2 {
     margin-top: 30px; }
 
@@ -570,7 +583,7 @@ style pour les medium
 
 */
 @media screen and (min-width: 590px) {
-  /* line 37, ../sass/style.scss */
+  /* line 39, ../sass/style.scss */
   main {
     width: 540px;
     margin: 80px auto;
@@ -581,32 +594,29 @@ style pour les medium
     float: left;
     padding-right: 30px;
     padding-bottom: 30px; }
-  /* line 7, ../sass/import/_liste_livres_Medium.scss */
-  .liste_livres p {
-    text-align: justify; }
 
-  /* line 13, ../sass/import/_liste_livres_Medium.scss */
+  /* line 9, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dt:after {
     content: "";
     display: block;
     clear: both; }
-  /* line 18, ../sass/import/_liste_livres_Medium.scss */
+  /* line 14, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dd a {
     color: #3f3f3f;
     display: inline;
     background: none; }
-  /* line 23, ../sass/import/_liste_livres_Medium.scss */
+  /* line 19, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dd:not(:last-child) a:after {
     content: "/";
     display: inline-block;
     margin: 0 15px; }
-  /* line 28, ../sass/import/_liste_livres_Medium.scss */
+  /* line 24, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dd a:hover {
     color: #026660; }
-  /* line 31, ../sass/import/_liste_livres_Medium.scss */
+  /* line 27, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dt:hover + dd a {
     color: #026660; }
-  /* line 34, ../sass/import/_liste_livres_Medium.scss */
+  /* line 30, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dd, .info_Livre dt {
     display: inline-block;
     background: none; }
@@ -624,7 +634,7 @@ Style large
 
 */
 @media screen and (min-width: 990px) {
-  /* line 53, ../sass/style.scss */
+  /* line 55, ../sass/style.scss */
   main {
     width: 1080px;
     margin: 188px auto 0 auto; }
@@ -635,7 +645,7 @@ Style large
     position: absolute;
     left: -165px;
     width: 300px;
-    top: 132px; }
+    top: -250px; }
     /* line 7, ../sass/import/_formConnexion_Large.scss */
     .userLog .inline {
       position: relative;
@@ -657,7 +667,7 @@ Style large
     border-bottom: 5px solid #026660;
     background-color: rgba(245, 245, 245, 0.8); }
 
-  /* line 13, ../sass/import/_header_Large.scss */
+  /* line 14, ../sass/import/_header_Large.scss */
   :root .nav_items {
     border: none;
     background: none;
@@ -666,27 +676,26 @@ Style large
     font-size: 22px;
     vertical-align: middle; }
 
-  /* line 22, ../sass/import/_header_Large.scss */
+  /* line 24, ../sass/import/_header_Large.scss */
   .box_logo {
     border: none;
     padding: 18px 0;
     padding-right: 100px; }
 
-  /* line 29, ../sass/import/_header_Large.scss */
+  /* line 30, ../sass/import/_header_Large.scss */
   nav, .box_logo {
     display: table-cell; }
 
-  /* line 32, ../sass/import/_header_Large.scss */
-  header nav.header_nav li > a, header nav.header_nav li > span {
-    background-color: transparent;
-    border: none; }
-
-  /* line 36, ../sass/import/_header_Large.scss */
+  /* line 34, ../sass/import/_header_Large.scss */
   .show_form_connexion {
     display: inline-block;
     position: relative; }
 
-  /* line 4, ../sass/import/_liste_livres_Large.scss */
+  /* line 40, ../sass/import/_header_Large.scss */
+  .show_form_connexion:hover .userLog {
+    top: 132px; }
+
+  /* line 2, ../sass/import/_liste_livres_Large.scss */
   .liste_livres li {
     float: left;
     width: 44.444444444%;
@@ -694,7 +703,7 @@ Style large
     margin: 0 2.7777777778%;
     /*30px*/ }
 
-  /* line 10, ../sass/import/_liste_livres_Large.scss */
+  /* line 8, ../sass/import/_liste_livres_Large.scss */
   .liste_livres:after {
     content: "";
     display: block;
@@ -752,25 +761,52 @@ Style large
       content: "\e98f"; }
     /* line 37, ../sass/import/_formCreateUser_Large.scss */
     .ceateUser .fermer:before {
-      content: "\e990"; } }
+      content: "\e990"; }
+
+  /* line 2, ../sass/import/_single_book_Large.scss */
+  .single_book .float_left, .single_book p {
+    margin-top: 2em; }
+  /* line 5, ../sass/import/_single_book_Large.scss */
+  .single_book p {
+    font-size: 1.3em; }
+  /* line 8, ../sass/import/_single_book_Large.scss */
+  .single_book .float_left {
+    margin-right: 3em; }
+  /* line 11, ../sass/import/_single_book_Large.scss */
+  .single_book .btnVert {
+    margin-left: 17px; }
+
+  /* line 2, ../sass/import/_single_author_Large.scss */
+  .single_author .float_left, .single_author .first_text {
+    margin-top: 2em; }
+  /* line 5, ../sass/import/_single_author_Large.scss */
+  .single_author p {
+    font-size: 1.3em; }
+  /* line 8, ../sass/import/_single_author_Large.scss */
+  .single_author .float_left {
+    margin-right: 3em; } }
 /* line 1, ../sass/import/_footer.scss */
 footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 2em 4.9122807018%;
   /*28px* 70px*/
   background: black;
   color: white; }
-  /* line 2, ../sass/import/_footer.scss */
+  /* line 6, ../sass/import/_footer.scss */
   footer .copy {
     text-align: center;
     font-size: 1.5em;
     /*21px*/ }
-  /* line 6, ../sass/import/_footer.scss */
+  /* line 10, ../sass/import/_footer.scss */
   footer a {
     color: inherit; }
-  /* line 12, ../sass/import/_footer.scss */
+  /* line 16, ../sass/import/_footer.scss */
   footer li {
     display: inline-block; }
-    /* line 14, ../sass/import/_footer.scss */
+    /* line 18, ../sass/import/_footer.scss */
     footer li a {
       padding: .7142857143em 1.4035087719%;
       /*10px 20px*/ }
