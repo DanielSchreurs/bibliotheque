@@ -28,13 +28,14 @@ html{
   // background:url(./img/grid.png) 50% 0 ;
   background-color:white;
   min-height:100%;
- 
+  position: relative;
+
 }
 body{
   // opacity:.8;
   font: 14px/1.8 'NexaLight', 'Helvetica Neue', 'Helvetica', Arial, 'sans-serif';
   min-height:100%;
-  
+
 }
 img{
   max-width: 100%;
@@ -51,6 +52,10 @@ p{
   hyphens: auto;
   word-wrap: break-word;
 
+}
+
+.clearfix {
+  clear: both;
 }
 .clearfix:after{
   content:"";
@@ -85,4 +90,8 @@ html body .inline{
 }
 .hidden{
   display: none;
+}
+
+.float_left {
+  float: left;
 }
