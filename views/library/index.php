@@ -1,5 +1,7 @@
 <?php $html = new \Helpers\Html(); ?>
 <main>
+    <?php include('./views/parts/form_recherche.php'); ?>
+    <?php include('./views/parts/main_nav_bibli.php'); ?>
     <ul>
         <?php foreach ($data['data'] as $library): ?>
             <h3><a href="<?php echo $html->createLink('library', 'view',
