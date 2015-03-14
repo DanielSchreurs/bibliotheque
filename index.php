@@ -18,6 +18,7 @@ require './vendor/autoload.php';
 session_start();
 $request = new \Controllers\Request();
 $html= new \Helpers\Html();
+$date=new \Carbon\Carbon();
 //Par défaut, l’utilisateur n’est pas identifié, sauf s’il l’est.
 $_SESSION['first_name'] = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : false;
 $_COOKIE['first_name'] = isset($_COOKIE['first_name']) ? $_COOKIE['first_name'] : false;
@@ -34,5 +35,4 @@ $controller = new $controllerName($request);
 * - un nom de vue à inclure dans le layout ('clé view')
 */
 $data = call_user_func([$controller, $request->a]);
-
 include(VIEW_DIR . 'layout.php');

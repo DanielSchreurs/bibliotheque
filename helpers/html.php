@@ -18,4 +18,12 @@ class Html
         return explode('\break', wordwrap($chaine, $long, '\break'))[0] . '&nbsp;&hellip;';
     }
 
+    public function dateToSTring($date)
+    {
+        $date=strtotime($date);
+        $jours=['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
+        $mois=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+        return 'le '.$jours[date('N',$date)-1].' '.date('j',$date).' '.$mois[(date('n',$date))-1].' à '.date('h',$date).':'.date('i',$date);
+    }
+
 }
