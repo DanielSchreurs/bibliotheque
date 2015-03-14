@@ -16,7 +16,7 @@
                 <p><?php echo($html->cutText($book->summary,200)); ?> <a class="btnVert" href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>">Lire la suite</a></p>
                 <dl class="info_Livre clearfix">
                     <dt>Auteur</dt>
-                    <dd><a href="<?php echo($html->createLink('author   ', 'view', ['id' => $book->author_id])); ?>"
+                    <dd><a href="<?php echo($html->createLink('author', 'view', ['id' => $book->author_id])); ?>"
                            title="Renvois vers une page qui reprend tous les livre de <?php echo($book->author_first_name . ' ' . $book->author_last_name); ?>"><?php echo($book->author_first_name . ' ' . $book->author_last_name); ?></a>
                     </dd>
                     <dt>Editeur</dt>
