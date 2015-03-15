@@ -11,7 +11,7 @@
                 src="./img/books_covers/<?php echo($book->front_cover); ?>.jpg"
                 alt="première du <?php echo($book->title); ?>" width="300" height="450"></a>
 
-        <p class=""><?php echo($book->summary); ?> </p>
+        <p class="column"><?php echo($book->summary); ?> </p>
         <dl class="info_Livre clearfix">
             <dt>Auteur</dt>
             s
