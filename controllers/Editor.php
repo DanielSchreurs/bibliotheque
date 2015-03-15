@@ -4,26 +4,30 @@
  *
  */
 namespace Controllers;
-class editorController extends BaseController
+
+use Models\Editor as ModelEditor;
+
+class Editor extends Base
 {
-    function __construct()
+    function __construct($request)
     {
-        ;
+        parent::__construct($request);
+        $this->ModelEditor = new ModelEditor();
     }
 
     function index()
     {
-        $editor = new editor;
-        $data = $editor->all();
-        $title = 'Les auteurs';
+
+        $data = $this->ModelEditor->all();
+        $title = 'Les éditeurs';
         $view = 'index.php';
         return [
             'data' => $data,
-            'title'=>$title,
+            'title' => $title,
             'view' => $view
         ];
     }
-    function show()
+    function view()
     {
 
     }
