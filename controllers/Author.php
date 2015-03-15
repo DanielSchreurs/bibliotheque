@@ -17,7 +17,6 @@ class Author extends Base
 
     function index()
     {
-
         $data = $this->modelAuthor->all();
         $title = 'Les auteurs';
         $view = 'index.php';
