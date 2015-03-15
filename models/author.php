@@ -18,7 +18,7 @@ class Author extends Model
                 book_id,
                 first_name,
                 last_name,
-                logo,
+                authors.logo,
                 bio_text,
                 title as book_title
                 FROM
@@ -33,6 +33,7 @@ class Author extends Model
     {
         $sql = '
                 SELECT
+                DISTINCT
                 author_id,
                 book_id,
                 first_name,
@@ -47,10 +48,10 @@ class Author extends Model
                 FROM authors
                 JOIN author_book ON authors.id=author_id
                 JOIN books ON book_id=books.id
-                WHERE book_id=:id';
+                WHERE author_id=:id';
         $pds = $this->cx->prepare($sql);
         $pds->execute([':id' => $id]);
-        return $pds->fetch();
+        return $pds->fetchAll();
     }
 
     function books($id)
