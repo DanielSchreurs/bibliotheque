@@ -167,6 +167,10 @@ html body .inline {
 .block {
   display: block; }
 
+/* line 101, ../sass/import/_general.scss */
+.error {
+  color: red; }
+
 /* line 1, ../sass/import/_headerSmall.scss */
 header li a:first-letter {
   text-transform: uppercase; }
@@ -303,13 +307,12 @@ header {
     display: inline-block; }
     /* line 6, ../sass/import/_navBibliSmall.scss */
     .main_nav_Bibli_Small li a {
-      padding-right: 5px;
+      padding-right: 25px;
       color: #026660;
-      font-size: 16px;
-      text-transform: uppercase;
+      font-size: 20px;
       letter-spacing: .01em; }
 
-/* line 16, ../sass/import/_navBibliSmall.scss */
+/* line 15, ../sass/import/_navBibliSmall.scss */
 .liste_Bibliotheques h3 a:after, .main_nav_Bibli_Small a:after {
   content: "";
   display: block;
@@ -322,7 +325,7 @@ header {
   -o-transition: all .3s;
   transition: all .3s; }
 
-/* line 28, ../sass/import/_navBibliSmall.scss */
+/* line 27, ../sass/import/_navBibliSmall.scss */
 .liste_Bibliotheques h3 a:hover:after, .main_nav_Bibli_Small a:hover:after {
   width: 100%; }
 
@@ -568,11 +571,6 @@ header li .userLog {
     padding: 10px; }
 
 /* line 2, ../sass/import/liste_genre_Small.scss */
-.liste_genre ul {
-  -webkit-columns: 4;
-  -moz-columns: 4;
-  columns: 4; }
-/* line 7, ../sass/import/liste_genre_Small.scss */
 .liste_genre h3 a {
   text-decoration: underline;
   font-size: 1.45em;
@@ -801,7 +799,13 @@ Style large
     font-size: 1.3em; }
   /* line 8, ../sass/import/_single_author_Large.scss */
   .single_author .float_left {
-    margin-right: 3em; } }
+    margin-right: 3em; }
+
+  /* line 1, ../sass/import/liste_genre_Large.scss */
+  .liste_genre {
+    -webkit-columns: 4;
+    -moz-columns: 4;
+    columns: 4; } }
 /* line 1, ../sass/import/_footer.scss */
 footer {
   position: absolute;
