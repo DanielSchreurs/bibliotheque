@@ -122,7 +122,7 @@ class Book extends Model
     {
         ;
     }
-    public function find($author_id)
+    public function find($book_id)
     {
         $sql = 'SELECT
                 DISTINCT
@@ -140,18 +140,16 @@ class Book extends Model
                 genres.name AS genre_name,
                 datepub,
                 librarys.name AS library_name
-
                 FROM
-
                 books
                 JOIN genres ON genre_id=genres.id
                 JOIN editors on editor_id=editors.id
                 JOIN librarys on library_id=librarys.id
                 JOIN author_book on book_id=books.id
                 JOIN authors on author_id=authors.id
-                where author_id=:author_id';
+                where book_id=:book_id';
         $pdost = $this->cx->prepare($sql);
-        $pdost->execute([':author_id' => $author_id]);
+        $pdost->execute([':book_id' => $book_id]);
         return $pdost->fetch();
     }
 }
