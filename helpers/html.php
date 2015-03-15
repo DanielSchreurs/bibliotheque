@@ -10,8 +10,14 @@ class Html
 
     public function createLink($modele, $action, $param = null)
     {
-        $param = http_build_query($param);
-        return $_SERVER['PHP_SELF'] . '?m=' . $modele . '&a=' . $action . '&' . $param;
+        if(!is_null($param)){
+            $param = '&'.http_build_query($param);
+        }else{
+            $param='';
+
+        }
+        return $_SERVER['PHP_SELF'] . '?m=' . $modele . '&a=' . $action. $param;
+        
     }
 
     public function cutText($chaine, $long)
