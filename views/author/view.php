@@ -1,5 +1,4 @@
-<?php $author = $data['data'][0];
-var_dump($author) ?>
+<?php $author = $data['data'][0]; ?>
 
 <main>
     <?php include('./views/parts/form_recherche.php'); ?>
@@ -14,12 +13,12 @@ var_dump($author) ?>
                 alt="photo de  <?php echo($author->first_name . ' ' . $author->first_name); ?>" width="300"
                 height="450"></a>
 
-        <p class="first_text"> Né le: <abbr title="<?php echo($author->datebirth); ?>"
-                                            class="dtstart"><?php echo($html->dateToSTring($author->datebirth)); ?>
+        <p class="first_text"> Né le: <abbr title="<?php echo($html->birthToString($author->datebirth)); ?>"
+                                            class="dtstart"><?php echo($html->birthToString($author->datebirth)); ?>
                 <abbr></p>
         <?php if ($author->datedeath != ""): ?>
-            <p> Mort le: <abbr title="<?php echo($author->datedeath); ?>"
-                               class="dtstart"><?php echo($author->datedeath)//.' '.$date->createFromDate($author->datebirth)->age); ; ?>
+            <p> Mort le: <abbr title="<?php echo($html->birthToString($author->datedeath)); ?>"
+                               class="dtstart"><?php echo($html->birthToString($author->datedeath)).'&nbsp;(&nbsp;'.$date->createFromDate(date('Y',strtotime($author->datedeath)),date('m',strtotime($author->datedeath)),date('j',strtotime($author->datedeath)))->age.' ans &nbsp;)'; ?>
                     <abbr></p>
         <?php endif; ?>
 
@@ -27,7 +26,7 @@ var_dump($author) ?>
             <?php echo($author->bio_text); ?>
         </p>
         <?php if (isset($author->book_title)): ?>
-            <ul>
+            <ul class="liste_livres">
                 <?php foreach ($data['data'] as $book): ?>
                 <li>
                     <h3><a href="<?php echo($html->createLink('book', 'view',
