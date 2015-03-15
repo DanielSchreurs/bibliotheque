@@ -29,6 +29,13 @@ class Editor extends Base
     }
     function view()
     {
-
+        $data = $this->ModelEditor->find($this->request->id);
+        $title = 'Un éditeur';
+        $view = 'view.php';
+        return [
+            'data' => $data,
+            'title' => $title,
+            'view' => $view
+        ];
     }
 }
