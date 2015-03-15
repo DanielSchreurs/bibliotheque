@@ -1,5 +1,6 @@
 <?php
 namespace Models;
+
 class Editor extends Model
 {
     protected $table = 'editors';
@@ -16,8 +17,10 @@ class Editor extends Model
         $pds->execute([':editor_id' => $id]);
         return $pds->fetchAll();
     }
-    public function all(){
-       $sql='
+
+    public function all()
+    {
+        $sql = '
               SELECT
               editor_id,
               books.id as book_id,
@@ -27,7 +30,26 @@ class Editor extends Model
               title as book_title,
               books.logo as book_logo,
               summary FROM editors JOIN books on editors.id=editor_id';
-        $pdost=$this->cx->query($sql);
+        $pdost = $this->cx->query($sql);
+        return $pdost->fetchAll();
+    }
+
+    public function find($id_editors)
+    {
+
+        $sql = '
+              SELECT
+              editor_id,
+              books.id as book_id,
+              name as editor_name,
+              bio_text,
+              editors.logo as editor_logo,
+              title as book_title,
+              books.logo as book_logo,
+              summary FROM editors JOIN books on editors.id=editor_id
+              WHERE editor_id=:id_editors';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(['id_editors' => $id_editors]);
         return $pdost->fetchAll();
     }
 }
