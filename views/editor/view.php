@@ -3,24 +3,14 @@
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <article class="single_author">
-        <?php var_dump($editor); ?>
         <h2>
             <a href="#"
-               title=""><?php echo($editor->first_name . ' ' . $editor->first_name); ?></a>
+               title=""><?php echo($editor->editor_name); ?></a>
         </h2>
         <a class="float_left" href="#"><img
-                src="./img/authors_photo/<?php echo($editor->author_photo); ?>.jpg"
-                alt="photo de  <?php echo($editor->first_name . ' ' . $editor->first_name); ?>" width="300"
-                height="450"></a>
-
-        <p class="first_text"> Né le: <abbr title="<?php echo($html->birthToString($editor->datebirth)); ?>"
-                                            class="dtstart"><?php echo($html->birthToString($editor->datebirth)); ?>
-                <abbr></p>
-        <?php if ($editor->datedeath != ""): ?>
-            <p> Mort le: <abbr title="<?php echo($html->birthToString($editor->datedeath)); ?>"
-                               class="dtstart"><?php echo($html->birthToString($editor->datedeath)).'&nbsp;(&nbsp;'.$date->createFromDate(date('Y',strtotime($editor->datedeath)),date('m',strtotime($editor->datedeath)),date('j',strtotime($editor->datedeath)))->age.' ans &nbsp;)'; ?>
-                    <abbr></p>
-        <?php endif; ?>
+                src="./img/editors_logos/<?php echo($editor->editor_logo); ?>.png"
+                alt="photo de  <?php echo($editor->editor_logo); ?>" width="200"
+                height="200"></a>
 
         <p class="">
             <?php echo($editor->bio_text); ?>
