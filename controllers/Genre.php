@@ -29,7 +29,14 @@ class Genre extends Base
     }
 
     public function view (){
-        die('contrleur view genre');
+        $data=$this->modelGenre->find($this->request->id);
+        $title='Un genre';
+        $view='view.php';
+        return[
+            'data'=>$data,
+            'view'=>$view,
+            'title'=>$title
+        ];
     }
 
 }
