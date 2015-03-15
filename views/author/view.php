@@ -1,5 +1,4 @@
 <?php $author = $data['data'][0]; ?>
-
 <main>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
