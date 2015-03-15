@@ -16,7 +16,18 @@ class Editor extends Model
         $pds->execute([':editor_id' => $id]);
         return $pds->fetchAll();
     }
-    public function index(){
-        die('ok');
+    public function all(){
+       $sql='
+              SELECT
+              editor_id,
+              books.id as book_id,
+              name as editor_name,
+              bio_text,
+              editors.logo as editor_logo,
+              title as book_title,
+              books.logo as book_logo,
+              summary FROM editors JOIN books on editors.id=editor_id';
+        $pdost=$this->cx->query($sql);
+        return $pdost->fetchAll();
     }
 }
