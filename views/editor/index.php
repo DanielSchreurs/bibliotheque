@@ -1,7 +1,7 @@
 <main>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <ul class="liste_editors">
+    <ul class="liste_Bibliotheques">
         <?php  foreach($data['data'] as $editor): ?>
             <li>
                 <h3><a href="<?php echo($html->createLink('editor','view',['id'=>$editor->editor_id])); ?>"><?php echo($editor->editor_name); ?></a></h3>
@@ -10,7 +10,5 @@
                 <a class="btnVert" href="<?php echo($html->createLink('editor','view',['id'=>$editor->editor_id])); ?>">Voir la fiche de l'éditeur</a>
             </li>
         <?php endforeach; ?>
-
     </ul>
 </main>
-
