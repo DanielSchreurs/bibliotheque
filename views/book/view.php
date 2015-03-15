@@ -19,7 +19,7 @@
                    title="Renvois vers une page qui reprend tous les livre de <?php echo($book->author_first_name . ' ' . $book->author_last_name); ?>"><?php echo($book->author_first_name . ' ' . $book->author_last_name); ?></a>
             </dd>
             <dt>Editeur</dt>
-            <dd><a href="<?php echo($html->createLink('edithor', 'view', ['id' => $book->editor_id])); ?>"
+            <dd><a href="<?php echo($html->createLink('editor', 'view', ['id' => $book->editor_id])); ?>"
                    title="Renvois vers une page qui reprend tous de la maison d'édition, <?php echo($book->editor_name); ?>"><?php echo($book->editor_name); ?></a>
             </dd>
             <dt>Genre</dt>
