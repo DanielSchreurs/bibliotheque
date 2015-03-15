@@ -7,8 +7,14 @@
   }
   .float_left{
     margin-right: 3em;
+
   }
   .btnVert {
     margin-left: 17px;
+  }
+  .column{
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
   }
 }

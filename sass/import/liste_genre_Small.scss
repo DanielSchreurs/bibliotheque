@@ -1,0 +1,13 @@
+.liste_genre{
+  ul{
+    -webkit-columns: 4;
+    -moz-columns: 4;
+    columns: 4;
+  }
+  h3 a{
+    text-decoration: underline;
+    font-size: 1.45em;
+    padding: .25em 0;
+    display: block;
+  }
+}
