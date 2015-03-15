@@ -43,6 +43,7 @@ class Editor extends Model
               books.id as book_id,
               name as editor_name,
               bio_text,
+              books.logo as book_cover,
               editors.logo as editor_logo,
               title as book_title,
               books.logo as book_logo,
