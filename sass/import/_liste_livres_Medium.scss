@@ -16,19 +16,33 @@
     display: inline;
     background: none;
   }
-  dd:not(:last-child) a:after{
-    content: "/";
-    display: inline-block;
-    margin: 0 15px;
-  }
   dd a:hover{
     color: $vert;
   }
   dt:hover+dd a{
      color: $vert;
   }
-  dd,dt{
-    display: inline-block;
+  dt{
+    float: left;
     background: none;
+  }
+  dd{
+    display:block;
+    padding-left: 160px;
+    background: transparent;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+  }
+  dd:hover{
+    background: $grisClair;
+  
+  }
+  dt:after{
+    content: ":";
+   display: inline;
+    padding-left: 5px;
   }
 }
