@@ -7,10 +7,22 @@
 namespace Controllers;
 
 
-class year {
+class Year extends Base{
 
-    public function index (){
-        die('je suis dans le contrôleur year');
+    function __construct($request){
+        parent::__construct($request);
+        $this->Modelyears= new \Models\Year();
+    }
 
+    public function index()
+    {
+        $data=$this->Modelyears->all();
+        $view='index.php';
+        $title='Toutes les années';
+        return[
+            'data'=>$data,
+            'view'=>$view,
+            'title'=>$title
+        ];
     }
 }
