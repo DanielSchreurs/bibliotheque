@@ -30,28 +30,39 @@ class Book extends Base
 
     public function find()
     {
-        $data=$this->modelbook->find($this->request->id);
-        $title='livre d’un auteur';
-        $view='index.php';
-        return[
-            'data'=>$data,
-            'view'=>$view,
-            'title'=>$title
+        $data = $this->modelbook->find($this->request->id);
+        $title = 'livre d’un auteur';
+        $view = 'index.php';
+        return [
+            'data' => $data,
+            'view' => $view,
+            'title' => $title
         ];
     }
+
     public function view()
     {
-        $data=$this->modelbook->find($this->request->id);
-        $title='Un livrer';
-        $view='index.php';
-        return[
-            'data'=>$data,
-            'view'=>$view,
-            'title'=>$title
+        $data = $this->modelbook->find($this->request->id);
+        $title = 'Un livrer';
+        $view = 'index.php';
+        return [
+            'data' => $data,
+            'view' => $view,
+            'title' => $title
         ];
     }
 
-
+    public function liste()
+    {
+        $data=$this->modelbook->getBookFromYear($this->request->id);
+        $title='Un livre selon une année';
+        $view='index.php';
+        return [
+            'data'=>$data,
+            'title'=>$title,
+            'view'=>$view
+        ];
+    }
 
 
     public function edit()
