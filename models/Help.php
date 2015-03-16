@@ -15,6 +15,6 @@ class Help extends Model
         parent::__construct($this->table);
     }
     function getAllQuestions(){
-        die('Ouf ');
+        return[];
     }
 }
