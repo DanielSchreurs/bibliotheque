@@ -13,7 +13,7 @@
   }
   dd a{
     color:$grisFonce;
-    display: inline;
+    display: block;
     background: none;
   }
   dd a:hover{
@@ -25,6 +25,9 @@
   dt{
     float: left;
     background: none;
+  }
+  dt:hover+dd{
+    background: $grisClair;
   }
   dd{
     display:block;

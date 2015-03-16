@@ -519,7 +519,7 @@ header li .userLog {
   background: none;
   font-size: 16px !important;
   color: #026660;
-  padding: 5px;
+  padding: 5px 10px;
   font-family: 'NexaLight' 'Helvetica Neue' 'Helvetica' Arial 'sans-serif';
   cursor: pointer;
   margin-top: 5px; }
@@ -618,19 +618,22 @@ style pour les medium
   /* line 14, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dd a {
     color: #3f3f3f;
-    display: inline;
+    display: block;
     background: none; }
-  /* line 24, ../sass/import/_liste_livres_Medium.scss */
+  /* line 19, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dd a:hover {
     color: #026660; }
-  /* line 27, ../sass/import/_liste_livres_Medium.scss */
+  /* line 22, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dt:hover + dd a {
     color: #026660; }
-  /* line 30, ../sass/import/_liste_livres_Medium.scss */
+  /* line 25, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dt {
     float: left;
     background: none; }
-  /* line 34, ../sass/import/_liste_livres_Medium.scss */
+  /* line 29, ../sass/import/_liste_livres_Medium.scss */
+  .info_Livre dt:hover + dd {
+    background: #f0f0f0; }
+  /* line 32, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dd {
     display: block;
     padding-left: 160px;
@@ -640,10 +643,10 @@ style pour les medium
     -ms-transition: .2s;
     -o-transition: .2s;
     transition: .2s; }
-  /* line 44, ../sass/import/_liste_livres_Medium.scss */
+  /* line 42, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dd:hover {
     background: #f0f0f0; }
-  /* line 48, ../sass/import/_liste_livres_Medium.scss */
+  /* line 46, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dt:after {
     content: ":";
     display: inline;
