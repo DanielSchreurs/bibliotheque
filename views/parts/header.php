@@ -4,12 +4,13 @@
         <h2 class="hidden">Menu de navigation</h2>
         <a class="nav_items" href="<?php echo($_SERVER['PHP_SELF']); ?>"
            title="Renvois vers la page d'accueil">accueil</a>
-        <a class="nav_items" href="<?php echo($_SERVER['PHP_SELF']); ?>?m=library&a=index"
-               title="Renvois vers la page Nos blibliothèques">Nos
-                blibliothèques</a>
-        <a class="nav_items" href="./vues/public/commentMarche.php" title="Renvois vers la page Comment ça marche">Comment
-                ça
-                marche</a>
+        <a class="nav_items" href="<?php echo($html->createLink('library','index')); ?>"
+           title="Renvois vers la page Nos blibliothèques">Nos
+            blibliothèques</a>
+        <a class="nav_items" href="<?php echo($html->createLink('page','help')); ?>" title="Renvois vers la page Comment ça marche">Comment
+            ça
+            marche</a>
+
         <div class="show_form_connexion">
             <span class="nav_items">Mon compte</span>
 
@@ -31,15 +32,14 @@
                                 <label class="smallInfo" for="remember">Se souvenir de moi</label>
                                 <input type="checkbox" name="remember" value="remember" id="remember"/>
                             </div>
-                            <a href="<?php echo($_SERVER['PHP_SELF']); ?>?m=user&a=create"
-                               class="btnVert">S'incrire</a><input
-                                class="btnVert" type="submit" value="Se connecter">
+                            <a href="<?php echo($html->createLink('user', 'create')); ?>" class="btnVert">S'incrire</a>
+                            <input class="btnVert" type="submit" value="Se connecter">
                         </fieldset>
                     </form>
                 <?php endif; ?>
                 <?php if ($userConnec): ?>
                     <p>Bonjour <?php echo($_COOKIE['first_name']); ?></p>
-                    <a href="<?php echo($_SERVER['PHP_SELF']); ?>?m=user&a=logout" class="btnVert">Se
+                    <a href="<?php echo($html->createLink('user', 'logout')); ?>" class="btnVert">Se
                         déconnecter</a>
                 <?php endif; ?>
                 <?php if ($data['view'] == 'create.php'): ?>
