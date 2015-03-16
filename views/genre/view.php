@@ -25,7 +25,7 @@
                     <?php endforeach; ?>
             </ul>
        <?php else: ?>
-            <h3 class="error">Il n'y a pas encore de Livre dans ce genre</h3>
+            <h3 class="noBoook">Il n'y a pas encore de Livre dans ce genre</h3>
             <a class="btnVert" href="<?php echo($html->createLink('genre','index')); ?>">Voir les autres genres</a>
         <?php endif; ?>
     </article>
