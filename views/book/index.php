@@ -40,4 +40,5 @@
             </li>
         <?php endforeach; ?>
     </ul>
+    <?php include('./views/parts/pagination.php'); ?>
 </main>
