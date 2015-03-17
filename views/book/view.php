@@ -19,14 +19,14 @@
             </dd>
             <dt>Editeur</dt>
             <dd><a href="<?php echo($html->createLink('editor', 'view', ['id' => $book->editor_id])); ?>"
-                   title="Renvoie vers une page qui reprend tous de la maison d'édition, <?php echo($book->editor_name); ?>"><?php echo($book->editor_name); ?></a>
+                   title="Renvoie vers une page qui reprend tous les livres de la maison d'édition, <?php echo($book->editor_name); ?>"><?php echo($book->editor_name); ?></a>
             </dd>
             <dt>Genre</dt>
             <dd><a href="<?php echo($html->createLink('genre', 'view', ['id' => $book->genre_id])); ?>"
                    title="Renvoie vers une page qui reprend tous les livres du genre <?php echo($book->genre_name); ?>"><?php echo($book->genre_name); ?></a>
             </dd>
             <dt>Année</dt>
-            <dd><a href="<?php //echo($html->createLink('book','view',['id'=>$book->editor_id]));?>"
+            <dd><a href="<?php echo($html->createLink('book','liste',['year'=>date('Y', strtotime($book->datepub))])); ?>"
                    title="Renvoie vers une page qui reprend tous les livres de l'année <?php echo($book->datepub); ?>"><?php echo(date('Y',
                         strtotime($book->datepub))); ?></a>
             </dd>
