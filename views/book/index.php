@@ -29,7 +29,7 @@
                            title="Renvoie vers une page qui reprend tous les livres du genre <?php echo($book->genre_name); ?>"><?php echo($book->genre_name); ?></a>
                     </dd>
                     <dt>Année</dt>
-                    <dd><a href="<?php //echo($html->createLink('book','view',['id'=>$book->editor_id]));?>"
+                    <dd><a href="<?php echo($html->createLink('book','liste',['year'=>date('Y', strtotime($book->datepub))]));?>"
                            title="Renvoie vers une page qui reprend tous les livres de l'année <?php echo($book->datepub); ?>"><?php echo(date('Y',
                                 strtotime($book->datepub))); ?></a>
                     </dd>
@@ -41,5 +41,8 @@
             </li>
         <?php endforeach; ?>
     </ul>
-    <?php include('./views/parts/pagination.php'); ?>
+    <?php if($data['nbrPage']>1):?>
+        <?php include('./views/parts/pagination.php'); ?>
+    <?php endif; ?>
+
 </main>
