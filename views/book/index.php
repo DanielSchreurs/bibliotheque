@@ -1,3 +1,4 @@
+<h1 class="hidden"><?php echo(TITLE.' | '.$data['title']) ?></h1>
 <main>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
@@ -20,7 +21,7 @@
                            title="Renvoie vers une page qui reprend tous les livres de <?php echo($book->author_first_name . ' ' . $book->author_last_name); ?>"><?php echo($book->author_first_name . ' ' . $book->author_last_name); ?></a>
                     </dd>
                     <dt>Editeur</dt>
-                    <dd><a href="<?php echo($html->createLink('edithor', 'view', ['id' => $book->editor_id])); ?>"
+                    <dd><a href="<?php echo($html->createLink('editor', 'view', ['id' => $book->editor_id])); ?>"
                            title="Renvoie vers une page qui reprend tous de la maison d'édition, <?php echo($book->editor_name); ?>"><?php echo($book->editor_name); ?></a>
                     </dd>
                     <dt>Genre</dt>
@@ -33,7 +34,7 @@
                                 strtotime($book->datepub))); ?></a>
                     </dd>
                     <dt>Bibliothèque</dt>
-                    <dd><a href="<?php echo($html->createLink('book', 'view', ['id' => $book->library_id])); ?>"
+                    <dd><a href="<?php echo($html->createLink('library', 'view', ['id' => $book->library_id])); ?>"
                            title="Renvoie vers une page qui reprend tous les Bibliothèques de la bibliothèque <?php echo($book->library_name); ?>"><?php echo($book->library_name); ?></a>
                     </dd>
                 </dl>
