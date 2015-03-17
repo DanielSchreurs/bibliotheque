@@ -34,6 +34,12 @@ class Request
         if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
             $this->id = $_REQUEST['id'];
         }
+        if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
+            $this->page = $_REQUEST['page'];
+        }
+        else{
+            $this->page = 1;
+        }
         if (!empty($_POST)) {
             $this->sent = new \stdClass();
             foreach ($_POST as $c => $v) {
