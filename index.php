@@ -2,7 +2,7 @@
 include('config/config.php');
 include_once(CONFIG_DIR . 'routes.php');
 include_once(CONFIG_DIR . 'database.php');
-setlocale(LC_ALL,$language);
+setlocale(LC_ALL, $language);
 // Définition du chemin d’inclusion pour y ajouter le dossier des classes controleurs et modèles
 set_include_path(
     get_include_path() .
@@ -16,18 +16,21 @@ set_include_path(
 require './vendor/autoload.php';
 // On démarre une session
 session_start();
+$container = new Illuminate\Container\Container();
+foreach (include('liaisons.php') as $interface => $concrete) {
+    $container->bind($interface,$concrete);
+}
 $request = new \Controllers\Request();
-$html= new \Helpers\Html();
-$date=new \Carbon\Carbon();
+$html = new \Helpers\Html();
+$date = new \Carbon\Carbon();
 //Par défaut, l’utilisateur n’est pas identifié, sauf s’il l’est.
 $_SESSION['first_name'] = isset($_SESSION['first_name']) ? $_SESSION['first_name'] : false;
 $_COOKIE['first_name'] = isset($_COOKIE['first_name']) ? $_COOKIE['first_name'] : false;
 (isset($_SESSION['first_name']) && $_SESSION['first_name'] == true) || (isset($_COOKIE['first_name']) && $_COOKIE['first_name'] == true) ? $userConnec = true : $userConnec = false;
 
-$controllerName = '\Controllers\\'.ucfirst($request->m);
+$controllerName = '\Controllers\\' . ucfirst($request->m);
 
-$controller = new $controllerName($request);
-
+$controller = $container->make($controllerName);
 /*
 * On appelle la méthode dont le nom est contenu dans $m et celle-ci doit
 * nécessairement retourner un array (qu’on stocke dans $data) contenant :
