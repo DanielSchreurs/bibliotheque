@@ -1,5 +1,6 @@
 <?php
 namespace Models;
+
 class model implements ModelRepositoryInterface
 {
     protected $cx = null;
@@ -33,6 +34,7 @@ class model implements ModelRepositoryInterface
 
         return $pds->fetch();
     }
+
     public function attach($key1, $key2, $value1, $value2, $table)
     {
         $sql = 'INSERT INTO %s (%s, %s) VALUES (:value1,:value2)';
@@ -66,4 +68,13 @@ class model implements ModelRepositoryInterface
 
         return $pds->fetch();
     }
+
+    public function getNbrelements()
+    {
+        $sql = 'SELECT COUNT(id) as count FROM '.$this->table;
+        return $this->cx->query($sql)->fetch()->count;
+
+    }
+
+
 }
