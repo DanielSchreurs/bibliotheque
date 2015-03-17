@@ -44,6 +44,7 @@ define('LANGUAGES_DIR', 'languages/');
 define('HELPERS_DIR', 'helpers/');
 define('IMAGES_DIR', 'images/');
 define('CARBON_DIR', 'vendor/Carbon/');
+define('nbrBookPage', '2');
 
 /*
  * Initialisation éventuelles de diverses variables comme par exemple,
