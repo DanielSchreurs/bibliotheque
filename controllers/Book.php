@@ -18,14 +18,18 @@ class Book extends Base
 
     public function index()
     {
-        $data = $this->modelbook->all();
+        $data = $this->modelbook->paginate($this->request->page);
         $title = 'acceuil';
         $view = 'index.php';
+        $nbrPage= ceil(($this->modelbook->getNbrelements()/NBR_BOOKS));
         return [
             'data' => $data,
             'view' => $view,
-            'title' => $title
+            'title' => $title,
+            'nbrPage'=>$nbrPage,
+            'currentPage'=>$this->request->page
         ];
+
     }
 
     public function find()
