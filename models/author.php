@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Author extends Model
+class Author extends Model implements AuthorRepositoryInterface
 {
     protected $table = 'authors';
 
