@@ -58,7 +58,7 @@ class Book extends Base
 
     public function liste()
     {
-        $data = $this->modelbook->getBookFromYear($this->request->id);
+        $data = $this->modelbook->getBookFromYear($this->request->year);
         $title = 'Un livre selon une année';
         $view = 'index.php';
         return [
