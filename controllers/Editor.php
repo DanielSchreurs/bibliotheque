@@ -5,14 +5,14 @@
  */
 namespace Controllers;
 
-use Models\Editor as ModelEditor;
+use Models\EditorRepositoryInterface as PostRepository;
 
 class Editor extends Base
 {
-    function __construct($request)
+    function __construct(Request $request,PostRepository $ModelEditor )
     {
         parent::__construct($request);
-        $this->ModelEditor = new ModelEditor();
+        $this->ModelEditor = $ModelEditor;
     }
 
     function index()

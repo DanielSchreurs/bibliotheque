@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use \Models\Book as BookModel;
+use Models\BookRepositoryInterface as PostRepository;
 
 class Book extends Base
 {
@@ -10,10 +10,10 @@ class Book extends Base
     private $modellibrary = null;
 
 
-    public function __construct($request)
+    public function __construct(Request $request, PostRepository $BookModel)
     {
         parent::__construct($request);
-        $this->modelbook = new BookModel();
+        $this->modelbook = $BookModel;
     }
 
     public function index()
@@ -54,13 +54,13 @@ class Book extends Base
 
     public function liste()
     {
-        $data=$this->modelbook->getBookFromYear($this->request->id);
-        $title='Un livre selon une année';
-        $view='index.php';
+        $data = $this->modelbook->getBookFromYear($this->request->id);
+        $title = 'Un livre selon une année';
+        $view = 'index.php';
         return [
-            'data'=>$data,
-            'title'=>$title,
-            'view'=>$view
+            'data' => $data,
+            'title' => $title,
+            'view' => $view
         ];
     }
 

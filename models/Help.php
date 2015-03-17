@@ -6,7 +6,7 @@
 
 namespace Models;
 
-class Help extends Model
+class Help extends Model implements HelpRepositoryInterface
 {
     protected $table='help';
 

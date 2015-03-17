@@ -7,7 +7,7 @@ use Models\Help;
 
 class Page extends Base
 {
-    function __construct ($request){
+    function __construct (Request $request){
         parent::__construct($request);
         $this->Modelhelp= new Help();
     }

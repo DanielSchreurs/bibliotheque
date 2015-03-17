@@ -6,14 +6,14 @@
 
 namespace Controllers;
 
-use Models\Library as ModelLibrary;
+use Models\LibraryRepositoryInterface as PostRepository;
 
 class Library extends Base
 {
-    function __construct($request)
+    function __construct(Request $request,PostRepository $ModelLibrary )
     {
         parent::__construct($request);
-        $this->modelLibrary = new ModelLibrary();
+        $this->modelLibrary = $ModelLibrary;
     }
 
     public function index()

@@ -6,12 +6,12 @@
 
 namespace Controllers;
 
-
+use Models\YearRepositoryInterface as PostRepository;
 class Year extends Base{
 
-    function __construct($request){
+    function __construct(Request $request,PostRepository $ModelLibrary){
         parent::__construct($request);
-        $this->Modelyears= new \Models\Year();
+        $this->Modelyears= $ModelLibrary;
     }
 
     public function index()

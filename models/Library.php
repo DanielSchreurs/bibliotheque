@@ -6,7 +6,7 @@
 
 namespace Models;
 
-class Library extends Model
+class Library extends Model implements LibraryRepositoryInterface
 {
     protected $table = 'librarys';
 

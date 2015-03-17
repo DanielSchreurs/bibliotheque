@@ -1,6 +1,6 @@
 <?php
 namespace Models;
-class model
+class model implements ModelRepositoryInterface
 {
     protected $cx = null;
     protected $table = '';

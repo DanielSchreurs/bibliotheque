@@ -5,7 +5,7 @@
  */
 
 namespace Models;
-class Year extends Model
+class Year extends Model implements YearRepositoryInterface
 {
 
     protected $table = 'books';

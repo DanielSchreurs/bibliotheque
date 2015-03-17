@@ -6,13 +6,14 @@
 namespace Controllers;
 
 use Models\Author as ModelAuthor;
+use Models\AuthorRepositoryInterface as PostRepository;
 
 class Author extends Base
 {
-    function __construct($request)
+    function __construct(Request  $request, PostRepository $modelAuthor)
     {
         parent::__construct($request);
-        $this->modelAuthor = new ModelAuthor();
+        $this->modelAuthor = $modelAuthor;
     }
 
     function index()

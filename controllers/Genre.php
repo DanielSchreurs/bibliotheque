@@ -5,14 +5,14 @@
  */
 namespace Controllers;
 
-use Models\Genre as ModelGenre;
+use Models\GenreRepositoryInterface as PostRepository;
 
 class Genre extends Base
 {
-    function __construct($request)
+    function __construct(Request $request,PostRepository $ModelGenre )
     {
         parent::__construct($request);
-        $this->modelGenre = new ModelGenre();
+        $this->modelGenre = $ModelGenre;
     }
 
     function index()

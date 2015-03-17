@@ -1,7 +1,7 @@
 <?php
 namespace Models;
 
-class Editor extends Model
+class Editor extends Model implements EditorRepositoryInterface
 {
     protected $table = 'editors';
 

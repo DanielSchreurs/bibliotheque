@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Genre extends Model
+class Genre extends Model implements GenreRepositoryInterface
 {
     protected $table = 'genres';
 

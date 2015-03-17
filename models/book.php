@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class Book extends Model
+class Book extends Model implements BookRepositoryInterface
 {
     /**
      * @var string
