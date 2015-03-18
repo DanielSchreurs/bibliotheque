@@ -20,6 +20,26 @@ class model implements ModelRepositoryInterface
         $this->table = $table;
     }
 
+    public function search($table, $get, Array $where,$what ){
+        $params=[];
+        $sql='SELECT '.$get.' FROM '.$table.' WHERE ';
+        foreach($where as $coll){
+                $params[]=$coll.' LIKE '."'%".$what."%'";
+        }
+
+        $sql.=implode(' OR ',$params);
+       $pdost=$this->cx->query($sql);
+        return $pdost->fetchAll();
+
+    }
+
+    public function searchAll(Array $research){
+        foreach($research as $table=>$info){
+           $resultats[$table]=$this->search($table, $info['get'],$info['where'],$info['what']);
+        }
+        return $resultats;
+    }
+
     public function all()
     {
         $sql = 'SELECT * FROM %s';
@@ -71,7 +91,7 @@ class model implements ModelRepositoryInterface
 
     public function getNbrelements()
     {
-        $sql = 'SELECT COUNT(id) as count FROM '.$this->table;
+        $sql = 'SELECT COUNT(id) as count FROM ' . $this->table;
         return $this->cx->query($sql)->fetch()->count;
 
     }
