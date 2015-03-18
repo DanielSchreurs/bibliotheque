@@ -29,7 +29,8 @@ class Editor extends Model implements EditorRepositoryInterface
               editors.logo as editor_logo,
               title as book_title,
               books.logo as book_logo,
-              summary FROM editors JOIN books on editors.id=editor_id';
+              summary FROM editors JOIN books on editors.id=editor_id
+              ORDER BY name';
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
