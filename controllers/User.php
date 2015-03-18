@@ -41,7 +41,8 @@ class User extends Base
                 } else {
                     $_SESSION['first_name'] = false;
                     setcookie('first_name', false, LIVETIME);
-                    die('vos identifiants sont incorrects');
+                    die('User not found');
+                    header('Location:http://localhost:8888/bibliotheque');
                 }
             } else {
                 die('On essaye de tricher ?');
