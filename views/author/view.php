@@ -1,4 +1,4 @@
-<?php $author = $data['data'][0]; ?>
+<?php $author = $data['data']; ?>
 <main>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
@@ -21,7 +21,7 @@
                     <abbr></p>
         <?php endif; ?>
 
-        <p class="">
+        <p class="column">
             <?php echo($author->bio_text); ?>
         </p>
         <?php if (isset($author->book_title)): ?>
