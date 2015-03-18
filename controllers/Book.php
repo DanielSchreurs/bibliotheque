@@ -20,11 +20,9 @@ class Book extends Base
     {
         $data = $this->modelbook->paginate($this->request->page);
         $title = 'acceuil';
-        $view = 'index.php';
         $nbrPage= ceil(($this->modelbook->getNbrelements()/NBR_BOOKS));
         return [
             'data' => $data,
-            'view' => $view,
             'title' => $title,
             'nbrPage'=>$nbrPage,
             'currentPage'=>$this->request->page
@@ -39,7 +37,6 @@ class Book extends Base
         $view = 'index.php';
         return [
             'data' => $data,
-            'view' => $view,
             'title' => $title
         ];
     }
@@ -48,10 +45,8 @@ class Book extends Base
     {
         $data = $this->modelbook->find($this->request->id);
         $title = 'Un livrer';
-        $view = 'index.php';
         return [
             'data' => $data,
-            'view' => $view,
             'title' => $title
         ];
     }
@@ -63,8 +58,7 @@ class Book extends Base
         $view = 'index.php';
         return [
             'data' => $data,
-            'title' => $title,
-            'view' => $view
+            'title' => $title
         ];
     }
 
