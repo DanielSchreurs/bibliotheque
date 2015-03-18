@@ -7,6 +7,8 @@ class Request
     public $m = null;
     public $a = null;
     public $id = null;
+    public $page = null;
+    public $year = null;
     public $sent = null;
     public $errors = [];
 
@@ -36,6 +38,9 @@ class Request
         }
         if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
             $this->page = $_REQUEST['page'];
+        }
+        if (isset($_REQUEST['year']) && is_numeric($_REQUEST['year'])) {
+            $this->year = $_REQUEST['year'];
         }
         else{
             $this->page = 1;
