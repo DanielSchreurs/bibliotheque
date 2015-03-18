@@ -20,10 +20,8 @@ class Author extends Base
     {
         $data = $this->modelAuthor->all();
         $title = 'Les auteurs';
-        $view = 'index.php';
         return [
             'data' => $data,
-            'view' => $view,
             'title' => $title
         ];
     }
@@ -31,11 +29,9 @@ class Author extends Base
     public function view (){
         $user = new ModelAuthor();
         $data = $user->find($this->request->id);
-        $title = 'Les auteurs';
-        $view = 'index.php';
+        $title = $data->first_name.' '.$data->last_name;
         return [
             'data' => $data,
-            'view' => $view,
             'title' => $title
         ];
     }
