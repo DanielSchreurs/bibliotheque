@@ -1,6 +1,7 @@
 <?php $i = 1;
 $c = $data['nbrPage'];
 $current = $data['currentPage'];
+var_dump($current);
 
 ?>
 <ul class="pagination">
@@ -11,7 +12,7 @@ $current = $data['currentPage'];
         </li>
     <?php endif; ?>
     <?php for ($i = 1; $i <= $c; $i++): ?>
-        <?php if ($i ==$c): ?>
+        <?php if ($c>3): ?>
             <li class="page_number"><span class="numberBtn"> ... </span></li>
         <?php endif; ?>
         <li class="page_number">
