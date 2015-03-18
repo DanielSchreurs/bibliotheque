@@ -1,8 +1,9 @@
 <h1 class="hidden"><?php echo(TITLE.' | '.$data['title']) ?></h1>
 <main>
+    <?php //var_dump($data); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <h2>Derniers ajoutés</h2>
+    <h2>Derniers livres ajoutés</h2>
     <ul class="liste_livres">
         <?php foreach ($data['data'] as $book): ?>
             <li>
