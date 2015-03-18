@@ -12,4 +12,6 @@ class Base
         $this->view = $request->m . '/' . $request->a . '.php';
         $this->request = $request;
     }
+
+
 }
