@@ -17,7 +17,7 @@ class Page extends Base
     {
             $date=$this->Modelhelp->getAllQuestions();
             $title='Comment ça marche';
-            $view='index';
+            $view='help.php';
             return [
                 'data'=>$date,
                 'title'=>$title,
