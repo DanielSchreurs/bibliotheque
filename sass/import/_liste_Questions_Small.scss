@@ -1,12 +1,16 @@
-.liste_Questions{
- li{
-  padding-bottom:30px;
-  margin-bottom:30px;
-  border-bottom:1px solid $grisFonce;
-  blockquote{
+
+ .question {
+   padding-bottom: 30px;
+   margin-bottom: 30px;
+   border-bottom: 1px solid $grisFonce;
+ }
+ .answer{
+   font-size: 1.3em;
+ }
+  .big__blockquote{
     text-indent: 30px;
   }
-  blockquote p:before{
+  .big__blockquote p:before{
     content:url(./img/blockquote.svg);
     display: inline-block;
     height: 50px;
@@ -16,9 +20,8 @@
     top: 4px;
 
   }
- }
- h3{
+
+ .article__title{
   font-size: 24px;
  }
 
-}
