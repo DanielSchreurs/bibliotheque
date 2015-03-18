@@ -105,3 +105,8 @@ h3.noBoook{
   color: red;
   font-size: 1.7em;
 }
+.column{
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+}
