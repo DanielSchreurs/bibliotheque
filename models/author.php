@@ -51,7 +51,7 @@ class Author extends Model implements AuthorRepositoryInterface
                 WHERE author_id=:id';
         $pds = $this->cx->prepare($sql);
         $pds->execute([':id' => $id]);
-        return $pds->fetchAll();
+        return $pds->fetch();
     }
 
     function books($id)
