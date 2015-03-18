@@ -30,5 +30,12 @@ class Library extends Base
     }
     public function view(){
         $data= $this->modelLibrary->view($this->request->id);
+        $view='view.php';
+        $title='Un bibliothèque';
+        return[
+            'data'=>$data,
+            'view'=>$view,
+            'title'=>$title
+        ];
     }
 }
