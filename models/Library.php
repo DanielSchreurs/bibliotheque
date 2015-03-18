@@ -21,4 +21,18 @@ class Library extends Model implements LibraryRepositoryInterface
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
+
+    public function view($id_library)
+    {
+        $sql='
+              SELECT
+              id as library_id,
+              name,
+              phone,
+              logo,
+              slogan
+              FROM librarys where id=1';
+        $pdost=$this->cx->query($sql);
+        return $pdost->fetch();
+    }
 }
