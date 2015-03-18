@@ -30,7 +30,7 @@ class Request
         $route = $this->m . '/' . $this->a;//On formate la route selont le tableau existant
 
         if (!in_array($route, $routes)) {//verifie si la route demandées existent
-            die('Les varaible m et a ne correspondent pas à un chemin présent dans la basse de donnée');// Si le chemin n'existe pas dans le tableau on arrête le script
+            die('Je suis dans le controleur request et $route n’est pas dans $routes');// Si le chemin n'existe pas dans le tableau on arrête le script
         }
 
         if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
@@ -39,11 +39,11 @@ class Request
         if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
             $this->page = $_REQUEST['page'];
         }
-        if (isset($_REQUEST['year']) && is_numeric($_REQUEST['year'])) {
-            $this->year = $_REQUEST['year'];
-        }
         else{
             $this->page = 1;
+        }
+        if (isset($_REQUEST['year']) && is_numeric($_REQUEST['year'])) {
+            $this->year = $_REQUEST['year'];
         }
         if (!empty($_POST)) {
             $this->sent = new \stdClass();
