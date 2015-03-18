@@ -15,7 +15,7 @@
             <span class="nav_items">Mon compte</span>
 
             <div class="userLog">
-                <?php if (!$userConnec && $data['view'] != 'create.php'): ?>
+                <?php if (!$userConnec && $controller->view != 'create.php'): ?>
                     <form action="<?php echo($_SERVER['PHP_SELF']); ?>?m=user&a=login" method="post"
                           id="connexion"
                         >
@@ -42,7 +42,7 @@
                     <a href="<?php echo($html->createLink('user', 'logout')); ?>" class="btnVert">Se
                         déconnecter</a>
                 <?php endif; ?>
-                <?php if ($data['view'] == 'create.php'): ?>
+                <?php if ($controller->view == 'create.php'): ?>
                     <a href="<?php echo($_SERVER['PHP_SELF']); ?>" class="btnVert">Retour à l'acceuil</a>
                 <?php endif; ?>
             </div>
