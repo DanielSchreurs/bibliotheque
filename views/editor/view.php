@@ -2,19 +2,17 @@
 <main>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <article class="single_author">
-        <h2>
-            <a href="#"
-               title=""><?php echo($editor->editor_name); ?></a>
-        </h2>
-        <a class="float_left" href="#"><img
+    <div class="threeColumnBlock">
+        <h2><?php echo($editor->editor_name); ?></h2>
+      <img
                 src="./img/editors_logos/<?php echo($editor->editor_logo); ?>.png"
                 alt="photo de  <?php echo($editor->editor_logo); ?>" width="200"
-                height="200"></a>
+                height="200">
 
         <p class="">
             <?php echo($editor->bio_text); ?>
         </p>
+        </div>
         <?php if (isset($editor->book_title)): ?>
             <ul class="liste_livres">
                 <?php foreach ($data['data'] as $book): ?>
@@ -32,6 +30,6 @@
                     <?php endforeach; ?>
             </ul>
         <?php endif; ?>
-    </article>
+
 </main>
 
