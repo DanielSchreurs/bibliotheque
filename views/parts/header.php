@@ -1,7 +1,6 @@
 <header>
     <a class="box_logo" href="<?php echo($_SERVER['PHP_SELF']) ?>"><?php echo(TITLE); ?></a>
-    <nav class="header_nav">
-        <h2 class="hidden">Menu de navigation</h2>
+    <div class="header_nav">
         <a class="nav_items" href="<?php echo($_SERVER['PHP_SELF']); ?>"
            title="Renvois vers la page d'accueil">accueil</a>
         <a class="nav_items" href="<?php echo($html->createLink('library','index')); ?>"
@@ -48,5 +47,5 @@
             </div>
         </div>
 
-    </nav>
+    </div>
 </header>
