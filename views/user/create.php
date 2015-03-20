@@ -1,8 +1,6 @@
-
 <main>
-  <h1>Créer un nouveau compte</h1>
   <h2>Faites partie de la communauté en quelques clics !</h2>
-  <form class="ceateUser">
+  <form class="ceateUser" action="<?php $html->createLink('user','create'); ?>" method="post">
     <p> Les champs précédés d’un <strong>(*)</strong> sont obligatoires!</p>
     <fieldset>
       <legend>Qui êtes vous ?</legend>
