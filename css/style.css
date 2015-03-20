@@ -176,6 +176,12 @@ h3.noBoook {
   color: red;
   font-size: 1.7em; }
 
+/* line 108, ../sass/import/_general.scss */
+.column {
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2; }
+
 /* line 1, ../sass/import/_headerSmall.scss */
 header li a:first-letter {
   text-transform: uppercase; }
@@ -358,9 +364,9 @@ header {
     color: #026660; }
 /* line 30, ../sass/import/_liste_livres_small.scss */
 .liste_livres img {
-  -webkit-filter: grayscale(60%);
-  -o-filter: grayscale(60%);
-  filter: grayscale(60%);
+  -webkit-filter: grayscale(20%);
+  -o-filter: grayscale(20%);
+  filter: grayscale(20%);
   -webkit-transition: all .3s;
   -o-transition: all .3s;
   transition: all .3s; }
@@ -441,24 +447,31 @@ h3 {
     border-bottom: 2px solid #026660; }
 
 /* line 2, ../sass/import/_liste_Questions_Small.scss */
-.liste_Questions li {
+.question {
   padding-bottom: 30px;
   margin-bottom: 30px;
   border-bottom: 1px solid #3f3f3f; }
-  /* line 6, ../sass/import/_liste_Questions_Small.scss */
-  .liste_Questions li blockquote {
-    text-indent: 30px; }
-  /* line 9, ../sass/import/_liste_Questions_Small.scss */
-  .liste_Questions li blockquote p:before {
-    content: url(./img/blockquote.svg);
-    display: inline-block;
-    height: 50px;
-    width: 50px;
-    position: relative;
-    left: -40px;
-    top: 4px; }
-/* line 20, ../sass/import/_liste_Questions_Small.scss */
-.liste_Questions h3 {
+
+/* line 7, ../sass/import/_liste_Questions_Small.scss */
+.answer {
+  font-size: 1.3em; }
+
+/* line 10, ../sass/import/_liste_Questions_Small.scss */
+.big__blockquote {
+  text-indent: 30px; }
+
+/* line 13, ../sass/import/_liste_Questions_Small.scss */
+.big__blockquote p:before {
+  content: url(./img/blockquote.svg);
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  position: relative;
+  left: -40px;
+  top: 4px; }
+
+/* line 24, ../sass/import/_liste_Questions_Small.scss */
+.article__title {
   font-size: 24px; }
 
 /* line 1, ../sass/import/_formConnexion_Small.scss */
@@ -582,14 +595,67 @@ header li .userLog {
   padding: .25em 0;
   display: block; }
 
-/* line 25, ../sass/style.scss */
+/* line 1, ../sass/import/pagination_Small.scss */
+.site-pagination {
+  margin-top: 2em;
+  font-size: 1.2em; }
+
+/* line 5, ../sass/import/pagination_Small.scss */
+.site-pagination__link {
+  display: block;
+  background: #f0f0f0;
+  text-align: center;
+  margin-top: .5em;
+  font-size: 1.3em;
+  padding: .3em 0;
+  color: #026660;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  border: 1px solid transparent;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s; }
+  /* line 22, ../sass/import/pagination_Small.scss */
+  .site-pagination__link:hover {
+    border: 1px solid #026660;
+    background: transparent;
+    color: #026660; }
+
+/* line 28, ../sass/import/pagination_Small.scss */
+.site-pagination__link--current {
+  display: block;
+  background: #026660;
+  text-align: center;
+  margin-top: .5em;
+  font-size: 1.3em;
+  padding: .3em 0;
+  color: white;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  border: 1px solid transparent;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s; }
+  /* line 45, ../sass/import/pagination_Small.scss */
+  .site-pagination__link--current:hover {
+    border: 1px solid #026660;
+    background: transparent;
+    color: #026660; }
+
+/* line 27, ../sass/style.scss */
 main {
   margin: 70px 30px 0; }
-  /* line 27, ../sass/style.scss */
+  /* line 29, ../sass/style.scss */
   main h2 {
     font-size: 30px;
     text-align: right; }
-  /* line 31, ../sass/style.scss */
+  /* line 33, ../sass/style.scss */
   main form + h2 {
     margin-top: 30px; }
 
@@ -598,7 +664,7 @@ style pour les medium
 
 */
 @media screen and (min-width: 590px) {
-  /* line 41, ../sass/style.scss */
+  /* line 43, ../sass/style.scss */
   main {
     width: 540px;
     margin: 80px auto;
@@ -664,8 +730,8 @@ style pour les medium
 Style large
 
 */
-@media screen and (min-width: 990px) {
-  /* line 57, ../sass/style.scss */
+@media screen and (min-width: 1190px) {
+  /* line 59, ../sass/style.scss */
   main {
     width: 1080px;
     margin: 188px auto 0 auto; }
@@ -714,7 +780,7 @@ Style large
     padding-right: 100px; }
 
   /* line 30, ../sass/import/_header_Large.scss */
-  nav, .box_logo {
+  .header_nav, .box_logo {
     display: table-cell; }
 
   /* line 34, ../sass/import/_header_Large.scss */
@@ -756,12 +822,17 @@ Style large
   /* line 1, ../sass/import/_formCreateUser_Large.scss */
   .ceateUser {
     width: 560px;
-    font-size: 21px; }
-    /* line 4, ../sass/import/_formCreateUser_Large.scss */
+    font-size: 21px;
+    padding: 3em;
+    border: 1px dashed #3f3f3f;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em; }
+    /* line 9, ../sass/import/_formCreateUser_Large.scss */
     .ceateUser label {
       display: inline-block;
       width: 45%; }
-    /* line 8, ../sass/import/_formCreateUser_Large.scss */
+    /* line 13, ../sass/import/_formCreateUser_Large.scss */
     .ceateUser input[type="text"], .ceateUser input[type="email"], .ceateUser input[type="password"] {
       width: 50%;
       display: inline-block;
@@ -770,27 +841,30 @@ Style large
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
       border-radius: 5px;
-      border: 1px solid #026660; }
-    /* line 18, ../sass/import/_formCreateUser_Large.scss */
+      border: 1px solid #026660;
+      margin-bottom: 1em; }
+    /* line 24, ../sass/import/_formCreateUser_Large.scss */
     .ceateUser legend {
-      color: #3f3f3f; }
-    /* line 21, ../sass/import/_formCreateUser_Large.scss */
+      color: #3f3f3f;
+      font-style: italic;
+      font-size: 0.8em; }
+    /* line 29, ../sass/import/_formCreateUser_Large.scss */
     .ceateUser fieldset {
       margin-bottom: 2.5em;
       position: relative; }
-    /* line 25, ../sass/import/_formCreateUser_Large.scss */
+    /* line 33, ../sass/import/_formCreateUser_Large.scss */
     .ceateUser .btnVert {
       width: 100%; }
-    /* line 28, ../sass/import/_formCreateUser_Large.scss */
+    /* line 36, ../sass/import/_formCreateUser_Large.scss */
     .ceateUser .smallInfo {
       position: absolute;
       bottom: -34px;
       width: 50%;
       left: 262px; }
-    /* line 34, ../sass/import/_formCreateUser_Large.scss */
+    /* line 42, ../sass/import/_formCreateUser_Large.scss */
     .ceateUser .ouvrir:before {
       content: "\e98f"; }
-    /* line 37, ../sass/import/_formCreateUser_Large.scss */
+    /* line 45, ../sass/import/_formCreateUser_Large.scss */
     .ceateUser .fermer:before {
       content: "\e990"; }
 
@@ -806,11 +880,6 @@ Style large
   /* line 12, ../sass/import/_single_book_Large.scss */
   .single_book .btnVert {
     margin-left: 17px; }
-  /* line 15, ../sass/import/_single_book_Large.scss */
-  .single_book .column {
-    -webkit-columns: 2;
-    -moz-columns: 2;
-    columns: 2; }
 
   /* line 2, ../sass/import/_single_author_Large.scss */
   .single_author .float_left, .single_author .first_text {
@@ -826,7 +895,30 @@ Style large
   .liste_genre {
     -webkit-columns: 4;
     -moz-columns: 4;
-    columns: 4; } }
+    columns: 4; }
+
+  /* line 1, ../sass/import/pagination_Large.scss */
+  .site-pagination {
+    text-align: center; }
+
+  /* line 4, ../sass/import/pagination_Large.scss */
+  .site-pagination__number {
+    display: inline-block; }
+
+  /* line 7, ../sass/import/pagination_Large.scss */
+  .site-pagination__link, .site-pagination__link--current {
+    padding: .5em 1em;
+    margin-right: .2em; }
+
+  /* line 1, ../sass/import/threeColumnBlock_Large.scss */
+  .threeColumnBlock {
+    -webkit-columns: 3;
+    -moz-columns: 3;
+    columns: 3;
+    -webkit-column-gap: 2.5em;
+    -moz-column-gap: 2.5em;
+    column-gap: 2.5em;
+    margin-bottom: 4em; } }
 /* line 1, ../sass/import/_footer.scss */
 footer {
   position: absolute;
