@@ -1,12 +1,8 @@
-.pagination{
+.site-pagination {
   margin-top: 2em;
   font-size:1.2em ;
 }
-.numberBtn.large{
-  background: $vert;
-  color: white;
-}
-.numberBtn{
+.site-pagination__link {
   display: block;
   background: $grisClair;
   text-align:center;
@@ -14,6 +10,29 @@
   font-size: 1.3em;
   padding: .3em 0;
   color: $vert;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  border: 1px solid transparent;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  &:hover{
+    border: 1px solid $vert;
+    background: transparent;
+    color: $vert;
+  }
+}
+.site-pagination__link--current{
+  display: block;
+  background: $vert;
+  text-align:center;
+  margin-top: .5em;
+  font-size: 1.3em;
+  padding: .3em 0;
+  color: white;
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;
   border-radius: .5em;
