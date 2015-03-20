@@ -2,8 +2,6 @@
 /*
  * Déclaration des routes permises
  */
-
-
 $routes['default'] = 'book/index';
 $routes['bookindex'] = 'book/index';
 $routes['bookview'] = 'book/view';
@@ -25,4 +23,5 @@ $routes['db_error'] = 'error/e_database';
 $routes['userlogin'] = 'user/login';
 $routes['userlogout'] = 'user/logout';
 $routes['usercreate'] = 'user/create';
-$routes['usercreate'] = 'page/help';
+$routes['pagehelp'] = 'page/help';
+$routes['pagesearch'] = 'page/search';
