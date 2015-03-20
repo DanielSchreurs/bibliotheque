@@ -29,7 +29,7 @@ class Author extends Base
     public function view (){
         $user = new ModelAuthor();
         $data = $user->find($this->request->id);
-        $title = $data->first_name.' '.$data->last_name;
+        $title = $data[0]->first_name.' '.$data[0]->last_name;
         return [
             'data' => $data,
             'title' => $title
