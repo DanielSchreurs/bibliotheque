@@ -1,12 +1,12 @@
 <?php
 return[
-    Models\AuthorRepositoryInterface::class => Models\Author::class,
-    Models\BookRepositoryInterface::class => Models\Book::class,
-    Models\EditorRepositoryInterface ::class => Models\Editor::class,
-    Models\HelpRepositoryInterface ::class => Models\Help::class,
-    Models\LibraryRepositoryInterface ::class => Models\Library::class,
-    Models\UserRepositoryInterface ::class => Models\User::class,
-    Models\GenreRepositoryInterface ::class => Models\Genre::class,
-    Models\ModelRepositoryInterface ::class => Models\Model::class,
-    Models\YearRepositoryInterface ::class => Models\Year::class
+ 'Models\AuthorRepositoryInterface'=> 'Models\Author',
+ 'Models\BookRepositoryInterface'=> 'Models\Book',
+ 'Models\EditorRepositoryInterface'=> 'Models\Editor',
+ 'Models\HelpRepositoryInterface'=> 'Models\Help',
+ 'Models\LibraryRepositoryInterface'=> 'Models\Library',
+ 'Models\UserRepositoryInterface'=> 'Models\User',
+ 'Models\GenreRepositoryInterface'=> 'Models\Genre',
+ 'Models\ModelRepositoryInterface'=> 'Models\Model',
+ 'Models\YearRepositoryInterface'=> 'Models\Year'
 ];
