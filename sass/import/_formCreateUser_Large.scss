@@ -1,6 +1,11 @@
 .ceateUser {
   width: 560px;
   font-size: 21px; //21px
+  padding: 3em;
+  border: 1px dashed $grisFonce;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
   label {
     display: inline-block;
     width: 45%;
@@ -14,9 +19,12 @@
     -webkit-border-radius: 5px;
     border-radius: 5px;
     border: 1px solid $vert;
+    margin-bottom: 1em;
   }
   legend {
     color: $grisFonce;
+    font-style: italic;
+    font-size: 0.8em;
   }
   fieldset {
     margin-bottom: 2.5em;
