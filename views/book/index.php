@@ -1,4 +1,3 @@
-<h1 class="hidden"><?php echo(TITLE.' | '.$data['title']) ?></h1>
 <main>
     <?php //var_dump($data); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
