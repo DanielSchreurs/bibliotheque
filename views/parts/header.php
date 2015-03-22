@@ -2,7 +2,7 @@
     <a class="box_logo" href="<?php echo($_SERVER['PHP_SELF']) ?>"><?php echo(TITLE); ?></a>
     <div class="header_nav">
         <a class="nav_items" href="<?php echo($_SERVER['PHP_SELF']); ?>"
-           title="Renvois vers la page d'accueil">accueil</a>
+           title="Renvois vers la page d'accueil">Accueil</a>
         <a class="nav_items" href="<?php echo($html->createLink('library','index')); ?>"
            title="Renvois vers la page Nos blibliothèques">Nos
             blibliothèques</a>
@@ -14,7 +14,7 @@
             <span class="nav_items">Mon compte</span>
 
             <div class="userLog">
-                <?php if (!$userConnec && $controller->view != 'create.php'): ?>
+                <?php if (!$userConnec && $controller->view != 'user/create.php'): ?>
                     <form action="<?php echo($_SERVER['PHP_SELF']); ?>?m=user&a=login" method="post"
                           id="connexion"
                         >
@@ -22,8 +22,8 @@
                             <label for="username">Identifiant&nbsp;</label>
                             <input type="text" name="username" id="username" required placeholder="Votre login">
                             <label for="password" class="inline">Mot de passe&nbsp;</label>
-                            <a id="linkShowPassword" class="smallInfo" href="#" title="Afficher le mot de pass">
-                                Montrer le mot de passe</a>
+                            <span id="linkShowPassword" class="smallInfo" href="#" title="Afficher le mot de pass">
+                                Montrer le mot de passe</span>
                             <input type="password" name="password" id="password" required
                                    placeholder="Votre mot de passe" class="showedpassword">
 
@@ -41,11 +41,10 @@
                     <a href="<?php echo($html->createLink('user', 'logout')); ?>" class="btnVert">Se
                         déconnecter</a>
                 <?php endif; ?>
-                <?php if ($controller->view == 'create.php'): ?>
+                <?php if ($controller->view == 'user/create.php'): ?>
                     <a href="<?php echo($_SERVER['PHP_SELF']); ?>" class="btnVert">Retour à l'acceuil</a>
                 <?php endif; ?>
             </div>
         </div>
-
     </div>
 </header>
