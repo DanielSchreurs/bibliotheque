@@ -20,7 +20,7 @@ function show(elements, link) {
     for (i = 0; i < elements.length; i++) {
         elements[i].type == 'password' ? elements[i].type = 'text' : elements[i].type = 'password';
     }
-    link.childNodes[0].nodeValue = (elements[0].type == 'password' ? 'Montrer ' : 'Cahcher ') + 'le mot de passe';
+    link.childNodes[0].nodeValue = (elements[0].type == 'password' ? 'Montrer ' : 'Cacher ') + 'le mot de passe';
     link.className = (elements[0].type == 'password' ? 'ouvrir ' : 'fermer ') + 'icon smallInfo';
 
 }
