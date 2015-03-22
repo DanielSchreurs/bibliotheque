@@ -110,3 +110,10 @@ h3.noBoook{
   -moz-columns: 2;
   columns: 2;
 }
+.form-create-user--error{
+  color: red;
+}
+.form-create-user__obligatoire{
+  color: $vert;
+  font-weight: bold;
+}
