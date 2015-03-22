@@ -1,4 +1,4 @@
-.ceateUser {
+.form-create-user {
   width: 560px;
   font-size: 21px; //21px
   padding: 3em;
@@ -38,6 +38,7 @@
     bottom: -34px;
     width: 50%;
     left: 262px;
+    cursor: pointer;
   }
   .ouvrir:before {
     content: "\e98f";
@@ -45,4 +46,11 @@
   .fermer:before {
     content: "\e990";
   }
+}
+.form-create-user--error{
+  position: absolute;
+  right: -546px;
+  top:10px;
+  border: 1px solid red;
+  padding:1em;
 }
