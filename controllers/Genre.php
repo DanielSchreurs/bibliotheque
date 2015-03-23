@@ -5,11 +5,11 @@
  */
 namespace Controllers;
 
-use Models\GenreRepositoryInterface as PostRepository;
+use Models\GenreRepositoryInterface as GenreRepository;
 
 class Genre extends Base
 {
-    function __construct(Request $request,PostRepository $ModelGenre )
+    function __construct(Request $request, GenreRepository $ModelGenre)
     {
         parent::__construct($request);
         $this->modelGenre = $ModelGenre;
@@ -28,14 +28,15 @@ class Genre extends Base
         ];
     }
 
-    public function view (){
-        $data=$this->modelGenre->find($this->request->id);
-        $title='Un genre';
-        $view='view.php';
-        return[
-            'data'=>$data,
-            'view'=>$view,
-            'title'=>$title
+    public function view()
+    {
+        $data = $this->modelGenre->find($this->request->id);
+        $title = 'Un genre';
+        $view = 'view.php';
+        return [
+            'data' => $data,
+            'view' => $view,
+            'title' => $title
         ];
     }
 

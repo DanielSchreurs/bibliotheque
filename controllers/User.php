@@ -11,10 +11,16 @@
  **/
 namespace Controllers;
 
-use \Models\User as UserModel;
+use \Models\UserRepositoryInterface as PostRepository;
 
 class User extends Base
 {
+    function __construct(Request $request)
+    {
+        parent::__construct($request);
+        $this->modelUser = new \Models\User();
+    }
+
     function login()
     {
         if ($_SESSION['first_name']) {
@@ -22,21 +28,18 @@ class User extends Base
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($this->request->sent->username) && isset($this->request->sent->password)) {
-                $user = new UserModel();
-                if (($user->exists($this->request->sent->username, $this->request->sent->password))) {
+                if (($this->modelUser->exists($this->request->sent->username, $this->request->sent->password))) {
                     if (isset($this->request->sent->remember)) {
-                        //var_dump($user->getUserInfo($this->request->sent->username, $this->request->sent->password));
-                        foreach ($user->getUserInfo($this->request->sent->username,
+                        foreach ($this->modelUser->getUserInfo($this->request->sent->username,
                             $this->request->sent->password) as $c => $v) {
                             setcookie($c, $v, LIVETIME);
                         }
                     } else {
-                        foreach ($user->getUserInfo($this->request->sent->username,
+                        foreach ($this->modelUser->getUserInfo($this->request->sent->username,
                             $this->request->sent->password) as $c => $v) {
                             $_SESSION[$c] = $v;
                         }
                     }
-
                     header('Location:http://localhost:8888/bibliotheque');
                 } else {
                     $_SESSION['first_name'] = false;
@@ -57,12 +60,11 @@ class User extends Base
 
     public function create()
     {
-        $title = 'S’inscrire en quelques clics';
         $view = 'create.php';
+        $date = $this->modelUser->create();
+        die();
         return [
-            // 'data' => $this->create,
             'view' => $view,
-            'title' => $title
         ];
     }
 

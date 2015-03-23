@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-use Models\BookRepositoryInterface as PostRepository;
+use Models\BookRepositoryInterface as BookRepository;
 
 class Book extends Base
 {
@@ -10,7 +10,7 @@ class Book extends Base
     private $modellibrary = null;
 
 
-    public function __construct(Request $request, PostRepository $BookModel)
+    public function __construct(Request $request, BookRepository $BookModel)
     {
         parent::__construct($request);
         $this->modelbook = $BookModel;

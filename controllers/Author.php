@@ -5,12 +5,11 @@
  */
 namespace Controllers;
 
-use Models\Author as ModelAuthor;
-use Models\AuthorRepositoryInterface as PostRepository;
+use Models\AuthorRepositoryInterface as AuthorRepository;
 
 class Author extends Base
 {
-    function __construct(Request  $request, PostRepository $modelAuthor)
+    function __construct(Request  $request, AuthorRepository $modelAuthor)
     {
         parent::__construct($request);
         $this->modelAuthor = $modelAuthor;
@@ -27,8 +26,7 @@ class Author extends Base
     }
 
     public function view (){
-        $user = new ModelAuthor();
-        $data = $user->find($this->request->id);
+        $data = $this->modelAuthor->find($this->request->id);
         $title = $data[0]->first_name.' '.$data[0]->last_name;
         return [
             'data' => $data,

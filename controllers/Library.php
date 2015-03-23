@@ -6,11 +6,11 @@
 
 namespace Controllers;
 
-use Models\LibraryRepositoryInterface as PostRepository;
+use Models\LibraryRepositoryInterface as LibraryRepository;
 
 class Library extends Base
 {
-    function __construct(Request $request,PostRepository $ModelLibrary )
+    function __construct(Request $request, LibraryRepository $ModelLibrary)
     {
         parent::__construct($request);
         $this->modelLibrary = $ModelLibrary;
@@ -28,14 +28,16 @@ class Library extends Base
             'title' => $title
         ];
     }
-    public function view(){
-        $data= $this->modelLibrary->view($this->request->id);
-        $view='view.php';
-        $title='Un bibliothèque';
-        return[
-            'data'=>$data,
-            'view'=>$view,
-            'title'=>$title
+
+    public function view()
+    {
+        $data = $this->modelLibrary->view($this->request->id);
+        $view = 'view.php';
+        $title = 'Un bibliothèque';
+        return [
+            'data' => $data,
+            'view' => $view,
+            'title' => $title
         ];
     }
 }
