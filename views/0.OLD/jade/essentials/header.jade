@@ -1,7 +1,7 @@
 header
 	h1
 			a(href="#") La joie de Livre
-	nav(class="header_nav")
+	nav(class="header-main__nav")
 
 		ul
 			li
@@ -11,7 +11,7 @@ header
 					a(href=""+index title="Renvois vers la page "+val)=val
 			li
 				span Mon compte
-                form(action="index.php" method="post" id="connexion" class="userLog")
+                form(action="index.php" method="post" id="connexion" class="header-main__form-connexion__userLog")
 					fieldset
 						label(for="login") Identifiant&nbsp;
 						input(type="text" name="login" id="login" required placeholder="Votre login")

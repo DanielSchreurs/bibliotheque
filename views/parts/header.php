@@ -1,19 +1,19 @@
-<header>
-    <a class="box_logo" href="<?php echo($_SERVER['PHP_SELF']) ?>"><?php echo(TITLE); ?></a>
-    <div class="header_nav">
-        <a class="nav_items" href="<?php echo($_SERVER['PHP_SELF']); ?>"
+<header class="header-main">
+    <a class="header-main__box-logo" href="<?php echo($_SERVER['PHP_SELF']) ?>"><?php echo(TITLE); ?></a>
+    <div class="header-main__nav">
+        <a class="header-main__nav__nav_items" href="<?php echo($_SERVER['PHP_SELF']); ?>"
            title="Renvois vers la page d'accueil">Accueil</a>
-        <a class="nav_items" href="<?php echo($html->createLink('library','index')); ?>"
+        <a class="header-main__nav__nav_items" href="<?php echo($html->createLink('library','index')); ?>"
            title="Renvois vers la page Nos blibliothèques">Nos
             blibliothèques</a>
-        <a class="nav_items" href="<?php echo($html->createLink('page','help')); ?>" title="Renvois vers la page Comment ça marche">Comment
+        <a class="header-main__nav__nav_items" href="<?php echo($html->createLink('page','help')); ?>" title="Renvois vers la page Comment ça marche">Comment
             ça
             marche</a>
 
-        <div class="show_form_connexion">
-            <span class="nav_items">Mon compte</span>
+        <div class="header-main__form-connexion">
+            <span class="header-main__nav__nav_items">Mon compte</span>
 
-            <div class="userLog">
+            <div class="header-main__form-connexion__userLog">
                 <?php if (!$userConnec && $controller->view != 'user/create.php'): ?>
                     <form action="<?php echo($_SERVER['PHP_SELF']); ?>?m=user&a=login" method="post"
                           id="connexion"
