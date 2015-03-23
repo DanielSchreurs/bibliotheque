@@ -1,9 +1,9 @@
-.userLog {
+.header-main__form-connexion__userLog {
   margin-top: 0;
   position: absolute;
   left: -165px;
   width: 300px;
-  top: -250px;
+  top: -270px;
   .inline{
     position: relative;
     left: -2px;
@@ -11,4 +11,7 @@
   input[type="text"],input[type="password"]{
     width: 100%;
   }
+}
+.header-main__form-connexion:hover .header-main__form-connexion__userLog{
+  top: 132px;
 }
