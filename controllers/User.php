@@ -11,14 +11,14 @@
  **/
 namespace Controllers;
 
-use \Models\UserRepositoryInterface as PostRepository;
+use \Models\UserRepositoryInterface as UserRepository;
 
 class User extends Base
 {
-    function __construct(Request $request)
+    function __construct(Request $request, UserRepository $modelUser)
     {
         parent::__construct($request);
-        $this->modelUser = new \Models\User();
+        $this->modelUser = $modelUser;
     }
 
     function login()
