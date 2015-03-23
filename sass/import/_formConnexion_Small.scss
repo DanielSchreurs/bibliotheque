@@ -2,14 +2,12 @@ header li {
   position: relative;
 }
 
-header li .userLog {
+header li .header-main__form-connexion__userLog {
   margin-top: 0;
   opacity: 1;
 }
-.show_form_connexion:hover .userLog{
-  margin-top: 0;
-}
-.userLog {
+
+.header-main__form-connexion__userLog {
   position: relative;
   -webkit-transition: .3s;
   -o-transition: .3s;
@@ -65,7 +63,7 @@ header li .userLog {
   color: white;
 }
 
-.userLog {
+.header-main__form-connexion__userLog {
 
   .smallInfo {
     padding: 5px;

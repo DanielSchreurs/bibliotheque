@@ -11,7 +11,7 @@ header {
   background-color: rgba(245, 245, 245, .8);
 }
 
-:root .nav_items {
+:root .header-main__nav__nav_items {
   border: none;
   background: none;
   display: inline-block;
@@ -21,22 +21,22 @@ header {
 
 }
 
-.box_logo {
+.header-main__box-logo {
   border: none;
   padding: 18px 0;
   padding-right: 97px;
 }
 
-.header_nav, .box_logo {
+.header-main__nav, .header-main__box-logo {
   display: table-cell;
 }
 
-.show_form_connexion {
+.header-main__form-connexion {
   display: inline-block;
   position: relative;
 
 }
 
-.show_form_connexion:hover .userLog {
+.show_form_connexion:hover .header-main__form-connexion__userLog {
   top: 132px;
 }
