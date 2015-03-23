@@ -11,7 +11,7 @@
  **/
 namespace Controllers;
 
-use \Models\UserRepositoryInterface as UserRepository;
+use Models\UserRepositoryInterface as UserRepository;
 
 class User extends Base
 {
