@@ -20,6 +20,15 @@ class User extends Model
         return true;
     }
 
+    public function userNameExist($username){
+        $sql='SELECT id FROM users WHERE username=:username ';
+        $pdost=$this->cx->prepare($sql);
+        $pdost->execute([':username'=>$username]);
+        $res=$pdost->fetch();
+        if($res==null) return false;
+        return true;
+    }
+
     public function getUserInfo($username, $password)
     {
         $sql = 'SELECT first_name,last_name,photo,role FROM users where username=:username and password=:password';
@@ -27,8 +36,20 @@ class User extends Model
         $pdost->execute([':username' => $username, 'password' => $password]);
         return $pdost->fetch();
     }
-    public function create(){
-        die('je suis dans le model');
-        $sql='';
+    public function create($first_name,$last_name,$username,$password,$question,$reponse){
+        $sql='
+              INSERT INTO users (first_name,last_name,username,password,question,answer)
+              VALUES (:first_name,:last_name,:username,:password,:question,:reponse)';
+        $pdost= $this->cx->prepare($sql);
+        $pdost->execute([
+            ':first_name'=>$first_name,
+            ':last_name'=>$last_name,
+            ':username'=>$username,
+            ':password'=>$password,
+            ':question'=>$question,
+            ':reponse'=>$reponse
+        ]
+        );
+
     }
 }
