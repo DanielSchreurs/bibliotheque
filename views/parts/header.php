@@ -19,7 +19,7 @@
                           id="connexion"
                         >
                         <fieldset>
-                            <label for="username">Identifiant&nbsp;</label>
+                            <label for="username">Nom d'utilisateur&nbsp;</label>
                             <input type="text" name="username" id="username" required placeholder="Votre login">
                             <label for="password" class="inline">Mot de passe&nbsp;</label>
                             <span id="linkShowPassword" class="smallInfo" href="#" title="Afficher le mot de pass">
