@@ -9,11 +9,12 @@ use Models\AuthorRepositoryInterface as AuthorRepository;
 
 class Author extends Base
 {
-    function __construct(Request  $request, AuthorRepository $modelAuthor)
+  function __construct(Request  $request, AuthorRepository $modelAuthor)
     {
         parent::__construct($request);
         $this->modelAuthor = $modelAuthor;
     }
+
 
     function index()
     {
