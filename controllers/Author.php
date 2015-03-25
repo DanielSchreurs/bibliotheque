@@ -9,7 +9,7 @@ use Models\AuthorRepositoryInterface as AuthorRepository;
 
 class Author extends Base
 {
-  function __construct(Request  $request, AuthorRepository $modelAuthor)
+    function __construct(Request $request, AuthorRepository $modelAuthor)
     {
         parent::__construct($request);
         $this->modelAuthor = $modelAuthor;
@@ -26,14 +26,16 @@ class Author extends Base
         ];
     }
 
-    public function view (){
+    public function view()
+    {
         $data = $this->modelAuthor->find($this->request->id);
-        $title = $data[0]->first_name.' '.$data[0]->last_name;
+        $title = $data[0]->first_name . ' ' . $data[0]->last_name;
         return [
             'data' => $data,
             'title' => $title
         ];
     }
+
     function show()
     {
 
