@@ -1,7 +1,9 @@
 <head>
     <meta charset="<?php echo(CHARSET); ?>">
-    <meta name="description" content="Innovent dans sa manière de présenter l’information, les services que vous propose le nouveau site, la joie de livre, vous laissera sans mots. Vous pourrez aisément rechercher un livre depuis plusieurs bibliothèques. ">
-    <meta name="keywords" content="la joie de livre,LA JOIE DE LIVRE,bibliothèques,Bibliothèques,Bibliothèque, livres,Livres, nationnal, belge, Belgique">
+    <meta name="description"
+          content="Innovent dans sa manière de présenter l’information, les services que vous propose le nouveau site, la joie de livre, vous laissera sans mots. Vous pourrez aisément rechercher un livre depuis plusieurs bibliothèques. ">
+    <meta name="keywords"
+          content="la joie de livre,LA JOIE DE LIVRE,bibliothèques,Bibliothèques,Bibliothèque, livres,Livres, nationnal, belge, Belgique">
     <meta name="author" content="Daniel schreurs">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,5 +25,5 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <title><?php echo(TITLE).' | '.$data['title'] ?></title>
+    <title><?php echo (TITLE) . ' | ' . $data['title'] ?></title>
 </head>

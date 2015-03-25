@@ -18,7 +18,6 @@ class Page extends Base
     {
         $date = $this->Modelhelp->getAllQuestions();
         $title = 'Comment ça marche';
-        $view = 'help.php';
         return [
             'data' => $date,
             'title' => $title
@@ -30,7 +29,7 @@ class Page extends Base
         $data = $this->Modelhelp->searchALL([
                 'books' => [
                     'get' => 'title, id',
-                    'where' => ['title','datepub'],
+                    'where' => ['title', 'datepub'],
                     'what' => $_POST['search']
                 ],
                 'authors' => [
@@ -45,12 +44,17 @@ class Page extends Base
                 ]
             ]
         );
-        $title= $_POST['search'];
+        $title = $_POST['search'];
         return [
-            'data'=>$data,
-            'title'=>$title
+            'data' => $data,
+            'title' => $title
         ];
 
+    }
+
+    public function admin_index()
+    {
+       $this->view='admin/index.php';
     }
 
 }

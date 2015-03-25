@@ -19,13 +19,13 @@ class Genre extends Model implements GenreRepositoryInterface
               id
               FROM genres
               ORDER BY name';
-        $pdost=$this->cx->query($sql);
+        $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
 
     public function find($id_genre)
     {
-        $sql='
+        $sql = '
               SELECT
               name AS genre_name,
               genres.id AS genre_id,
@@ -36,8 +36,8 @@ class Genre extends Model implements GenreRepositoryInterface
               FROM genres
               LEFT JOIN books on genres.id=genre_id
               WHERE genres.id=:id_genre';
-        $pdost=$this->cx->prepare($sql);
-        $pdost->execute(['id_genre'=>$id_genre]);
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(['id_genre' => $id_genre]);
         return $pdost->fetchAll();
     }
 }

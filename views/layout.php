@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html  lang="<?php echo($language);?>">
-<?php include(VIEW_DIR.'parts/head.php');?>
+<html lang="<?php echo($language); ?>">
+<?php include(VIEW_DIR . 'parts/head.php'); ?>
 <body>
-<h1 class="hidden"><?php echo(TITLE.' | '.$data['title']) ?></h1>
-<?php include(VIEW_DIR.'parts/header.php'); ?>
+<h1 class="hidden"><?php echo(TITLE . ' | ' . $data['title']) ?></h1>
+<?php include(VIEW_DIR . 'parts/header.php'); ?>
 <?php //var_dump($controller); ?>
 <?php include($controller->view); ?>
-<?php include(VIEW_DIR.'parts/footer.php'); ?>
+<?php include(VIEW_DIR . 'parts/footer.php'); ?>
 <script type="text/javascript" src="./js/app.js"></script>
 <!--<script type="text/javascript">
     var _gaq = _gaq || [];

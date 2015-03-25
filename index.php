@@ -18,7 +18,7 @@ require './vendor/autoload.php';
 session_start();
 $container = new Illuminate\Container\Container();
 foreach (include('liaisons.php') as $interface => $concrete) {
-    $container->bind($interface,$concrete);
+    $container->bind($interface, $concrete);
 }
 $request = new \Controllers\Request();
 $html = new \Helpers\Html();

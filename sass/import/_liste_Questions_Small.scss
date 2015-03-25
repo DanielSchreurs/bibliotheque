@@ -1,27 +1,30 @@
 
- .question {
-   padding-bottom: 30px;
-   margin-bottom: 30px;
-   border-bottom: 1px solid $grisFonce;
- }
- .answer{
-   font-size: 1.3em;
- }
-  .big__blockquote{
-    text-indent: 30px;
-  }
-  .big__blockquote p:before{
-    content:url(./img/blockquote.svg);
-    display: inline-block;
-    height: 50px;
-    width: 50px;
-    position:relative;
-    left: -40px;
-    top: 4px;
+.question {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid $grisFonce;
+}
 
-  }
+.answer {
+  font-size: 1.3em;
+}
 
- .article__title{
+.big__blockquote {
+  text-indent: 30px;
+}
+
+.big__blockquote p:before {
+  content: url(./img/blockquote.svg);
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  position: relative;
+  left: -40px;
+  top: 4px;
+
+}
+
+.article__title {
   font-size: 24px;
- }
+}
 

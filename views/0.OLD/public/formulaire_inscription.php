@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta name="description" content="Innovent dans sa manière de présenter l’information, les services que vous propose le nouveau site, la joie de livre, vous laissera sans mots. Vous pourrez aisément rechercher un livre depuis plusieurs bibliothèques. ">
-    <meta name="keywords" content="la joie de livre,LA JOIE DE LIVRE,bibliothèques,Bibliothèques,Bibliothèque, livres,Livres, nationnal, belge, Belgique">
+    <meta name="description"
+          content="Innovent dans sa manière de présenter l’information, les services que vous propose le nouveau site, la joie de livre, vous laissera sans mots. Vous pourrez aisément rechercher un livre depuis plusieurs bibliothèques. ">
+    <meta name="keywords"
+          content="la joie de livre,LA JOIE DE LIVRE,bibliothèques,Bibliothèques,Bibliothèque, livres,Livres, nationnal, belge, Belgique">
     <meta name="author" content="Daniel schreurs">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,15 +28,16 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <link rel="stylesheet" href="../../css/style.css" type="text/css">
     <title>La joie de livre | Auteurs</title>
-  </head>
+</head>
 </html>
 <main></main>
-<footer>		
-  <p class="copy">Designed by &copy; <a href="daniel.schreurs.com">Daniel Schreurs
-      <time>2015</time></a></p>
-  <ul>
-    <li><a href="../admin/admin.php">Se connecter			</a></li>
-    <li><a href="#" title="Renvois vers la pageDéconecter">Déconecter</a></li>
-    <li><a href="#" title="Renvois vers la pageEspace privé">Espace privé</a></li>
-  </ul>
+<footer>
+    <p class="copy">Designed by &copy; <a href="daniel.schreurs.com">Daniel Schreurs
+            <time>2015</time>
+        </a></p>
+    <ul>
+        <li><a href="../admin/admin.php">Se connecter </a></li>
+        <li><a href="#" title="Renvois vers la pageDéconecter">Déconecter</a></li>
+        <li><a href="#" title="Renvois vers la pageEspace privé">Espace privé</a></li>
+    </ul>
 </footer>

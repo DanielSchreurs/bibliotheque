@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
-    <meta name="description" content="Innovent dans sa manière de présenter l’information, les services que vous propose le nouveau site, la joie de livre, vous laissera sans mots. Vous pourrez aisément rechercher un livre depuis plusieurs bibliothèques. ">
-    <meta name="keywords" content="la joie de livre,LA JOIE DE LIVRE,bibliothèques,Bibliothèques,Bibliothèque, livres,Livres, nationnal, belge, Belgique">
+    <meta name="description"
+          content="Innovent dans sa manière de présenter l’information, les services que vous propose le nouveau site, la joie de livre, vous laissera sans mots. Vous pourrez aisément rechercher un livre depuis plusieurs bibliothèques. ">
+    <meta name="keywords"
+          content="la joie de livre,LA JOIE DE LIVRE,bibliothèques,Bibliothèques,Bibliothèque, livres,Livres, nationnal, belge, Belgique">
     <meta name="author" content="Daniel schreurs">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,131 +28,227 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <link rel="stylesheet" href="../../css/style.css" type="text/css">
     <title>La joie de livre | Auteurs</title>
-  </head>
+</head>
 </html>
 <header>
-  <h1><a href="#">La joie de Livre</a></h1>
-  <nav class="header_nav">
-    <ul>
-      <li><a href="#" title="Renvois vers la page d'accueil">accueil</a></li>
-      <li><a href="./vues/public/bibliotheques.php" title="Renvois vers la page Nos blibliothèques">Nos blibliothèques</a></li>
-      <li><a href="./vues/public/commentMarche.php" title="Renvois vers la page Comment ça marche">Comment ça marche</a></li>
-      <li><span>Mon compte</span>
-        <form action="index.php" method="post" id="connexion" class="userLog">
-          <fieldset>
-            <label for="login">Identifiant&nbsp;</label>
-            <input type="text" name="login" id="login" required placeholder="Votre login">
-            <label for="pwd">Mot de passe&nbsp;</label>
-            <input type="password" name="pwd" id="pwd" required placeholder="Votre mot de passe">
-            <input type="submit" value="Se connecter"><a href="index.php?m=creer&amp;amp;c=account" class="bGris">S'incrire</a>
-          </fieldset>
-        </form>
-      </li>
-    </ul>
-  </nav>
+    <h1><a href="#">La joie de Livre</a></h1>
+    <nav class="header_nav">
+        <ul>
+            <li><a href="#" title="Renvois vers la page d'accueil">accueil</a></li>
+            <li><a href="./vues/public/bibliotheques.php" title="Renvois vers la page Nos blibliothèques">Nos
+                blibliothèques</a></li>
+            <li><a href="./vues/public/commentMarche.php" title="Renvois vers la page Comment ça marche">Comment ça
+                marche</a></li>
+            <li><span>Mon compte</span>
+
+                <form action="index.php" method="post" id="connexion" class="userLog">
+                    <fieldset>
+                        <label for="login">Identifiant&nbsp;</label>
+                        <input type="text" name="login" id="login" required placeholder="Votre login">
+                        <label for="pwd">Mot de passe&nbsp;</label>
+                        <input type="password" name="pwd" id="pwd" required placeholder="Votre mot de passe">
+                        <input type="submit" value="Se connecter"><a href="index.php?m=creer&amp;amp;c=account"
+                                                                     class="bGris">S'incrire</a>
+                    </fieldset>
+                </form>
+            </li>
+        </ul>
+    </nav>
 </header>
 <main>
-  <form name="auteurs" class="recherche">
-    <input type="search" list="auteurs" required placeholder="Rechercher un auteurs" name="recherche" id="recherche">
-    <datalist id="auteurs">
-      <option value="Vincent Hein"></option>
-      <option value="Joël Egloff"></option>
-      <option value="Christophe Honoré"></option>
-      <option value="Thomas Paris"></option>
-      <option value="Mamadou Mahmoud N'Dongo"></option>
-      <option value="Anna Gavalda"></option>
-      <option value="Béatrice Leca"></option>
-      <option value="Johan Heliot"></option>
-      <option value="Gwenaëlle Aubry"></option>
-      <option value="J.M. Erre"></option>
-      <option value="Anne Godard"></option>
-      <option value="Samira Bellil"></option>
-      <option value="Mathias Enard"></option>
-      <option value="Sigrid Baffert"></option>
-      <option value="Nicolas Fargues"></option>
-      <option value="Laurent Gaudé"></option>
-      <option value="Karelle Ménine"></option>
-      <option value="Valérie Mréjen"></option>
-      <option value="Sylvain Tesson"></option>
-      <option value="Roland Michel Tremblay"></option>
-      <option value="Chloé Delaume"></option>
-    </datalist>
-    <input type="submit" value="Rechercher">
-  </form>
-  <ul class="alphabet">
-    <li><a href="#m" class="courent">m</a></li>
-    <li><a href="b">b</a></li>
-    <li><a href="c">c</a></li>
-    <li><a href="d">d</a></li>
-    <li><a href="m">m</a></li>
-    <li><a href="f">f</a></li>
-    <li><a href="g">g</a></li>
-    <li><a href="h">h</a></li>
-    <li><a href="i">i</a></li>
-    <li><a href="j">j</a></li>
-    <li><a href="k">k</a></li>
-    <li><a href="l">l</a></li>
-    <li><a href="a">a</a></li>
-    <li><a href="n">n</a></li>
-    <li><a href="o">o</a></li>
-    <li><a href="p">p</a></li>
-    <li><a href="q">q</a></li>
-    <li><a href="r">r</a></li>
-    <li><a href="s">s</a></li>
-    <li><a href="t">t</a></li>
-    <li><a href="u">u</a></li>
-    <li><a href="v">v</a></li>
-    <li><a href="w">w</a></li>
-    <li><a href="x">x</a></li>
-    <li><a href="y">y</a></li>
-    <li><a href="z">z</a></li>
-  </ul>
-  <h2>Andre Breton </h2>
-  <ul class="livres">
-    <li>
-      <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg" alt="première du livreTitre du livre" width="180" height="270">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat</p>
-    </li>
-    <li>
-      <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg" alt="première du livreTitre du livre" width="180" height="270">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat</p>
-    </li>
-    <li>
-      <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg" alt="première du livreTitre du livre" width="180" height="270">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat</p>
-    </li>
-    <li>
-      <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg" alt="première du livreTitre du livre" width="180" height="270">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat</p>
-    </li>
-    <li>
-      <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg" alt="première du livreTitre du livre" width="180" height="270">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat</p>
-    </li>
-    <li>
-      <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg" alt="première du livreTitre du livre" width="180" height="270">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat</p>
-    </li>
-    <li>
-      <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg" alt="première du livreTitre du livre" width="180" height="270">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat</p>
-    </li>
-    <li>
-      <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg" alt="première du livreTitre du livre" width="180" height="270">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat</p>
-    </li>
-    <li>
-      <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg" alt="première du livreTitre du livre" width="180" height="270">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat</p>
-    </li>
-  </ul>
+    <form name="auteurs" class="recherche">
+        <input type="search" list="auteurs" required placeholder="Rechercher un auteurs" name="recherche"
+               id="recherche">
+        <datalist id="auteurs">
+            <option value="Vincent Hein"></option>
+            <option value="Joël Egloff"></option>
+            <option value="Christophe Honoré"></option>
+            <option value="Thomas Paris"></option>
+            <option value="Mamadou Mahmoud N'Dongo"></option>
+            <option value="Anna Gavalda"></option>
+            <option value="Béatrice Leca"></option>
+            <option value="Johan Heliot"></option>
+            <option value="Gwenaëlle Aubry"></option>
+            <option value="J.M. Erre"></option>
+            <option value="Anne Godard"></option>
+            <option value="Samira Bellil"></option>
+            <option value="Mathias Enard"></option>
+            <option value="Sigrid Baffert"></option>
+            <option value="Nicolas Fargues"></option>
+            <option value="Laurent Gaudé"></option>
+            <option value="Karelle Ménine"></option>
+            <option value="Valérie Mréjen"></option>
+            <option value="Sylvain Tesson"></option>
+            <option value="Roland Michel Tremblay"></option>
+            <option value="Chloé Delaume"></option>
+        </datalist>
+        <input type="submit" value="Rechercher">
+    </form>
+    <ul class="alphabet">
+        <li><a href="#m" class="courent">m</a></li>
+        <li><a href="b">b</a></li>
+        <li><a href="c">c</a></li>
+        <li><a href="d">d</a></li>
+        <li><a href="m">m</a></li>
+        <li><a href="f">f</a></li>
+        <li><a href="g">g</a></li>
+        <li><a href="h">h</a></li>
+        <li><a href="i">i</a></li>
+        <li><a href="j">j</a></li>
+        <li><a href="k">k</a></li>
+        <li><a href="l">l</a></li>
+        <li><a href="a">a</a></li>
+        <li><a href="n">n</a></li>
+        <li><a href="o">o</a></li>
+        <li><a href="p">p</a></li>
+        <li><a href="q">q</a></li>
+        <li><a href="r">r</a></li>
+        <li><a href="s">s</a></li>
+        <li><a href="t">t</a></li>
+        <li><a href="u">u</a></li>
+        <li><a href="v">v</a></li>
+        <li><a href="w">w</a></li>
+        <li><a href="x">x</a></li>
+        <li><a href="y">y</a></li>
+        <li><a href="z">z</a></li>
+    </ul>
+    <h2>Andre Breton </h2>
+    <ul class="livres">
+        <li>
+            <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg"
+                                        alt="première du livreTitre du livre" width="180" height="270">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis
+                tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum
+                finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris.
+                Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor
+                vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam,
+                venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero
+                augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci.
+                Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla
+                volutpat</p>
+        </li>
+        <li>
+            <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg"
+                                        alt="première du livreTitre du livre" width="180" height="270">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis
+                tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum
+                finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris.
+                Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor
+                vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam,
+                venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero
+                augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci.
+                Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla
+                volutpat</p>
+        </li>
+        <li>
+            <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg"
+                                        alt="première du livreTitre du livre" width="180" height="270">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis
+                tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum
+                finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris.
+                Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor
+                vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam,
+                venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero
+                augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci.
+                Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla
+                volutpat</p>
+        </li>
+        <li>
+            <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg"
+                                        alt="première du livreTitre du livre" width="180" height="270">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis
+                tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum
+                finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris.
+                Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor
+                vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam,
+                venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero
+                augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci.
+                Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla
+                volutpat</p>
+        </li>
+        <li>
+            <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg"
+                                        alt="première du livreTitre du livre" width="180" height="270">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis
+                tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum
+                finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris.
+                Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor
+                vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam,
+                venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero
+                augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci.
+                Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla
+                volutpat</p>
+        </li>
+        <li>
+            <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg"
+                                        alt="première du livreTitre du livre" width="180" height="270">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis
+                tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum
+                finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris.
+                Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor
+                vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam,
+                venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero
+                augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci.
+                Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla
+                volutpat</p>
+        </li>
+        <li>
+            <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg"
+                                        alt="première du livreTitre du livre" width="180" height="270">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis
+                tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum
+                finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris.
+                Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor
+                vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam,
+                venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero
+                augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci.
+                Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla
+                volutpat</p>
+        </li>
+        <li>
+            <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg"
+                                        alt="première du livreTitre du livre" width="180" height="270">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis
+                tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum
+                finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris.
+                Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor
+                vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam,
+                venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero
+                augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci.
+                Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla
+                volutpat</p>
+        </li>
+        <li>
+            <h3>Titre du livre</h3><img src="../../img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg"
+                                        alt="première du livreTitre du livre" width="180" height="270">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis
+                tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum
+                finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris.
+                Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor
+                vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam,
+                venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero
+                augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci.
+                Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla
+                volutpat</p>
+        </li>
+    </ul>
 </main>
-<footer>		
-  <p class="copy">Designed by &copy; <a href="daniel.schreurs.com">Daniel Schreurs
-      <time>2015</time></a></p>
-  <ul>
-    <li><a href="../admin/admin.php">Se connecter			</a></li>
-    <li><a href="#" title="Renvois vers la pageDéconecter">Déconecter</a></li>
-    <li><a href="#" title="Renvois vers la pageEspace privé">Espace privé</a></li>
-  </ul>
+<footer>
+    <p class="copy">Designed by &copy; <a href="daniel.schreurs.com">Daniel Schreurs
+        <time>2015</time>
+    </a></p>
+    <ul>
+        <li><a href="../admin/admin.php">Se connecter </a></li>
+        <li><a href="#" title="Renvois vers la pageDéconecter">Déconecter</a></li>
+        <li><a href="#" title="Renvois vers la pageEspace privé">Espace privé</a></li>
+    </ul>
 </footer>

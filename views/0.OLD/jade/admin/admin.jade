@@ -1,14 +1,13 @@
-
 include ../variables.jade
 
-include ../essentials/head.jade 
+include ../essentials/head.jade
     title La joie de livre | administration
     link(rel='stylesheet' href='../../css/admin.css' type='text/css')
 
 
 header
     h1
-            a(href="#") La joie de Livre
+        a(href="#") La joie de Livre
     nav
 
         ul
@@ -17,10 +16,10 @@ header
 
                 each val, index in {'../../index.php':'Voir le site public','#':'Identité du site'}
                     li
-                        a(href=index title="Renvois vers la page "+val)=val
+                        a(href=index title="Renvois vers la page " + val)=val
 main
     h2 Les deniers ajoutés
-    h3 
+    h3
         a(href="./formulaireAjouter.php" class="add") Ajouter un livre
     table
         tr
@@ -33,20 +32,20 @@ main
             th Descriptions
             th Supprimer
             th Modifier
-            
+
 
         each val, index in auteurs
             tr
-                td= index+"."
+                td= index + "."
                 td Titre du livres
                 td= val
                 td editeurs
                 td roman
                 td 2013
                 td  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus illum consectetur, in aliquid minima doloribus! Vitae.
-                td 
+                td
                     a(href='formulaireModifications.php' class="supp") Supprimer
-                td 
+                td
                     a(href='formulaireModifications.php' class="edit") Modifier
 
 

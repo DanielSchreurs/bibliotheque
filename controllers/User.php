@@ -11,15 +11,16 @@
  **/
 namespace Controllers;
 
+use Helpers\validate;
 use Models\UserRepositoryInterface as UserRepository;
 
 class User extends Base
 {
-    function __construct(Request $request, UserRepository $modelUser)
-    {
-        parent::__construct($request);
-        $this->modelUser = $modelUser;
-    }
+     function __construct(Request $request, UserRepository $modelUser)
+     {
+         parent::__construct($request);
+         $this->modelUser = $modelUser;
+     }
 
     function login()
     {
@@ -60,11 +61,26 @@ class User extends Base
 
     public function create()
     {
+
+        $data = null;
+        unset($this->request->errors['question'],$this->request->errors['answer']);
+        if( $_SERVER['REQUEST_METHOD'] === "POST" && !filter_var($this->request->sent->email,FILTER_VALIDATE_EMAIL)){
+            $this->request->errors['email']='Oups, mail nom valide';
+        }
+        if ($_SERVER['REQUEST_METHOD'] === "POST"&& empty($this->request->errors)) {
+            $this->modelUser->create($this->request->sent);
+        }
+        else{
+            $data['errors']=$this->request->errors;
+            $data['sent']=$this->request->sent;
+        }
         $view = 'create.php';
-        $date = $this->modelUser->create();
-        die();
+        $title = 'formulaire d’inscription';
         return [
+            'data' => $data,
             'view' => $view,
+            'title'=>$title
+
         ];
     }
 

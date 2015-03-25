@@ -5,6 +5,7 @@
  */
 
 namespace Models;
+
 class Year extends Model implements YearRepositoryInterface
 {
 
@@ -17,8 +18,8 @@ class Year extends Model implements YearRepositoryInterface
 
     public function all()
     {
-        $sql='SELECT DISTINCT YEAR(datepub) as year FROM books';
-        $pdost=$this->cx->query($sql);
-         return $pdost->fetchAll();
+        $sql = 'SELECT DISTINCT YEAR(datepub) as year FROM books';
+        $pdost = $this->cx->query($sql);
+        return $pdost->fetchAll();
     }
 }

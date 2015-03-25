@@ -55,12 +55,13 @@ class Book extends Model implements BookRepositoryInterface
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
+
     public function paginate($page)
     {
 
-        $page=NBR_BOOKS*($page-1);
-        
-         $sql = '
+        $page = NBR_BOOKS * ($page - 1);
+
+        $sql = '
                  SELECT
                 books.id AS book_id,
                 genres.id AS genre_id,
@@ -86,7 +87,7 @@ class Book extends Model implements BookRepositoryInterface
                 JOIN author_book on book_id=books.id
                 JOIN authors on author_id=authors.id
                 ORDER BY book_id
-                LIMIT '.NBR_BOOKS.' OFFSET '.$page;
+                LIMIT ' . NBR_BOOKS . ' OFFSET ' . $page;
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
@@ -162,7 +163,7 @@ class Book extends Model implements BookRepositoryInterface
 
     public function getBookFromYear($year_book)
     {
-        $sql='  SELECT
+        $sql = '  SELECT
                 books.id AS book_id,
                 genres.id AS genre_id,
                 editors.id AS editor_id,
@@ -182,8 +183,8 @@ class Book extends Model implements BookRepositoryInterface
                 JOIN author_book on book_id=books.id
                 JOIN authors on author_id=authors.id
                 where YEAR(datepub)=:year_book';
-        $pdost=$this->cx->prepare($sql);
-        $pdost->execute([':year_book'=>$year_book]);
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([':year_book' => $year_book]);
         return $pdost->fetchAll();
     }
 

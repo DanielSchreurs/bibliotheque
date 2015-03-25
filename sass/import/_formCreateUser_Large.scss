@@ -47,10 +47,17 @@
     content: "\e990";
   }
 }
-.form-create-user--error{
+
+.form-create-user--error {
   position: absolute;
-  right: -546px;
-  top:10px;
+  right: -567px;
+  top: 10px;
   border: 1px solid red;
-  padding:1em;
+  padding: 1em .5em;
+}
+
+.form-create-user--error__remove {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

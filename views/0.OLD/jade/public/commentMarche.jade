@@ -8,8 +8,8 @@ html
         meta(name='keywords' content= 'la joie de livre,LA JOIE DE LIVRE,bibliothèques,Bibliothèques,Bibliothèque, livres,Livres, nationnal, belge, Belgique')
         meta(name='author' content= 'Daniel schreurs')
         meta(name='viewport' content='width=device-width')
-        
-        meta(name='viewport' content='width=device-width, initial-scale=1.0') 
+
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
         link(rel='apple-touch-icon' sizes='57x57' href='./img/favicons/apple-touch-icon-57x57.png')
         link(rel='apple-touch-icon' sizes='60x60' href='./img/favicons/apple-touch-icon-60x60.png')
         link(rel='apple-touch-icon' sizes='72x72' href='./img/favicons/apple-touch-icon-72x72.png')
@@ -30,22 +30,22 @@ html
         link(rel='stylesheet' href='../../css/style.css' type='text/css')
         title La joie de livre | Nos Bibliothèques
     body
-        include ../essentials/header.jade            
+        include ../essentials/header.jade
         main
             form(class="form_recherche" name="global")
                 input(type="search" list="tous" required placeholder="Un livre, un auteur" name="recherche" id="recherche")
                 datalist(id="tous")
                     each val in nosLieux
                         option(value=val)=val
-                
+
                 input(type="submit" value="Rechercher !" )
-                    
-            nav(class="main_nav_Bibli_Small")    
+
+            nav(class="main_nav_Bibli_Small")
                 ul
                     each val in listeMenu
                         li
-                            a(href="#" title="affiche tous les "+val)="tous les "+val
-                
+                            a(href="#" title="affiche tous les " + val)="tous les " + val
+
             h2 Comment ça marche&nbsp;?
 
             ul(class="liste_Questions")
@@ -53,9 +53,9 @@ html
                     li
                         h3
                             a(href="#" title="")= index
-                        
+
 
                         blockquote
-                                    p=val
+                            p=val
 
         include ../essentials/footer.jade

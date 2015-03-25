@@ -1,11 +1,12 @@
 .site-pagination {
   margin-top: 2em;
-  font-size:1.2em ;
+  font-size: 1.2em;
 }
+
 .site-pagination__link {
   display: block;
   background: $grisClair;
-  text-align:center;
+  text-align: center;
   margin-top: .5em;
   font-size: 1.3em;
   padding: .3em 0;
@@ -19,16 +20,17 @@
   -ms-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
-  &:hover{
+  &:hover {
     border: 1px solid $vert;
     background: transparent;
     color: $vert;
   }
 }
-.site-pagination__link--current{
+
+.site-pagination__link--current {
   display: block;
   background: $vert;
-  text-align:center;
+  text-align: center;
   margin-top: .5em;
   font-size: 1.3em;
   padding: .3em 0;
@@ -42,7 +44,7 @@
   -ms-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
-  &:hover{
+  &:hover {
     border: 1px solid $vert;
     background: transparent;
     color: $vert;

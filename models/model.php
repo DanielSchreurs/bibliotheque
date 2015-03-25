@@ -20,22 +20,24 @@ class model implements ModelRepositoryInterface
         $this->table = $table;
     }
 
-    public function search($table, $get, Array $where,$what ){
-        $params=[];
-        $sql='SELECT '.$get.' FROM '.$table.' WHERE ';
-        foreach($where as $coll){
-                $params[]=$coll.' LIKE '."'%".$what."%'";
+    public function search($table, $get, Array $where, $what)
+    {
+        $params = [];
+        $sql = 'SELECT ' . $get . ' FROM ' . $table . ' WHERE ';
+        foreach ($where as $coll) {
+            $params[] = $coll . ' LIKE ' . "'%" . $what . "%'";
         }
 
-        $sql.=implode(' OR ',$params);
-       $pdost=$this->cx->query($sql);
+        $sql .= implode(' OR ', $params);
+        $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
 
     }
 
-    public function searchAll(Array $research){
-        foreach($research as $table=>$info){
-           $resultats[$table]=$this->search($table, $info['get'],$info['where'],$info['what']);
+    public function searchAll(Array $research)
+    {
+        foreach ($research as $table => $info) {
+            $resultats[$table] = $this->search($table, $info['get'], $info['where'], $info['what']);
         }
         return $resultats;
     }

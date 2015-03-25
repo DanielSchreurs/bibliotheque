@@ -7,7 +7,8 @@
 namespace Models;
 
 
-interface AuthorRepositoryInterface {
+interface AuthorRepositoryInterface
+{
 
 
     public function all();

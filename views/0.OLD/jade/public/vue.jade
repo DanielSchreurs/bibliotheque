@@ -8,8 +8,8 @@ html
         meta(name='keywords' content= 'la joie de livre,LA JOIE DE LIVRE,bibliothèques,Bibliothèques,Bibliothèque, livres,Livres, nationnal, belge, Belgique')
         meta(name='author' content= 'Daniel schreurs')
         meta(name='viewport' content='width=device-width')
-        
-        meta(name='viewport' content='width=device-width, initial-scale=1.0') 
+
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
         link(rel='apple-touch-icon' sizes='57x57' href='./img/favicons/apple-touch-icon-57x57.png')
         link(rel='apple-touch-icon' sizes='60x60' href='./img/favicons/apple-touch-icon-60x60.png')
         link(rel='apple-touch-icon' sizes='72x72' href='./img/favicons/apple-touch-icon-72x72.png')
@@ -30,7 +30,7 @@ html
         link(rel='stylesheet' href='css/style.css' type='text/css')
         title La joie de livre | accueil
     body
-        include ../essentials/header.jade            
+        include ../essentials/header.jade
         main
             form(class="form_recherche" name="global")
                 input(type="search" list="tous" required placeholder="Un livre, un auteur" name="recherche"  id="recherche")
@@ -41,19 +41,19 @@ html
                     each val in nosLieux
                         option(value="Chiroux" title="Selectionner votre blibliotheque")=val
                 input(type="submit" value="Rechercher !" )
-            nav(class="main_nav_Bibli_Small")    
+            nav(class="main_nav_Bibli_Small")
                 ul
                     each val in listeMenu
                         li
-                            a(href="#" title="affiche tous les "+val)="tous les "+val
-                
+                            a(href="#" title="affiche tous les " + val)="tous les " + val
+
             h2 Derniers ajoutés
             ul(class="liste_livres")
                 each val in listeLivres
                     li
                         h3
-                            a(href="#" title="Renvois vers une page avec uniquement le livre "+val)= val
-                        img(src='./img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg' alt="première du livre"+val width="180" height="270" )
+                            a(href="#" title="Renvois vers une page avec uniquement le livre " + val)= val
+                        img(src='./img/andreBreton/andre_breton_anthologie_de_lhumour_noir.jpg' alt="première du livre" + val width="180" height="270" )
 
                         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur metus neque, semper m mattis tristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpattristique, tempor non turpis. Ut enim diam, venenatis non ipsum at, placerat dictum nisi. Vestibulum finibus, nulla nec molestie aliquam, libero augue mattis elit, sed cursus nisl purus ac mauris. Phasellus eget lectus augue. Donec vel risus orci. Phasellus ut ultrices ligula. Curabitur sodales dolor vel lacus sollicitudin, sit amet tempor nulla volutpat
 
@@ -61,5 +61,5 @@ html
                             each val, index in listedef
                                 dt=index
                                 dd
-                                    a(href="#" title="Renvois vers une page qui reprend tous les "+index+"s de "+val)= val 
+                                    a(href="#" title="Renvois vers une page qui reprend tous les " + index + "s de " + val)= val
         include ../essentials/footer.jade

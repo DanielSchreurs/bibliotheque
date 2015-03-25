@@ -1,12 +1,14 @@
 <header class="header-main">
     <a class="header-main__box-logo" href="<?php echo($_SERVER['PHP_SELF']) ?>"><?php echo(TITLE); ?></a>
+
     <div class="header-main__nav">
         <a class="header-main__nav__nav_items" href="<?php echo($_SERVER['PHP_SELF']); ?>"
            title="Renvois vers la page d'accueil">Accueil</a>
-        <a class="header-main__nav__nav_items" href="<?php echo($html->createLink('library','index')); ?>"
+        <a class="header-main__nav__nav_items" href="<?php echo($html->createLink('library', 'index')); ?>"
            title="Renvois vers la page Nos blibliothèques">Nos
             blibliothèques</a>
-        <a class="header-main__nav__nav_items" href="<?php echo($html->createLink('page','help')); ?>" title="Renvois vers la page Comment ça marche">Comment
+        <a class="header-main__nav__nav_items" href="<?php echo($html->createLink('page', 'help')); ?>"
+           title="Renvois vers la page Comment ça marche">Comment
             ça
             marche</a>
 
@@ -37,9 +39,12 @@
                     </form>
                 <?php endif; ?>
                 <?php if ($userConnec): ?>
-                    <p>Bonjour <?php echo($_COOKIE['first_name']); ?></p>
+                    <p>Bonjour <?php echo (isset($_COOKIE)) ? $_COOKIE['first_name'] : $_SESSION['first_name']; ?></p>
                     <a href="<?php echo($html->createLink('user', 'logout')); ?>" class="btnVert">Se
                         déconnecter</a>
+                    <?php if (isset($_COOKIE['role']) ? $_COOKIE['role'] : $_SESSION['role'] == 'admin'): ?>
+                        <a href="<?php echo($html->createLink('page', 'admin_index')); ?>" class="btnVert">Administration</a>
+                    <?php endif; ?>
                 <?php endif; ?>
                 <?php if ($controller->view == 'user/create.php'): ?>
                     <a href="<?php echo($_SERVER['PHP_SELF']); ?>" class="btnVert">Retour à l'acceuil</a>

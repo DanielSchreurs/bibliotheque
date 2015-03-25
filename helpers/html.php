@@ -10,14 +10,14 @@ class Html
 
     public function createLink($modele, $action, $param = null)
     {
-        if(!is_null($param)){
-            $param = '&'.http_build_query($param);
-        }else{
-            $param='';
+        if (!is_null($param)) {
+            $param = '&' . http_build_query($param);
+        } else {
+            $param = '';
 
         }
-        return $_SERVER['PHP_SELF'] . '?m=' . $modele . '&a=' . $action. $param;
-        
+        return $_SERVER['PHP_SELF'] . '?m=' . $modele . '&a=' . $action . $param;
+
     }
 
     public function cutText($chaine, $long)
@@ -65,9 +65,9 @@ class Html
             'décembre'
         ];
 
-        return date('j', $date). ' ' . $mois[date('m', $date)-1] . ' ' . date('Y', $date);
+        return date('j', $date) . ' ' . $mois[date('m', $date) - 1] . ' ' . date('Y', $date);
 
-        
+
     }
 
 }

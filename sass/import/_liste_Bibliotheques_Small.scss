@@ -1,54 +1,55 @@
-.liste_Bibliotheques{
-  h3 a{
+.liste_Bibliotheques {
+  h3 a {
     display: block;
-    padding-top:20px;
+    padding-top: 20px;
     font-size: 24px;
   }
-  li{
-    padding-bottom:30px;
-    margin-bottom:30px;
-    border-bottom:1px solid $grisFonce;
+  li {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid $grisFonce;
   }
 }
 
-  .info_Bibli{
-    font-size: 20px;
-    dt:after{
-      content:"";
-      display: block;
-      clear: both;
-    }
-    dd{
-      color:$grisFonce;
-      display: inline;
-      background: none;
-    }
-    dd:not(:last-child):after{
-      content: "/";
-      display: inline-block;
-      margin: 0 15px;
-    }
-    dt:hover+dd,dd:hover{
-      color: $vert;
-    }
-    dd,dt{
-      display: inline-block;
-      background: none;
-    }
+.info_Bibli {
+  font-size: 20px;
+  dt:after {
+    content: "";
+    display: block;
+    clear: both;
   }
-.heures_ouvertures{
+  dd {
+    color: $grisFonce;
+    display: inline;
+    background: none;
+  }
+  dd:not(:last-child):after {
+    content: "/";
+    display: inline-block;
+    margin: 0 15px;
+  }
+  dt:hover + dd, dd:hover {
+    color: $vert;
+  }
+  dd, dt {
+    display: inline-block;
+    background: none;
+  }
+}
+
+.heures_ouvertures {
   text-align: center;
   margin-top: 30px;
   border-collapse: collapse;
   caption-side: bottom;
-  th,td{
+  th, td {
     padding: 15px;
     border-bottom: 2px solid black;
   }
-  tr:hover{
-    background-color: rgb(251,251,251);
+  tr:hover {
+    background-color: rgb(251, 251, 251);
   }
-  tr:hover td, tr:hover th{
+  tr:hover td, tr:hover th {
     border-bottom: 2px solid $vert;
   }
 }

@@ -1,29 +1,53 @@
-header li a:first-letter{
+header li a:first-letter {
   text-transform: uppercase;
 }
+
 .header-main__box-logo {
-  display:block;
+  display: block;
   font: 34px/1.8 Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
   text-align: center;
-  padding:30px 0;
-  background-color:rgba(245, 245, 245,.8);
-  color:$grisFonce;
-  border-bottom:3px solid $vert;
+  padding: 30px 0;
+  background-color: rgba(245, 245, 245, .8);
+  color: $grisFonce;
+  border-bottom: 3px solid $vert;
 }
-header{
+
+header {
   position: relative;
 }
-.header-main__nav__nav_items:nth-child(2){ background-color:rgba(240, 240, 240,.8);border-bottom:2px solid rgba(240, 240, 240,.8); transition:all .3s;}
-  .header-main__nav__nav_items:nth-child(3){ background-color:rgba(230, 230, 230,.8);border-bottom:2px solid rgba(230, 230, 230,.8);transition:all .3s;}
-  .header-main__nav__nav_items:nth-child(4){ background-color:rgba(220, 220, 220,.8);border-bottom:2px solid rgba(220, 220, 220,.8);transition:all .3s;}
-  .header-main__nav__nav_items:first-child{ background-color:rgba(210, 210, 210,.8);border-bottom:2px solid rgba(210, 210, 210,.8);transition:all .3s;}
-  .header-main__nav__nav_items:hover{
-    border-bottom:2px solid $vert;
-  }
-  .header-main__nav__nav_items {
+
+.header-main__nav__nav_items:nth-child(2) {
+  background-color: rgba(240, 240, 240, .8);
+  border-bottom: 2px solid rgba(240, 240, 240, .8);
+  transition: all .3s;
+}
+
+.header-main__nav__nav_items:nth-child(3) {
+  background-color: rgba(230, 230, 230, .8);
+  border-bottom: 2px solid rgba(230, 230, 230, .8);
+  transition: all .3s;
+}
+
+.header-main__nav__nav_items:nth-child(4) {
+  background-color: rgba(220, 220, 220, .8);
+  border-bottom: 2px solid rgba(220, 220, 220, .8);
+  transition: all .3s;
+}
+
+.header-main__nav__nav_items:first-child {
+  background-color: rgba(210, 210, 210, .8);
+  border-bottom: 2px solid rgba(210, 210, 210, .8);
+  transition: all .3s;
+}
+
+.header-main__nav__nav_items:hover {
+  border-bottom: 2px solid $vert;
+}
+
+.header-main__nav__nav_items {
   display: block;
-  padding:6px 30px;
+  padding: 6px 30px;
   font-size: 20px;
-  color:$grisFonce;
+  color: $grisFonce;
   cursor: pointer;
-  }
+}
