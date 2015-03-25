@@ -13,9 +13,12 @@
 var i, linkShowPassword = document.getElementById('linkShowPassword');
 var showedpassword = document.getElementsByClassName('showedpassword');
 
-linkShowPassword.addEventListener('click', function () {
-    show(showedpassword, linkShowPassword);
-}, false);
+if(linkShowPassword!=null){
+    linkShowPassword.addEventListener('click', function () {
+        show(showedpassword, linkShowPassword);
+    }, false);
+}
+
 function show(elements, link) {
     for (i = 0; i < elements.length; i++) {
         elements[i].type == 'password' ? elements[i].type = 'text' : elements[i].type = 'password';
