@@ -30,7 +30,7 @@ class Request
         $route = $this->m . '/' . $this->a;//On formate la route selont le tableau existant
 
         if (!in_array($route, $routes)) {//verifie si la route demandées existent
-            die('Je suis dans le controleur request et $route n’est pas dans $routes');// Si le chemin n'existe pas dans le tableau on arrête le script
+            header('Location:./index.php?m=error&a=error&error=404');
         }
 
         if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
@@ -38,18 +38,20 @@ class Request
         }
         if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
             $this->page = $_REQUEST['page'];
-        }
-        else{
+        } else {
             $this->page = 1;
         }
         if (isset($_REQUEST['year']) && is_numeric($_REQUEST['year'])) {
             $this->year = $_REQUEST['year'];
         }
+        if (isset($_REQUEST['error']) && is_numeric($_REQUEST['error'])) {
+            $this->error = $_REQUEST['error'];
+        }
         if (!empty($_POST)) {
             $this->sent = new \stdClass();
             foreach ($_POST as $c => $v) {
-                if (empty($v)) {
-                    $this->errors[$c] = $v;
+                if (trim($v) == '') {
+                    $this->errors[$c] = 'Oups, ce champ est obligatoire';
                     $this->sent->$c = '';
                 } else {
                     $this->sent->$c = $v;
