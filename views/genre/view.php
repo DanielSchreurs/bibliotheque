@@ -1,4 +1,4 @@
-<?php $genre = $data['data'][0];?>
+<?php $genre = $data['data'][0]; ?>
 <main>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
@@ -24,9 +24,9 @@
                         du livre</a>
                     <?php endforeach; ?>
             </ul>
-       <?php else: ?>
+        <?php else: ?>
             <h3 class="noBoook">Il n'y a pas encore de Livre dans ce genre</h3>
-            <a class="btnVert" href="<?php echo($html->createLink('genre','index')); ?>">Voir les autres genres</a>
+            <a class="btnVert" href="<?php echo($html->createLink('genre', 'index')); ?>">Voir les autres genres</a>
         <?php endif; ?>
     </article>
 </main>

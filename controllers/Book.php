@@ -30,8 +30,8 @@ class Book extends Base
         $this->modelbook = $modelBook;
         $this->modelAuthor= $modelAuthor;
         $this->modelEditor= $modelEditor;
-        $this->modelGenren= $modelGenre;
-        $this->modellibrary= $modelLibrary;
+        $this->modelGenre= $modelGenre;
+        $this->modelLibrary= $modelLibrary;
     }
 
     public function index()
@@ -93,6 +93,20 @@ class Book extends Base
             'title'=>$title
         ];
     }
+    public function admin()
+    {
+            $this->view='admin/book.php';
+            $title='Administrer les livres';
+            //$data['authors']=$this->modelAuthor->all();
+            //$data['editors']=$this->modelEditor->all();
+            //$data['genres']=$this->modelGenre->all();
+            $data['librarys']=$this->modelLibrary->all();
+        return[
+            'data'=>$data,
+            'title'=>$title
+        ];
+    }
+
 
 
     public function update()

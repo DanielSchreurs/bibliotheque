@@ -14,7 +14,10 @@
                         src="./img/books_covers/<?php echo($book->front_cover); ?>.jpg"
                         alt="première du <?php echo($book->title); ?>" width="180" height="270"></a>
 
-                <p><?php echo($html->cutText($book->summary,200)); ?> <a class="btnVert" href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>">Lire la suite</a></p>
+                <p><?php echo($html->cutText($book->summary, 200)); ?> <a class="btnVert"
+                                                                          href="<?php echo($html->createLink('book',
+                                                                              'view', ['id' => $book->book_id])); ?>">Lire
+                        la suite</a></p>
                 <dl class="info_Livre clearfix">
                     <dt>Auteur</dt>
                     <dd><a href="<?php echo($html->createLink('author', 'view', ['id' => $book->author_id])); ?>"
@@ -29,7 +32,8 @@
                            title="Renvoie vers une page qui reprend tous les livres du genre <?php echo($book->genre_name); ?>"><?php echo($book->genre_name); ?></a>
                     </dd>
                     <dt>Année</dt>
-                    <dd><a href="<?php echo($html->createLink('book','liste',['year'=>date('Y', strtotime($book->datepub))]));?>"
+                    <dd><a href="<?php echo($html->createLink('book', 'liste',
+                            ['year' => date('Y', strtotime($book->datepub))])); ?>"
                            title="Renvoie vers une page qui reprend tous les livres de l'année <?php echo($book->datepub); ?>"><?php echo(date('Y',
                                 strtotime($book->datepub))); ?></a>
                     </dd>
@@ -41,7 +45,7 @@
             </li>
         <?php endforeach; ?>
     </ul>
-    <?php if($data['nbrPage']>1):?>
+    <?php if ($data['nbrPage'] > 1): ?>
         <?php include('./views/parts/pagination.php'); ?>
     <?php endif; ?>
 
