@@ -46,15 +46,15 @@ class User extends Model implements UserRepositoryInterface
     public function create($obj)
     {
         $sql = '
-              INSERT INTO users (first_name,last_name,email,username,password,question,answer)
-              VALUES (:first_name,:last_name,:username,:email,:password,:question,:answer)';
+              INSERT INTO users (first_name,last_name,username,password,email,question,answer)
+              VALUES (:first_name,:last_name,:username,:password,:email,:question,:answer)';
         $pdost = $this->cx->prepare($sql);
         $pdost->execute([
                 ':first_name' => $obj->first_name,
                 ':last_name' => $obj->last_name,
                 ':username' => $obj->username,
-                ':email' => $obj->email,
                 ':password' => $obj->password,
+                ':email' => $obj->email,
                 ':question' => $obj->question,
                 ':answer' => $obj->answer
             ]
