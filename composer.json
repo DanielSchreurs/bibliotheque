@@ -2,13 +2,13 @@
   "name": "danielschreurs/bibliotheque",
   "require": {
     "nesbot/carbon": "~1.16",
-    "illuminate/container":"5.0.x-dev"
+    "illuminate/container": "5.0.x-dev"
   },
   "autoload": {
     "psr-4": {
       "Controllers\\": "controllers/",
       "Models\\": "models",
-      "Helpers\\":"helpers"
+      "Helpers\\": "helpers"
     }
   },
   "authors": [
