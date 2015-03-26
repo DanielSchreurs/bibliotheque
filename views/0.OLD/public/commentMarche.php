@@ -74,7 +74,7 @@
         </datalist>
         <input type="submit" value="Rechercher !">
     </form>
-    <nav class="main_nav_Bibli_Small">
+    <nav class="main-nav">
         <ul>
             <li><a href="#" title="affiche tous les auteurs">tous les auteurs</a></li>
             <li><a href="#" title="affiche tous les editeurs">tous les editeurs</a></li>
