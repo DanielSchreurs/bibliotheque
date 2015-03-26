@@ -1,32 +1,29 @@
-.main_nav_Bibli_Small {
-  padding-top: 15px;
-
-  li {
-    display: inline-block;
-    a {
-      padding-right: 25px;
-      color: $vert;
-      font-size: 20px;
-      letter-spacing: .01em;
-    }
-  }
-
+.main-nav {
+  padding: 1em 0;
+  padding-bottom: 2em;
 }
-
-.liste_Bibliotheques h3 a:after, .main_nav_Bibli_Small a:after {
-  content: "";
+.main-nav__item,.main-nav__item--small{
   display: block;
-  width: 0;
-  height: 2px;
-  background-color: $vert;
-  margin-bottom: -15px;
-  padding: 0;
-  -webkit-transition: all .3s;
-  -o-transition: all .3s;
-  transition: all .3s;
-}
-
-.liste_Bibliotheques h3 a:hover:after, .main_nav_Bibli_Small a:hover:after {
-
-  width: 100%;
+  padding:.5em percentage(20/300);
+  color: $vert;
+  font-size: 20px;
+  letter-spacing: .01em;
+  &:first-letter{
+    text-transform: uppercase;
+  }
+  &:after{
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: $vert;
+    margin-bottom: -15px;
+    padding: 0;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+  }
+  &:hover:after{
+    width: 100%;
+  }
 }
