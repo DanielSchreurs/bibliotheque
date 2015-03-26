@@ -12,4 +12,7 @@ interface LibraryRepositoryInterface
 
 
     public function all();
+
+    public function view($id_library);
+
 }
