@@ -69,6 +69,7 @@ class User extends Base
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST"&& empty($this->request->errors)) {
             $this->modelUser->create($this->request->sent);
+            $data['message']='Merci pour votre inscription';
         }
         else{
             $data['errors']=$this->request->errors;
