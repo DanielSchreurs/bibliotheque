@@ -3,6 +3,8 @@ include('config/config.php');
 include_once(CONFIG_DIR . 'routes.php');
 include_once(CONFIG_DIR . 'database.php');
 setlocale(LC_ALL, $language);
+error_reporting(E_ALL);
+ini_set('display_errors',1);
 // Définition du chemin d’inclusion pour y ajouter le dossier des classes controleurs et modèles
 set_include_path(
     get_include_path() .
