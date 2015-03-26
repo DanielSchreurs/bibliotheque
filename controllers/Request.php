@@ -29,7 +29,7 @@ class Request
         }
         $route = $this->m . '/' . $this->a;//On formate la route selont le tableau existant
 
-        if (!in_array($route, $routes)) {//verifie si la route demandées existent
+        if (!in_array($route, $routes)) {
             header('Location:./index.php?m=error&a=error&error=404');
         }
 
