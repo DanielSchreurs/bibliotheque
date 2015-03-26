@@ -16,7 +16,7 @@ class Author extends Base
     }
 
 
-    function index()
+    public function index()
     {
         $data = $this->modelAuthor->all();
         $title = 'Les auteurs';
@@ -24,6 +24,11 @@ class Author extends Base
             'data' => $data,
             'title' => $title
         ];
+    }
+
+    public function admin()
+    {
+        $this->view='admin/author.php';
     }
 
     public function view()
