@@ -24,15 +24,16 @@ class Library extends Model implements LibraryRepositoryInterface
 
     public function view($id_library)
     {
-        $sql='
+        $sql = '
               SELECT
               id as library_id,
               name,
               phone,
               logo,
               slogan
-              FROM librarys where id=1';
-        $pdost=$this->cx->query($sql);
+              FROM librarys where id=:id_library';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([':id_library'=>$id_library]);
         return $pdost->fetch();
     }
 }
