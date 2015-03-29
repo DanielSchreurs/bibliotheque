@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Components\Flash;
 use Helpers\validate;
 use Models\UserRepositoryInterface as UserRepository;
 
@@ -36,8 +37,7 @@ class User extends Base
                 } else {
                     $_SESSION['first_name'] = false;
                     setcookie('first_name', false, LIVETIME);
-                    die('not found');
-                    $this->message='Oups, votre login ou mot de pass ne sont pas correct';
+                    Flash::setMessage('Oups, votre login ou mot de pass semble erroné');
                     header('Location:'.$_SERVER['PHP_SELF']);
                 }
             } else {
