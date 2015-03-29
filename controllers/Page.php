@@ -54,7 +54,25 @@ class Page extends Base
 
     public function admin_index()
     {
-       $this->view='admin/index.php';
+        $title='Vous n’avez pas le droit d’effectuer cette opération';
+        if(isset($_COOKIE['role'])){
+            if($_COOKIE['role']=='admin'){
+            $this->view='admin/index.php';
+            }
+        }
+        elseif(isset($_SESSION['role'])){
+            if($_SESSION['role']=='admin'){
+            $this->view='admin/index.php';
+            return[
+              'title'=>$title
+            ];
+            }
+        }
+        else{
+            $this->view='error/error.php';
+            return[
+                'title'=>$title
+            ];
+        }
     }
-
 }
