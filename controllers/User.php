@@ -1,14 +1,5 @@
 <?php
 
-/**
- * Ceci est le constructeur qui est appelé lorsqu’un utilisateur essaye de se connecter. Si la méthode « exist » du
- * « modele » « user » revoit « true », c’est que l’utilisateur existe déjà dans la basse de donnée. Et donc on ne
- * redirige pas vers le formulaire d’inscription.  Cependant, deux possibilités existent encore. Le cas où
- * l’utilisateur veut garder sa session active, ainsi une
- * variable de type « bolean » est stockée non pas dans « $_SESSION»,  mais dans « $_COOKIES » (La durée de vie est
- * définie dans le fichier config). Si l’utilisateur ne veut pas garder sa session active, on stoke la variable
- * dans la « $_SESSION».
- **/
 namespace Controllers;
 
 use Helpers\validate;
@@ -25,7 +16,7 @@ class User extends Base
     function login()
     {
         if ($_SESSION['first_name']) {
-            header('Location: index.php');
+            header('Location:'.$_SERVER['PHP_SELF']);
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($this->request->sent->username) && isset($this->request->sent->password)) {
@@ -41,15 +32,17 @@ class User extends Base
                             $_SESSION[$c] = $v;
                         }
                     }
-                    header('Location:http://localhost:8888/bibliotheque');
+                    header('Location:'.$_SERVER['PHP_SELF']);
                 } else {
                     $_SESSION['first_name'] = false;
                     setcookie('first_name', false, LIVETIME);
-                    die('User not found');
-                    header('Location:http://localhost:8888/bibliotheque');
+                    die('not found');
+                    $this->message='Oups, votre login ou mot de pass ne sont pas correct';
+                    header('Location:'.$_SERVER['PHP_SELF']);
                 }
             } else {
-                die('On essaye de tricher ?');
+                $this->message='On essaye de tricher ? ';
+                header('Location:'.$_SERVER['PHP_SELF']);
             }
         } else {
             return [
@@ -58,10 +51,8 @@ class User extends Base
             ];
         }
     }
-
     public function create()
     {
-
         $data = null;
         unset($this->request->errors['question'],$this->request->errors['answer']);
         if( $_SERVER['REQUEST_METHOD'] === "POST" && !filter_var($this->request->sent->email,FILTER_VALIDATE_EMAIL)){
@@ -93,6 +84,6 @@ class User extends Base
         setcookie('last_name', false, time() - (3600));
         setcookie('photo', false, time() - (3600));
         setcookie('role', false, time() - (3600));
-        header('Location:http://localhost:8888/bibliotheque/index.php');
+        header('Location:'.$_SERVER['PHP_SELF']);
     }
 }
