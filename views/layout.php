@@ -4,8 +4,7 @@
 <body>
 <h1 class="hidden"><?php echo(TITLE . ' | ' . $data['title']) ?></h1>
 <?php include(VIEW_DIR . 'parts/header.php'); ?>
-<?php //var_dump($controller); ?>
-<?php include($controller->view); ?>
+<?php include($controller->view); ?>v
 <?php include(VIEW_DIR . 'parts/footer.php'); ?>
 <script type="text/javascript" src="./js/app.js"></script>
 <!--<script type="text/javascript">

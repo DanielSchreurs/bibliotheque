@@ -1,4 +1,5 @@
 <main>
+    <?php Components\Flash::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <ul class="liste_genre">

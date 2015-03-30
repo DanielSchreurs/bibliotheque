@@ -1,1 +1,4 @@
-<h1>Ici il faut faire une boucle en php pour récupérer tous les auteurs</h1>
+<main>
+    <?php Components\Flash::flash(); ?>
+    <h2> tous les user</h2>
+</main>

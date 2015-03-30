@@ -1,5 +1,6 @@
 <?php $html = new \Helpers\Html(); ?>
 <main>
+    <?php Components\Flash::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <h2>Nos Bibliothèques</h2>
