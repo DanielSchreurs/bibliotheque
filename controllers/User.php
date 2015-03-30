@@ -33,16 +33,20 @@ class User extends Base
                             $_SESSION[$c] = $v;
                         }
                     }
+                    Flash::setMessage('Vous êtes connecté');
                     header('Location:'.$_SERVER['PHP_SELF']);
+                    die();
                 } else {
                     $_SESSION['first_name'] = false;
                     setcookie('first_name', false, LIVETIME);
-                    Flash::setMessage('Oups, votre login ou mot de pass semble erroné');
-                    header('Location:'.$_SERVER['PHP_SELF']);
+                    Flash::setMessage('Oups, votre login ou mot de pass semble erroné','error');
+                   header('Location:'.$_SERVER['PHP_SELF']);
+                    die();
                 }
             } else {
-                $this->message='On essaye de tricher ? ';
+                Flash::setMessage('On essaye de tricher ?');
                 header('Location:'.$_SERVER['PHP_SELF']);
+                die();
             }
         } else {
             return [
@@ -60,7 +64,8 @@ class User extends Base
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST"&& empty($this->request->errors)) {
             $this->modelUser->create($this->request->sent);
-            $data['message']='Merci pour votre inscription';
+            Flash::setMessage('Merci pour votre inscription');
+            header('Location:'.$_SERVER['PHP_SELF']);
         }
         else{
             $data['errors']=$this->request->errors;

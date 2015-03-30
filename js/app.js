@@ -12,13 +12,16 @@
 
 var i, linkShowPassword = document.getElementById('linkShowPassword');
 var showedpassword = document.getElementsByClassName('showedpassword');
+var flash=document.getElementsByClassName('flash-box__btn')[0];
 
 if(linkShowPassword!=null){
     linkShowPassword.addEventListener('click', function () {
         show(showedpassword, linkShowPassword);
     }, false);
 }
-
+if(flash!=null){
+    flash.addEventListener('click',removeParent,false)
+}
 function show(elements, link) {
     for (i = 0; i < elements.length; i++) {
         elements[i].type == 'password' ? elements[i].type = 'text' : elements[i].type = 'password';
@@ -27,7 +30,9 @@ function show(elements, link) {
     link.className = (elements[0].type == 'password' ? 'ouvrir ' : 'fermer ') + 'icon smallInfo';
 
 }
-
+function removeParent(){
+   event.target.parentElement.remove();
+}
 /*
  * donner une margin au body qui esr égale à la hauteur du footer, une alternative est prévu en css
  * */

@@ -172,22 +172,27 @@ body .error {
   color: red;
   border-color: red !important; }
 
-/* line 121, ../sass/import/_general.scss */
+/* line 120, ../sass/import/_general.scss */
+body .success {
+  color: green;
+  border-color: green; }
+
+/* line 125, ../sass/import/_general.scss */
 h3.noBoook {
   color: red;
   font-size: 1.7em; }
 
-/* line 126, ../sass/import/_general.scss */
+/* line 130, ../sass/import/_general.scss */
 .column {
   -webkit-columns: 2;
   -moz-columns: 2;
   columns: 2; }
 
-/* line 132, ../sass/import/_general.scss */
+/* line 136, ../sass/import/_general.scss */
 .form-create-user--error {
   color: red; }
 
-/* line 136, ../sass/import/_general.scss */
+/* line 140, ../sass/import/_general.scss */
 .form-create-user__obligatoire {
   color: #026660;
   font-weight: bold; }
@@ -661,14 +666,43 @@ header li .header-main__form-connexion__userLog {
     background: transparent;
     color: #026660; }
 
-/* line 27, ../sass/style.scss */
+/* line 1, ../sass/import/flash-box_Small.scss */
+.flash-box {
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  margin: 2em 0;
+  position: relative; }
+
+/* line 8, ../sass/import/flash-box_Small.scss */
+.flash-box__btn {
+  display: inline-block;
+  cursor: pointer;
+  padding: .1em 1em; }
+
+/* line 13, ../sass/import/flash-box_Small.scss */
+.flash-box.success {
+  background: rgba(101, 204, 88, 0.7);
+  color: #1a7413; }
+
+/* line 17, ../sass/import/flash-box_Small.scss */
+.flash-box.information {
+  background: rgba(0, 149, 223, 0.8);
+  color: #00329c; }
+
+/* line 21, ../sass/import/flash-box_Small.scss */
+.flash-box.error {
+  background: rgba(246, 181, 196, 0.8);
+  color: #b60013; }
+
+/* line 34, ../sass/style.scss */
 main {
   margin: 70px 30px 0; }
-  /* line 29, ../sass/style.scss */
+  /* line 36, ../sass/style.scss */
   main h2 {
     font-size: 30px;
     text-align: right; }
-  /* line 33, ../sass/style.scss */
+  /* line 40, ../sass/style.scss */
   main form + h2 {
     margin-top: 30px; }
 
@@ -677,7 +711,7 @@ style pour les medium
 
 */
 @media screen and (min-width: 590px) {
-  /* line 43, ../sass/style.scss */
+  /* line 50, ../sass/style.scss */
   main {
     width: 540px;
     margin: 80px auto;
@@ -748,7 +782,7 @@ Style large
 
 */
 @media screen and (min-width: 1190px) {
-  /* line 59, ../sass/style.scss */
+  /* line 66, ../sass/style.scss */
   main {
     width: 1080px;
     margin: 188px auto 0 auto; }
@@ -962,7 +996,19 @@ Style large
     -webkit-column-gap: 2.5em;
     -moz-column-gap: 2.5em;
     column-gap: 2.5em;
-    margin-bottom: 4em; } }
+    margin-bottom: 4em; }
+
+  /* line 1, ../sass/import/flash-box_Large.scss */
+  .flash-box {
+    color: white;
+    padding: .5em 2%; }
+
+  /* line 6, ../sass/import/flash-box_Large.scss */
+  .flash-box__btn {
+    position: absolute;
+    top: 0.1em;
+    right: 0%;
+    font-size: 1.25em; } }
 /* line 1, ../sass/import/_footer.scss */
 footer {
   position: absolute;
