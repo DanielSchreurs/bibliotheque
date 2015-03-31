@@ -57,28 +57,36 @@ class User extends Base
     }
     public function create()
     {
-        $data = null;
         unset($this->request->errors['question'],$this->request->errors['answer']);
         if( $_SERVER['REQUEST_METHOD'] === "POST" && !filter_var($this->request->sent->email,FILTER_VALIDATE_EMAIL)){
             $this->request->errors['email']='Oups, mail nom valide';
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST"&& empty($this->request->errors)) {
             $this->modelUser->create($this->request->sent);
+            $this->login($this->request->sent->username,$this->request->sent->password);
             Flash::setMessage('Merci pour votre inscription');
             header('Location:'.$_SERVER['PHP_SELF']);
+            die('');
         }
         else{
             $data['errors']=$this->request->errors;
             $data['sent']=$this->request->sent;
         }
-        $view = 'create.php';
-        $title = 'formulaire d’inscription';
-        return [
-            'data' => $data,
-            'view' => $view,
-            'title'=>$title
+        if(isset($data['errors'])){
+            $view = 'create.php';
+            $title = 'formulaire d’inscription';
+            return [
+                'data' => $data,
+                'view' => $view,
+                'title'=>$title
+            ];
+        }
+       else{
+           Flash::setMessage('Merci, poru votre inscription. Vous pouvez vous connecter.');
+           header('Location:'.$_SERVER['PHP_SELF']);
+           die();
+       }
 
-        ];
     }
 
     public function logout()
