@@ -24,14 +24,14 @@ class Book extends Base
         AuthorRepositoryInterface $modelAuthor,
         EditorRepositoryInterface $modelEditor,
         GenreRepositoryInterface $modelGenre,
-        LibraryRepositoryInterface $modelLibrary)
-    {
+        LibraryRepositoryInterface $modelLibrary
+    ) {
         parent::__construct($request);
         $this->modelbook = $modelBook;
-        $this->modelAuthor= $modelAuthor;
-        $this->modelEditor= $modelEditor;
-        $this->modelGenre= $modelGenre;
-        $this->modelLibrary= $modelLibrary;
+        $this->modelAuthor = $modelAuthor;
+        $this->modelEditor = $modelEditor;
+        $this->modelGenre = $modelGenre;
+        $this->modelLibrary = $modelLibrary;
     }
 
     public function index()
@@ -83,31 +83,16 @@ class Book extends Base
 
     public function create()
     {
-            $title='Ajouter une livre';
-            $data['authors']=$this->modelAuthor->all();
-            $data['editors']=$this->modelEditor->all();
-            $data['genres']=$this->modelGenre->all();
-            $data['librarys']=$this->modelLibrary->all();
-        return[
-            'data'=>$data,
-            'title'=>$title
+        $title = 'Ajouter une livre';
+        $data['authors'] = $this->modelAuthor->all();
+        $data['editors'] = $this->modelEditor->all();
+        $data['genres'] = $this->modelGenre->all();
+        $data['librarys'] = $this->modelLibrary->all();
+        return [
+            'data' => $data,
+            'title' => $title
         ];
     }
-    public function admin()
-    {
-            $this->view='admin/book.php';
-            $title='Administrer les livres';
-            //$data['authors']=$this->modelAuthor->all();
-            //$data['editors']=$this->modelEditor->all();
-            //$data['genres']=$this->modelGenre->all();
-            $data['librarys']=$this->modelLibrary->all();
-        return[
-            'data'=>$data,
-            'title'=>$title
-        ];
-    }
-
-
 
     public function update()
     {
@@ -125,5 +110,36 @@ class Book extends Base
             'view' => $view,
             'title' => $title
         ];
+    }
+
+    public function admin()
+    {
+        $title = 'Vous n’avez pas le droit d’effectuer cette opération';
+        if (isset($_COOKIE['role'])) {
+            if ($_COOKIE['role'] == 'admin') {
+                $title = 'Administrer les livres';
+                $data['authors'] = $this->modelAuthor->all();
+                $data['editors'] = $this->modelEditor->all();
+                $data['genres'] = $this->modelGenre->all();
+                $data['librarys'] = $this->modelLibrary->all();
+                return [
+                    'data' => $data,
+                    'title' => $title
+                ];
+
+            }
+        } elseif (isset($_SESSION['role'])) {
+            if ($_SESSION['role'] == 'admin') {
+                $this->view = 'admin/index.php';
+                return [
+                    'title' => $title
+                ];
+            }
+        } else {
+            $this->view = 'error/error.php';
+            return [
+                'title' => $title
+            ];
+        }
     }
 }
