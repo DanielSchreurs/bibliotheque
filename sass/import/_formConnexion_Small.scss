@@ -23,7 +23,7 @@ header li .header-main__form-connexion__userLog {
   input[type="text"], input[type="password"] {
     display: block;
     font-size: 16px;
-    border: 1px solid $vert;
+    border: 1px solid $myGray;
     background: none;
     padding: 5px 10px;
     -webkit-border-radius: 5px;
@@ -47,10 +47,10 @@ header li .header-main__form-connexion__userLog {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  border: 1px solid $vert;
+  border: 1px solid $myGray;
   background: none;
   font-size: 16px !important;
-  color: $vert;
+  color: $myGray;
   padding: 5px 10px;
   font-family: 'NexaLight' 'Helvetica Neue' 'Helvetica' Arial 'sans-serif';
   cursor: pointer;
@@ -59,7 +59,7 @@ header li .header-main__form-connexion__userLog {
 }
 
 .btnVert:hover {
-  background-color: $vert;
+  background-color: $myGray;
   color: white;
 }
 
@@ -75,12 +75,12 @@ header li .header-main__form-connexion__userLog {
     margin-right: 5px !important;
   }
   .btnVert:hover {
-    background-color: $vert;
+    background-color: $myGray;
     color: white;
   }
   .btnVert {
     display: inline;
     font-size: 20px;
-    color: $vert;
+    color: $myGray;
   }
 }

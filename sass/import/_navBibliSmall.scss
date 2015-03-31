@@ -5,7 +5,7 @@
 .main-nav__item,.main-nav__item--small{
   display: block;
   padding:.5em percentage(20/300);
-  color: $vert;
+  color: $myGray;
   font-size: 20px;
   letter-spacing: .01em;
   &:first-letter{
@@ -16,7 +16,7 @@
     display: block;
     width: 0;
     height: 2px;
-    background-color: $vert;
+    background-color: $myGray;
     margin-bottom: -15px;
     padding: 0;
     -webkit-transition: all .3s;

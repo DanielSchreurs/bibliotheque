@@ -29,7 +29,7 @@
     margin: 0 15px;
   }
   dt:hover + dd, dd:hover {
-    color: $vert;
+    color: $myGray;
   }
   dd, dt {
     display: inline-block;
@@ -50,6 +50,6 @@
     background-color: rgb(251, 251, 251);
   }
   tr:hover td, tr:hover th {
-    border-bottom: 2px solid $vert;
+    border-bottom: 2px solid $myGray;
   }
 }

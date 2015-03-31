@@ -91,22 +91,23 @@ html {
   min-height: 100%;
   position: relative; }
 
-/* line 36, ../sass/import/_general.scss */
+/* line 35, ../sass/import/_general.scss */
 body {
-  font: 14px/1.8 'NexaLight', 'Helvetica Neue', 'Helvetica', Arial, 'sans-serif';
-  min-height: 100%; }
+  font: 14px/1.8 "Avenir", "Helvetica Neue", Helvetica, sans-serif;
+  min-height: 100%;
+  font-weight: 100; }
 
-/* line 43, ../sass/import/_general.scss */
+/* line 42, ../sass/import/_general.scss */
 img {
   max-width: 100%; }
 
-/* line 47, ../sass/import/_general.scss */
+/* line 46, ../sass/import/_general.scss */
 a {
   text-decoration: none;
   cursor: pointer;
   color: #3f3f3f; }
 
-/* line 53, ../sass/import/_general.scss */
+/* line 52, ../sass/import/_general.scss */
 p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -114,28 +115,28 @@ p {
   hyphens: auto;
   word-wrap: break-word; }
 
-/* line 62, ../sass/import/_general.scss */
+/* line 61, ../sass/import/_general.scss */
 .clearfix {
   clear: both; }
 
-/* line 66, ../sass/import/_general.scss */
+/* line 65, ../sass/import/_general.scss */
 .clearfix:after {
   content: "";
   display: block;
   clear: both; }
 
-/* line 72, ../sass/import/_general.scss */
+/* line 71, ../sass/import/_general.scss */
 input[type="submit"]:hover {
-  background-color: #026660;
+  background-color: #5b5b5b;
   color: white; }
 
-/* line 77, ../sass/import/_general.scss */
+/* line 76, ../sass/import/_general.scss */
 input, textarea {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s; }
 
-/* line 83, ../sass/import/_general.scss */
+/* line 82, ../sass/import/_general.scss */
 textarea:focus:invalid,
 input[type="email"]:focus:invalid, input[type="password"]:focus:invalid,
 input[type="text"]:focus:invalid {
@@ -143,7 +144,7 @@ input[type="text"]:focus:invalid {
   -webkit-box-shadow: 0 0 5px 2px red;
   box-shadow: 0 0 5px 2px red; }
 
-/* line 91, ../sass/import/_general.scss */
+/* line 90, ../sass/import/_general.scss */
 textarea:focus:valid,
 input[type="email"]:focus:valid, input[type="password"]:focus:valid,
 input[type="text"]:focus:valid {
@@ -151,50 +152,50 @@ input[type="text"]:focus:valid {
   -webkit-box-shadow: 0 0 5px 2px green;
   box-shadow: 0 0 5px 2px green; }
 
-/* line 99, ../sass/import/_general.scss */
+/* line 98, ../sass/import/_general.scss */
 html body .inline {
   display: inline; }
 
-/* line 103, ../sass/import/_general.scss */
+/* line 102, ../sass/import/_general.scss */
 .hidden {
   font-size: 0; }
 
-/* line 108, ../sass/import/_general.scss */
+/* line 107, ../sass/import/_general.scss */
 .float_left {
   float: left; }
 
-/* line 112, ../sass/import/_general.scss */
+/* line 111, ../sass/import/_general.scss */
 .block {
   display: block; }
 
-/* line 116, ../sass/import/_general.scss */
+/* line 115, ../sass/import/_general.scss */
 body .error {
   color: red;
   border-color: red !important; }
 
-/* line 120, ../sass/import/_general.scss */
+/* line 119, ../sass/import/_general.scss */
 body .success {
   color: green;
   border-color: green; }
 
-/* line 125, ../sass/import/_general.scss */
+/* line 124, ../sass/import/_general.scss */
 h3.noBoook {
   color: red;
   font-size: 1.7em; }
 
-/* line 130, ../sass/import/_general.scss */
+/* line 129, ../sass/import/_general.scss */
 .column {
   -webkit-columns: 2;
   -moz-columns: 2;
   columns: 2; }
 
-/* line 136, ../sass/import/_general.scss */
+/* line 135, ../sass/import/_general.scss */
 .form-create-user--error {
   color: red; }
 
-/* line 140, ../sass/import/_general.scss */
+/* line 139, ../sass/import/_general.scss */
 .form-create-user__obligatoire {
-  color: #026660;
+  color: #5b5b5b;
   font-weight: bold; }
 
 /* line 1, ../sass/import/_headerSmall.scss */
@@ -204,46 +205,50 @@ header li a:first-letter {
 /* line 5, ../sass/import/_headerSmall.scss */
 .header-main__box-logo {
   display: block;
-  font: 34px/1.8 Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+  font: bold 34px/1.8 "Avenir", 'Helvetica Neue', Helvetica, sans-serif;
   text-align: center;
   padding: 30px 0;
   background-color: rgba(245, 245, 245, 0.8);
   color: #3f3f3f;
-  border-bottom: 3px solid #026660; }
+  border-bottom: 3px solid #5b5b5b; }
 
-/* line 15, ../sass/import/_headerSmall.scss */
+/* line 14, ../sass/import/_headerSmall.scss */
+.header-main__box-logo__lighter {
+  font-weight: 100; }
+
+/* line 17, ../sass/import/_headerSmall.scss */
 header {
   position: relative; }
 
-/* line 19, ../sass/import/_headerSmall.scss */
+/* line 21, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:nth-child(2) {
   background-color: rgba(240, 240, 240, 0.8);
   border-bottom: 2px solid rgba(240, 240, 240, 0.8);
   transition: all .3s; }
 
-/* line 25, ../sass/import/_headerSmall.scss */
+/* line 27, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:nth-child(3) {
   background-color: rgba(230, 230, 230, 0.8);
   border-bottom: 2px solid rgba(230, 230, 230, 0.8);
   transition: all .3s; }
 
-/* line 31, ../sass/import/_headerSmall.scss */
+/* line 33, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:nth-child(4) {
   background-color: rgba(220, 220, 220, 0.8);
   border-bottom: 2px solid rgba(220, 220, 220, 0.8);
   transition: all .3s; }
 
-/* line 37, ../sass/import/_headerSmall.scss */
+/* line 39, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:first-child {
   background-color: rgba(210, 210, 210, 0.8);
   border-bottom: 2px solid rgba(210, 210, 210, 0.8);
   transition: all .3s; }
 
-/* line 43, ../sass/import/_headerSmall.scss */
+/* line 45, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:hover {
-  border-bottom: 2px solid #026660; }
+  border-bottom: 2px solid #5b5b5b; }
 
-/* line 47, ../sass/import/_headerSmall.scss */
+/* line 49, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items {
   display: block;
   padding: 6px 30px;
@@ -309,7 +314,7 @@ header {
     -ms-border-radius: 0 5px 5px 0;
     -o-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
-    color: #026660;
+    color: #5b5b5b;
     -webkit-transition: color 1s;
     -o-transition: color 1s;
     transition: color 1s;
@@ -318,12 +323,12 @@ header {
     outline: -webkit-focus-ring-color auto 0; }
   /* line 65, ../sass/import/_formRechercheSmall.scss */
   .form_recherche .recherche:hover input[type="submit"], .form_recherche input[type="search"]:active + input[type="submit"], .form_recherche input[type="search"]:focus + input[type="submit"] {
-    background-color: #026660;
+    background-color: #5b5b5b;
     color: white; }
   /* line 70, ../sass/import/_formRechercheSmall.scss */
   .form_recherche input[type="search"]:hover + datalist + select + input[type="submit"], .form_recherche input[type="search"]:active + datalist + select + input[type="submit"], .form_recherche input[type="search"]:focus + datalist + select + input[type="submit"] {
     color: white;
-    background-color: #026660; }
+    background-color: #5b5b5b; }
 
 /* line 1, ../sass/import/_navbibliSmall.scss */
 .main-nav {
@@ -334,7 +339,7 @@ header {
 .main-nav__item, .main-nav__item--small {
   display: block;
   padding: 0.5em 6.6666666667%;
-  color: #026660;
+  color: #5b5b5b;
   font-size: 20px;
   letter-spacing: .01em; }
   /* line 11, ../sass/import/_navbibliSmall.scss */
@@ -346,7 +351,7 @@ header {
     display: block;
     width: 0;
     height: 2px;
-    background-color: #026660;
+    background-color: #5b5b5b;
     margin-bottom: -15px;
     padding: 0;
     -webkit-transition: all .3s;
@@ -363,7 +368,7 @@ header {
   filter: grayscale(0); }
 /* line 9, ../sass/import/_liste_livres_small.scss */
 .liste_livres li:hover h3 a, .liste_livres li:active h3 a {
-  color: #026660; }
+  color: #5b5b5b; }
 /* line 15, ../sass/import/_liste_livres_small.scss */
 .liste_livres li {
   padding-bottom: 30px;
@@ -377,7 +382,7 @@ header {
     transition: all .3s; }
   /* line 26, ../sass/import/_liste_livres_small.scss */
   .liste_livres li h3 a:hover {
-    color: #026660; }
+    color: #5b5b5b; }
 /* line 30, ../sass/import/_liste_livres_small.scss */
 .liste_livres img {
   -webkit-filter: grayscale(20%);
@@ -439,7 +444,7 @@ h3 {
     margin: 0 15px; }
   /* line 31, ../sass/import/_liste_Bibliotheques_Small.scss */
   .info_Bibli dt:hover + dd, .info_Bibli dd:hover {
-    color: #026660; }
+    color: #5b5b5b; }
   /* line 34, ../sass/import/_liste_Bibliotheques_Small.scss */
   .info_Bibli dd, .info_Bibli dt {
     display: inline-block;
@@ -460,7 +465,7 @@ h3 {
     background-color: #fbfbfb; }
   /* line 52, ../sass/import/_liste_Bibliotheques_Small.scss */
   .heures_ouvertures tr:hover td, .heures_ouvertures tr:hover th {
-    border-bottom: 2px solid #026660; }
+    border-bottom: 2px solid #5b5b5b; }
 
 /* line 2, ../sass/import/_liste_Questions_Small.scss */
 .question {
@@ -517,7 +522,7 @@ header li .header-main__form-connexion__userLog {
   .header-main__form-connexion__userLog input[type="text"], .header-main__form-connexion__userLog input[type="password"] {
     display: block;
     font-size: 16px;
-    border: 1px solid #026660;
+    border: 1px solid #5b5b5b;
     background: none;
     padding: 5px 10px;
     -webkit-border-radius: 5px;
@@ -540,10 +545,10 @@ header li .header-main__form-connexion__userLog {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  border: 1px solid #026660;
+  border: 1px solid #5b5b5b;
   background: none;
   font-size: 16px !important;
-  color: #026660;
+  color: #5b5b5b;
   padding: 5px 10px;
   font-family: 'NexaLight' 'Helvetica Neue' 'Helvetica' Arial 'sans-serif';
   cursor: pointer;
@@ -551,7 +556,7 @@ header li .header-main__form-connexion__userLog {
 
 /* line 61, ../sass/import/_formConnexion_Small.scss */
 .btnVert:hover {
-  background-color: #026660;
+  background-color: #5b5b5b;
   color: white; }
 
 /* line 68, ../sass/import/_formConnexion_Small.scss */
@@ -565,13 +570,13 @@ header li .header-main__form-connexion__userLog {
   margin-right: 5px !important; }
 /* line 77, ../sass/import/_formConnexion_Small.scss */
 .header-main__form-connexion__userLog .btnVert:hover {
-  background-color: #026660;
+  background-color: #5b5b5b;
   color: white; }
 /* line 81, ../sass/import/_formConnexion_Small.scss */
 .header-main__form-connexion__userLog .btnVert {
   display: inline;
   font-size: 20px;
-  color: #026660; }
+  color: #5b5b5b; }
 
 /* line 1, ../sass/import/_formCreateUser_Small.scss */
 .form-create-user {
@@ -589,7 +594,7 @@ header li .header-main__form-connexion__userLog {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    border: 1px solid #026660; }
+    border: 1px solid #5b5b5b; }
   /* line 16, ../sass/import/_formCreateUser_Small.scss */
   .form-create-user legend {
     color: #3f3f3f; }
@@ -626,7 +631,7 @@ header li .header-main__form-connexion__userLog {
   margin-top: .5em;
   font-size: 1.3em;
   padding: .3em 0;
-  color: #026660;
+  color: #5b5b5b;
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;
   border-radius: .5em;
@@ -638,14 +643,14 @@ header li .header-main__form-connexion__userLog {
   transition: .2s; }
   /* line 23, ../sass/import/pagination_Small.scss */
   .site-pagination__link:hover {
-    border: 1px solid #026660;
+    border: 1px solid #5b5b5b;
     background: transparent;
-    color: #026660; }
+    color: #5b5b5b; }
 
 /* line 30, ../sass/import/pagination_Small.scss */
 .site-pagination__link--current {
   display: block;
-  background: #026660;
+  background: #5b5b5b;
   text-align: center;
   margin-top: .5em;
   font-size: 1.3em;
@@ -662,9 +667,9 @@ header li .header-main__form-connexion__userLog {
   transition: .2s; }
   /* line 47, ../sass/import/pagination_Small.scss */
   .site-pagination__link--current:hover {
-    border: 1px solid #026660;
+    border: 1px solid #5b5b5b;
     background: transparent;
-    color: #026660; }
+    color: #5b5b5b; }
 
 /* line 1, ../sass/import/flash-box_Small.scss */
 .flash-box {
@@ -739,10 +744,10 @@ style pour les medium
     background: none; }
   /* line 20, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dd a:hover {
-    color: #026660; }
+    color: #5b5b5b; }
   /* line 23, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dt:hover + dd a {
-    color: #026660; }
+    color: #5b5b5b; }
   /* line 26, ../sass/import/_liste_livres_Medium.scss */
   .info_Livre dt {
     float: left;
@@ -785,7 +790,7 @@ Style large
   /* line 66, ../sass/style.scss */
   main {
     width: 1080px;
-    margin: 188px auto 0 auto; }
+    margin: 150px auto 0 auto; }
 
   /* line 1, ../sass/import/_navbibliLarge.scss */
   .main-nav__item, .main-nav__item--small {
@@ -812,46 +817,68 @@ Style large
 
   /* line 16, ../sass/import/_formConnexion_Large.scss */
   .header-main__form-connexion:hover .header-main__form-connexion__userLog {
-    top: 132px; }
+    top: 80px; }
+
+  /* line 19, ../sass/import/_formConnexion_Large.scss */
+  .header-main.scroll:hover .header-main__form-connexion__userLog {
+    top: 66px; }
 
   /* line 1, ../sass/import/_header_Large.scss */
   header {
     position: fixed;
-    padding: 0 30px;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
-    max-width: 1080px;
-    margin: 0 auto;
-    border-bottom: 5px solid #026660;
-    background-color: rgba(245, 245, 245, 0.8); }
+    margin: 0;
+    border-bottom: 5px solid #5b5b5b;
+    background-color: #ffffff;
+    padding: 1em 12%; }
+    /* line 11, ../sass/import/_header_Large.scss */
+    header:after {
+      content: "";
+      display: block;
+      clear: both; }
 
-  /* line 14, ../sass/import/_header_Large.scss */
+  /* line 18, ../sass/import/_header_Large.scss */
   :root .header-main__nav__nav_items {
     border: none;
     background: none;
     display: inline-block;
-    padding: 44px 15px;
+    padding: .5em 15px;
     font-size: 22px;
     vertical-align: middle; }
 
-  /* line 24, ../sass/import/_header_Large.scss */
+  /* line 26, ../sass/import/_header_Large.scss */
   .header-main__box-logo {
     border: none;
-    padding: 18px 0;
-    padding-right: 97px; }
+    padding: 0;
+    background: none;
+    float: left; }
 
-  /* line 30, ../sass/import/_header_Large.scss */
-  .header-main__nav, .header-main__box-logo {
-    display: table-cell; }
+  /* line 32, ../sass/import/_header_Large.scss */
+  .header-main__nav {
+    float: right; }
 
-  /* line 34, ../sass/import/_header_Large.scss */
+  /* line 35, ../sass/import/_header_Large.scss */
+  .header-main.scroll {
+    background: rgba(255, 255, 255, 0.8); }
+
+  /* line 38, ../sass/import/_header_Large.scss */
+  .header-main.scroll {
+    padding: 0 12%; }
+
+  /* line 42, ../sass/import/_header_Large.scss */
   .header-main__form-connexion {
     display: inline-block;
     position: relative; }
 
-  /* line 40, ../sass/import/_header_Large.scss */
+  /* line 47, ../sass/import/_header_Large.scss */
+  .header-main__box-logo, .header-main__nav {
+    display: inline-block;
+    vertical-align: middle; }
+
+  /* line 51, ../sass/import/_header_Large.scss */
   .show_form_connexion:hover .header-main__form-connexion__userLog {
     top: 132px; }
 
@@ -904,7 +931,7 @@ Style large
       -moz-border-radius: 5px;
       -webkit-border-radius: 5px;
       border-radius: 5px;
-      border: 1px solid #026660;
+      border: 1px solid #5b5b5b;
       margin-bottom: 1em; }
     /* line 24, ../sass/import/_formCreateUser_Large.scss */
     .form-create-user legend {

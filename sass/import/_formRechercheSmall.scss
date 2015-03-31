@@ -54,7 +54,7 @@
     -ms-border-radius: 0 5px 5px 0;
     -o-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
-    color: $vert;
+    color: $myGray;
     -webkit-transition: color 1s;
     -o-transition: color 1s;
     transition: color 1s;
@@ -63,13 +63,13 @@
     outline: -webkit-focus-ring-color auto 0;
   }
   .recherche:hover input[type="submit"], input[type="search"]:active + input[type="submit"], input[type="search"]:focus + input[type="submit"] {
-    background-color: $vert;
+    background-color: $myGray;
     color: white;
 
   }
   input[type="search"]:hover + datalist + select + input[type="submit"], input[type="search"]:active + datalist + select + input[type="submit"], input[type="search"]:focus + datalist + select + input[type="submit"] {
     color: white;
-    background-color: $vert;
+    background-color: $myGray;
   }
 
 }

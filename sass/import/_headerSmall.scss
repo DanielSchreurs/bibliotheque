@@ -4,14 +4,16 @@ header li a:first-letter {
 
 .header-main__box-logo {
   display: block;
-  font: 34px/1.8 Didot, 'Didot LT STD', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+  font: bold 34px/1.8 "Avenir", 'Helvetica Neue', Helvetica, sans-serif;
   text-align: center;
   padding: 30px 0;
   background-color: rgba(245, 245, 245, .8);
   color: $grisFonce;
-  border-bottom: 3px solid $vert;
+  border-bottom: 3px solid $myGray;
 }
-
+.header-main__box-logo__lighter{
+  font-weight: 100;
+}
 header {
   position: relative;
 }
@@ -41,7 +43,7 @@ header {
 }
 
 .header-main__nav__nav_items:hover {
-  border-bottom: 2px solid $vert;
+  border-bottom: 2px solid $myGray;
 }
 
 .header-main__nav__nav_items {

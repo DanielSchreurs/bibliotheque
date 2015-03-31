@@ -1,34 +1,42 @@
 header {
   position: fixed;
-  padding: 0 30px;
   top: 0;
   left: 0;
   right: 0;
   z-index: 10;
-  max-width: 1080px;
-  margin: 0 auto;
-  border-bottom: 5px solid $vert;
-  background-color: rgba(245, 245, 245, .8);
+  margin: 0;
+  border-bottom: 5px solid $myGray;
+  background-color: #ffffff;
+  padding: 1em 12%;
+  &:after{
+    content: "";
+    display: block;
+    clear: both;
+  }
 }
 
 :root .header-main__nav__nav_items {
   border: none;
   background: none;
   display: inline-block;
-  padding: 44px 15px;
+  padding: .5em 15px;
   font-size: 22px;
   vertical-align: middle;
-
 }
-
 .header-main__box-logo {
   border: none;
-  padding: 18px 0;
-  padding-right: 97px;
+  padding:  0;
+  background: none;
+  float: left;
 }
-
-.header-main__nav, .header-main__box-logo {
-  display: table-cell;
+.header-main__nav{
+  float: right;
+}
+.header-main.scroll{
+  background: rgba(255, 255, 255, 0.8);
+}
+.header-main.scroll{
+  padding: 0 12%;
 }
 
 .header-main__form-connexion {
@@ -36,7 +44,10 @@ header {
   position: relative;
 
 }
-
+.header-main__box-logo, .header-main__nav{
+  display: inline-block;
+  vertical-align: middle;
+}
 .show_form_connexion:hover .header-main__form-connexion__userLog {
   top: 132px;
 }

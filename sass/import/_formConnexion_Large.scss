@@ -14,5 +14,8 @@
 }
 
 .header-main__form-connexion:hover .header-main__form-connexion__userLog {
-  top: 132px;
+  top: 80px;
+}
+.header-main.scroll:hover .header-main__form-connexion__userLog{
+  top:66px;
 }
