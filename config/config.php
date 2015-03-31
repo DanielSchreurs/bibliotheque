@@ -8,7 +8,7 @@
  */
 $language = 'fr_BE';
 define('CHARSET', 'UTF-8');
-define('TITLE', 'La joie de livre');// le titre générale du site
+define('TITLE', 'bookme');// le titre générale du site
 
 
 /*
