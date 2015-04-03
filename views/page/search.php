@@ -1,5 +1,5 @@
 <main>
-    <?php Components\Flash::flash(); ?>
+    <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <?php if (empty($data['data']['books']) && empty($data['data']['authors']) && empty($data['data']['editors'])): ?>

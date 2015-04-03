@@ -1,5 +1,5 @@
 <main>
-    <?php Components\Flash::flash(); ?>
+    <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <h2>Comment ça marche&nbsp;?</h2>

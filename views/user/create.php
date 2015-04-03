@@ -1,5 +1,5 @@
 <main>
-    <?php Components\Flash::flash(); ?>
+    <?php Components\Session::flash(); ?>
     <h2><?php echo(isset($data['data']['message'])?$data['data']['message']:'Faites partie de la communauté en quelques clics !'); ?></h2>
     <?php
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';

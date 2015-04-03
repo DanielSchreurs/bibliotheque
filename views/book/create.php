@@ -1,5 +1,5 @@
 <main>
-    <?php Components\Flash::flash(); ?>
+    <?php Components\Session::flash(); ?>
     <h2>Ajoutez un livre en quelques clics !</h2>
     <?php
     $authors = $data['data']['authors'];

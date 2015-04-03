@@ -1,4 +1,4 @@
 <main>
-    <?php Components\Flash::flash(); ?>
+    <?php Components\Session::flash(); ?>
 <?php var_dump($data); ?>
 </main>
