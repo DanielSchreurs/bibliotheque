@@ -1,5 +1,5 @@
 <main>
-    <?php Components\Flash::flash(); ?>
+    <?php Components\Session::flash(); ?>
   <h2>Administrer son site, en quelques clics</h2>
 <nav class="main-nav">
     <h2 class="hidden">Navigattion des liens d'administration</h2>
