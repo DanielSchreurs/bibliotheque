@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Components\Session;
 use Models\AuthorRepositoryInterface;
 use Models\BookRepositoryInterface as BookRepository;
 use Models\EditorRepositoryInterface;
@@ -52,7 +53,6 @@ class Book extends Base
     {
         $data = $this->modelbook->find($this->request->id);
         $title = 'livre d’un auteur';
-        $view = 'index.php';
         return [
             'data' => $data,
             'title' => $title
@@ -73,7 +73,6 @@ class Book extends Base
     {
         $data = $this->modelbook->getBookFromYear($this->request->year);
         $title = 'Un livre selon une année';
-        $view = 'index.php';
         return [
             'data' => $data,
             'title' => $title
@@ -112,34 +111,24 @@ class Book extends Base
         ];
     }
 
-    public function admin()
+    public function admin_index()
     {
-        $title = 'Vous n’avez pas le droit d’effectuer cette opération';
-        if (isset($_COOKIE['role'])) {
-            if ($_COOKIE['role'] == 'admin') {
-                $title = 'Administrer les livres';
-                $data['authors'] = $this->modelAuthor->all();
-                $data['editors'] = $this->modelEditor->all();
-                $data['genres'] = $this->modelGenre->all();
-                $data['librarys'] = $this->modelLibrary->all();
-                return [
-                    'data' => $data,
-                    'title' => $title
-                ];
+        if ($this->isAdmin) {
 
-            }
-        } elseif (isset($_SESSION['role'])) {
-            if ($_SESSION['role'] == 'admin') {
-                $this->view = 'admin/index.php';
-                return [
-                    'title' => $title
-                ];
-            }
-        } else {
-            $this->view = 'error/error.php';
+            $title = 'Administrer les livres';
+            $data['authors'] = $this->modelAuthor->all();
+            $data['editors'] = $this->modelEditor->all();
+            $data['genres'] = $this->modelGenre->all();
+            $data['librarys'] = $this->modelLibrary->all();
             return [
+                'data' => $data,
                 'title' => $title
             ];
+
+        } else {
+            Session::setMessage('Vous n’avez pas le droit d’acceder à cette page','error');
+            header('Location:' . $_SERVER['PHP_SELF']);
+            die();
         }
     }
 }

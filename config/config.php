@@ -50,8 +50,6 @@ define('NBR_BOOKS', 1);
  * Initialisation éventuelles de diverses variables comme par exemple,
  * un booléen qui tient la trace de la connexion à un espace privé
 */
-$userConnec = false;
-$adminConnec = false;
 
 /*
  * définir une constante pour la durée du coikies
