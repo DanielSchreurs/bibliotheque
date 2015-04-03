@@ -2,22 +2,22 @@
 
 namespace Controllers;
 
-use Components\Flash;
+use Components\Session;
 use Helpers\validate;
 use Models\UserRepositoryInterface as UserRepository;
 
 class User extends Base
 {
-     function __construct(Request $request, UserRepository $modelUser)
-     {
-         parent::__construct($request);
-         $this->modelUser = $modelUser;
-     }
+    function __construct(Request $request, UserRepository $modelUser)
+    {
+        parent::__construct($request);
+        $this->modelUser = $modelUser;
+    }
 
-    function login()
+    function login($register = false)
     {
         if ($_SESSION['first_name']) {
-            header('Location:'.$_SERVER['PHP_SELF']);
+            header('Location:' . $_SERVER['PHP_SELF']);
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($this->request->sent->username) && isset($this->request->sent->password)) {
@@ -33,19 +33,21 @@ class User extends Base
                             $_SESSION[$c] = $v;
                         }
                     }
-                    Flash::setMessage('Vous êtes connecté');
-                    header('Location:'.$_SERVER['PHP_SELF']);
+                    if (!$register) {
+                        Session::setMessage('Vous êtes connecté.');
+                    } else {
+                        Session::setMessage('Merci pour votre inscription, vous êtes mainteant connecté.');
+                    }
+                    header('Location:' . $_SERVER['PHP_SELF']);
                     die();
                 } else {
-                    $_SESSION['first_name'] = false;
-                    setcookie('first_name', false, LIVETIME);
-                    Flash::setMessage('Oups, votre login ou mot de pass semble erroné','error');
-                   header('Location:'.$_SERVER['PHP_SELF']);
+                    Session::setMessage('Oups, votre login ou mot de pass semble erroné', 'error');
+                    header('Location:' . $_SERVER['PHP_SELF']);
                     die();
                 }
             } else {
-                Flash::setMessage('On essaye de tricher ?');
-                header('Location:'.$_SERVER['PHP_SELF']);
+                Session::setMessage('On essaye de tricher ?');
+                header('Location:' . $_SERVER['PHP_SELF']);
                 die();
             }
         } else {
@@ -55,48 +57,48 @@ class User extends Base
             ];
         }
     }
+
     public function create()
     {
-        unset($this->request->errors['question'],$this->request->errors['answer']);
-        if( $_SERVER['REQUEST_METHOD'] === "POST" && !filter_var($this->request->sent->email,FILTER_VALIDATE_EMAIL)){
-            $this->request->errors['email']='Oups, mail nom valide';
+        unset($this->request->errors['question'], $this->request->errors['answer']);
+        if ($_SERVER['REQUEST_METHOD'] === "POST" && !filter_var($this->request->sent->email, FILTER_VALIDATE_EMAIL)) {
+            $this->request->errors['email'] = 'Oups, mail nom valide';
         }
-        if ($_SERVER['REQUEST_METHOD'] === "POST"&& empty($this->request->errors)) {
+        if ($_SERVER['REQUEST_METHOD'] === "POST" && empty($this->request->errors)) {
             $this->modelUser->create($this->request->sent);
-            $this->login($this->request->sent->username,$this->request->sent->password);
-            Flash::setMessage('Merci pour votre inscription');
-            header('Location:'.$_SERVER['PHP_SELF']);
-            die('');
+            $this->login(true);
+        } else {
+            $data['errors'] = $this->request->errors;
+            $data['sent'] = $this->request->sent;
         }
-        else{
-            $data['errors']=$this->request->errors;
-            $data['sent']=$this->request->sent;
-        }
-        if(isset($data['errors'])){
+        if (isset($data['errors'])) {
             $view = 'create.php';
             $title = 'formulaire d’inscription';
             return [
                 'data' => $data,
                 'view' => $view,
-                'title'=>$title
+                'title' => $title
             ];
+        } else {
+            Session::setMessage('Merci, poru votre inscription. Vous pouvez vous connecter.');
+            header('Location:' . $_SERVER['PHP_SELF']);
+            die();
         }
-       else{
-           Flash::setMessage('Merci, poru votre inscription. Vous pouvez vous connecter.');
-           header('Location:'.$_SERVER['PHP_SELF']);
-           die();
-       }
 
     }
 
     public function logout()
     {
-        session_destroy();
-        unset($_SESSION);
+        unset($_SESSION['first_name']);
+        unset($_SESSION['last_name']);
+        unset($_SESSION['photo']);
+        unset($_SESSION['role']);
         setcookie('first_name', false, time() - (3600));
         setcookie('last_name', false, time() - (3600));
         setcookie('photo', false, time() - (3600));
         setcookie('role', false, time() - (3600));
-        header('Location:'.$_SERVER['PHP_SELF']);
+        Session::setMessage('Vous êtes déconnecté.');
+        header('Location:' . $_SERVER['PHP_SELF']);
+        die();
     }
 }
