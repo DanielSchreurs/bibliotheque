@@ -30,7 +30,10 @@ class Library extends Model implements LibraryRepositoryInterface
               name,
               phone,
               logo,
-              slogan
+              slogan,
+              about,
+              email,
+              director
               FROM librarys where id=:id_library';
         $pdost = $this->cx->prepare($sql);
         $pdost->execute([':id_library'=>$id_library]);
