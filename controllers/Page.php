@@ -4,6 +4,7 @@ namespace Controllers;
 
 
 use Models\Help;
+use Models\Library;
 
 class Page extends Base
 {
@@ -11,6 +12,7 @@ class Page extends Base
     {
         parent::__construct($request);
         $this->Modelhelp = new Help();
+        $this->ModelLibrary= new Library();
     }
 
 
@@ -54,6 +56,11 @@ class Page extends Base
 
     public function about()
     {
-        $this
+        $data= $this->ModelLibrary->view(1);
+        $title='&Agrave; propos de nous';
+        return[
+            'data'=>$data,
+            'title'=>$title
+        ];
     }
 }
