@@ -700,14 +700,30 @@ header li .header-main__form-connexion__userLog {
   background: rgba(246, 181, 196, 0.8);
   color: #b60013; }
 
-/* line 34, ../sass/style.scss */
+/* line 4, ../sass/import/about-bloc_Small.scss */
+.big-logo {
+  font-weight: bold;
+  color: #5b5b5b;
+  font-size: 3em; }
+
+/* line 9, ../sass/import/about-bloc_Small.scss */
+.big-logo__me {
+  font-weight: 100; }
+
+/* line 12, ../sass/import/about-bloc_Small.scss */
+.big-slogant {
+  font-weight: 100;
+  color: #3f3f3f;
+  font-size: 1.6em; }
+
+/* line 35, ../sass/style.scss */
 main {
   margin: 70px 30px 0; }
-  /* line 36, ../sass/style.scss */
+  /* line 37, ../sass/style.scss */
   main h2 {
     font-size: 30px;
     text-align: right; }
-  /* line 40, ../sass/style.scss */
+  /* line 41, ../sass/style.scss */
   main form + h2 {
     margin-top: 30px; }
 
@@ -716,7 +732,7 @@ style pour les medium
 
 */
 @media screen and (min-width: 590px) {
-  /* line 50, ../sass/style.scss */
+  /* line 51, ../sass/style.scss */
   main {
     width: 540px;
     margin: 80px auto;
@@ -787,7 +803,7 @@ Style large
 
 */
 @media screen and (min-width: 1190px) {
-  /* line 66, ../sass/style.scss */
+  /* line 67, ../sass/style.scss */
   main {
     width: 1080px;
     margin: 150px auto 0 auto; }
@@ -821,6 +837,14 @@ Style large
 
   /* line 19, ../sass/import/_formConnexion_Large.scss */
   .header-main.scroll:hover .header-main__form-connexion__userLog {
+    top: 66px; }
+
+  /* line 22, ../sass/import/_formConnexion_Large.scss */
+  .header-main__form-connexion .header-main__nav__nav_items.hover + .header-main__form-connexion__userLog {
+    top: 80px; }
+
+  /* line 25, ../sass/import/_formConnexion_Large.scss */
+  .header-main.scroll .header-main__nav__nav_items.hover + .header-main__form-connexion__userLog {
     top: 66px; }
 
   /* line 1, ../sass/import/_header_Large.scss */
@@ -1035,7 +1059,22 @@ Style large
     position: absolute;
     top: 0.1em;
     right: 0%;
-    font-size: 1.25em; } }
+    font-size: 1.25em; }
+
+  /* line 4, ../sass/import/about-bloc_Large.scss */
+  .big-logo {
+    font-size: 7em;
+    text-align: left; }
+
+  /* line 8, ../sass/import/about-bloc_Large.scss */
+  .big-slogant {
+    margin-top: -2em; }
+
+  /* line 11, ../sass/import/about-bloc_Large.scss */
+  .about-bloc__paragraphe {
+    background: url("./img/about2.png") no-repeat 230px 0 #ffffff;
+    background-size: contain;
+    padding-right: 50%; } }
 /* line 1, ../sass/import/_footer.scss */
 footer {
   position: absolute;
