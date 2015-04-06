@@ -12,15 +12,16 @@
 
 var i, linkShowPassword = document.getElementById('linkShowPassword');
 var showedpassword = document.getElementsByClassName('showedpassword');
-var flash=document.getElementsByClassName('flash-box__btn')[0];
+var flash = document.getElementsByClassName('flash-box__btn')[0];
+var showFromElement= document.getElementById('showFrom');
 
-if(linkShowPassword!=null){
+if (linkShowPassword != null) {
     linkShowPassword.addEventListener('click', function () {
         show(showedpassword, linkShowPassword);
     }, false);
 }
-if(flash!=null){
-    flash.addEventListener('click',removeParent,false)
+if (flash != null) {
+    flash.addEventListener('click', removeParent, false)
 }
 function show(elements, link) {
     for (i = 0; i < elements.length; i++) {
@@ -30,10 +31,34 @@ function show(elements, link) {
     link.className = (elements[0].type == 'password' ? 'ouvrir ' : 'fermer ') + 'icon smallInfo';
 
 }
-function removeParent(){
-   event.target.parentElement.remove();
+function removeParent() {
+    event.target.parentElement.remove();
 }
-/*
- * donner une margin au body qui esr égale à la hauteur du footer, une alternative est prévu en css
- * */
+function op(evt) {
+    var scroll = window.pageYOffset;
+    var element = document.querySelector("header");
+    element.className = scroll > 100 ? "header-main scroll" : "header-main";
+}
+
+function addClass(newClass){
+    var oldClass=event.target.className;
+    event.target.className=oldClass!=0?oldClass+" "+newClass:newClass;
+}
+function removeClass(newClass){
+    var oldClass=event.target.className;
+    event.target.className=(~oldClass.indexOf(newClass))?oldClass.substring(0,oldClass.indexOf(newClass)):oldClass;
+
+}
+showFromElement.addEventListener("click",function(){
+    if(~showFromElement.className.indexOf("hover")){
+        removeClass("hover");
+    }
+    else{
+        addClass("hover");
+      // window.addEventListener("click",function(){ alert("ok")},false);
+
+    }
+},false);
 document.getElementsByTagName('body')[0].style.marginBottom = (document.getElementsByTagName('footer')[0].offsetHeight * 1.6) + 'px';
+window.addEventListener("scroll", op, false);
+

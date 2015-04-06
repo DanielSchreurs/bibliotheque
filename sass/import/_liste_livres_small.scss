@@ -1,4 +1,4 @@
-.liste_livres {
+.book-liste {
   li:hover, li:active {
     img {
       -webkit-filter: grayscale(0);
@@ -6,12 +6,10 @@
       filter: grayscale(0);
     }
 
-    h3 a {
-      color: $myGray;
-    }
-
   }
-
+.book-liste__header{
+  font-size: 1.5em;
+}
   li {
     padding-bottom: 30px;
     margin-bottom: 30px;
@@ -40,8 +38,7 @@
   }
 
 }
-
-h3 {
+.book-liste__header {
   margin-bottom: 30px;
 
 }

@@ -1,12 +1,12 @@
-.liste_livres {
+.book-liste {
   li {
     float: left;
     width: 44.444444444%; /*480px*/
-    margin: 0 2.7777777778%; /*30px*/
+    margin-right: 2.7777777778%; /*30px*/
   }
 }
 
-.liste_livres:after {
+.book-liste:after {
   content: "";
   display: block;
   clear: both;

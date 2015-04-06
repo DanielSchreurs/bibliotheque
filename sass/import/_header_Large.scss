@@ -7,7 +7,7 @@ header {
   margin: 0;
   border-bottom: 5px solid $myGray;
   background-color: #ffffff;
-  padding: 1em 12%;
+  padding: 1em percentage(175/1430);
   &:after{
     content: "";
     display: block;
@@ -26,14 +26,15 @@ header {
 .header-main__box-logo {
   border: none;
   padding:  0;
-  background: none;
   float: left;
+  position: relative;
+  top: 11px;
 }
 .header-main__nav{
   float: right;
 }
 .header-main.scroll{
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
 }
 .header-main.scroll{
   padding: 0 12%;
@@ -44,7 +45,7 @@ header {
   position: relative;
 
 }
-.header-main__box-logo, .header-main__nav{
+.header-main__nav{
   display: inline-block;
   vertical-align: middle;
 }

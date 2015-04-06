@@ -1,12 +1,44 @@
-<main>
+<main class="container">
     <?php Components\Session::flash(); ?>
-  <h2>Administrer son site, en quelques clics</h2>
-<nav class="main-nav">
-    <h2 class="hidden">Navigattion des liens d'administration</h2>
-    <a class="main-nav__item--small" href="<?php echo($html->createLink('author','admin')); ?>" title="">Administrer les auteurs</a>
-    <a class="main-nav__item--small" href="<?php echo($html->createLink('genre','admin')); ?>" title="">Administrer les genres</a>
-    <a class="main-nav__item--small" href="<?php echo($html->createLink('user','admin')); ?>" title="">Administrer les utilisateurs</a>
-</nav>
-
-
+<h1 class="header-block-one"><?php echo($data['title']); ?></h1>
+<?php include( VIEW_DIR.'/parts/main_nav_admin.php'); ?>
+    <table>
+        <tr>
+            <th>Numéros</th>
+            <th>Titres</th>
+            <th>Auteurs</th>
+            <th>&Eacute;diteurs</th>
+            <th>Genres</th>
+            <th>Années</th>
+            <th>Descriptions</th>
+            <th>Supprimer</th>
+            <th>Modifier</th>
+        </tr>
+        <tr>
+            <td>0.</td>
+            <td>Titre du livres</td>
+            <td>Vincent Hein</td>
+            <td>editeurs</td>
+            <td>roman</td>
+            <td>2013</td>
+            <td> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus illum consectetur, in aliquid
+                minima doloribus! Vitae.
+            </td>
+            <td><a href="formulaireModifications.php" class="supp">Supprimer</a></td>
+            <td><a href="formulaireModifications.php" class="edit">Modifier</a></td>
+        </tr>
+        <tr>
+            <td>1.</td>
+            <td>Titre du livres</td>
+            <td>Joël Egloff</td>
+            <td>editeurs</td>
+            <td>roman</td>
+            <td>2013</td>
+            <td> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus illum consectetur, in aliquid
+                minima doloribus! Vitae.
+            </td>
+            <td><a href="formulaireModifications.php" class="supp">Supprimer</a></td>
+            <td><a href="formulaireModifications.php" class="edit">Modifier</a></td>
+        </tr>
+    </table>
 </main>

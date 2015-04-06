@@ -1,5 +1,6 @@
 
 .form_recherche {
+  margin-top: 9.375em;
   input[type="submit"] {
     width: 24.972803%;
     font-size: 20px;
@@ -7,10 +8,9 @@
   input[type="search"] {
     font-size: 20px;
   }
-  select {
-    right: 24.972803%;
-    width: 17.878243%;
-    font-size: 20px;
-  }
-
+}
+.home .form_recherche{
+  width: percentage(1080/1440);
+  margin: 0 auto;
+  margin-top: 3em;
 }

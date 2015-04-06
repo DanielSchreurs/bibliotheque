@@ -1,0 +1,25 @@
+.single-author{
+  padding: 1em percentage(30/300);
+}
+.single-author__figure{
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0 percentage(30/300) 1em 0;
+}
+.single-author__figure__header{
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: .5em percentage(30/300);
+  font-size: 2.5em;
+  a{
+    color: #ffffff;
+  }
+}
+.single-author__text{
+  width: 100%;
+}

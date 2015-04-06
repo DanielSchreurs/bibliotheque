@@ -1,0 +1,22 @@
+.welcome-bloc{
+
+  padding: 9.375em percentage(175/1340) 7em;
+  background: $grisClair;
+  margin: 4em 0 3em;
+  &:hover{
+    .welcome-bloc__header{
+      -webkit-animation: goRight 1s ease ;
+      -moz-animation: goRight 1s ease ;
+      -o-animation: goRight 1s ease ;
+      animation: goRight 1s ease ;
+    }
+  }
+
+}
+.welcome-bloc__header{
+  position: relative;
+
+}
+.welcome-bloc__sub-heading{
+
+}

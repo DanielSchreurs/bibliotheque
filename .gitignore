@@ -18,3 +18,11 @@ config/database.php
 *.scssc
 
 *.ids
+
+css/style.css
+
+*.css
+
+*.css
+
+*.css

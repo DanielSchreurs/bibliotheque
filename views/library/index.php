@@ -1,5 +1,5 @@
 <?php $html = new \Helpers\Html(); ?>
-<main>
+<main class="container">
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>

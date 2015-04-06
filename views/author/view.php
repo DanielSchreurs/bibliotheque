@@ -1,13 +1,9 @@
 <?php $author = $data['data'][0]; ?>
-<main>
+<main class="container">
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <h2>
-        <a href="#"
-           title=""><?php echo($author->first_name . ' ' . $author->first_name); ?></a>
-    </h2>
-
+    <h1 class="header-block-one"><?php echo($author->first_name . ' ' . $author->first_name); ?></h1>
     <div class="threeColumnBlock">
         <a href="#"><img
                 src="./img/authors_photo/<?php echo($author->author_photo); ?>.jpg"
@@ -30,7 +26,7 @@
     </div>
 
     <?php if (isset($author->book_title)): ?>
-        <ul class="liste_livres">
+        <ul class="book-liste">
             <?php foreach ($data['data'] as $book): ?>
             <li>
                 <h3><a href="<?php echo($html->createLink('book', 'view',

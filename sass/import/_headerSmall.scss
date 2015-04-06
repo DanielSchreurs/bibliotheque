@@ -4,16 +4,11 @@ header li a:first-letter {
 
 .header-main__box-logo {
   display: block;
-  font: bold 34px/1.8 "Avenir", 'Helvetica Neue', Helvetica, sans-serif;
   text-align: center;
-  padding: 30px 0;
-  background-color: rgba(245, 245, 245, .8);
-  color: $grisFonce;
+  padding: 2em 0;
   border-bottom: 3px solid $myGray;
 }
-.header-main__box-logo__lighter{
-  font-weight: 100;
-}
+
 header {
   position: relative;
 }

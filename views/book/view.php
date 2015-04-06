@@ -1,13 +1,10 @@
 <?php $book = $data['data']; ?>
-<main>
+<main class="single_book container">
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <article class="single_book">
-        <h2>
-            <a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"
-               title="Renvoie vers une page avec uniquement le livres Anthologie de <?php echo($book->title); ?>"><?php echo($book->title); ?></a>
-        </h2>
+        <h1 class="header-block-one "><?php echo($book->title); ?></h1>
+    <div>
         <a class="float_left" href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
                 src="./img/books_covers/<?php echo($book->front_cover); ?>.jpg"
                 alt="première du <?php echo($book->title); ?>" width="300" height="450"></a>
@@ -37,5 +34,5 @@
                    title="Renvoie vers une page qui reprend tous les Bibliothèques de la bibliothèque <?php echo($book->library_name); ?>"><?php echo($book->library_name); ?></a>
             </dd>
         </dl>
-    </article>
+    </div>
 </main>

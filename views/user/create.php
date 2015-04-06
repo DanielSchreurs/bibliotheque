@@ -1,6 +1,6 @@
-<main>
+<main class="container--without-form">
     <?php Components\Session::flash(); ?>
-    <h2><?php echo(isset($data['data']['message'])?$data['data']['message']:'Faites partie de la communauté en quelques clics !'); ?></h2>
+    <h1 class="header-block-one">Faites partie de la communauté en quelques clics&nbsp;!</h1>
     <?php
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     isset($data['data']['errors']) ? $error = $data['data']['errors'] : '';

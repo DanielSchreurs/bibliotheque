@@ -1,15 +1,15 @@
-<main>
+<main class="container">
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <h2>Derniers ajoutés</h2>
-    <ul class="liste_livres">
+    <h1 class="header-block-one">Derniers ajoutés</h1>
+    <ul class="book-liste">
         <?php foreach ($data['data'] as $book): ?>
             <li>
-                <h3>
+                <h2 class="header-block-two">
                     <a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"
                        title="Renvoie vers une page avec uniquement le livres Anthologie de <?php echo($book->title); ?>"><?php echo($book->title); ?></a>
-                </h3>
+                </h2>
                 <a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
                         src="./img/books_covers/<?php echo($book->front_cover); ?>.jpg"
                         alt="première du <?php echo($book->title); ?>" width="180" height="270"></a>

@@ -1,6 +1,6 @@
-<main>
+<main class="container">
     <?php Components\Session::flash(); ?>
-    <h2>Ajoutez un livre en quelques clics !</h2>
+    <h1 class="header-block-one">Ajoutez un livre en quelques clics !</h1>
     <?php
     $authors = $data['data']['authors'];
     $editors = $data['data']['editors'];

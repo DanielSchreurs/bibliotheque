@@ -1,12 +1,13 @@
-<main>
+<main class="container">
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <ul class="liste_livres">
+    <h1 class="hidden"><?php echo($data['title']); ?></h1>
+    <ul class="book-liste">
         <?php foreach ($data['data'] as $editor): ?>
             <li>
-                <h3><a href="<?php echo($html->createLink('editor', 'view',
-                        ['id' => $editor->editor_id])); ?>"><?php echo($editor->editor_name); ?></a></h3>
+                <h2><a  class="book-liste__header" href="<?php echo($html->createLink('editor', 'view',
+                        ['id' => $editor->editor_id])); ?>"><?php echo($editor->editor_name); ?></a></h2>
                 <a href="<?php echo($html->createLink('editor', 'view', ['id' => $editor->editor_id])); ?>"><img
                         height="250" width="250" src="./img/editors_logos/<?php echo($editor->editor_logo) ?>.png"
                         alt="logo de <?php echo($editor->editor_name); ?>"/></a>

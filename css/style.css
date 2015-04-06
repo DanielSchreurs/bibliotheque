@@ -126,17 +126,23 @@ p {
   clear: both; }
 
 /* line 71, ../sass/import/_general.scss */
+.clearBoth:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+/* line 77, ../sass/import/_general.scss */
 input[type="submit"]:hover {
   background-color: #5b5b5b;
   color: white; }
 
-/* line 76, ../sass/import/_general.scss */
+/* line 82, ../sass/import/_general.scss */
 input, textarea {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s; }
 
-/* line 82, ../sass/import/_general.scss */
+/* line 88, ../sass/import/_general.scss */
 textarea:focus:invalid,
 input[type="email"]:focus:invalid, input[type="password"]:focus:invalid,
 input[type="text"]:focus:invalid {
@@ -144,7 +150,7 @@ input[type="text"]:focus:invalid {
   -webkit-box-shadow: 0 0 5px 2px red;
   box-shadow: 0 0 5px 2px red; }
 
-/* line 90, ../sass/import/_general.scss */
+/* line 96, ../sass/import/_general.scss */
 textarea:focus:valid,
 input[type="email"]:focus:valid, input[type="password"]:focus:valid,
 input[type="text"]:focus:valid {
@@ -152,51 +158,66 @@ input[type="text"]:focus:valid {
   -webkit-box-shadow: 0 0 5px 2px green;
   box-shadow: 0 0 5px 2px green; }
 
-/* line 98, ../sass/import/_general.scss */
+/* line 104, ../sass/import/_general.scss */
 html body .inline {
   display: inline; }
 
-/* line 102, ../sass/import/_general.scss */
+/* line 108, ../sass/import/_general.scss */
 .hidden {
   font-size: 0; }
 
-/* line 107, ../sass/import/_general.scss */
+/* line 113, ../sass/import/_general.scss */
 .float_left {
   float: left; }
 
-/* line 111, ../sass/import/_general.scss */
+/* line 117, ../sass/import/_general.scss */
 .block {
   display: block; }
 
-/* line 115, ../sass/import/_general.scss */
+/* line 121, ../sass/import/_general.scss */
 body .error {
   color: red;
   border-color: red !important; }
 
-/* line 119, ../sass/import/_general.scss */
+/* line 125, ../sass/import/_general.scss */
 body .success {
   color: green;
   border-color: green; }
 
-/* line 124, ../sass/import/_general.scss */
+/* line 130, ../sass/import/_general.scss */
 h3.noBoook {
   color: red;
   font-size: 1.7em; }
 
-/* line 129, ../sass/import/_general.scss */
+/* line 135, ../sass/import/_general.scss */
 .column {
   -webkit-columns: 2;
   -moz-columns: 2;
   columns: 2; }
 
-/* line 135, ../sass/import/_general.scss */
+/* line 141, ../sass/import/_general.scss */
 .form-create-user--error {
   color: red; }
 
-/* line 139, ../sass/import/_general.scss */
+/* line 145, ../sass/import/_general.scss */
 .form-create-user__obligatoire {
   color: #5b5b5b;
   font-weight: bold; }
+
+/* line 149, ../sass/import/_general.scss */
+.header-block-one {
+  font-size: 2.5em;
+  color: #5b5b5b;
+  padding-bottom: .5em;
+  display: block;
+  text-align: right; }
+
+/* line 156, ../sass/import/_general.scss */
+.header-block-two {
+  font-size: 1.6em;
+  color: #5b5b5b;
+  padding-bottom: .3em;
+  display: block; }
 
 /* line 1, ../sass/import/_headerSmall.scss */
 header li a:first-letter {
@@ -205,50 +226,43 @@ header li a:first-letter {
 /* line 5, ../sass/import/_headerSmall.scss */
 .header-main__box-logo {
   display: block;
-  font: bold 34px/1.8 "Avenir", 'Helvetica Neue', Helvetica, sans-serif;
   text-align: center;
-  padding: 30px 0;
-  background-color: rgba(245, 245, 245, 0.8);
-  color: #3f3f3f;
+  padding: 2em 0;
   border-bottom: 3px solid #5b5b5b; }
 
-/* line 14, ../sass/import/_headerSmall.scss */
-.header-main__box-logo__lighter {
-  font-weight: 100; }
-
-/* line 17, ../sass/import/_headerSmall.scss */
+/* line 12, ../sass/import/_headerSmall.scss */
 header {
   position: relative; }
 
-/* line 21, ../sass/import/_headerSmall.scss */
+/* line 16, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:nth-child(2) {
   background-color: rgba(240, 240, 240, 0.8);
   border-bottom: 2px solid rgba(240, 240, 240, 0.8);
   transition: all .3s; }
 
-/* line 27, ../sass/import/_headerSmall.scss */
+/* line 22, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:nth-child(3) {
   background-color: rgba(230, 230, 230, 0.8);
   border-bottom: 2px solid rgba(230, 230, 230, 0.8);
   transition: all .3s; }
 
-/* line 33, ../sass/import/_headerSmall.scss */
+/* line 28, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:nth-child(4) {
   background-color: rgba(220, 220, 220, 0.8);
   border-bottom: 2px solid rgba(220, 220, 220, 0.8);
   transition: all .3s; }
 
-/* line 39, ../sass/import/_headerSmall.scss */
+/* line 34, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:first-child {
   background-color: rgba(210, 210, 210, 0.8);
   border-bottom: 2px solid rgba(210, 210, 210, 0.8);
   transition: all .3s; }
 
-/* line 45, ../sass/import/_headerSmall.scss */
+/* line 40, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items:hover {
   border-bottom: 2px solid #5b5b5b; }
 
-/* line 49, ../sass/import/_headerSmall.scss */
+/* line 44, ../sass/import/_headerSmall.scss */
 .header-main__nav__nav_items {
   display: block;
   padding: 6px 30px;
@@ -258,9 +272,8 @@ header {
 
 /* line 1, ../sass/import/_formRechercheSmall.scss */
 .form_recherche {
-  padding: 0;
-  padding-right: 61.924686192%;
-  /*148px*/
+  margin: 0 30px;
+  margin-top: 5em;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -269,9 +282,8 @@ header {
   border: 1px solid #3f3f3f;
   height: 36px;
   line-height: 36px;
-  position: relative;
-  max-width: 600px; }
-  /* line 14, ../sass/import/_formRechercheSmall.scss */
+  position: relative; }
+  /* line 13, ../sass/import/_formRechercheSmall.scss */
   .form_recherche input[type="search"] {
     font-size: 16px;
     display: inline-block;
@@ -284,20 +296,7 @@ header {
     height: 36px;
     line-height: 36px;
     width: 100%; }
-  /* line 28, ../sass/import/_formRechercheSmall.scss */
-  .form_recherche select {
-    width: 26.77824268%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 33.47280335%;
-    /*80px*/
-    display: inline-block;
-    height: 36px;
-    line-height: 36px;
-    background-color: white;
-    border: none; }
-  /* line 42, ../sass/import/_formRechercheSmall.scss */
+  /* line 27, ../sass/import/_formRechercheSmall.scss */
   .form_recherche input[type="submit"] {
     position: absolute;
     top: 0;
@@ -321,11 +320,11 @@ header {
     border-left: 1px solid #3f3f3f;
     cursor: pointer;
     outline: -webkit-focus-ring-color auto 0; }
-  /* line 65, ../sass/import/_formRechercheSmall.scss */
+  /* line 50, ../sass/import/_formRechercheSmall.scss */
   .form_recherche .recherche:hover input[type="submit"], .form_recherche input[type="search"]:active + input[type="submit"], .form_recherche input[type="search"]:focus + input[type="submit"] {
     background-color: #5b5b5b;
     color: white; }
-  /* line 70, ../sass/import/_formRechercheSmall.scss */
+  /* line 55, ../sass/import/_formRechercheSmall.scss */
   .form_recherche input[type="search"]:hover + datalist + select + input[type="submit"], .form_recherche input[type="search"]:active + datalist + select + input[type="submit"], .form_recherche input[type="search"]:focus + datalist + select + input[type="submit"] {
     color: white;
     background-color: #5b5b5b; }
@@ -333,7 +332,7 @@ header {
 /* line 1, ../sass/import/_navbibliSmall.scss */
 .main-nav {
   padding: 1em 0;
-  padding-bottom: 2em; }
+  padding-bottom: 4em; }
 
 /* line 5, ../sass/import/_navbibliSmall.scss */
 .main-nav__item, .main-nav__item--small {
@@ -362,53 +361,53 @@ header {
     width: 100%; }
 
 /* line 3, ../sass/import/_liste_livres_small.scss */
-.liste_livres li:hover img, .liste_livres li:active img {
+.book-liste li:hover img, .book-liste li:active img {
   -webkit-filter: grayscale(0);
   -o-filter: grayscale(0);
   filter: grayscale(0); }
-/* line 9, ../sass/import/_liste_livres_small.scss */
-.liste_livres li:hover h3 a, .liste_livres li:active h3 a {
-  color: #5b5b5b; }
-/* line 15, ../sass/import/_liste_livres_small.scss */
-.liste_livres li {
+/* line 10, ../sass/import/_liste_livres_small.scss */
+.book-liste .book-liste__header {
+  font-size: 1.5em; }
+/* line 13, ../sass/import/_liste_livres_small.scss */
+.book-liste li {
   padding-bottom: 30px;
   margin-bottom: 30px;
   border-bottom: 1px solid #3f3f3f; }
-  /* line 19, ../sass/import/_liste_livres_small.scss */
-  .liste_livres li h3 a {
+  /* line 17, ../sass/import/_liste_livres_small.scss */
+  .book-liste li h3 a {
     font-size: 26px;
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s; }
-  /* line 26, ../sass/import/_liste_livres_small.scss */
-  .liste_livres li h3 a:hover {
+  /* line 24, ../sass/import/_liste_livres_small.scss */
+  .book-liste li h3 a:hover {
     color: #5b5b5b; }
-/* line 30, ../sass/import/_liste_livres_small.scss */
-.liste_livres img {
+/* line 28, ../sass/import/_liste_livres_small.scss */
+.book-liste img {
   -webkit-filter: grayscale(20%);
   -o-filter: grayscale(20%);
   filter: grayscale(20%);
   -webkit-transition: all .3s;
   -o-transition: all .3s;
   transition: all .3s; }
-/* line 38, ../sass/import/_liste_livres_small.scss */
-.liste_livres p {
+/* line 36, ../sass/import/_liste_livres_small.scss */
+.book-liste p {
   margin-bottom: 30px; }
 
-/* line 44, ../sass/import/_liste_livres_small.scss */
-h3 {
+/* line 41, ../sass/import/_liste_livres_small.scss */
+.book-liste__header {
   margin-bottom: 30px; }
 
-/* line 50, ../sass/import/_liste_livres_small.scss */
+/* line 47, ../sass/import/_liste_livres_small.scss */
 .info_Livre dd a, .info_Livre dt {
   font-size: 20px;
   vertical-align: middle;
   display: block; }
-/* line 55, ../sass/import/_liste_livres_small.scss */
+/* line 52, ../sass/import/_liste_livres_small.scss */
 .info_Livre dt {
   background-color: #f0f0f0;
   color: #3f3f3f; }
-/* line 59, ../sass/import/_liste_livres_small.scss */
+/* line 56, ../sass/import/_liste_livres_small.scss */
 .info_Livre dd a {
   background-color: #3f3f3f;
   color: #f0f0f0; }
@@ -611,8 +610,8 @@ header li .header-main__form-connexion__userLog {
   font-size: 26px;
   color: forestgreen; }
 
-/* line 2, ../sass/import/liste_genre_Small.scss */
-.liste_genre h3 a {
+/* line 1, ../sass/import/liste_genre_Small.scss */
+.simple-liste__item {
   text-decoration: underline;
   font-size: 1.45em;
   padding: .25em 0;
@@ -714,26 +713,122 @@ header li .header-main__form-connexion__userLog {
 .big-slogant {
   font-weight: 100;
   color: #3f3f3f;
-  font-size: 1.6em; }
+  font-size: 1.6em;
+  margin-bottom: 1em; }
 
-/* line 35, ../sass/style.scss */
-main {
-  margin: 70px 30px 0; }
-  /* line 37, ../sass/style.scss */
-  main h2 {
-    font-size: 30px;
-    text-align: right; }
-  /* line 41, ../sass/style.scss */
-  main form + h2 {
-    margin-top: 30px; }
+/* line 1, ../sass/import/welcome-bloc_Small.scss */
+.welcome-bloc {
+  padding: 2em 10%;
+  margin-top: 4em;
+  display: block; }
+
+/* line 6, ../sass/import/welcome-bloc_Small.scss */
+.welcome-bloc__header {
+  font-size: 2.9375em;
+  font-weight: 100;
+  font-family: "Avenir Lither", Helvetica, Arial, sans-serif; }
+
+/* line 11, ../sass/import/welcome-bloc_Small.scss */
+.welcome-bloc__sub-heading {
+  font-size: 1.5em; }
+
+/* line 14, ../sass/import/welcome-bloc_Small.scss */
+.welcome-bloc__link {
+  font-size: 1.5em; }
+
+/* line 1, ../sass/import/book-presentation_Small.scss */
+.book-presentation {
+  border: 1px solid #f0f0f0;
+  width: 80%;
+  margin: 0 auto 4em;
+  padding: 0.9375em 5% 4em;
+  position: relative; }
+  /* line 8, ../sass/import/book-presentation_Small.scss */
+  .book-presentation:hover .book-presentation__picture {
+    opacity: .2; }
+  /* line 12, ../sass/import/book-presentation_Small.scss */
+  .book-presentation:hover .book-presentation__inline-link {
+    top: 2em;
+    font-size: 2.5em; }
+
+/* line 18, ../sass/import/book-presentation_Small.scss */
+.book-presentation__inline-link {
+  text-align: center;
+  position: absolute;
+  top: -2em;
+  left: 0;
+  right: 0;
+  font-size: 0; }
+
+/* line 26, ../sass/import/book-presentation_Small.scss */
+.book-presentation__header {
+  display: block;
+  font-size: 1.5em;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid black; }
+
+/* line 33, ../sass/import/book-presentation_Small.scss */
+.book-presentation__btn-link {
+  text-align: center;
+  display: block;
+  width: 50%;
+  left: 21.0416666667%;
+  padding: 1em;
+  background: #5b5b5b;
+  color: #ffffff;
+  position: absolute;
+  bottom: -1.89285714285714em;
+  border-radius: .5em;
+  font-weight: bold;
+  border: 1px solid transparent;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s; }
+  /* line 51, ../sass/import/book-presentation_Small.scss */
+  .book-presentation__btn-link:hover {
+    border: 1px solid #5b5b5b;
+    color: #5b5b5b;
+    background: #ffffff; }
+
+/* line 1, ../sass/import/single-author_Smal.scss */
+.single-author {
+  padding: 1em 10%; }
+
+/* line 4, ../sass/import/single-author_Smal.scss */
+.single-author__figure {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0 10% 1em 0; }
+
+/* line 10, ../sass/import/single-author_Smal.scss */
+.single-author__figure__header {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5em 10%;
+  font-size: 2.5em; }
+  /* line 19, ../sass/import/single-author_Smal.scss */
+  .single-author__figure__header a {
+    color: #ffffff; }
+
+/* line 23, ../sass/import/single-author_Smal.scss */
+.single-author__text {
+  width: 100%; }
 
 /*
 style pour les medium
 
 */
 @media screen and (min-width: 590px) {
-  /* line 51, ../sass/style.scss */
-  main {
+  /* line 44, ../sass/style.scss */
+  .container {
     width: 540px;
     margin: 80px auto;
     margin-bottom: 0; }
@@ -743,7 +838,7 @@ style pour les medium
     display: inline-block; }
 
   /* line 2, ../sass/import/_liste_livres_Medium.scss */
-  .liste_livres img {
+  .book-liste img {
     float: left;
     padding-right: 30px;
     padding-bottom: 30px; }
@@ -803,10 +898,18 @@ Style large
 
 */
 @media screen and (min-width: 1190px) {
-  /* line 67, ../sass/style.scss */
-  main {
+  /* line 60, ../sass/style.scss */
+  .container {
+    display: block;
+    width: 75%;
+    margin: 0 auto; }
+
+  /* line 66, ../sass/style.scss */
+  .container--without-form {
+    display: block;
     width: 1080px;
-    margin: 150px auto 0 auto; }
+    margin: 0 auto;
+    margin-top: 9.375em; }
 
   /* line 1, ../sass/import/_navbibliLarge.scss */
   .main-nav__item, .main-nav__item--small {
@@ -815,6 +918,12 @@ Style large
   /* line 4, ../sass/import/_navbibliLarge.scss */
   .main-nav__item--small {
     padding-right: 1.8518518519%; }
+
+  /* line 8, ../sass/import/_navbibliLarge.scss */
+  .home .main-nav {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 1em; }
 
   /* line 1, ../sass/import/_formConnexion_Large.scss */
   .header-main__form-connexion__userLog {
@@ -857,7 +966,7 @@ Style large
     margin: 0;
     border-bottom: 5px solid #5b5b5b;
     background-color: #ffffff;
-    padding: 1em 12%; }
+    padding: 1em 12.2377622378%; }
     /* line 11, ../sass/import/_header_Large.scss */
     header:after {
       content: "";
@@ -877,61 +986,66 @@ Style large
   .header-main__box-logo {
     border: none;
     padding: 0;
-    background: none;
-    float: left; }
+    float: left;
+    position: relative;
+    top: 11px; }
 
-  /* line 32, ../sass/import/_header_Large.scss */
+  /* line 33, ../sass/import/_header_Large.scss */
   .header-main__nav {
     float: right; }
 
-  /* line 35, ../sass/import/_header_Large.scss */
+  /* line 36, ../sass/import/_header_Large.scss */
   .header-main.scroll {
-    background: rgba(255, 255, 255, 0.8); }
+    background: rgba(255, 255, 255, 0.9); }
 
-  /* line 38, ../sass/import/_header_Large.scss */
+  /* line 39, ../sass/import/_header_Large.scss */
   .header-main.scroll {
     padding: 0 12%; }
 
-  /* line 42, ../sass/import/_header_Large.scss */
+  /* line 43, ../sass/import/_header_Large.scss */
   .header-main__form-connexion {
     display: inline-block;
     position: relative; }
 
-  /* line 47, ../sass/import/_header_Large.scss */
-  .header-main__box-logo, .header-main__nav {
+  /* line 48, ../sass/import/_header_Large.scss */
+  .header-main__nav {
     display: inline-block;
     vertical-align: middle; }
 
-  /* line 51, ../sass/import/_header_Large.scss */
+  /* line 52, ../sass/import/_header_Large.scss */
   .show_form_connexion:hover .header-main__form-connexion__userLog {
     top: 132px; }
 
   /* line 2, ../sass/import/_liste_livres_Large.scss */
-  .liste_livres li {
+  .book-liste li {
     float: left;
     width: 44.444444444%;
     /*480px*/
-    margin: 0 2.7777777778%;
+    margin-right: 2.7777777778%;
     /*30px*/ }
 
   /* line 9, ../sass/import/_liste_livres_Large.scss */
-  .liste_livres:after {
+  .book-liste:after {
     content: "";
     display: block;
     clear: both; }
 
-  /* line 3, ../sass/import/_formRecherche_Large.scss */
-  .form_recherche input[type="submit"] {
-    width: 24.972803%;
-    font-size: 20px; }
-  /* line 7, ../sass/import/_formRecherche_Large.scss */
-  .form_recherche input[type="search"] {
-    font-size: 20px; }
-  /* line 10, ../sass/import/_formRecherche_Large.scss */
-  .form_recherche select {
-    right: 24.972803%;
-    width: 17.878243%;
-    font-size: 20px; }
+  /* line 2, ../sass/import/_formRecherche_Large.scss */
+  .form_recherche {
+    margin-top: 9.375em; }
+    /* line 4, ../sass/import/_formRecherche_Large.scss */
+    .form_recherche input[type="submit"] {
+      width: 24.972803%;
+      font-size: 20px; }
+    /* line 8, ../sass/import/_formRecherche_Large.scss */
+    .form_recherche input[type="search"] {
+      font-size: 20px; }
+
+  /* line 12, ../sass/import/_formRecherche_Large.scss */
+  .home .form_recherche {
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 3em; }
 
   /* line 1, ../sass/import/_formCreateUser_Large.scss */
   .form-create-user {
@@ -1021,7 +1135,7 @@ Style large
     margin-right: 3em; }
 
   /* line 1, ../sass/import/liste_genre_Large.scss */
-  .liste_genre {
+  .simple-liste {
     -webkit-columns: 4;
     -moz-columns: 4;
     columns: 4; }
@@ -1054,7 +1168,7 @@ Style large
     color: white;
     padding: .5em 2%; }
 
-  /* line 6, ../sass/import/flash-box_Large.scss */
+  /* line 7, ../sass/import/flash-box_Large.scss */
   .flash-box__btn {
     position: absolute;
     top: 0.1em;
@@ -1068,13 +1182,75 @@ Style large
 
   /* line 8, ../sass/import/about-bloc_Large.scss */
   .big-slogant {
-    margin-top: -2em; }
+    margin-top: -2em;
+    margin-bottom: 3em; }
 
-  /* line 11, ../sass/import/about-bloc_Large.scss */
+  /* line 12, ../sass/import/about-bloc_Large.scss */
   .about-bloc__paragraphe {
     background: url("./img/about2.png") no-repeat 230px 0 #ffffff;
     background-size: contain;
-    padding-right: 50%; } }
+    padding-right: 50%; }
+
+  @-webkit-keyframes goRight {
+    20% {
+      opacity: .7;
+      left: -20px; }
+    100% {
+      left: 2000px; } }
+  @-moz-keyframes goRight {
+    20% {
+      opacity: .7;
+      left: -20px; }
+    100% {
+      left: 2000px; } }
+  @-ms-keyframes goRight {
+    20% {
+      opacity: .7;
+      left: -20px; }
+    100% {
+      left: 2000px; } }
+  @-o-keyframes goRight {
+    20% {
+      opacity: .7;
+      left: -20px; }
+    100% {
+      left: 2000px; } }
+  @keyframes goRight {
+    20% {
+      opacity: .7;
+      left: -20px; }
+    100% {
+      left: 2000px; } }
+  /* line 1, ../sass/import/welcome-bloc_Large.scss */
+  .welcome-bloc {
+    padding: 9.375em 13.0597014925% 7em;
+    background: #f0f0f0;
+    margin: 4em 0 3em; }
+    /* line 7, ../sass/import/welcome-bloc_Large.scss */
+    .welcome-bloc:hover .welcome-bloc__header {
+      -webkit-animation: goRight 1s ease;
+      -moz-animation: goRight 1s ease;
+      -o-animation: goRight 1s ease;
+      animation: goRight 1s ease; }
+
+  /* line 16, ../sass/import/welcome-bloc_Large.scss */
+  .welcome-bloc__header {
+    position: relative; }
+
+  /* line 1, ../sass/import/book-presentation_Large.scss */
+  .book-presentation {
+    border: 1px solid #f0f0f0;
+    float: left;
+    width: 23.1481481481%;
+    padding: 2em 2.7777777778% 4em; }
+
+  /* line 8, ../sass/import/book-presentation_Large.scss */
+  .book-presentation:not(:nth-child(3n+4)) {
+    margin-right: 6.6666666667%; }
+
+  /* line 4, ../sass/import/single-author_Large.scss */
+  .single-author__figure {
+    margin: 0 2.7777777778% 2em 0; } }
 /* line 1, ../sass/import/_footer.scss */
 footer {
   position: absolute;
