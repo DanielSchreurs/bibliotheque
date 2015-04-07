@@ -66,5 +66,17 @@ class Author extends Model implements AuthorRepositoryInterface
         return $pds->fetchAll();
     }
 
-
+    public function getAuthorMonth()
+    {
+        $sql = 'SELECT
+                first_name,
+                id as author_id,
+                last_name,
+                photo,
+                bio_text
+                FROM authors
+                WHERE vedette=1';
+        $pdost = $this->cx->query($sql);
+        return $pdost->fetch();
+    }
 }
