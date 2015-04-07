@@ -2,12 +2,15 @@
 /*
  * Déclaration des routes permises
  */
-$routes['default'] = 'book/index';
+$routes['default'] = 'page/accueil';
 $routes['bookindex'] = 'book/index';
 $routes['bookview'] = 'book/view';
 $routes['booklist'] = 'book/find';
 $routes['bookedit'] = 'book/create';
 $routes['bookedit'] = 'book/admin_index';
+$routes['bookadmin_show_book'] = 'book/admin_show_book';
+$routes['bookadmin_delete_book'] = 'book/admin_delete_book';
+$routes['bookadmin_edit_book'] = 'book/admin_edit_book';
 $routes['bookupdate'] = 'book/update';
 $routes['bookupdate'] = 'book/liste';
 $routes['editorindex'] = 'editor/index';
