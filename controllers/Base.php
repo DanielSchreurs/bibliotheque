@@ -8,7 +8,7 @@ class Base
 {
     public $view = null;
     public $request = null;
-    public $isAdmin = false;
+    public $header = 'header';
 
     function __construct(Request $request)
     {
@@ -16,8 +16,11 @@ class Base
         $this->request = $request;
         $name = explode('_', $this->request->a);
         if (Session::isAdmin() && $name[0] == 'admin') {
-            $this->isAdmin = true;
             $this->view = $request->m . '/admin/' . $name[1] . '.php';
+            $this->header = 'admin_header';
+        }
+        elseif(!Session::isAdmin() && $name[0] == 'admin'){
+            header('Location:./index.php?m=error&a=error&error=404');
         }
     }
 }
