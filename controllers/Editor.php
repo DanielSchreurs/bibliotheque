@@ -19,7 +19,7 @@ class Editor extends Base
     {
 
         $data = $this->ModelEditor->all();
-        $title = 'Les éditeurs';
+        $title = 'Liste de tous les éditeurs';
         $view = 'index.php';
         return [
             'data' => $data,
