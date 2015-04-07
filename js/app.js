@@ -13,7 +13,7 @@
 var i, linkShowPassword = document.getElementById('linkShowPassword');
 var showedpassword = document.getElementsByClassName('showedpassword');
 var flash = document.getElementsByClassName('flash-box__btn')[0];
-var showFromElement= document.getElementById('showFrom');
+var showFromElement = document.getElementById('showFrom');
 
 if (linkShowPassword != null) {
     linkShowPassword.addEventListener('click', function () {
@@ -40,25 +40,28 @@ function op(evt) {
     element.className = scroll > 100 ? "header-main scroll" : "header-main";
 }
 
-function addClass(newClass){
-    var oldClass=event.target.className;
-    event.target.className=oldClass!=0?oldClass+" "+newClass:newClass;
+function addClass(newClass) {
+    var oldClass = event.target.className;
+    event.target.className = oldClass != 0 ? oldClass + " " + newClass : newClass;
 }
-function removeClass(newClass){
-    var oldClass=event.target.className;
-    event.target.className=(~oldClass.indexOf(newClass))?oldClass.substring(0,oldClass.indexOf(newClass)):oldClass;
+function removeClass(newClass) {
+    var oldClass = event.target.className;
+    event.target.className = (~oldClass.indexOf(newClass)) ? oldClass.substring(0, oldClass.indexOf(newClass)) : oldClass;
 
 }
-showFromElement.addEventListener("click",function(){
-    if(~showFromElement.className.indexOf("hover")){
-        removeClass("hover");
-    }
-    else{
-        addClass("hover");
-      // window.addEventListener("click",function(){ alert("ok")},false);
+if (showFromElement) {
+    showFromElement.addEventListener("click", function () {
+        if (~showFromElement.className.indexOf("hover")) {
+            removeClass("hover");
+        }
+        else {
+            addClass("hover");
+            // window.addEventListener("click",function(){ alert("ok")},false);
 
-    }
-},false);
+        }
+    }, false);
+}
+
 document.getElementsByTagName('body')[0].style.marginBottom = (document.getElementsByTagName('footer')[0].offsetHeight * 1.6) + 'px';
 window.addEventListener("scroll", op, false);
 
