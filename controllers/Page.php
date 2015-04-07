@@ -3,6 +3,8 @@
 namespace Controllers;
 
 
+use Models\Author;
+use Models\Book;
 use Models\Help;
 use Models\Library;
 
@@ -13,6 +15,8 @@ class Page extends Base
         parent::__construct($request);
         $this->Modelhelp = new Help();
         $this->ModelLibrary= new Library();
+        $this->ModelBook= new Book();
+        $this->ModelAuthor=new Author();
     }
 
 
@@ -54,10 +58,21 @@ class Page extends Base
 
     }
 
+
+    public function accueil()
+    {
+        $data['book_month']= $this->ModelBook->getLatestBook(3);
+        $data['author_month']=$this->ModelAuthor->getAuthorMonth();
+        $title='Accueil';
+        return[
+            'data'=>$data,
+            'title'=>$title
+        ];
+    }
     public function about()
     {
         $data= $this->ModelLibrary->view(1);
-        $title='&Agrave; propos de nous';
+        $title='Tout savoir sur nous';
         return[
             'data'=>$data,
             'title'=>$title
