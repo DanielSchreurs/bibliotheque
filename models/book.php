@@ -33,6 +33,7 @@ class Book extends Model implements BookRepositoryInterface
                 editors.id AS editor_id,
                 librarys.id AS library_id,
                 authors.id as author_id,
+                books.datepub as book_date,
                 title,
                 front_cover,
                 summary,
@@ -151,7 +152,7 @@ class Book extends Model implements BookRepositoryInterface
         $pdost->execute([':book_id' => $book_id]);
         return $pdost->fetch();
     }
-    public function getBestBook()
+    public function getLatestBook($limit)
     {
         $sql = 'SELECT
                 DISTINCT
@@ -162,6 +163,7 @@ class Book extends Model implements BookRepositoryInterface
                 authors.id as author_id,
                 title,
                 front_cover,
+                presentation_cover,
                 summary,
                 authors.first_name AS author_first_name,
                 authors.last_name AS author_last_name,
@@ -176,9 +178,25 @@ class Book extends Model implements BookRepositoryInterface
                 JOIN librarys on library_id=librarys.id
                 JOIN author_book on book_id=books.id
                 JOIN authors on author_id=authors.id
-                where books.vedette=1';
+                ORDER BY book_id
+                LIMIT '.$limit;
         $pdost = $this->cx->query($sql);
-        return $pdost->fetch();
+        return $pdost->fetchAll();
     }
 
+    public function getAllLanguages()
+    {
+        $sql='SELECT
+            full_name as language,
+            id as language_id
+            FROM languages
+            ';
+        $pdost=$this->cx->query($sql);
+        return $pdost->fetchAll();
+    }
+    public function delete($book_id)
+    {
+        die('je suis dans le model et il faut supprimer');
+        return true;
+    }
 }
