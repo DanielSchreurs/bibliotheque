@@ -19,7 +19,7 @@ class Genre extends Base
     {
 
         $data = $this->modelGenre->all();
-        $title = 'Les genres';
+        $title = 'Tous les genres';
         $view = 'index.php';
         return [
             'data' => $data,
