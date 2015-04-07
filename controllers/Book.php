@@ -28,7 +28,7 @@ class Book extends Base
         LibraryRepositoryInterface $modelLibrary
     ) {
         parent::__construct($request);
-        $this->modelbook = $modelBook;
+        $this->modelBook = $modelBook;
         $this->modelAuthor = $modelAuthor;
         $this->modelEditor = $modelEditor;
         $this->modelGenre = $modelGenre;
@@ -37,9 +37,9 @@ class Book extends Base
 
     public function index()
     {
-        $data = $this->modelbook->paginate($this->request->page);
+        $data = $this->modelBook->paginate($this->request->page);
         $title = 'acceuil';
-        $nbrPage = ceil(($this->modelbook->getNbrelements() / NBR_BOOKS));
+        $nbrPage = ceil(($this->modelBook->getNbrelements() / NBR_BOOKS));
         return [
             'data' => $data,
             'title' => $title,
@@ -51,7 +51,7 @@ class Book extends Base
 
     public function find()
     {
-        $data = $this->modelbook->find($this->request->id);
+        $data = $this->modelBook->find($this->request->id);
         $title = 'livre d’un auteur';
         return [
             'data' => $data,
@@ -61,7 +61,7 @@ class Book extends Base
 
     public function view()
     {
-        $data = $this->modelbook->find($this->request->id);
+        $data = $this->modelBook->find($this->request->id);
         $title = 'Un livrer';
         return [
             'data' => $data,
@@ -71,7 +71,7 @@ class Book extends Base
 
     public function liste()
     {
-        $data = $this->modelbook->getBookFromYear($this->request->year);
+        $data = $this->modelBook->getBookFromYear($this->request->year);
         $title = 'Un livre selon une année';
         return [
             'data' => $data,
@@ -80,55 +80,60 @@ class Book extends Base
     }
 
 
-    public function create()
+    public function admin_edit_book()
     {
-        $title = 'Ajouter une livre';
+        if(!$_SERVER['REQUEST_METHOD']=='get'){
+        $title = 'Modifier un livre, en quelques clicks';
+        $data['book']=$this->modelBook->find($this->request->id);
         $data['authors'] = $this->modelAuthor->all();
         $data['editors'] = $this->modelEditor->all();
         $data['genres'] = $this->modelGenre->all();
-        $data['librarys'] = $this->modelLibrary->all();
+        $data['langues'] = $this->modelBook->getAllLanguages();
         return [
             'data' => $data,
             'title' => $title
         ];
+        }
+        elseif($_SERVER['REQUEST_METHOD']=='post'){
+            die('ok');
+        }
     }
 
-    public function update()
-    {
-
-    }
-
-    public function getBookFromAuthor($book_id)
-    {
-        $book = new BookModel();
-        $data = $book->getBookfromUser($book_id);
-        $title = 'Un livre';
-        $view = 'index.php';
-        return [
-            'data' => $data,
-            'view' => $view,
-            'title' => $title
-        ];
-    }
 
     public function admin_index()
     {
-        if ($this->isAdmin) {
+            $title = 'Administrer, en quelques clicks';
+            $data['books'] = $this->modelBook->all();
 
-            $title = 'Administrer les livres';
-            $data['authors'] = $this->modelAuthor->all();
-            $data['editors'] = $this->modelEditor->all();
-            $data['genres'] = $this->modelGenre->all();
-            $data['librarys'] = $this->modelLibrary->all();
             return [
                 'data' => $data,
                 'title' => $title
             ];
 
+    }
+
+    public function admin_show_book()
+    {
+        $title = 'Supprimer un livre';
+        $data = $this->modelBook->find($this->request->id);
+        return [
+            'title' => $title,
+            'data' => $data
+        ];
+    }
+
+    public function admin_delete_book()
+    {
+        if ($this->modelBook->delete($this->request->id)) {
+            Session::setMessage('Votre livre à été supprimé avec succès');
+            header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
+            die();
         } else {
-            Session::setMessage('Vous n’avez pas le droit d’acceder à cette page','error');
-            header('Location:' . $_SERVER['PHP_SELF']);
+            Session::setMessage('Oups, une erreur s’est produite, nous vous invitons à réessyer', 'error');
+            header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
             die();
         }
+
     }
+
 }
