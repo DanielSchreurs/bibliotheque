@@ -16,22 +16,21 @@ class User extends Base
 
     function login($register = false)
     {
-        if ($_SESSION['first_name']) {
+        if (isset($_SESSION['first_name'])) {
             header('Location:' . $_SERVER['PHP_SELF']);
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($this->request->sent->username) && isset($this->request->sent->password)) {
-                if (($this->modelUser->exists($this->request->sent->username, $this->request->sent->password))) {
+                if (($this->modelUser->exists($this->request->sent->username, sha1($this->request->sent->password)))) {
                     if (isset($this->request->sent->remember)) {
-                        foreach ($this->modelUser->getUserInfo($this->request->sent->username,
-                            $this->request->sent->password) as $c => $v) {
-                            setcookie($c, $v, LIVETIME);
-                        }
+                        setcookie('userId', $this->modelUser->getUserId($this->request->sent->username,
+                            sha1($this->request->sent->password))->id, LIVETIME);
+                        setcookie('role', $this->modelUser->getUserRole($_COOKIE['userId'])->role, LIVETIME);
+                        
                     } else {
-                        foreach ($this->modelUser->getUserInfo($this->request->sent->username,
-                            $this->request->sent->password) as $c => $v) {
-                            $_SESSION[$c] = $v;
-                        }
+                        $_SESSION['userId'] = $this->modelUser->getUserId($this->request->sent->username,
+                            sha1($this->request->sent->password))->id;
+                        $_SESSION['role'] = $this->modelUser->getUserRole($_SESSION['userId'])->role;
                     }
                     if (!$register) {
                         Session::setMessage('Vous êtes connecté.');
@@ -80,7 +79,7 @@ class User extends Base
                 'title' => $title
             ];
         } else {
-            Session::setMessage('Merci, poru votre inscription. Vous pouvez vous connecter.');
+            Session::setMessage('Merci, pour votre inscription. Vous pouvez vous connecter.');
             header('Location:' . $_SERVER['PHP_SELF']);
             die();
         }
@@ -89,13 +88,9 @@ class User extends Base
 
     public function logout()
     {
-        unset($_SESSION['first_name']);
-        unset($_SESSION['last_name']);
-        unset($_SESSION['photo']);
+        unset($_SESSION['userId']);
         unset($_SESSION['role']);
-        setcookie('first_name', false, time() - (3600));
-        setcookie('last_name', false, time() - (3600));
-        setcookie('photo', false, time() - (3600));
+        setcookie('userId', false, time() - (3600));
         setcookie('role', false, time() - (3600));
         Session::setMessage('Vous êtes déconnecté.');
         header('Location:' . $_SERVER['PHP_SELF']);
