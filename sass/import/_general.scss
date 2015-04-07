@@ -142,7 +142,7 @@ h3.noBoook {
   color: red;
 }
 
-.form-create-user__obligatoire {
+.form-create--obligatoire {
   color: $myGray;
   font-weight: bold;
 }
@@ -158,4 +158,9 @@ h3.noBoook {
   color: $myGray;
   padding-bottom: .3em;
   display: block;
+}
+.create_book__btn{
+  position: relative;
+  left: 92px;
+  top: 20px;
 }

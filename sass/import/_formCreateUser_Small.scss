@@ -1,17 +1,9 @@
-.form-create-user {
+.form-create {
   font-size: 21px; //21px
+  margin: 0 percentage(30/300);
+  padding: 0 percentage(30/300);
   label {
     display: block;
-  }
-  input[type="text"], input[type="email"], input[type="password"] {
-    display: block;
-    width: 100%;
-    font-size: 21px;
-    padding: .2380952381em percentage(5/366);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid $myGray;
   }
   legend {
     color: $grisFonce;
@@ -28,4 +20,26 @@
 .form-create-user--happy{
   font-size: 26px;
   color: forestgreen;
+}
+.form-create__long-text{
+  resize: vertical;
+}
+.form-create__simple-imput{
+  display: block;
+  width: 100%;
+  font-size: 21px;
+  padding: .2380952381em percentage(5/366);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid $myGray;
+}
+.form-create__message--error{
+  position: relative;
+  margin: 1em 0;
+  padding-left: percentage(30/300);
+  background: $errorBCG;
+  color: $error;
+  font-size: .625em;
+  border-radius: .3em;
 }

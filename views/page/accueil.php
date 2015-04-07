@@ -1,66 +1,63 @@
-<main class="home">
-    <h1 class="hidden"><i>Bookme,</i> la plus grande commauté de livres</h1>
-    <asside class="welcome-bloc">
-        <h2 class="bounceOutRight"><a href="<?php echo($html->createLink('user', 'create')); ?>"
-                                      class="welcome-bloc__header">Rejoins, la plus grande communauté de
-                livres&nbsp;!</a></h2>
+<?php use \Components\Session; ?>
+<main class="<?php echo((Session::isUserLogged()) ? 'container' : 'home') ?>">
+    <h1 class="hidden"><i>Bookme,</i> La plus grande commauté de livres</h1>
+    <?php if (!Session::isUserLogged()): ?>
+        <asside class="welcome-bloc">
+            <h2 class="bounceOutRight"><a href="<?php echo($html->createLink('user', 'create')); ?>"
+                                          class="welcome-bloc__header">Rejoins, la plus grande communauté de
+                    livres&nbsp;!</a></h2>
 
-        <p class="welcome-bloc__sub-heading">Ici tu peux échanger, partager et emprunter tous les livres que tu
-            aimes.</p>
-        <a class="welcome-bloc__link" href="<?php echo($html->createLink('user', 'create')); ?>">Je veux m’inscrire&nbsp;!</a>
-    </asside>
+            <p class="welcome-bloc__sub-heading">Ici tu peux échanger, partager et emprunter tous les livres que tu
+                aimes.</p>
+            <a class="welcome-bloc__link" href="<?php echo($html->createLink('user', 'create')); ?>">Je veux m’inscrire&nbsp;!</a>
+        </asside>
+    <?php endif; ?>
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <?php var_dump($data); die('ohh'); ?>
     <section class="container clearBoth">
         <h2 class="header-block-one">Les livres du mois</h2>
-        <article class="book-presentation">
-            <a href="#"><img class="book-presentation__picture" width="270" height="200" src="./img/books_covers/presentation/andre_breton_anthologie_de_lhumour_noir.jpg"
-                             alt="andre_breton_anthologie_de_lhumour_noir"/></a>
-            <!--<a class="book-presentation__inline-link" href="">Réserver</a>-->
+        <?php foreach ($data['data']['book_month'] as $book): ?>
+            <article class="book-presentation">
+                <a title="Renvoie vers la fiche du livre"
+                   href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
+                        class="book-presentation__picture" width="270" height="200"
+                        src="./img/books_covers/presentation/<?php echo($book->presentation_cover); ?>.jpg"
+                        alt="andre_breton_anthologie_de_lhumour_noir"/></a>
+                <!--<a class="book-presentation__inline-link" href="">Réserver</a>-->
 
-            <h3><a class="book-presentation__header" href="#">Anthologie de la mort</a></h3>
+                <h3><a title="Renvoie vers la fiche du livre"
+                       class="book-presentation__header" href="<?php echo($html->createLink('book', 'view',
+                        ['id' => $book->book_id])); ?>"><?php echo($book->title); ?></a></h3>
 
-            <p class="book-presentation__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam delectus dicta distinctio earum
-                enim, esse est.</p>
-            <a class="book-presentation__btn-link" href="">Voir la fiche du livre</a>
-        </article><article class="book-presentation">
-            <a href="#"><img class="book-presentation__picture" width="270" height="200" src="./img/books_covers/presentation/andre_breton_anthologie_de_lhumour_noir.jpg"
-                             alt="andre_breton_anthologie_de_lhumour_noir"/></a>
-            <!--<a class="book-presentation__inline-link" href="">Réserver</a>-->
-
-            <h3><a class="book-presentation__header" href="#">Anthologie de la mort</a></h3>
-
-            <p class="book-presentation__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam delectus dicta distinctio earum
-                enim, esse est.</p>
-            <a class="book-presentation__btn-link" href="">Voir la fiche du livre</a>
-        </article><article class="book-presentation">
-            <a href="#"><img class="book-presentation__picture" width="270" height="200" src="./img/books_covers/presentation/andre_breton_anthologie_de_lhumour_noir.jpg"
-                             alt="andre_breton_anthologie_de_lhumour_noir"/></a>
-            <!--<a class="book-presentation__inline-link" href="">Réserver</a>-->
-
-            <h3><a class="book-presentation__header" href="#">Anthologie de la mort</a></h3>
-
-            <p class="book-presentation__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam delectus dicta distinctio earum
-                enim, esse est.</p>
-            <a class="book-presentation__btn-link" href="">Voir la fiche du livre</a>
-        </article>
+                <p class="book-presentation__text"><?php echo($html->cutText($book->summary, 200)); ?></p>
+                <a class="book-presentation__btn-link" title="Renvoie vers la fiche du livre"
+                   href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>">Voir la fiche du
+                    livre</a>
+            </article>
+        <?php endforeach; ?>
     </section>
-   <article class="single-author container clearBoth">
-       <h2 class="header-block-one"><a href="#">Auteur du mois</a></h2>
-       <figure class="single-author__figure">
-       <a class="single-author__figure__picture" href="#"><img src="./img/authors_photo/andre_breton_big.jpg" alt=""/></a>
-       <figcatiion>
-          <h3 class="single-author__figure__header"><a href="#">André Breton</a></h3>
-       </figcatiion>
-       </figure>
-       <p class="single-author__text">
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad at consectetur cumque deserunt doloribus dolorum eius eos, ex incidunt, ipsam iste non odit, placeat provident quam quidem sint veniam voluptates!
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aspernatur enim et, eum hic id ipsum itaque libero nemo, obcaecati odio recusandae tenetur? Consequatur eaque numquam quidem, rem sit sunt!
-           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at culpa doloremque ducimus facere harum iusto modi molestiae obcaecati quia quos reprehenderit, tempore voluptates! Dicta dignissimos laudantium quasi veniam veritatis?
-       </p>
-       <a class="btnVert" href="/bibliotheque/index.php?m=author&amp;a=view&amp;id=1">Voir la
-           fiche de l'auteur</a>
-   </article>
+    <article class="single-author container clearBoth">
+        <?php $author = $data['data']['author_month']; ?>
+        <h2 class="header-block-one"><a title="Renvoie vers la fiche de l'auteur"
+                                        href="<?php echo($html->createLink('author', 'view',
+                                            ['id' => $author->author_id])); ?>">Auteur du mois</a></h2>
+        <figure class="single-author__figure">
+            <a class="single-author__figure__picture" title="Renvoie vers la fiche de l'auteur"
+               href="<?php echo($html->createLink('author', 'view', ['id' => $author->author_id])); ?>"><img
+                    src="./img/authors_photo/andre_breton_big.jpg"
+                    alt="Portrait de l'auteur<?php echo($html->createLink('author', 'view',
+                        ['id' => $author->author_id])); ?>"/></a>
+            <figcatiion>
+                <h3 class="single-author__figure__header"><a title="Renvoie vers la fiche de l'auteur"
+                                                             href="<?php echo($html->createLink('author', 'view',
+                                                                 ['id' => $author->author_id])); ?>"><?php echo($author->first_name . ' ' . $author->last_name); ?></a>
+                </h3>
+            </figcatiion>
+        </figure>
+        <p class="single-author__text"><?php echo($html->cutText($author->bio_text, 500)); ?></p>
+        <a title="Renvoie vers la fiche de l'auteur" class="btnVert"
+           href="<?php echo($html->createLink('author', 'view', ['id' => $author->author_id])); ?>">Voir la
+            fiche de l'auteur</a>
+    </article>
 </main>

@@ -18,4 +18,6 @@ interface AuthorRepositoryInterface
 
     function books($id);
 
+    public function getAuthorMonth();
+
 }

@@ -200,7 +200,7 @@ h3.noBoook {
   color: red; }
 
 /* line 145, ../sass/import/_general.scss */
-.form-create-user__obligatoire {
+.form-create--obligatoire {
   color: #5b5b5b;
   font-weight: bold; }
 
@@ -218,6 +218,12 @@ h3.noBoook {
   color: #5b5b5b;
   padding-bottom: .3em;
   display: block; }
+
+/* line 162, ../sass/import/_general.scss */
+.create_book__btn {
+  position: relative;
+  left: 92px;
+  top: 20px; }
 
 /* line 1, ../sass/import/_headerSmall.scss */
 header li a:first-letter {
@@ -578,37 +584,54 @@ header li .header-main__form-connexion__userLog {
   color: #5b5b5b; }
 
 /* line 1, ../sass/import/_formCreateUser_Small.scss */
-.form-create-user {
+.form-create {
   font-size: 21px;
+  margin: 0 10%;
+  padding: 0 10%;
   margin-bottom: 3em; }
-  /* line 3, ../sass/import/_formCreateUser_Small.scss */
-  .form-create-user label {
+  /* line 5, ../sass/import/_formCreateUser_Small.scss */
+  .form-create label {
     display: block; }
-  /* line 6, ../sass/import/_formCreateUser_Small.scss */
-  .form-create-user input[type="text"], .form-create-user input[type="email"], .form-create-user input[type="password"] {
-    display: block;
-    width: 100%;
-    font-size: 21px;
-    padding: 0.2380952381em 1.3661202186%;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #5b5b5b; }
-  /* line 16, ../sass/import/_formCreateUser_Small.scss */
-  .form-create-user legend {
+  /* line 8, ../sass/import/_formCreateUser_Small.scss */
+  .form-create legend {
     color: #3f3f3f; }
-  /* line 19, ../sass/import/_formCreateUser_Small.scss */
-  .form-create-user fieldset {
+  /* line 11, ../sass/import/_formCreateUser_Small.scss */
+  .form-create fieldset {
     margin-bottom: 2.5em; }
-  /* line 22, ../sass/import/_formCreateUser_Small.scss */
-  .form-create-user .btnVert {
+  /* line 14, ../sass/import/_formCreateUser_Small.scss */
+  .form-create .btnVert {
     width: 100%;
     padding: 10px; }
 
-/* line 28, ../sass/import/_formCreateUser_Small.scss */
+/* line 20, ../sass/import/_formCreateUser_Small.scss */
 .form-create-user--happy {
   font-size: 26px;
   color: forestgreen; }
+
+/* line 24, ../sass/import/_formCreateUser_Small.scss */
+.form-create__long-text {
+  resize: vertical; }
+
+/* line 27, ../sass/import/_formCreateUser_Small.scss */
+.form-create__simple-imput {
+  display: block;
+  width: 100%;
+  font-size: 21px;
+  padding: 0.2380952381em 1.3661202186%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #5b5b5b; }
+
+/* line 37, ../sass/import/_formCreateUser_Small.scss */
+.form-create__message--error {
+  position: relative;
+  margin: 1em 0;
+  padding-left: 10%;
+  background: rgba(246, 181, 196, 0.8);
+  color: #b60013;
+  font-size: .625em;
+  border-radius: .3em; }
 
 /* line 1, ../sass/import/liste_genre_Small.scss */
 .simple-liste__item {
@@ -734,7 +757,23 @@ header li .header-main__form-connexion__userLog {
 
 /* line 14, ../sass/import/welcome-bloc_Small.scss */
 .welcome-bloc__link {
-  font-size: 1.5em; }
+  display: inline-block;
+  font-size: 1.5em;
+  border: 1px solid #5b5b5b;
+  -webkit-border-radius: .3em;
+  -moz-border-radius: .3em;
+  border-radius: .3em;
+  margin-top: 1em;
+  padding: .2em 3em;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s; }
+  /* line 29, ../sass/import/welcome-bloc_Small.scss */
+  .welcome-bloc__link:hover {
+    background: #5b5b5b;
+    color: #ffffff; }
 
 /* line 1, ../sass/import/book-presentation_Small.scss */
 .book-presentation {
@@ -822,12 +861,109 @@ header li .header-main__form-connexion__userLog {
 .single-author__text {
   width: 100%; }
 
+/* line 1, ../sass/import/table-book_Small.scss */
+.table-book {
+  font-size: 1.125em; }
+
+/* line 5, ../sass/import/table-book_Small.scss */
+.table-book__header {
+  background: #5b5b5b;
+  color: #ffffff; }
+
+/* line 9, ../sass/import/table-book_Small.scss */
+.table-book th, td {
+  display: block;
+  text-align: left;
+  padding: 0.5em 3.3333333333%;
+  border-bottom: 1px solid #ffffff;
+  position: relative; }
+
+/* line 17, ../sass/import/table-book_Small.scss */
+tbody tr:nth-child(odd) {
+  background: #f0f0f0; }
+
+/* line 21, ../sass/import/table-book_Small.scss */
+.svg-btn--absolute {
+  position: absolute;
+  left: 50px; }
+
+/* line 4, ../sass/import/create-book_Small.scss */
+.create-book_btn {
+  border: 1px solid transparent;
+  padding: .3em 1em;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  font-size: 1.6em;
+  background: #5b5b5b;
+  color: #ffffff;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s; }
+  /* line 18, ../sass/import/create-book_Small.scss */
+  .create-book_btn:hover {
+    border: 1px solid #5b5b5b;
+    background: #ffffff;
+    color: #5b5b5b; }
+
+/* line 4, ../sass/import/functions_Small.scss */
+.delete-book_btn {
+  border: 1px solid transparent;
+  -webkit-border-radius: .4em;
+  -moz-border-radius: .4em;
+  border-radius: .4em;
+  padding: .3em 1em;
+  font-size: 1.3em;
+  display: block;
+  margin-bottom: 1em;
+  background: red;
+  color: #ffffff; }
+  /* line 15, ../sass/import/functions_Small.scss */
+  .delete-book_btn:hover {
+    color: red;
+    border: 1px solid red;
+    background: #ffffff; }
+
+/* line 21, ../sass/import/functions_Small.scss */
+.edit-book_btn {
+  border: 1px solid blue;
+  -webkit-border-radius: .4em;
+  -moz-border-radius: .4em;
+  border-radius: .4em;
+  padding: .3em 1em;
+  color: blue;
+  font-size: 1.3em;
+  display: block;
+  margin-bottom: 1em; }
+  /* line 31, ../sass/import/functions_Small.scss */
+  .edit-book_btn:hover {
+    background: blue;
+    color: #ffffff; }
+
+/* line 37, ../sass/import/functions_Small.scss */
+.back-btn {
+  border: 1px solid #5b5b5b;
+  -webkit-border-radius: .4em;
+  -moz-border-radius: .4em;
+  border-radius: .4em;
+  padding: .3em 1em;
+  color: #5b5b5b;
+  font-size: 1.3em;
+  display: block;
+  margin-bottom: 1em; }
+  /* line 47, ../sass/import/functions_Small.scss */
+  .back-btn:hover {
+    background: #5b5b5b;
+    color: #ffffff; }
+
 /*
 style pour les medium
 
 */
 @media screen and (min-width: 590px) {
-  /* line 44, ../sass/style.scss */
+  /* line 46, ../sass/style.scss */
   .container {
     width: 540px;
     margin: 80px auto;
@@ -898,18 +1034,26 @@ Style large
 
 */
 @media screen and (min-width: 1190px) {
-  /* line 60, ../sass/style.scss */
+  /* line 62, ../sass/style.scss */
   .container {
     display: block;
     width: 75%;
     margin: 0 auto; }
 
-  /* line 66, ../sass/style.scss */
+  /* line 67, ../sass/style.scss */
+  .container .container {
+    width: 100%; }
+
+  /* line 71, ../sass/style.scss */
   .container--without-form {
     display: block;
     width: 1080px;
     margin: 0 auto;
     margin-top: 9.375em; }
+
+  /* line 77, ../sass/style.scss */
+  main.container {
+    margin-top: 8em; }
 
   /* line 1, ../sass/import/_navbibliLarge.scss */
   .main-nav__item, .main-nav__item--small {
@@ -1030,74 +1174,64 @@ Style large
     display: block;
     clear: both; }
 
-  /* line 2, ../sass/import/_formRecherche_Large.scss */
+  /* line 1, ../sass/import/_formRecherche_Large.scss */
   .form_recherche {
-    margin-top: 9.375em; }
-    /* line 4, ../sass/import/_formRecherche_Large.scss */
+    margin-top: 2em; }
+    /* line 3, ../sass/import/_formRecherche_Large.scss */
     .form_recherche input[type="submit"] {
       width: 24.972803%;
       font-size: 20px; }
-    /* line 8, ../sass/import/_formRecherche_Large.scss */
+    /* line 7, ../sass/import/_formRecherche_Large.scss */
     .form_recherche input[type="search"] {
       font-size: 20px; }
 
-  /* line 12, ../sass/import/_formRecherche_Large.scss */
+  /* line 11, ../sass/import/_formRecherche_Large.scss */
   .home .form_recherche {
     width: 75%;
     margin: 0 auto;
     margin-top: 3em; }
 
   /* line 1, ../sass/import/_formCreateUser_Large.scss */
-  .form-create-user {
+  .form-create {
     width: 560px;
     font-size: 21px;
     padding: 3em;
     border: 1px dashed #3f3f3f;
     -webkit-border-radius: .5em;
     -moz-border-radius: .5em;
-    border-radius: .5em; }
-    /* line 9, ../sass/import/_formCreateUser_Large.scss */
-    .form-create-user label {
+    border-radius: .5em;
+    margin: 0; }
+    /* line 10, ../sass/import/_formCreateUser_Large.scss */
+    .form-create label {
       display: inline-block;
       width: 45%; }
-    /* line 13, ../sass/import/_formCreateUser_Large.scss */
-    .form-create-user input[type="text"], .form-create-user input[type="email"], .form-create-user input[type="password"] {
-      width: 50%;
-      display: inline-block;
-      font-size: 21px;
-      padding: 0.2380952381em 1.3661202186%;
-      -moz-border-radius: 5px;
-      -webkit-border-radius: 5px;
-      border-radius: 5px;
-      border: 1px solid #5b5b5b;
-      margin-bottom: 1em; }
-    /* line 24, ../sass/import/_formCreateUser_Large.scss */
-    .form-create-user legend {
+    /* line 15, ../sass/import/_formCreateUser_Large.scss */
+    .form-create legend {
       color: #3f3f3f;
       font-style: italic;
       font-size: 0.8em; }
-    /* line 29, ../sass/import/_formCreateUser_Large.scss */
-    .form-create-user fieldset {
+    /* line 20, ../sass/import/_formCreateUser_Large.scss */
+    .form-create fieldset {
       margin-bottom: 2.5em;
       position: relative; }
-    /* line 33, ../sass/import/_formCreateUser_Large.scss */
-    .form-create-user .btnVert {
+    /* line 24, ../sass/import/_formCreateUser_Large.scss */
+    .form-create .btnVert {
       width: 100%; }
-    /* line 36, ../sass/import/_formCreateUser_Large.scss */
-    .form-create-user .smallInfo {
+    /* line 27, ../sass/import/_formCreateUser_Large.scss */
+    .form-create .smallInfo {
       position: absolute;
       bottom: -34px;
       width: 50%;
       left: 262px;
       cursor: pointer; }
-    /* line 43, ../sass/import/_formCreateUser_Large.scss */
-    .form-create-user .ouvrir:before {
+    /* line 34, ../sass/import/_formCreateUser_Large.scss */
+    .form-create .ouvrir:before {
       content: "\e98f"; }
-    /* line 46, ../sass/import/_formCreateUser_Large.scss */
-    .form-create-user .fermer:before {
+    /* line 37, ../sass/import/_formCreateUser_Large.scss */
+    .form-create .fermer:before {
       content: "\e990"; }
 
-  /* line 51, ../sass/import/_formCreateUser_Large.scss */
+  /* line 42, ../sass/import/_formCreateUser_Large.scss */
   .form-create-user--error {
     position: absolute;
     right: -567px;
@@ -1105,11 +1239,49 @@ Style large
     border: 1px solid red;
     padding: 1em .5em; }
 
-  /* line 59, ../sass/import/_formCreateUser_Large.scss */
+  /* line 50, ../sass/import/_formCreateUser_Large.scss */
   .form-create-user--error__remove {
     position: absolute;
     top: 0;
     right: 0; }
+
+  /* line 55, ../sass/import/_formCreateUser_Large.scss */
+  .form-create.large {
+    width: 660px;
+    margin-bottom: 3em; }
+
+  /* line 59, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__select {
+    width: 53%;
+    margin-bottom: 3em; }
+
+  /* line 63, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__infos {
+    margin-bottom: 2em; }
+
+  /* line 66, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__long-text {
+    width: 53%; }
+
+  /* line 69, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__simple-imput {
+    width: 50%;
+    display: inline-block;
+    font-size: 21px;
+    padding: 0.2380952381em 1.3661202186%;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #5b5b5b;
+    margin-bottom: 1em; }
+
+  /* line 80, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__message--error {
+    width: 40%;
+    margin: 0;
+    padding: 0.5em 5.3571428571%;
+    left: 60.5357142857%;
+    top: -2.27272727272727em; }
 
   /* line 2, ../sass/import/_single_book_Large.scss */
   .single_book .float_left, .single_book p {
@@ -1196,31 +1368,31 @@ Style large
       opacity: .7;
       left: -20px; }
     100% {
-      left: 2000px; } }
+      left: 700px; } }
   @-moz-keyframes goRight {
     20% {
       opacity: .7;
       left: -20px; }
     100% {
-      left: 2000px; } }
+      left: 700px; } }
   @-ms-keyframes goRight {
     20% {
       opacity: .7;
       left: -20px; }
     100% {
-      left: 2000px; } }
+      left: 700px; } }
   @-o-keyframes goRight {
     20% {
       opacity: .7;
       left: -20px; }
     100% {
-      left: 2000px; } }
+      left: 700px; } }
   @keyframes goRight {
     20% {
       opacity: .7;
       left: -20px; }
     100% {
-      left: 2000px; } }
+      left: 700px; } }
   /* line 1, ../sass/import/welcome-bloc_Large.scss */
   .welcome-bloc {
     padding: 9.375em 13.0597014925% 7em;
@@ -1228,10 +1400,10 @@ Style large
     margin: 4em 0 3em; }
     /* line 7, ../sass/import/welcome-bloc_Large.scss */
     .welcome-bloc:hover .welcome-bloc__header {
-      -webkit-animation: goRight 1s ease;
-      -moz-animation: goRight 1s ease;
-      -o-animation: goRight 1s ease;
-      animation: goRight 1s ease; }
+      -webkit-animation: goRight 2s ease;
+      -moz-animation: goRight 2s ease;
+      -o-animation: goRight 2s ease;
+      animation: goRight 2s ease; }
 
   /* line 16, ../sass/import/welcome-bloc_Large.scss */
   .welcome-bloc__header {
@@ -1250,7 +1422,34 @@ Style large
 
   /* line 4, ../sass/import/single-author_Large.scss */
   .single-author__figure {
-    margin: 0 2.7777777778% 2em 0; } }
+    margin: 0 2.7777777778% 2em 0; }
+
+  /* line 7, ../sass/import/single-author_Large.scss */
+  .container .single-author {
+    padding: 1em 0; }
+
+  /* line 4, ../sass/import/table-book_Large.scss */
+  .table-book th, td {
+    display: table-cell; }
+
+  /* line 1, ../sass/import/functions_Large.scss */
+  .functions {
+    margin-top: 3em; }
+
+  /* line 4, ../sass/import/functions_Large.scss */
+  .delete-book_btn {
+    display: inline-block;
+    margin-right: 1em; }
+
+  /* line 10, ../sass/import/functions_Large.scss */
+  .edit-book_btn {
+    display: inline-block;
+    margin-right: 1em; }
+
+  /* line 16, ../sass/import/functions_Large.scss */
+  .back-btn {
+    display: inline-block;
+    margin-right: 1em; } }
 /* line 1, ../sass/import/_footer.scss */
 footer {
   position: absolute;

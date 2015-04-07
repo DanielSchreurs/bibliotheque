@@ -1,0 +1,23 @@
+.create-book{
+  
+}
+.create-book_btn{
+  border: 1px solid transparent;
+  padding: .3em 1em;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  font-size: 1.6em;
+  background: $myGray;
+  color: #ffffff;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -ms-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+  &:hover{
+    border: 1px solid $myGray;
+  background: #ffffff;
+    color: $myGray;
+  }
+}

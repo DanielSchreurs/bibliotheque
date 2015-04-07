@@ -21,7 +21,7 @@ class Year extends Base
     {
         $data = $this->Modelyears->all();
         $view = 'index.php';
-        $title = 'Toutes les années';
+        $title = 'Toutes les années qui contiennent des livres';
         return [
             'data' => $data,
             'view' => $view,

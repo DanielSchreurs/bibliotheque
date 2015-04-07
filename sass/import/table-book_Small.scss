@@ -1,0 +1,24 @@
+.table-book{
+  font-size:1.125em;
+
+}
+.table-book__header{
+  background: $myGray;
+  color: #ffffff;
+}
+.table-book th,td{
+  display:block;
+  text-align: left;
+  padding: .5em percentage(10/300);
+  border-bottom: 1px solid #ffffff;
+  position: relative;
+
+}
+tbody tr:nth-child(odd){
+  background: $grisClair;
+
+}
+.svg-btn--absolute{
+  position: absolute;
+  left: 50px;
+}

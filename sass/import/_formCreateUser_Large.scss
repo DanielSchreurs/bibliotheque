@@ -1,4 +1,4 @@
-.form-create-user {
+.form-create {
   width: 560px;
   font-size: 21px; //21px
   padding: 3em;
@@ -6,21 +6,12 @@
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;
   border-radius: .5em;
+  margin: 0;
   label {
     display: inline-block;
     width: 45%;
   }
-  input[type="text"], input[type="email"], input[type="password"] {
-    width: 50%;
-    display: inline-block;
-    font-size: 21px;
-    padding: .2380952381em percentage(5/366);
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid $myGray;
-    margin-bottom: 1em;
-  }
+
   legend {
     color: $grisFonce;
     font-style: italic;
@@ -60,4 +51,37 @@
   position: absolute;
   top: 0;
   right: 0;
+}
+.form-create.large{
+ width: 660px;
+  margin-bottom: 3em;
+}
+.form-create__select{
+  width: 53%;
+  margin-bottom: 3em;
+}
+.form-create__infos{
+  margin-bottom: 2em;
+}
+.form-create__long-text{
+  width: 53%;
+}
+.form-create__simple-imput{
+  width: 50%;
+  display: inline-block;
+  font-size: 21px;
+  padding: .2380952381em percentage(5/366);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid $myGray;
+  margin-bottom: 1em;
+}
+.form-create__message--error{
+  width: 40%;
+  margin: 0;
+  padding: .5em percentage(30/560);
+  left: percentage(339/560);
+  top: -2.27272727272727em;
+
 }

@@ -19,7 +19,11 @@ interface BookRepositoryInterface
 
     public function find($book_id);
 
-    public function getBestBook();
+    public function getLatestBook($limit);
+
+    public function getAllLanguages();
+
+    public function delete($book_id);
 
 
 }

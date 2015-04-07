@@ -30,6 +30,8 @@ class Session
     }
     public static function isAdmin()
     {
+        //var_dump($_COOKIE); die();
+        
         return (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') || (isset($_COOKIE['role']) && $_COOKIE['role'] == 'admin');
     }
 }
