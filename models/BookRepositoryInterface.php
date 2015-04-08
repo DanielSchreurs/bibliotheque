@@ -25,5 +25,8 @@ interface BookRepositoryInterface
 
     public function delete($book_id);
 
+    public function create($bookObj);
+
+    public function update($book, $book_id);
 
 }
