@@ -1,7 +1,7 @@
 <main class="container">
     <?php Components\Session::flash(); ?>
     <div class="functions">
-        <a class="create-book_btn float_left" href="<?php echo($html->createLink('book', 'create')); ?>"
+        <a class="create-book_btn float_left" href="<?php echo($html->createLink('book', 'admin_create_book')); ?>"
            title="Ajouter un livre">Ajouter
             un livre</a>
 
