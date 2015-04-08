@@ -23,12 +23,23 @@ class Author extends Model implements AuthorRepositoryInterface
                 title as book_title
                 FROM
                 authors
-                JOIN author_book on authors.id=author_id
-                JOIN books on book_id=books.id';
+                LEFT JOIN author_book on authors.id=author_id
+                LEFT JOIN books on book_id=books.id';
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
+    public function getAllName()
+    {
 
+        $sql = 'SELECT
+                id as author_id,
+                first_name,
+                last_name
+                FROM
+                authors';
+        $pdost = $this->cx->query($sql);
+        return $pdost->fetchAll();
+    }
     function find($id)
     {
         $sql = '
