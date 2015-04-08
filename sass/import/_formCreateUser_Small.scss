@@ -43,3 +43,12 @@
   font-size: .625em;
   border-radius: .3em;
 }
+.form-create__message--info{
+  position: relative;
+  margin: 1em 0;
+  padding-left: percentage(30/300);
+  background: $notificationBG;
+  color: $notification;
+  font-size: .625em;
+  border-radius: .3em;
+}

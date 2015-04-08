@@ -10,9 +10,9 @@
  4/03/2015                 Daniel               création
  ****************************************************************************************************/
 
-var i, linkShowPassword = document.getElementById('linkShowPassword');
+var i,c, linkShowPassword = document.getElementById('linkShowPassword');
 var showedpassword = document.getElementsByClassName('showedpassword');
-var flash = document.getElementsByClassName('flash-box__btn')[0];
+var flash = document.getElementsByClassName('flash-box__btn');
 var showFromElement = document.getElementById('showFrom');
 
 if (linkShowPassword != null) {
@@ -21,7 +21,9 @@ if (linkShowPassword != null) {
     }, false);
 }
 if (flash != null) {
-    flash.addEventListener('click', removeParent, false)
+    for(i=0, c=flash.length;i<c;i++){
+        flash[i].addEventListener('click', removeParent, false);
+    }
 }
 function show(elements, link) {
     for (i = 0; i < elements.length; i++) {

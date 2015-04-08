@@ -633,6 +633,16 @@ header li .header-main__form-connexion__userLog {
   font-size: .625em;
   border-radius: .3em; }
 
+/* line 46, ../sass/import/_formCreateUser_Small.scss */
+.form-create__message--info {
+  position: relative;
+  margin: 1em 0;
+  padding-left: 10%;
+  background: rgba(255, 228, 140, 0.8);
+  color: #a67a29;
+  font-size: .625em;
+  border-radius: .3em; }
+
 /* line 1, ../sass/import/liste_genre_Small.scss */
 .simple-liste__item {
   text-decoration: underline;
@@ -963,7 +973,7 @@ style pour les medium
 
 */
 @media screen and (min-width: 590px) {
-  /* line 46, ../sass/style.scss */
+  /* line 48, ../sass/style.scss */
   .container {
     width: 540px;
     margin: 80px auto;
@@ -1034,24 +1044,24 @@ Style large
 
 */
 @media screen and (min-width: 1190px) {
-  /* line 62, ../sass/style.scss */
+  /* line 64, ../sass/style.scss */
   .container {
     display: block;
     width: 75%;
     margin: 0 auto; }
 
-  /* line 67, ../sass/style.scss */
+  /* line 69, ../sass/style.scss */
   .container .container {
     width: 100%; }
 
-  /* line 71, ../sass/style.scss */
+  /* line 73, ../sass/style.scss */
   .container--without-form {
     display: block;
     width: 1080px;
     margin: 0 auto;
     margin-top: 9.375em; }
 
-  /* line 77, ../sass/style.scss */
+  /* line 79, ../sass/style.scss */
   main.container {
     margin-top: 8em; }
 
@@ -1283,6 +1293,14 @@ Style large
     left: 60.5357142857%;
     top: -2.27272727272727em; }
 
+  /* line 88, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__message--info {
+    width: 40%;
+    margin: 0;
+    padding: 0.5em 5.3571428571%;
+    left: 60.5357142857%;
+    top: -2.27272727272727em; }
+
   /* line 2, ../sass/import/_single_book_Large.scss */
   .single_book .float_left, .single_book p {
     margin-top: 2em; }
@@ -1475,3 +1493,7 @@ footer {
     footer li a {
       padding: .7142857143em 1.4035087719%;
       /*10px 20px*/ }
+
+/* line 106, ../sass/style.scss */
+header {
+  opacity: .5; }
