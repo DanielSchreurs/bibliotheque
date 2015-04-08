@@ -20,4 +20,6 @@ interface AuthorRepositoryInterface
 
     public function getAuthorMonth();
 
+    public function getAllName();
+
 }
