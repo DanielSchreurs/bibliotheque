@@ -17,4 +17,32 @@ class Date
         $second=Carbon::now();
         return $first->lte($second);
     }
+
+    public static function isValiddateFormat($sting)
+    {
+        return preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $sting);
+    }
+
+    public static function isValidDate($string,$mustBePassed=true){
+        if(!self::isValiddateFormat($string)){
+            return 'le format n’est pas bon';
+        }
+        else{
+            if($mustBePassed){
+                $date= explode('-', $string);
+
+                if(!self::isNotTolate($date[0], $date[1], $date[2])) {
+                    return 'La date doit être dans le passé';
+                }
+            }
+            else{
+            $date= explode('-', $string);
+            if(self::isNotTolate($date[0], $date[1], $date[2])) {
+                return 'La date doit être dans le futur';
+            }
+            }
+        }
+        return true;
+        
+    }
 }
