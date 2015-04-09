@@ -34,9 +34,14 @@ class Author extends Model implements AuthorRepositoryInterface
         $sql = 'SELECT
                 id as author_id,
                 first_name,
-                last_name
+                last_name,
+                datebirth,
+                datedeath,
+                bio_text,
+                vedette
                 FROM
-                authors';
+                authors
+                ORDER BY first_name';
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
@@ -57,12 +62,29 @@ class Author extends Model implements AuthorRepositoryInterface
                 title as book_title,
                 summary
                 FROM authors
-                JOIN author_book ON authors.id=author_id
+                LEFT JOIN author_book ON authors.id=author_id
                 JOIN books ON book_id=books.id
                 WHERE author_id=:id';
         $pds = $this->cx->prepare($sql);
         $pds->execute([':id' => $id]);
         return $pds->fetchAll();
+    }
+    function getAuthor($id)
+    {
+        $sql = '
+                SELECT
+                id as author_id,
+                first_name,
+                last_name,
+                photo as author_photo,
+                datebirth,
+                datedeath,
+                bio_text
+                FROM authors
+                WHERE id=:id';
+        $pds = $this->cx->prepare($sql);
+        $pds->execute([':id' => $id]);
+        return $pds->fetch();
     }
 
     function books($id)
@@ -89,5 +111,72 @@ class Author extends Model implements AuthorRepositoryInterface
                 WHERE vedette=1';
         $pdost = $this->cx->query($sql);
         return $pdost->fetch();
+    }
+    public function update($authorObj, $author_id)
+    {
+
+        $sql = 'UPDATE authors
+                SET
+                last_name = :last_name,
+                first_name = :first_name,
+                bio_text = :bio_text,
+                datebirth = :datebirth,
+                datedeath = :datedeath,
+                vedette = :vedette,
+                photo = :photo,
+                logo=:logo,
+                update_at = :update_at
+                WHERE id = :author_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(
+            [
+                ':last_name' => $authorObj->last_name,
+                ':first_name' => $authorObj->first_name,
+                ':bio_text' => $authorObj->bio_text,
+                ':datebirth' => $authorObj->datebirth,
+                ':datedeath' => $authorObj->datedeath,
+                ':vedette' => $authorObj->vedette,
+                ':photo' => $authorObj->photo,
+                ':logo' => $authorObj->logo,
+                ':update_at' => $authorObj->create_at,
+                ':author_id' => $author_id
+            ]
+        );
+
+    }
+    public function create($authorObj)
+    {
+
+        $sql = 'INSERT INTO authors
+                (last_name,first_name,bio_text,datebirth,datedeath,vedette,photo,logo,create_at,update_at)
+                VALUES (:last_name,:first_name,:bio_text,:datebirth,:datedeath, :vedette,:photo,:logo,:create_at,:update_at)';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(
+            [
+                ':last_name' => $authorObj->last_name,
+                ':first_name' => $authorObj->first_name,
+                ':bio_text' => $authorObj->bio_text,
+                ':datebirth' => $authorObj->datebirth,
+                ':datedeath' => $authorObj->datedeath,
+                ':vedette' => $authorObj->vedette,
+                ':photo' => $authorObj->photo,
+                ':logo' => $authorObj->logo,
+                ':create_at' => $authorObj->create_at,
+                ':update_at' => $authorObj->create_at,
+            ]
+        );
+
+    }
+
+    public function delete($author_id)
+    {
+        $sql = '
+               DELETE
+              FROM authors
+              WHERE id=:author_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(
+            [':author_id' => $author_id]
+        );
     }
 }
