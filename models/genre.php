@@ -23,6 +23,21 @@ class Genre extends Model implements GenreRepositoryInterface
         return $pdost->fetchAll();
     }
 
+    public function getName($genre_id)
+    {
+        $sql = '
+               SELECT
+              name,
+              id
+              FROM genres
+              WHERE id=:genre_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(
+            [':genre_id'=>$genre_id]
+        );
+        return $pdost->fetch();
+    }
+
     public function find($id_genre)
     {
         $sql = '
@@ -39,5 +54,34 @@ class Genre extends Model implements GenreRepositoryInterface
         $pdost = $this->cx->prepare($sql);
         $pdost->execute(['id_genre' => $id_genre]);
         return $pdost->fetchAll();
+    }
+
+    public function delete($genre_id)
+    {
+        $sql = '
+               DELETE
+              FROM genres
+              WHERE id=:genre_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(
+            [':genre_id'=>$genre_id]
+        );
+
+    }
+
+    public function update($genreObj,$genre_id)
+    {
+        $sql='UPDATE genres SET
+                name=:name,
+                 update_at=:update_at
+                 WHERE id=:genre_id';
+        $pdost=$this->cx->prepare($sql);
+        $pdost->execute([':genre_id'=>$genre_id,':name'=>$genreObj->name,':update_at'=>$genreObj->update_at]);
+    }
+    public function create($genreObj)
+    {
+        $sql='INSERT INTO genres (name,create_at,update_at) VALUES (:name,:create_at,:update_at) ';
+        $pdost=$this->cx->prepare($sql);
+        $pdost->execute([':name'=>$genreObj->name,':create_at'=>$genreObj->create_at,':update_at'=>$genreObj->create_at]);
     }
 }
