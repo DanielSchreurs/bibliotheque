@@ -201,8 +201,12 @@ class Book extends Model implements BookRepositoryInterface
 
     public function delete($book_id)
     {
-        die('je suis dans le model et il faut supprimer');
-        return true;
+        $sqk='DELETE FROM books WHERE id=:book_id';
+        $pdost=$this->cx->prepare($sqk);
+        $pdost->execute(
+            [':book_id'=>$book_id]
+        );
+        $this->detachAuthorFromBook($book_id);
     }
 
     private function updateAuthorFromBook($author_id, $book_id)
@@ -210,6 +214,12 @@ class Book extends Model implements BookRepositoryInterface
         $sql = "UPDATE author_book
                 SET author_id = $author_id
                 WHERE book_id = $book_id";
+        $this->cx->query($sql);
+    }
+    private function detachAuthorFromBook($book_id)
+    {
+        $sql = 'DELETE FROM author_book
+                WHERE book_id = '.$book_id ;
         $this->cx->query($sql);
     }
 
