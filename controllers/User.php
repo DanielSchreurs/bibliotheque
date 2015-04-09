@@ -96,4 +96,8 @@ class User extends Base
         header('Location:' . $_SERVER['PHP_SELF']);
         die();
     }
+    public function admin_index()
+    {
+        die('ok je suis dans le controleur ');
+    }
 }
