@@ -253,7 +253,7 @@ class Book extends Base
             header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
             die();
         } else {
-            Session::setMessage('Oups, une erreur s’est produite, nous vous invitons à réessyer', 'error');
+            Session::setMessage('Votre livre a été supprimé avec succes');
             header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
             die();
         }
