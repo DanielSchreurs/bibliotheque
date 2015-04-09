@@ -1,9 +1,10 @@
-<?php $genre = $data['data'][0]; ?>
+<?php $genre = $data['data'][0];
+ ?>
 <main class="container">
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-
+    
     <?php if (isset($genre->book_title)): ?>
         <h1 class="header-block-one"><?php echo($genre->genre_name); ?></h1>
         <?php foreach ($data['data'] as $book): ?>
