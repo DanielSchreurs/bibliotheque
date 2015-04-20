@@ -45,6 +45,9 @@ class Request
         if (isset($_REQUEST['year']) && is_numeric($_REQUEST['year'])) {
             $this->year = $_REQUEST['year'];
         }
+        if (isset($_REQUEST['step']) && is_numeric($_REQUEST['step'])) {
+            $this->step = $_REQUEST['step'];
+        }
         if (isset($_REQUEST['error']) && is_numeric($_REQUEST['error'])) {
             $this->error = $_REQUEST['error'];
         }
