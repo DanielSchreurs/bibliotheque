@@ -45,4 +45,10 @@ class Date
         return true;
         
     }
+
+    public static function getAge($birth, $death,$format='y')
+    {
+        $interval = date_diff(date_create($birth), date_create($death));
+        return $interval->format('%'.$format);
+    }
 }
