@@ -9,6 +9,7 @@ $routes['book/find'] = 'book/find';
 $routes['bookcreate'] = 'book/create';
 $routes['bookupdate'] = 'book/update';
 $routes['bookliste'] = 'book/liste';
+$routes['bookliste'] = 'book/allBooksFromYear';
 $routes['editorindex'] = 'editor/index';
 $routes['editorview'] = 'editor/view';
 $routes['authorindex'] = 'author/index';
