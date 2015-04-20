@@ -41,7 +41,7 @@ class Editor extends Base
     public function admin_index_editor()
     {
         $data = $this->modelEditor->getSimpleInfoOffAll();
-        $title = 'Administrer les éditeurs en quelques clicks';
+        $title = 'Administrer les éditeurs, en quelques clicks';
         return [
             'data' => $data,
             'title' => $title,
@@ -88,6 +88,10 @@ class Editor extends Base
     public function admin_create_editor()
     {
         $data='';
+        if(isset($this->request->step)){
+            $data['step'] = $this->request->step;
+
+        }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             if (empty($_FILES['logo']['name'])) {
                 $this->request->errors['logo'][] = 'Oups vous n’avez pas mis d’image';
@@ -107,15 +111,19 @@ class Editor extends Base
                 $this->request->sent->logo = $logo;
                 $this->request->sent->create_at = date("Y-m-d");
                 $this->modelEditor->create($this->request->sent, $this->request->id);
-                Session::setMessage('Merci, l’éditeur a été ajouté');
-                header('Location:' . $_SERVER['PHP_SELF'] . '?m=editor&a=admin_index_editor');
+                Session::setMessage('Merci, l’éditeur a été ajouté avec succès.');
+                header('Location:' . $_SERVER['PHP_SELF'] .(isset($this->request->step)?'?m=genre&a=admin_create_genre&step=3' :'?m=editor&a=admin_index_editor'));
                 die();
             } else {
                 $data['errors'] = $this->request->errors;
                 $data['sent'] = $this->request->sent;
+                if(isset($this->request->step)){
+                    $data['step'] = $this->request->step;
+
+                }
             }
         }
-        $title = 'Ajouter un éditeur, en quelques clicks';
+        $title = 'Ajouter un éditeur';
         return [
             'data' => $data,
             'title' => $title
