@@ -138,6 +138,9 @@ class Author extends Base
     public function admin_create_author()
     {
         $data='';
+        if(isset($this->request->step)){
+            $data['step'] = $this->request->step;
+        }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 
@@ -185,15 +188,20 @@ class Author extends Base
                 $this->request->sent->create_at = date("Y-m-d");
                 isset($this->request->sent->vedette) ? '' : $this->request->sent->vedette = 0;
                 $this->modelAuthor->create($this->request->sent);
-                Session::setMessage('L’auteur a été crée avec succès.');
-                header('Location:' . $_SERVER['PHP_SELF'] . '?m=author&a=admin_index_author');
+                Session::setMessage('Merci, l’auteur a été ajouté avec succès.');
+                header('Location:' . $_SERVER['PHP_SELF'] .(isset($this->request->step)?'?m=editor&a=admin_create_editor&step=2':'?m=author&a=admin_index_author'));
                 die();
             } else {
                 $data['errors'] = $this->request->errors;
                 $data['sent'] = $this->request->sent;
+                if(isset($this->request->step)){
+                    $data['step'] = $this->request->step;
+
+                }
+
             }
         }
-        $title = 'Modifier une auteur';
+        $title = 'Ajouter un  auteur';
         return [
             'data' => $data,
             'title' => $title
