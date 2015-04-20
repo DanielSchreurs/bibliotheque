@@ -7,8 +7,8 @@
         <?php foreach ($data['data'] as $annee): ;
             ?>
             <li>
-                <a class="simple-liste__item" href="<?php echo($html->createLink('book', 'liste',
-                        ['id' => $annee->year])); ?>"><?php echo($annee->year) ?></a>
+                <a class="simple-liste__item" href="<?php echo($html->createLink('book','allBooksFromYear',
+                        ['year' => $annee->year])); ?>"><?php echo($annee->year) ?></a>
             </li>
         <?php endforeach; ?>
     </ul>

@@ -1,4 +1,5 @@
 <main class="container">
+    <?php include('./views/parts/main_nav_admin.php'); ?>
     <?php Components\Session::flash(); ?>
     <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
     <?php

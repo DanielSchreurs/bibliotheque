@@ -1,5 +1,9 @@
 <main class="container">
+    <?php include('./views/parts/main_nav_admin.php'); ?>
     <?php Components\Session::flash(); ?>
+    <?php if (isset($data['data']['step'])): ?>
+        <?php include('./views/parts/admin_nav_steps.php'); ?>
+    <?php endif; ?>
     <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
     <?php
     $authors = $data['data']['authors'];
@@ -11,10 +15,22 @@
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';
     ?>
     <form class="form-create large"
-          action="<?php echo($html->createLink('book', 'admin_create_book')); ?>" method="post"
+          action="
+                    <?php if (isset($data['data']['step'])): ?>
+                        <?php echo($html->createLink('book', 'admin_create_book',['step'=>$data['data']['step']])); ?>
+                    <?php else: ?>
+                        <?php echo($html->createLink('book', 'admin_create_book')); ?>
+                    <?php endif; ?>
+          " method="post"
           enctype="multipart/form-data">
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
+        <p class="form-create__infos">Vous pouvez ajouter un éditeur, genre et auteur par le bouton
+            <svg version="1.1" x="0px" y="0px" width="30px" height="30px" viewBox="0 0 141.7 141.7" enable-background="new 0 0 141.7 141.7" xml:space="preserve">
+                     <title>bouton pour ajouter</title>
+                    <desc>le symbole plus itégré dans un cercle</desc>
+                    <path fill="#333333" d="M70.9,0C31.9,0,0,31.9,0,70.9s31.9,70.9,70.9,70.9s70.9-31.9,70.9-70.9S109.9,0,70.9,0z M106.3,77.9H78v28.3H63.8V77.9H35.4V63.7h28.3V35.4H78v28.3h28.3V77.9z"/>
+            </svg> s'il n'est pas défini.</p>
 
         <label for="title">Titre du livre<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -29,7 +45,17 @@
             <p class="form-create__message--error"><?php echo($errors['title']); ?><span class="flash-box__btn">X</span>
             </p>
         <?php endif; ?>
-        <label for="author_id">Auteur du livre</label>
+        <label for="author_id">Auteur du livre
+            <a class="form-create__add-btn" href="<?php echo($html->createLink('author','admin_create_author')); ?>" title="Renvois, vers un formulaire qui permet d'ajouter au auteur">
+                    <svg version="1.1"
+                         x="0px" y="0px" width="30px" height="30px" viewBox="0 0 141.7 141.7" enable-background="new 0 0 141.7 141.7"
+                         xml:space="preserve">
+                         <title>bouton pour ajouter</title>
+                        <desc>le symbole '+' intégré dans un cercle</desc>
+                            <path fill="#333333" d="M70.9,0C31.9,0,0,31.9,0,70.9s31.9,70.9,70.9,70.9s70.9-31.9,70.9-70.9S109.9,0,70.9,0z M106.3,77.9H78v28.3H63.8V77.9H35.4V63.7h28.3V35.4H78v28.3h28.3V77.9z"/>
+                    </svg>
+            </a>
+        </label>
         <select class="form-create__select" name="author_id" id="author_id">
             <?php foreach ($authors as $author): ?>
                 <option
@@ -45,7 +71,17 @@
                     value="<?php echo($langue->language_id); ?> "><?php echo($langue->language); ?></option>
             <?php endforeach; ?>
         </select>
-        <label for="editor_id">Editeur du livre</label>
+        <label for="editor_id">Editeur du livre
+            <a class="form-create__add-btn" href="<?php echo($html->createLink('editor','admin_create_editor')); ?>" title="Renvois, vers un formulaire qui permet d'ajouter au auteur">
+                <svg version="1.1"
+                     x="0px" y="0px" width="30px" height="30px" viewBox="0 0 141.7 141.7" enable-background="new 0 0 141.7 141.7"
+                     xml:space="preserve">
+                         <title>bouton pour ajouter</title>
+                    <desc>le symbole '+' intégré dans un cercle</desc>
+                    <path fill="#333333" d="M70.9,0C31.9,0,0,31.9,0,70.9s31.9,70.9,70.9,70.9s70.9-31.9,70.9-70.9S109.9,0,70.9,0z M106.3,77.9H78v28.3H63.8V77.9H35.4V63.7h28.3V35.4H78v28.3h28.3V77.9z"/>
+                    </svg>
+            </a>
+        </label>
         <select class="form-create__select" name="editor_id" id="editor_id">
             <?php foreach ($editors as $editor): ?>
                 <option
@@ -53,7 +89,17 @@
                     value="<?php echo($editor->editor_id); ?> "><?php echo($editor->editor_name); ?></option>
             <?php endforeach; ?>
         </select>
-        <label for="genre_id">Genre du livre</label>
+        <label for="genre_id">Genre du livre
+            <a class="form-create__add-btn" href="<?php echo($html->createLink('genre','admin_create_genre')); ?>" title="Renvois, vers un formulaire qui permet d'ajouter au auteur">
+                <svg version="1.1"
+                     x="0px" y="0px" width="30px" height="30px" viewBox="0 0 141.7 141.7" enable-background="new 0 0 141.7 141.7"
+                     xml:space="preserve">
+                         <title>bouton pour ajouter</title>
+                    <desc>le symbole '+' intégré dans un cercle</desc>
+                    <path fill="#333333" d="M70.9,0C31.9,0,0,31.9,0,70.9s31.9,70.9,70.9,70.9s70.9-31.9,70.9-70.9S109.9,0,70.9,0z M106.3,77.9H78v28.3H63.8V77.9H35.4V63.7h28.3V35.4H78v28.3h28.3V77.9z"/>
+                    </svg>
+            </a>
+        </label>
         <select class="form-create__select" name="genre_id" id="genre_id">
             <?php foreach ($genres as $genre): ?>
                 <option
@@ -73,6 +119,9 @@
 
                 <span class="flash-box__btn">X</span></p>
         <?php endif; ?>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Vous devez insérer une image au format (.jpg) et qui fait 300 pixel de large et 450 pixel de haut. C’est l’image de base.</p>
+        </div>
         <label for="front_cover_presentation">Petite couverture 270/200px<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput <?php echo(isset($errors['front_cover_presentation'])? 'error' :''); ?>" type="file" name="front_cover_presentation"
@@ -86,6 +135,9 @@
 
                 <span class="flash-box__btn">X</span></p>
         <?php endif; ?>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Vous devez insérer une image au format (.jpg) et qui fait 270 pixel de large et 200 pixel de haut. Cette image peut apparaître sur la pagge accueil dans la section, 3 derniers livres ajoutés</p>
+        </div>
         <label for="summary">Résumé du livre<strong
                 class="form-create--obligatoire">*</strong></label>
         <textarea class="form-create__long-text <?php echo(isset($errors['summary'])? 'error' :''); ?>" name="summary" id="summary" cols="30"
@@ -121,8 +173,11 @@
             <p class="form-create__message--error"><?php echo($errors['datepub']); ?><span
                     class="flash-box__btn">X</span></p>
         <?php endif; ?>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Attention la date doit être dans le passé.</p>
+        </div>
         <label for="vedette">Mettre en vedette</label>
         <input type="checkbox" name="vedette" id="vedette" value="1"/>
-        <input type="submit" value="Modifier le livre" class="btnVert"/>
+        <input type="submit" value="Ajouter le livre" class="btnVert"/>
     </form>
 </main>

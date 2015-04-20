@@ -1,4 +1,7 @@
-<?php $author = $data['data'][0]; ?>
+<?php $author = $data['data'][0];
+use Helpers\Date;
+
+?>
 <main class="container">
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
@@ -13,12 +16,11 @@
         <p> Né le: <abbr title="<?php echo($html->birthToString($author->datebirth)); ?>"
                          class="dtstart"><?php echo($html->birthToString($author->datebirth)); ?>
                 <abbr></p>
-        <?php if ($author->datedeath != ""): ?>
+        <?php if ($author->datedeath != "" && $author->datedeath !== '0000-00-00'): ?>
             <p> Mort le: <abbr title="<?php echo($html->birthToString($author->datedeath)); ?>"
-                               class="dtstart"><?php echo ($html->birthToString($author->datedeath)) . '&nbsp;(&nbsp;' . $date->createFromDate(date('Y',
-                            strtotime($author->datedeath)), date('m', strtotime($author->datedeath)),
-                            date('j', strtotime($author->datedeath)))->age . ' ans &nbsp;)'; ?>
+                               class="dtstart"><?php echo ($html->birthToString($author->datedeath)) . '&nbsp;(&nbsp;'.Date::getAge($author->datebirth,$author->datedeath).' ans &nbsp;)'; ?>
                     <abbr></p>
+
         <?php endif; ?>
         <p>
             <?php echo($author->bio_text); ?>
@@ -32,7 +34,7 @@
                 <h3><a href="<?php echo($html->createLink('book', 'view',
                         ['id' => $book->book_id])); ?>"><?php echo($book->book_title); ?></a></h3>
                 <a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
-                        src="./img/books_covers/logo/<?php echo($book->book_cover); ?>.png"
+                        src="./img/books_covers/logo/<?php echo($book->book_cover); ?>.jpg" height="225" width="150"
                         alt="Image de la première de couverture du livre <?php echo($book->book_title) ?>"/></a>
 
                 <p><?php echo($html->cutText($book->summary, 200)); ?></p>

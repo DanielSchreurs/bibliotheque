@@ -5,6 +5,7 @@
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';
     ?>
+    <?php include('./views/parts/main_nav_admin.php'); ?>
     <?php Components\Session::flash(); ?>
     <h1 class="header-block-one"><?php echo($data['title'].' &laquo;&nbsp;'.$author->first_name.'-'.$author->last_name.'&nbsp;&raquo;');?></h1>
     <form class="form-create large"
@@ -51,6 +52,9 @@
 
                 <span class="flash-box__btn">X</span></p>
         <?php endif; ?>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Vous devez insérer une image au format (.jpg) et qui fait 300 pixel de large et 450 pixel de haut.</p>
+        </div>
         <label for="logo">Petite portrait 200/200px<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput" type="file" name="logo"
@@ -64,6 +68,9 @@
 
                 <span class="flash-box__btn">X</span></p>
         <?php endif; ?>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Vous devez insérer une image au format (.png) et qui fait 200 pixel de large et 200 pixel de haut.</p>
+        </div>
         <label for="bio_text">Résumé du livre<strong
                 class="form-create--obligatoire">*</strong></label>
         <textarea class="form-create__long-text" name="bio_text" id="bio_text" cols="30"
@@ -82,6 +89,9 @@
             <p class="form-create__message--info"><?php echo($errors['datebirth']); ?><span
                     class="flash-box__btn">X</span></p>
         <?php endif; ?>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Attention la date doit être dans le passé.</p>
+        </div>
         <label for="datedeath">Date de mort (jj/mm/aaaa)</label>
         <input class="form-create__simple-imput" type="date" name="datedeath" min="2" id="datedeath"
                title="Introduisez la date de publication" placeholder="12/03/2014"
@@ -90,6 +100,9 @@
             <p class="form-create__message--info"><?php echo($errors['datedeath']); ?><span
                     class="flash-box__btn">X</span></p>
         <?php endif; ?>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Ce champs est facultatif mais s'il est définit il doit également être dans la passé.</p>
+        </div>
         <label for="vedette">Mettre en vedette(un seul possible)</label>
         <input <?php echo($author->vedette==1?'checked':''); ?> type="checkbox" name="vedette" id="vedette" value="1"/>
         <input type="submit" value="Modifier le livre" class="btnVert"/>

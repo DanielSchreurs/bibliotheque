@@ -25,7 +25,7 @@
             <tr>
                 <td><?php echo($editor->id); ?></td>
                 <td><?php echo($editor->editor_name); ?></td>
-                <td><a class="btnVert" href="<?php echo($editor->website); ?>">Page de l'éditeur</a></td>
+                <td><a class="btnVert" href="<?php echo($editor->author_website); ?>">Page de l'éditeur</a></td>
                 <td><?php echo($html->cutText($editor->bio_text,100)); ?></td>
                 <td><a href="<?php echo($html->createLink('editor', 'admin_show_editor', ['id' => $editor->id])); ?>"
                        class="svg-btn--absolute" title="Supprimer ce livre">
