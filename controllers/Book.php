@@ -71,10 +71,11 @@ class Book extends Base
         ];
     }
 
-    public function liste()
+    public function allBooksFromYear()
     {
+
         $data = $this->modelBook->getBookFromYear($this->request->year);
-        $title = 'Un livre selon une année';
+        $title = 'Nos livres selon une année';
         return [
             'data' => $data,
             'title' => $title
@@ -108,10 +109,9 @@ class Book extends Base
                     $this->request->errors['front_cover_presentation'] = $valideImage2;
                 }
             }
-            if (preg_match('/[1-9][0-9]{3,3}-[1-9][0-9]{1,1}-[1-9][0-9]{1,1}/', $this->request->errors['datepub'])){
-                $date = explode('-', $_POST['datepub']);
-                if(!Date::isNotTolate($date[0], $date[1], $date[2])) {
-                    $this->request->errors['datepub'] = 'La date doit être dans passé';
+            if (!isset($this->request->errors['datepub'])){
+                if(Date::isValidDate($this->request->sent->datepub)!==true){
+                    $this->request->errors['datepub'] = Date::isValidDate($this->request->sent->datepub);
                 }
             }
             else{
@@ -119,10 +119,11 @@ class Book extends Base
             }
 
             if (empty($this->request->errors)) {
-                $front_cover = Image::renameFileName($this->request->sent->title);
-                $logo = Image::renameFileName($this->request->sent->title, '_small');
-                $presentation_cover = Image::renameFileName($this->request->sent->title, '_presentation_cover');
+                $front_cover = Image::renameFileName('book');
+                $logo = Image::renameFileName('book', '_small');
+                $presentation_cover = Image::renameFileName('book','_presentation_cover');
 
+                Image::imageCopyResampled($_FILES['front_cover'],'./img/books_covers/logo/',$logo,0.5);
                 Image::saveAs($_FILES['front_cover'], './img/books_covers/', $front_cover);
                 Image::saveAs($_FILES['front_cover_presentation'], './img/books_covers/presentation/',
                     $presentation_cover);
@@ -177,7 +178,11 @@ class Book extends Base
 
     public function admin_create_book()
     {
+        $data='';
+        if(isset($this->request->step)){
+            $data['step'] = $this->request->step;
 
+        }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
             if (!filter_var($_POST['nbpages'], FILTER_VALIDATE_INT,
@@ -203,10 +208,9 @@ class Book extends Base
                     $this->request->errors['front_cover_presentation'] = $valideImage2;
                 }
             }
-            if (preg_match("/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/", $this->request->sent->datepub)){
-                $date = explode('-', $this->request->sent->datepub);
-                if(!Date::isNotTolate($date[0], $date[1], $date[2])) {
-                    $this->request->errors['datepub'] = 'La date doit être dans passé';
+            if (!isset($this->request->errors['datepub'])){
+                if(Date::isValidDate($this->request->sent->datepub)!==true){
+                    $this->request->errors['datepub'] = Date::isValidDate($this->request->sent->datepub);
                 }
             }
         else{
@@ -217,6 +221,7 @@ class Book extends Base
                 $logo = Image::renameFileName($this->request->sent->title, '_small');
                 $presentation_cover = Image::renameFileName($this->request->sent->title, '_presentation_cover');
 
+                Image::imageCopyResampled($_FILES['front_cover'],'./img/books_covers/logo/',$logo,0.5);
                 Image::saveAs($_FILES['front_cover'], './img/books_covers/', $front_cover);
                 Image::saveAs($_FILES['front_cover_presentation'], './img/books_covers/presentation/',
                     $presentation_cover);
@@ -233,6 +238,10 @@ class Book extends Base
             } else {
                 $data['errors'] = $this->request->errors;
                 $data['sent'] = $this->request->sent;
+                if(isset($this->request->step)){
+                    $data['step'] = $this->request->step;
+
+                }
             }
         }
         $title = 'Ajouter un livre, en quelques clicks';
