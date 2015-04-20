@@ -52,3 +52,10 @@
   font-size: .625em;
   border-radius: .3em;
 }
+.form-create__example-box__text{
+  color: $myGray;
+  -webkit-border-radius: .3em;
+  -moz-border-radius: .3em;
+  border-radius: .3em;
+  background: rgba(222, 222, 222, 0.47);
+}

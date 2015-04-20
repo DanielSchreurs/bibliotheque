@@ -32,10 +32,13 @@
     cursor: pointer;
   }
   .ouvrir:before {
-    content: "\e98f";
+    content: "\e990";
+    margin-right: 5px;
   }
   .fermer:before {
-    content: "\e990";
+    content: "\e601";
+    margin-right: 5px;
+
   }
 }
 
@@ -52,21 +55,33 @@
   top: 0;
   right: 0;
 }
-.form-create.large{
- width: 660px;
+
+.form-create.large {
+  width: 660px;
   margin-bottom: 3em;
 }
-.form-create__select{
+
+.form-create__select {
   width: 53%;
   margin-bottom: 3em;
 }
-.form-create__infos{
+
+.form-create__infos {
+  //margin-bottom: 2em;
+}
+.form-create__infos+.form-create__infos {
   margin-bottom: 2em;
+  svg{
+    position: relative;
+    top: 10px;
+  }
 }
-.form-create__long-text{
+
+.form-create__long-text {
   width: 53%;
 }
-.form-create__simple-imput{
+
+.form-create__simple-imput {
   width: 50%;
   display: inline-block;
   font-size: 21px;
@@ -77,7 +92,8 @@
   border: 1px solid $myGray;
   margin-bottom: 1em;
 }
-.form-create__message--error{
+
+.form-create__message--error {
   width: 40%;
   margin: 0;
   padding: .5em percentage(30/560);
@@ -85,11 +101,67 @@
   top: -2.27272727272727em;
 
 }
-.form-create__message--info{
+
+.form-create__message--info {
   width: 40%;
   margin: 0;
   padding: .5em percentage(30/560);
   left: percentage(339/560);
   top: -2.27272727272727em;
 
+}
+
+.form-create__add-btn {
+  position: relative;
+  top: 8px;
+  left: 16px;
+
+}
+
+label:hover {
+  .form-create__add-btn {
+    svg {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.form-create__add-btn {
+  svg {
+    transition: .5s;
+  }
+
+}
+.form-create__example-box{
+  position: relative;
+
+}
+
+.form-create__example-box__text{
+  right:-(percentage(424/660));
+  width: percentage(300/660);
+  position: absolute;
+  top: -67px;
+  padding: 1em percentage(30/660);
+  opacity: 0;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}
+
+input:hover+.form-create__example-box{
+  .form-create__example-box__text{
+    opacity: 1;
+  }
+}
+label:hover+input+.form-create__example-box{
+  .form-create__example-box__text{
+    opacity: 1;
+  }
 }
