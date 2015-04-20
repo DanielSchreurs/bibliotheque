@@ -35,26 +35,27 @@ class Image
         }
     }
 
-    public static function reSize($image, $percentage)
+    public static function imageCopyResampled($image, $chemin, $name,$percentage)
     {
-        $filename = $image;
+        $extension = '.' . explode('.', $image['name'])[1];
+        $oldImage =$image["tmp_name"];
         $percent = $percentage;
         // Calcul des nouvelles dimensions
-        list($width, $height) = getimagesize($filename);
+        list($width, $height) = getimagesize($oldImage);
         $new_width = $width * $percent;
         $new_height = $height * $percent;
+
         // Redimensionnement
         $image_p = imagecreatetruecolor($new_width, $new_height);
-        $image = imagecreatefromjpeg($filename);
+        $image = imagecreatefromjpeg($oldImage);
+        // Save it
         imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-
-        return imagejpeg($image_p);
-
+        imagejpeg($image_p,$chemin.$name.$extension, 100);
     }
 
     public static function renameFileName($old, $add = '')
     {
-        return strtolower(str_replace(' ', '_', $old)) . $add . rand(999999999999, 999999999999999999999999);
+        return strtolower(str_replace(' ', '_', $old)) . $add . rand(99999999999999999, 999999999999999999999999);
     }
 
 }
