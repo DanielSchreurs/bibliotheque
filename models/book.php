@@ -304,8 +304,8 @@ class Book extends Model implements BookRepositoryInterface
     {
         $maxCopy = $this->getNbCopyOfCopyOfBook($book_id)->nb_copy;
         $reserved_info = $this->getReservedInfo($book_id);
-
-        if ($maxCopy >= count($reserved_info)) {
+        $try = 0;
+        if ($maxCopy > count($reserved_info)) {
             return true;
         } else {
             if ($to === 'todayAnd15days') {
@@ -317,13 +317,14 @@ class Book extends Model implements BookRepositoryInterface
             foreach ($reserved_info as $singleReserved_info) {
                 $reserved_from = explode('-', $singleReserved_info->reserved_from);
                 $reserved_to = explode('-', $singleReserved_info->reserved_to);
-                if (!$to->between(Carbon::createFromDate($reserved_from[0], $reserved_from[1], $reserved_from[2]),
+                if ($to->between(Carbon::createFromDate($reserved_from[0], $reserved_from[1], $reserved_from[2]),
                     Carbon::createFromDate($reserved_to[0], $reserved_to[1], $reserved_to[2]))
                 ) {
-                    return true;
+
+                    $try++;
                 }
             }
-            return false;
+            return $try >= $maxCopy ? false : true;
         }
 
     }
