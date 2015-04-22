@@ -2,6 +2,9 @@
 
 namespace Models;
 
+use Carbon\Carbon;
+use Helpers\Date;
+
 class Book extends Model implements BookRepositoryInterface
 {
     /**
@@ -201,10 +204,10 @@ class Book extends Model implements BookRepositoryInterface
 
     public function delete($book_id)
     {
-        $sqk='DELETE FROM books WHERE id=:book_id';
-        $pdost=$this->cx->prepare($sqk);
+        $sqk = 'DELETE FROM books WHERE id=:book_id';
+        $pdost = $this->cx->prepare($sqk);
         $pdost->execute(
-            [':book_id'=>$book_id]
+            [':book_id' => $book_id]
         );
         $this->detachAuthorFromBook($book_id);
     }
@@ -216,10 +219,11 @@ class Book extends Model implements BookRepositoryInterface
                 WHERE book_id = $book_id";
         $this->cx->query($sql);
     }
+
     private function detachAuthorFromBook($book_id)
     {
         $sql = 'DELETE FROM author_book
-                WHERE book_id = '.$book_id ;
+                WHERE book_id = ' . $book_id;
         $this->cx->query($sql);
     }
 
@@ -267,7 +271,7 @@ class Book extends Model implements BookRepositoryInterface
     public function create($bookObj)
     {
 
-        
+
         $sql = 'INSERT INTO books
                 (title,front_cover,logo,summary,isbn,presentation_cover,nbpages,datepub,genre_id,language_id,library_id,editor_id,creat_at,update_at,vedette)
         VALUES  (:title,:front_cover,:logo,:summary,:isbn,:presentation_cover,:nbpages,:datepub,:genre_id,:language_id,:library_id,:editor_id,:creat_at,:update_at,:vedette)
@@ -284,7 +288,7 @@ class Book extends Model implements BookRepositoryInterface
                 ':presentation_cover' => $bookObj->presentation_cover,
                 ':nbpages' => $bookObj->nbpages,
                 ':datepub' => $bookObj->datepub,
-                ':genre_id'=>$bookObj->genre_id,
+                ':genre_id' => $bookObj->genre_id,
                 ':language_id' => $bookObj->language_id,
                 ':library_id' => 1,
                 ':editor_id' => $bookObj->editor_id,
@@ -296,6 +300,79 @@ class Book extends Model implements BookRepositoryInterface
         $this->newAuthorBook($bookObj->author_id, $this->cx->lastInsertId());
     }
 
+    public function isDispo($book_id, $to = 'todayAnd15days')
+    {
+        $maxCopy = $this->getNbCopyOfCopyOfBook($book_id)->nb_copy;
+        $reserved_info = $this->getReservedInfo($book_id);
+
+        if ($maxCopy >= count($reserved_info)) {
+            return true;
+        } else {
+            if ($to === 'todayAnd15days') {
+                $to = Carbon::now()->addDay(15);
+            } else {
+                $toArray = explode('-', $to);
+                $to = Carbon::createFromDate($toArray[0], $toArray[1], $toArray[2]);
+            }
+            foreach ($reserved_info as $singleReserved_info) {
+                $reserved_from = explode('-', $singleReserved_info->reserved_from);
+                $reserved_to = explode('-', $singleReserved_info->reserved_to);
+                if (!$to->between(Carbon::createFromDate($reserved_from[0], $reserved_from[1], $reserved_from[2]),
+                    Carbon::createFromDate($reserved_to[0], $reserved_to[1], $reserved_to[2]))
+                ) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+    }
+
+    public function reserveBook($obj)
+    {
+        $sql = 'INSERT INTO book_reserved
+              (book_id,user_id,reserved_from,reserved_to)
+              VALUES(:book_id,:user_id,:reserved_from,:reserved_to)';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([
+            ':book_id' => $obj->book_id,
+            ':user_id' => $obj->user_id,
+            ':reserved_from' => $obj->from,
+            ':reserved_to' => $obj->to
+        ]);
+    }
+
+    public function removeOneCopy($book_id)
+    {
+        $nbCopy = ($this->getNbCopyOfCopyOfBook($book_id)->nb_copy) - 1;
+        $sql = 'UPDATE books
+                SET nb_copy=:nb_copy
+                WHERE id=:book_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([
+            ':nb_copy' => $nbCopy,
+            ':book_id' => $book_id
+        ]);
+
+    }
+
+    private function getNbCopyOfCopyOfBook($book_id)
+    {
+        $sql = 'SELECT nb_copy FROM books WHERE id=:book_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(['book_id' => $book_id]);
+        return $pdost->fetch();
+    }
+
+    private function getReservedInfo($book_id)
+    {
+
+        $sql = 'SELECT reserved_from,reserved_to FROM book_reserved WHERE book_id=:book_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(['book_id' => $book_id]);
+        return $pdost->fetchAll();
+    }
+
     private function newAuthorBook($author_id, $book_id)
     {
         $sql = "INSERT INTO author_book(author_id, book_id)
@@ -303,5 +380,6 @@ class Book extends Model implements BookRepositoryInterface
         $this->cx->query($sql);
 
     }
+
 
 }
