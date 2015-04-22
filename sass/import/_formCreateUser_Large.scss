@@ -163,7 +163,17 @@ input:hover+.form-create__example-box{
     opacity: 1;
   }
 }
+textarea:hover+.form-create__example-box{
+  .form-create__example-box__text{
+    opacity: 1;
+  }
+}
 label:hover+input+.form-create__example-box{
+  .form-create__example-box__text{
+    opacity: 1;
+  }
+}
+label:hover+textarea+.form-create__example-box{
   .form-create__example-box__text{
     opacity: 1;
   }

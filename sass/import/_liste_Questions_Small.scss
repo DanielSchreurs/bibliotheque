@@ -13,7 +13,7 @@
   text-indent: 30px;
 }
 
-.big__blockquote p:before {
+.big__blockquote .answer:before {
   content: url(./img/blockquote.svg);
   display: inline-block;
   height: 50px;
@@ -26,5 +26,9 @@
 
 .article__title {
   font-size: 24px;
+}
+
+.big__blockquote__meta{
+  text-align: right;
 }
 

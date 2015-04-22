@@ -494,7 +494,7 @@ header {
   text-indent: 30px; }
 
 /* line 16, ../sass/import/_liste_Questions_Small.scss */
-.big__blockquote p:before {
+.big__blockquote .answer:before {
   content: url(./img/blockquote.svg);
   display: inline-block;
   height: 50px;
@@ -506,6 +506,10 @@ header {
 /* line 27, ../sass/import/_liste_Questions_Small.scss */
 .article__title {
   font-size: 24px; }
+
+/* line 31, ../sass/import/_liste_Questions_Small.scss */
+.big__blockquote__meta {
+  text-align: right; }
 
 /* line 1, ../sass/import/_formConnexion_Small.scss */
 header li {
@@ -1397,7 +1401,15 @@ Style form-create--large
     opacity: 1; }
 
   /* line 167, ../sass/import/_formCreateUser_Large.scss */
+  textarea:hover + .form-create__example-box .form-create__example-box__text {
+    opacity: 1; }
+
+  /* line 172, ../sass/import/_formCreateUser_Large.scss */
   label:hover + input + .form-create__example-box .form-create__example-box__text {
+    opacity: 1; }
+
+  /* line 177, ../sass/import/_formCreateUser_Large.scss */
+  label:hover + textarea + .form-create__example-box .form-create__example-box__text {
     opacity: 1; }
 
   /* line 2, ../sass/import/_single_book_Large.scss */
@@ -1655,7 +1667,7 @@ Style form-create--large
     border-radius: .4em;
     padding: .5em; } }
 /* line 1, ../sass/import/_footer.scss */
-footer {
+.main-footer {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1665,17 +1677,21 @@ footer {
   background: black;
   color: white; }
   /* line 6, ../sass/import/_footer.scss */
-  footer .copy {
+  .main-footer .copy {
     text-align: center;
     font-size: 1.5em;
     /*21px*/ }
   /* line 10, ../sass/import/_footer.scss */
-  footer a {
+  .main-footer a {
     color: inherit; }
   /* line 16, ../sass/import/_footer.scss */
-  footer li {
+  .main-footer li {
     display: inline-block; }
     /* line 18, ../sass/import/_footer.scss */
-    footer li a {
+    .main-footer li a {
       padding: .7142857143em 1.4035087719%;
       /*10px 20px*/ }
+
+/* line 108, ../sass/style.scss */
+header {
+  opacity: .5; }
