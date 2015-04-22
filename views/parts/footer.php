@@ -1,4 +1,4 @@
-<footer>
+<footer class="main-footer">
     <p class="copy">Designed by &copy; <a href="daniel.schreurs.com">Daniel Schreurs
             <time>2015</time>
         </a></p>
