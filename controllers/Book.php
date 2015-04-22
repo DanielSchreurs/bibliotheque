@@ -63,8 +63,9 @@ class Book extends Base
 
     public function view()
     {
-        $data = $this->modelBook->find($this->request->id);
-        $title = 'Un livrer';
+        $data['data'] = $this->modelBook->find($this->request->id);
+        $data['isDispo']=$this->modelBook->isDispo($this->request->id)===true;
+        $title = 'Un livre';
         return [
             'data' => $data,
             'title' => $title
@@ -109,21 +110,20 @@ class Book extends Base
                     $this->request->errors['front_cover_presentation'] = $valideImage2;
                 }
             }
-            if (!isset($this->request->errors['datepub'])){
-                if(Date::isValidDate($this->request->sent->datepub)!==true){
+            if (!isset($this->request->errors['datepub'])) {
+                if (Date::isValidDate($this->request->sent->datepub) !== true) {
                     $this->request->errors['datepub'] = Date::isValidDate($this->request->sent->datepub);
                 }
-            }
-            else{
+            } else {
                 $this->request->errors['datepub'] = 'La date n’est pas au bon format';
             }
 
             if (empty($this->request->errors)) {
                 $front_cover = Image::renameFileName('book');
                 $logo = Image::renameFileName('book', '_small');
-                $presentation_cover = Image::renameFileName('book','_presentation_cover');
+                $presentation_cover = Image::renameFileName('book', '_presentation_cover');
 
-                Image::imageCopyResampled($_FILES['front_cover'],'./img/books_covers/logo/',$logo,0.5);
+                Image::imageCopyResampled($_FILES['front_cover'], './img/books_covers/logo/', $logo, 0.5);
                 Image::saveAs($_FILES['front_cover'], './img/books_covers/', $front_cover);
                 Image::saveAs($_FILES['front_cover_presentation'], './img/books_covers/presentation/',
                     $presentation_cover);
@@ -158,7 +158,6 @@ class Book extends Base
     {
         $title = 'Administrer, en quelques clicks';
         $data['books'] = $this->modelBook->all();
-
         return [
             'data' => $data,
             'title' => $title
@@ -168,7 +167,7 @@ class Book extends Base
 
     public function admin_show_book()
     {
-        $title = 'Supprimer un livre';
+        $title = 'Supprimer ce livre';
         $data = $this->modelBook->find($this->request->id);
         return [
             'title' => $title,
@@ -178,8 +177,8 @@ class Book extends Base
 
     public function admin_create_book()
     {
-        $data='';
-        if(isset($this->request->step)){
+        $data = '';
+        if (isset($this->request->step)) {
             $data['step'] = $this->request->step;
 
         }
@@ -208,12 +207,11 @@ class Book extends Base
                     $this->request->errors['front_cover_presentation'] = $valideImage2;
                 }
             }
-            if (!isset($this->request->errors['datepub'])){
-                if(Date::isValidDate($this->request->sent->datepub)!==true){
+            if (!isset($this->request->errors['datepub'])) {
+                if (Date::isValidDate($this->request->sent->datepub) !== true) {
                     $this->request->errors['datepub'] = Date::isValidDate($this->request->sent->datepub);
                 }
-            }
-        else{
+            } else {
                 $this->request->errors['datepub'] = 'La date n’est pas au bon format';
             }
             if (empty($this->request->errors)) {
@@ -221,7 +219,7 @@ class Book extends Base
                 $logo = Image::renameFileName($this->request->sent->title, '_small');
                 $presentation_cover = Image::renameFileName($this->request->sent->title, '_presentation_cover');
 
-                Image::imageCopyResampled($_FILES['front_cover'],'./img/books_covers/logo/',$logo,0.5);
+                Image::imageCopyResampled($_FILES['front_cover'], './img/books_covers/logo/', $logo, 0.5);
                 Image::saveAs($_FILES['front_cover'], './img/books_covers/', $front_cover);
                 Image::saveAs($_FILES['front_cover_presentation'], './img/books_covers/presentation/',
                     $presentation_cover);
@@ -238,7 +236,7 @@ class Book extends Base
             } else {
                 $data['errors'] = $this->request->errors;
                 $data['sent'] = $this->request->sent;
-                if(isset($this->request->step)){
+                if (isset($this->request->step)) {
                     $data['step'] = $this->request->step;
 
                 }
@@ -267,6 +265,52 @@ class Book extends Base
             die();
         }
 
+    }
+
+    public function user_reserve()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+
+            if (!isset($this->request->errors['from'])) {
+                if (Date::isValidDate($this->request->sent->from, false) !== true) {
+                    $this->request->errors['from'] = Date::isValidDate($this->request->sent->from, false);
+                }
+            }
+            if (!isset($this->request->errors['to'])) {
+                if (Date::isValidDate($this->request->sent->to, false) !== true) {
+                    $this->request->errors['to'] = Date::isValidDate($this->request->sent->to, false);
+                }
+            }
+            if ((!isset($this->request->errors['to'])) && (!isset($this->request->errors['from']))) {
+                if (Date::getAge($this->request->sent->from, $this->request->sent->to, 'm') > 1) {
+                    $this->request->errors['to'] = 'Oups, vous ne pouvez pas réserver pour plus d’un mois';
+                }
+
+            }
+            if (empty($this->request->errors)) {
+                if ($this->modelBook->isDispo($this->request->id,$this->request->sent->to)===true) {
+                    $this->modelBook->reserveBook($this->request->sent);
+                    $this->modelBook->removeOneCopy($this->request->id);
+                    Session::setMessage('Ce livre a été réservé pour vous avec succès. Vous pouver modifier la date depuis votre compte.');
+                    header('Location:' . $_SERVER['PHP_SELF']);
+                    die();
+                }
+                else {
+                    Session::setMessage('Malheureusement ce livre n’est plus diposible pour le moment', 'error');
+                    header('Location:' . $_SERVER['PHP_SELF']);
+                    die();
+                }
+            } else {
+                $data['errors'] = $this->request->errors;
+                $data['sent'] = $this->request->sent;
+            }
+        }
+        $data['data'] = $this->modelBook->find($this->request->id);
+        $title = 'Réserver un livre';
+        return [
+            'title' => $title,
+            'data' => $data,
+        ];
     }
 
 }
