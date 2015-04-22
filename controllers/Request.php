@@ -18,9 +18,8 @@ class Request
         include('./config/routes.php');
         $routeParts = explode('/', $routes['default']);//affecte une nouvelle vatriabe à avec l'action et l'entité []
         $this->m = $routeParts[0];// la variable $m est égal à l'action
-        $this->a = $routeParts[1];// la variable $a au model
-        /* Ici on m crée la route par défaut*/
-        /* Et après on va vérifie si ce qui est demandé existe dans le fichier route et SI il existe alors on écrase les anciennes valeurs*/
+        $this->a = $routeParts[1];// et la variable $a au model
+
         if (isset($_REQUEST['m'])) {
             $this->m = $_REQUEST['m'];
         }
