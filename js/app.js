@@ -64,6 +64,6 @@ if (showFromElement) {
     }, false);
 }
 
-document.getElementsByTagName('body')[0].style.marginBottom = (document.getElementsByTagName('footer')[0].offsetHeight * 1.6) + 'px';
+document.getElementsByTagName('body')[0].style.marginBottom = (document.getElementsByClassName('main-footer')[0].offsetHeight * 1.6) + 'px';
 window.addEventListener("scroll", op, false);
 
