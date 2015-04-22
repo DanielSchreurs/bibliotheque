@@ -12,7 +12,7 @@
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';
     ?>
-    <form class="form-create large"
+    <form class="form-create form-create--large"
           action="<?php echo($html->createLink('book', 'admin_edit_book', ['id' => $book->book_id])); ?>" method="post"
           enctype="multipart/form-data">
         <p class="form-create__infos"> Les champs précédés d’un <strong

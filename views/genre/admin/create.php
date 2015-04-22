@@ -10,7 +10,7 @@
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';
     ?>
-    <form class="form-create large"
+    <form class="form-create form-create--large"
           action="
                     <?php if (isset($data['data']['step'])): ?>
                         <?php echo($html->createLink('genre', 'admin_create_genre',['step'=>$data['data']['step']])); ?>

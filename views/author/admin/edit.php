@@ -8,7 +8,7 @@
     <?php include('./views/parts/main_nav_admin.php'); ?>
     <?php Components\Session::flash(); ?>
     <h1 class="header-block-one"><?php echo($data['title'].' &laquo;&nbsp;'.$author->first_name.'-'.$author->last_name.'&nbsp;&raquo;');?></h1>
-    <form class="form-create large"
+    <form class="form-create form-create--large"
           action="<?php echo($html->createLink('author', 'admin_edit_author', ['id' => $author->author_id])); ?>" method="post"
           enctype="multipart/form-data">
         <p class="form-create__infos"> Les champs précédés d’un <strong

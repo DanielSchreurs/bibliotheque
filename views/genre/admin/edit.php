@@ -8,7 +8,7 @@
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';
     ?>
-    <form class="form-create large"
+    <form class="form-create form-create--large"
           action="<?php echo($html->createLink('genre', 'admin_edit_genre', ['id' => $genre->id])); ?>" method="post" >
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>

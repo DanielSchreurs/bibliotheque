@@ -8,5 +8,5 @@
         <a class="main-nav__item" href="<?php echo($html->createLink('year', 'index')) ?>" title="affiche tous les annees">Toutes les
                 années</a>
         <a class="main-nav__item" href="<?php echo($html->createLink('book', 'index')) ?>" title="affiche tous les annees">Toutes les
-                Livre</a>
+                Livres</a>
 </div>

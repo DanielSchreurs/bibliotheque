@@ -14,7 +14,7 @@
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';
     ?>
-    <form class="form-create large"
+    <form class="form-create form-create--large"
           action="
                     <?php if (isset($data['data']['step'])): ?>
                         <?php echo($html->createLink('book', 'admin_create_book',['step'=>$data['data']['step']])); ?>
@@ -111,6 +111,9 @@
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput <?php echo(isset($errors['front_cover'])? 'error' :''); ?>" type="file" name="front_cover" id="front_cover"
                title="Chargez le couverture de votre livre"/>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Vous devez insérer une image au format (.jpg) et qui fait 300 pixel de large et 450 pixel de haut. C’est l’image de base.</p>
+        </div>
         <?php if (isset($errors['front_cover'])): ?>
             <p class="form-create__message--error">
                 <?php foreach ($errors['front_cover'] as $error): ?>
@@ -119,9 +122,6 @@
 
                 <span class="flash-box__btn">X</span></p>
         <?php endif; ?>
-        <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Vous devez insérer une image au format (.jpg) et qui fait 300 pixel de large et 450 pixel de haut. C’est l’image de base.</p>
-        </div>
         <label for="front_cover_presentation">Petite couverture 270/200px<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput <?php echo(isset($errors['front_cover_presentation'])? 'error' :''); ?>" type="file" name="front_cover_presentation"

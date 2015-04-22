@@ -11,7 +11,7 @@
     <?php endif; ?>
     <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
 
-    <form class="form-create large"
+    <form class="form-create form-create--large"
           action="
                 <?php if (isset($data['data']['step'])): ?>
                     <?php echo($html->createLink('author', 'admin_create_author',['step'=>$data['data']['step']])); ?>

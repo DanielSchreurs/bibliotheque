@@ -38,10 +38,6 @@
                            title="Renvoie vers une page qui reprend tous les livres de l'année <?php echo($book->datepub); ?>"><?php echo(date('Y',
                                 strtotime($book->datepub))); ?></a>
                     </dd>
-                    <dt>Bibliothèque</dt>
-                    <dd><a href="<?php echo($html->createLink('library', 'view', ['id' => $book->library_id])); ?>"
-                           title="Renvoie vers une page qui reprend tous les Bibliothèques de la bibliothèque <?php echo($book->library_name); ?>"><?php echo($book->library_name); ?></a>
-                    </dd>
                 </dl>
             </li>
         <?php endforeach; ?>
