@@ -37,7 +37,17 @@
             <p class="form-create__message--info"><?php echo($errors['title']); ?><span class="flash-box__btn">X</span>
             </p>
         <?php endif; ?>
-        <label for="author_id">Auteur du livre</label>
+        <label for="author_id">Auteur du livre
+            <a class="form-create__add-btn" href="<?php echo($html->createLink('author','admin_create_author')); ?>" title="Renvois, vers un formulaire qui permet d'ajouter au auteur">
+                <svg version="1.1"
+                     x="0px" y="0px" width="30px" height="30px" viewBox="0 0 141.7 141.7" enable-background="new 0 0 141.7 141.7"
+                     xml:space="preserve">
+                         <title>bouton pour ajouter</title>
+                    <desc>le symbole '+' intégré dans un cercle</desc>
+                    <path fill="#333333" d="M70.9,0C31.9,0,0,31.9,0,70.9s31.9,70.9,70.9,70.9s70.9-31.9,70.9-70.9S109.9,0,70.9,0z M106.3,77.9H78v28.3H63.8V77.9H35.4V63.7h28.3V35.4H78v28.3h28.3V77.9z"/>
+                    </svg>
+            </a>
+        </label>
         <select class="form-create__select" name="author_id" id="author_id">
             <?php foreach ($authors as $author): ?>
                 <option
@@ -53,7 +63,17 @@
                     value="<?php echo($langue->language_id); ?> "><?php echo($langue->language); ?></option>
             <?php endforeach; ?>
         </select>
-        <label for="editor_id">Editeur du livre</label>
+        <label for="editor_id">Editeur du livre
+            <a class="form-create__add-btn" href="<?php echo($html->createLink('editor','admin_create_editor')); ?>" title="Renvois, vers un formulaire qui permet d'ajouter au auteur">
+                <svg version="1.1"
+                     x="0px" y="0px" width="30px" height="30px" viewBox="0 0 141.7 141.7" enable-background="new 0 0 141.7 141.7"
+                     xml:space="preserve">
+                         <title>bouton pour ajouter</title>
+                    <desc>le symbole '+' intégré dans un cercle</desc>
+                    <path fill="#333333" d="M70.9,0C31.9,0,0,31.9,0,70.9s31.9,70.9,70.9,70.9s70.9-31.9,70.9-70.9S109.9,0,70.9,0z M106.3,77.9H78v28.3H63.8V77.9H35.4V63.7h28.3V35.4H78v28.3h28.3V77.9z"/>
+                    </svg>
+            </a>
+        </label>
         <select class="form-create__select" name="editor_id" id="editor_id">
             <?php foreach ($editors as $editor): ?>
                 <option
@@ -61,7 +81,17 @@
                     value="<?php echo($editor->editor_id); ?> "><?php echo($editor->editor_name); ?></option>
             <?php endforeach; ?>
         </select>
-        <label for="genre_id">Genre du livre</label>
+        <label for="genre_id">Genre du livre
+            <a class="form-create__add-btn" href="<?php echo($html->createLink('genre','admin_create_genre')); ?>" title="Renvois, vers un formulaire qui permet d'ajouter au auteur">
+                <svg version="1.1"
+                     x="0px" y="0px" width="30px" height="30px" viewBox="0 0 141.7 141.7" enable-background="new 0 0 141.7 141.7"
+                     xml:space="preserve">
+                         <title>bouton pour ajouter</title>
+                    <desc>le symbole '+' intégré dans un cercle</desc>
+                    <path fill="#333333" d="M70.9,0C31.9,0,0,31.9,0,70.9s31.9,70.9,70.9,70.9s70.9-31.9,70.9-70.9S109.9,0,70.9,0z M106.3,77.9H78v28.3H63.8V77.9H35.4V63.7h28.3V35.4H78v28.3h28.3V77.9z"/>
+                    </svg>
+            </a>
+        </label>
         <select class="form-create__select" name="genre_id" id="genre_id">
             <?php foreach ($genres as $genre): ?>
                 <option
