@@ -30,6 +30,15 @@ $routes['pageabout'] = 'page/about';
 $routes['pagesearch'] = 'page/search';
 
 /*
+ * Routes pour le user
+ * */
+
+$routes['bookuser_reserve'] = 'book/user_reserve';
+$routes['page_user_answer'] = 'page/user_createAnswer';
+$routes['pageuser_createQuestion'] = 'page/user_createQuestion';
+
+
+/*
  * Routes pour l'administration
  * */
 
@@ -39,7 +48,6 @@ $routes['bookadmin_delete_book'] = 'book/admin_delete_book';
 $routes['bookadmin_show_book'] = 'book/admin_show_book';
 $routes['bookadmin_create_book'] = 'book/admin_create_book';
 
-$routes['bookuser_reserve'] = 'book/user_reserve';
 
 $routes['authoradmin_index'] = 'author/admin_index_author';
 $routes['authoradmin_edit_author'] = 'author/admin_edit_author';
@@ -58,3 +66,10 @@ $routes['genreadmin_edit_genre'] = 'genre/admin_edit_genre';
 $routes['genreadmin_delete_genre'] = 'genre/admin_delete_genre';
 $routes['genreadmin_show_genre'] = 'genre/admin_show_genre';
 $routes['genreadmin_create_genre'] = 'genre/admin_create_genre';
+
+
+
+$routes['pageadmin_index_help'] = 'page/admin_indexHelp';
+$routes['pageadmin_showQuestion'] = 'page/admin_showQuestion';
+$routes['pageadmin_deleteQuestion'] = 'page/admin_deleteQuestion';
+$routes['pageadmin_editQuestion'] = 'page/admin_editQuestion';
