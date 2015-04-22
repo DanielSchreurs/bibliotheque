@@ -39,6 +39,7 @@ $routes['bookadmin_delete_book'] = 'book/admin_delete_book';
 $routes['bookadmin_show_book'] = 'book/admin_show_book';
 $routes['bookadmin_create_book'] = 'book/admin_create_book';
 
+$routes['bookuser_reserve'] = 'book/user_reserve';
 
 $routes['authoradmin_index'] = 'author/admin_index_author';
 $routes['authoradmin_edit_author'] = 'author/admin_edit_author';
