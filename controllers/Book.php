@@ -290,13 +290,12 @@ class Book extends Base
             if (empty($this->request->errors)) {
                 if ($this->modelBook->isDispo($this->request->id,$this->request->sent->to)===true) {
                     $this->modelBook->reserveBook($this->request->sent);
-                    $this->modelBook->removeOneCopy($this->request->id);
                     Session::setMessage('Ce livre a été réservé pour vous avec succès. Vous pouver modifier la date depuis votre compte.');
                     header('Location:' . $_SERVER['PHP_SELF']);
                     die();
                 }
                 else {
-                    Session::setMessage('Malheureusement ce livre n’est plus diposible pour le moment', 'error');
+                    Session::setMessage('Malheureusement ce livre n’est plus diposible à ce moment', 'error');
                     header('Location:' . $_SERVER['PHP_SELF']);
                     die();
                 }
