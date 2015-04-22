@@ -1,0 +1,28 @@
+.book-book{
+overflow: hidden;
+  position: relative;
+  &:hover{
+    .book-book__text{
+      top: -37px;
+    }
+  }
+
+}
+.book-book__text{
+  top: -500px;
+      background: rgba(0, 0, 0, 0.54);
+      position: absolute;
+      display: block;
+      color: #ffffff;
+      text-align: center;
+      padding: 1em 0;
+      font-size: 1.8em;
+      left: 0;
+      right: 0;
+      text-decoration: underline;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s;
+}

@@ -56,7 +56,7 @@
   right: 0;
 }
 
-.form-create.large {
+.form-create.form-create--large {
   width: 660px;
   margin-bottom: 3em;
 }
@@ -140,9 +140,12 @@ label:hover {
   position: relative;
 
 }
-
-.form-create__example-box__text{
+.form-create--large .form-create__example-box__text{
   right:-(percentage(424/660));
+
+}
+.form-create__example-box__text{
+  right:-(percentage(369/560));
   width: percentage(300/660);
   position: absolute;
   top: -67px;

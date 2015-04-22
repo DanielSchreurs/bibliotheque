@@ -29,4 +29,11 @@ interface BookRepositoryInterface
 
     public function update($book, $book_id);
 
+    public function isDispo($book_id);
+
+    public function reserveBook($obj);
+
+    public function removeOneCopy($book_id);
+
+
 }

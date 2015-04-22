@@ -14,3 +14,5 @@ L’application résultante doit être un outil de gestion d’une bibliothèque
 6. De nombreuses fonctionnalités peuvent être ajoutées et vous êtes vivement encouragés à le faire. Par exemple, prévoir de commenter des livres, de les noter, permettre à un nouvel utilisateur de se créer un compte et donc gérer sa bibliothèque à lui (tout en veillant à ne pas créer de redondance dans la base de données. Si un livre existe déjà, on doit pouvoir éviter son encodage à l’utilisateur et réutiliser celui-ci), etc.
 7. Sécuriser les mots de pass. 
 8. fixed page 'toutes les années'
+9. Vérifier qu'un nouveau genre ajouté n'existe pa déjà
+10. Créer en php une image à 50% depuis une image qui existe déjà. 

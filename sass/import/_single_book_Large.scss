@@ -4,6 +4,7 @@
   }
   p {
     font-size: 1.3em;
+    margin-bottom: 1em;
   }
   .float_left {
     margin-right: 3em;
@@ -13,4 +14,12 @@
     margin-left: 17px;
   }
 
+}
+.btnVert.btnVert--block{
+  margin: 0;
+  display: block;
+  margin: 0 auto;
+  width: percentage(200/1067.250);
+  padding: 1em ;
+  text-align: center;
 }

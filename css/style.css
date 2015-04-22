@@ -69,10 +69,10 @@ table {
   src: url("fonts/icomoon.eot"); }
 @font-face {
   font-family: 'icomoon';
-  src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format("truetype"), url(data:application/font-woff;charset=utf-8;base64,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) format("woff");
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg8SBzoAAAC8AAAAYGNtYXADcLcCAAABHAAAAFxnYXNwAAAAEAAAAXgAAAAIZ2x5Zh9VmekAAAGAAAABQGhlYWQF0/97AAACwAAAADZoaGVhB8IDyAAAAvgAAAAkaG10eA4AAEAAAAMcAAAAHGxvY2EAtAEMAAADOAAAABBtYXhwAAoAKgAAA0gAAAAgbmFtZVcZpu4AAANoAAABRXBvc3QAAwAAAAAEsAAAACAAAwQAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADqEAPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEAEgAAAAOAAgAAgAGAAEAIOYB6ZDqEP/9//8AAAAAACDmAemQ6hD//f//AAH/4xoDFnUV9gADAAEAAAAAAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAIAQP/AA8ADwAAdACcAAAUhIiY1ETQ2OwE1ND4CMzIeAh0BMzIWFREUBiMDNCYjIgYdASE1A6D8wA0TEw1gMld1QkJ1VzJgDRMTDeBwUFBwAYBAEw0CAA0TgEJ1VzIyV3VCgBMN/gANEwLQSWdnSZCQAAAAAQAA/8ADwAOAACQAAAEyFh0BIzU0JisBIgYdATMyFhURFAYjISImNRE0NjMhNTQ2OwEDAE9xgCYagBomEBQcHBT94BQcHBQBkHFPgAOAcU/AwBomJhrAHBT+IBQcHBQB4BQcwE9xAAABAAAAIAQAA0AABQAACQEnBwkBA2D+IOCgAYACgANA/iDgoP6AAoAAAQAAAAEAAPOkEahfDzz1AAsEAAAAAADRWl1/AAAAANFaXX8AAP/ABAADwAAAAAgAAgAAAAAAAAABAAADwP/AAAAEAAAAAAAEAAABAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAIAAAAEAABABAAAAAQAAAAAAAAAAAoAFAAeAFgAjACgAAEAAAAHACgAAgAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAOAK4AAQAAAAAAAQAOAAAAAQAAAAAAAgAOAEcAAQAAAAAAAwAOACQAAQAAAAAABAAOAFUAAQAAAAAABQAWAA4AAQAAAAAABgAHADIAAQAAAAAACgA0AGMAAwABBAkAAQAOAAAAAwABBAkAAgAOAEcAAwABBAkAAwAOACQAAwABBAkABAAOAFUAAwABBAkABQAWAA4AAwABBAkABgAOADkAAwABBAkACgA0AGMAaQBjAG8AbQBvAG8AbgBWAGUAcgBzAGkAbwBuACAAMQAuADAAaQBjAG8AbQBvAG8Abmljb21vb24AaQBjAG8AbQBvAG8AbgBSAGUAZwB1AGwAYQByAGkAYwBvAG0AbwBvAG4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format("truetype");
   font-weight: normal;
   font-style: normal; }
-/* line 14, ../sass/import/_general.scss */
+/* line 13, ../sass/import/_general.scss */
 .icon {
   font-family: 'icomoon';
   speak: none;
@@ -85,29 +85,29 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* line 28, ../sass/import/_general.scss */
+/* line 27, ../sass/import/_general.scss */
 html {
   background-color: white;
   min-height: 100%;
   position: relative; }
 
-/* line 35, ../sass/import/_general.scss */
+/* line 34, ../sass/import/_general.scss */
 body {
   font: 14px/1.8 "Avenir", "Helvetica Neue", Helvetica, sans-serif;
   min-height: 100%;
   font-weight: 100; }
 
-/* line 42, ../sass/import/_general.scss */
+/* line 41, ../sass/import/_general.scss */
 img {
   max-width: 100%; }
 
-/* line 46, ../sass/import/_general.scss */
+/* line 45, ../sass/import/_general.scss */
 a {
   text-decoration: none;
   cursor: pointer;
   color: #3f3f3f; }
 
-/* line 52, ../sass/import/_general.scss */
+/* line 51, ../sass/import/_general.scss */
 p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -115,34 +115,34 @@ p {
   hyphens: auto;
   word-wrap: break-word; }
 
-/* line 61, ../sass/import/_general.scss */
+/* line 60, ../sass/import/_general.scss */
 .clearfix {
   clear: both; }
 
-/* line 65, ../sass/import/_general.scss */
+/* line 64, ../sass/import/_general.scss */
 .clearfix:after {
   content: "";
   display: block;
   clear: both; }
 
-/* line 71, ../sass/import/_general.scss */
+/* line 70, ../sass/import/_general.scss */
 .clearBoth:after {
   content: "";
   display: block;
   clear: both; }
 
-/* line 77, ../sass/import/_general.scss */
+/* line 76, ../sass/import/_general.scss */
 input[type="submit"]:hover {
   background-color: #5b5b5b;
   color: white; }
 
-/* line 82, ../sass/import/_general.scss */
+/* line 81, ../sass/import/_general.scss */
 input, textarea {
   -webkit-transition: .5s;
   -o-transition: .5s;
   transition: .5s; }
 
-/* line 88, ../sass/import/_general.scss */
+/* line 87, ../sass/import/_general.scss */
 textarea:focus:invalid,
 input[type="email"]:focus:invalid, input[type="password"]:focus:invalid,
 input[type="text"]:focus:invalid {
@@ -150,7 +150,7 @@ input[type="text"]:focus:invalid {
   -webkit-box-shadow: 0 0 5px 2px red;
   box-shadow: 0 0 5px 2px red; }
 
-/* line 96, ../sass/import/_general.scss */
+/* line 95, ../sass/import/_general.scss */
 textarea:focus:valid,
 input[type="email"]:focus:valid, input[type="password"]:focus:valid,
 input[type="text"]:focus:valid {
@@ -158,53 +158,53 @@ input[type="text"]:focus:valid {
   -webkit-box-shadow: 0 0 5px 2px green;
   box-shadow: 0 0 5px 2px green; }
 
-/* line 104, ../sass/import/_general.scss */
+/* line 103, ../sass/import/_general.scss */
 html body .inline {
   display: inline; }
 
-/* line 108, ../sass/import/_general.scss */
+/* line 107, ../sass/import/_general.scss */
 .hidden {
   font-size: 0; }
 
-/* line 113, ../sass/import/_general.scss */
+/* line 112, ../sass/import/_general.scss */
 .float_left {
   float: left; }
 
-/* line 117, ../sass/import/_general.scss */
+/* line 116, ../sass/import/_general.scss */
 .block {
   display: block; }
 
-/* line 121, ../sass/import/_general.scss */
+/* line 120, ../sass/import/_general.scss */
 body .error {
   color: red;
   border-color: red !important; }
 
-/* line 125, ../sass/import/_general.scss */
+/* line 124, ../sass/import/_general.scss */
 body .success {
   color: green;
   border-color: green; }
 
-/* line 130, ../sass/import/_general.scss */
+/* line 129, ../sass/import/_general.scss */
 h3.noBoook {
   color: red;
   font-size: 1.7em; }
 
-/* line 135, ../sass/import/_general.scss */
+/* line 134, ../sass/import/_general.scss */
 .column {
   -webkit-columns: 2;
   -moz-columns: 2;
   columns: 2; }
 
-/* line 141, ../sass/import/_general.scss */
+/* line 140, ../sass/import/_general.scss */
 .form-create-user--error {
   color: red; }
 
-/* line 145, ../sass/import/_general.scss */
+/* line 144, ../sass/import/_general.scss */
 .form-create--obligatoire {
   color: #5b5b5b;
   font-weight: bold; }
 
-/* line 149, ../sass/import/_general.scss */
+/* line 148, ../sass/import/_general.scss */
 .header-block-one {
   font-size: 2.5em;
   color: #5b5b5b;
@@ -212,18 +212,25 @@ h3.noBoook {
   display: block;
   text-align: right; }
 
-/* line 156, ../sass/import/_general.scss */
+/* line 155, ../sass/import/_general.scss */
 .header-block-two {
   font-size: 1.6em;
   color: #5b5b5b;
   padding-bottom: .3em;
   display: block; }
 
-/* line 162, ../sass/import/_general.scss */
+/* line 161, ../sass/import/_general.scss */
 .create_book__btn {
   position: relative;
   left: 92px;
   top: 20px; }
+
+/* line 166, ../sass/import/_general.scss */
+.inline-link {
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: 1.1em;
+  color: #5b5b5b; }
 
 /* line 1, ../sass/import/_headerSmall.scss */
 header li a:first-letter {
@@ -643,6 +650,41 @@ header li .header-main__form-connexion__userLog {
   font-size: .625em;
   border-radius: .3em; }
 
+/* line 55, ../sass/import/_formCreateUser_Small.scss */
+.form-create__example-box__text {
+  color: #5b5b5b;
+  -webkit-border-radius: .3em;
+  -moz-border-radius: .3em;
+  border-radius: .3em;
+  background: rgba(222, 222, 222, 0.47); }
+
+/* line 1, ../sass/import/_single_author_Small.scss */
+.book-book {
+  overflow: hidden;
+  position: relative; }
+  /* line 5, ../sass/import/_single_author_Small.scss */
+  .book-book:hover .book-book__text {
+    top: -37px; }
+
+/* line 11, ../sass/import/_single_author_Small.scss */
+.book-book__text {
+  top: -500px;
+  background: rgba(0, 0, 0, 0.54);
+  position: absolute;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 1em 0;
+  font-size: 1.8em;
+  left: 0;
+  right: 0;
+  text-decoration: underline;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+  transition: .3s; }
+
 /* line 1, ../sass/import/liste_genre_Small.scss */
 .simple-liste__item {
   text-decoration: underline;
@@ -894,7 +936,6 @@ tbody tr:nth-child(odd) {
 
 /* line 21, ../sass/import/table-book_Small.scss */
 .svg-btn--absolute {
-  position: absolute;
   left: 50px; }
 
 /* line 4, ../sass/import/create-book_Small.scss */
@@ -973,7 +1014,7 @@ style pour les medium
 
 */
 @media screen and (min-width: 590px) {
-  /* line 48, ../sass/style.scss */
+  /* line 49, ../sass/style.scss */
   .container {
     width: 540px;
     margin: 80px auto;
@@ -1040,28 +1081,28 @@ style pour les medium
     text-align: left;
     font-size: 20px; } }
 /*
-Style large
+Style form-create--large
 
 */
 @media screen and (min-width: 1190px) {
-  /* line 64, ../sass/style.scss */
+  /* line 65, ../sass/style.scss */
   .container {
     display: block;
     width: 75%;
     margin: 0 auto; }
 
-  /* line 69, ../sass/style.scss */
+  /* line 70, ../sass/style.scss */
   .container .container {
     width: 100%; }
 
-  /* line 73, ../sass/style.scss */
+  /* line 74, ../sass/style.scss */
   .container--without-form {
     display: block;
     width: 1080px;
     margin: 0 auto;
     margin-top: 9.375em; }
 
-  /* line 79, ../sass/style.scss */
+  /* line 80, ../sass/style.scss */
   main.container {
     margin-top: 8em; }
 
@@ -1078,6 +1119,10 @@ Style large
     width: 75%;
     margin: 0 auto;
     margin-top: 1em; }
+
+  /* line 13, ../sass/import/_navbibliLarge.scss */
+  .main-nav__item {
+    padding-right: 2.9em; }
 
   /* line 1, ../sass/import/_formConnexion_Large.scss */
   .header-main__form-connexion__userLog {
@@ -1236,12 +1281,14 @@ Style large
       cursor: pointer; }
     /* line 34, ../sass/import/_formCreateUser_Large.scss */
     .form-create .ouvrir:before {
-      content: "\e98f"; }
-    /* line 37, ../sass/import/_formCreateUser_Large.scss */
+      content: "\e990";
+      margin-right: 5px; }
+    /* line 38, ../sass/import/_formCreateUser_Large.scss */
     .form-create .fermer:before {
-      content: "\e990"; }
+      content: "\e601";
+      margin-right: 5px; }
 
-  /* line 42, ../sass/import/_formCreateUser_Large.scss */
+  /* line 45, ../sass/import/_formCreateUser_Large.scss */
   .form-create-user--error {
     position: absolute;
     right: -567px;
@@ -1249,31 +1296,35 @@ Style large
     border: 1px solid red;
     padding: 1em .5em; }
 
-  /* line 50, ../sass/import/_formCreateUser_Large.scss */
+  /* line 53, ../sass/import/_formCreateUser_Large.scss */
   .form-create-user--error__remove {
     position: absolute;
     top: 0;
     right: 0; }
 
-  /* line 55, ../sass/import/_formCreateUser_Large.scss */
-  .form-create.large {
+  /* line 59, ../sass/import/_formCreateUser_Large.scss */
+  .form-create.form-create--large {
     width: 660px;
     margin-bottom: 3em; }
 
-  /* line 59, ../sass/import/_formCreateUser_Large.scss */
+  /* line 64, ../sass/import/_formCreateUser_Large.scss */
   .form-create__select {
     width: 53%;
     margin-bottom: 3em; }
 
-  /* line 63, ../sass/import/_formCreateUser_Large.scss */
-  .form-create__infos {
+  /* line 72, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__infos + .form-create__infos {
     margin-bottom: 2em; }
+    /* line 74, ../sass/import/_formCreateUser_Large.scss */
+    .form-create__infos + .form-create__infos svg {
+      position: relative;
+      top: 10px; }
 
-  /* line 66, ../sass/import/_formCreateUser_Large.scss */
+  /* line 80, ../sass/import/_formCreateUser_Large.scss */
   .form-create__long-text {
     width: 53%; }
 
-  /* line 69, ../sass/import/_formCreateUser_Large.scss */
+  /* line 84, ../sass/import/_formCreateUser_Large.scss */
   .form-create__simple-imput {
     width: 50%;
     display: inline-block;
@@ -1285,7 +1336,7 @@ Style large
     border: 1px solid #5b5b5b;
     margin-bottom: 1em; }
 
-  /* line 80, ../sass/import/_formCreateUser_Large.scss */
+  /* line 96, ../sass/import/_formCreateUser_Large.scss */
   .form-create__message--error {
     width: 40%;
     margin: 0;
@@ -1293,7 +1344,7 @@ Style large
     left: 60.5357142857%;
     top: -2.27272727272727em; }
 
-  /* line 88, ../sass/import/_formCreateUser_Large.scss */
+  /* line 105, ../sass/import/_formCreateUser_Large.scss */
   .form-create__message--info {
     width: 40%;
     margin: 0;
@@ -1301,18 +1352,76 @@ Style large
     left: 60.5357142857%;
     top: -2.27272727272727em; }
 
+  /* line 114, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__add-btn {
+    position: relative;
+    top: 8px;
+    left: 16px; }
+
+  /* line 123, ../sass/import/_formCreateUser_Large.scss */
+  label:hover .form-create__add-btn svg {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg); }
+
+  /* line 134, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__add-btn svg {
+    transition: .5s; }
+
+  /* line 139, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__example-box {
+    position: relative; }
+
+  /* line 143, ../sass/import/_formCreateUser_Large.scss */
+  .form-create--large .form-create__example-box__text {
+    right: -64.2424242424%; }
+
+  /* line 147, ../sass/import/_formCreateUser_Large.scss */
+  .form-create__example-box__text {
+    right: -65.8928571429%;
+    width: 45.4545454545%;
+    position: absolute;
+    top: -67px;
+    padding: 1em 4.5454545455%;
+    opacity: 0;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s; }
+
+  /* line 162, ../sass/import/_formCreateUser_Large.scss */
+  input:hover + .form-create__example-box .form-create__example-box__text {
+    opacity: 1; }
+
+  /* line 167, ../sass/import/_formCreateUser_Large.scss */
+  label:hover + input + .form-create__example-box .form-create__example-box__text {
+    opacity: 1; }
+
   /* line 2, ../sass/import/_single_book_Large.scss */
   .single_book .float_left, .single_book p {
     margin-top: 2em; }
   /* line 5, ../sass/import/_single_book_Large.scss */
   .single_book p {
-    font-size: 1.3em; }
-  /* line 8, ../sass/import/_single_book_Large.scss */
+    font-size: 1.3em;
+    margin-bottom: 1em; }
+  /* line 9, ../sass/import/_single_book_Large.scss */
   .single_book .float_left {
     margin-right: 3em; }
-  /* line 12, ../sass/import/_single_book_Large.scss */
+  /* line 13, ../sass/import/_single_book_Large.scss */
   .single_book .btnVert {
     margin-left: 17px; }
+
+  /* line 18, ../sass/import/_single_book_Large.scss */
+  .btnVert.btnVert--block {
+    margin: 0;
+    display: block;
+    margin: 0 auto;
+    width: 18.7397516983%;
+    padding: 1em;
+    text-align: center; }
 
   /* line 2, ../sass/import/_single_author_Large.scss */
   .single_author .float_left, .single_author .first_text {
@@ -1436,7 +1545,7 @@ Style large
 
   /* line 8, ../sass/import/book-presentation_Large.scss */
   .book-presentation:not(:nth-child(3n+4)) {
-    margin-right: 6.6666666667%; }
+    margin-right: 6.4814814815%; }
 
   /* line 4, ../sass/import/single-author_Large.scss */
   .single-author__figure {
@@ -1467,7 +1576,84 @@ Style large
   /* line 16, ../sass/import/functions_Large.scss */
   .back-btn {
     display: inline-block;
-    margin-right: 1em; } }
+    margin-right: 1em; }
+
+  /* line 1, ../sass/import/admin_nav_steps_Large.scss */
+  .admin_nav_steps {
+    margin-top: 2em;
+    position: relative; }
+    /* line 5, ../sass/import/admin_nav_steps_Large.scss */
+    .admin_nav_steps:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: #5b5b5b;
+      position: absolute;
+      top: 5.5em;
+      z-index: -1; }
+
+  /* line 16, ../sass/import/admin_nav_steps_Large.scss */
+  .admin_nav_steps__item {
+    display: block;
+    font-size: 2em;
+    float: left;
+    width: 52px;
+    margin: 0 52px;
+    padding: 2.25em 52px;
+    text-align: center;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s; }
+
+  /* line 32, ../sass/import/admin_nav_steps_Large.scss */
+  .admin_nav_steps__item--numerique {
+    color: rgba(60, 60, 60, 0.33);
+    border: 1px solid rgba(60, 60, 60, 0.33);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    font-weight: bold;
+    position: relative;
+    background: #ffffff; }
+    /* line 42, ../sass/import/admin_nav_steps_Large.scss */
+    .admin_nav_steps__item--numerique:hover {
+      border-color: #5b5b5b;
+      color: #5b5b5b; }
+
+  /* line 47, ../sass/import/admin_nav_steps_Large.scss */
+  .admin_nav_steps__item--active {
+    border-color: #5b5b5b;
+    color: #5b5b5b; }
+
+  /* line 51, ../sass/import/admin_nav_steps_Large.scss */
+  .admin_nav_steps__item--success {
+    color: rgba(101, 204, 88, 0.7);
+    border-color: rgba(101, 204, 88, 0.7); }
+    /* line 54, ../sass/import/admin_nav_steps_Large.scss */
+    .admin_nav_steps__item--success:after {
+      display: block;
+      content: "\ea10";
+      position: absolute;
+      left: 66px;
+      top: 101px; }
+    /* line 61, ../sass/import/admin_nav_steps_Large.scss */
+    .admin_nav_steps__item--success:hover {
+      color: #00cc09;
+      border-color: #00cc09; }
+
+  /* line 67, ../sass/import/admin_nav_steps_Large.scss */
+  .admin_nav_steps__info {
+    margin-bottom: 3em;
+    background: #f0f0f0;
+    color: #5b5b5b;
+    border: 1px solid #5b5b5b;
+    -webkit-border-radius: .4em;
+    -moz-border-radius: .4em;
+    border-radius: .4em;
+    padding: .5em; } }
 /* line 1, ../sass/import/_footer.scss */
 footer {
   position: absolute;
@@ -1493,7 +1679,3 @@ footer {
     footer li a {
       padding: .7142857143em 1.4035087719%;
       /*10px 20px*/ }
-
-/* line 106, ../sass/style.scss */
-header {
-  opacity: .5; }
