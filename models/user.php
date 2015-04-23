@@ -37,7 +37,7 @@ class User extends Model implements UserRepositoryInterface
 
     public function getUserInfo($id)
     {
-        $sql = 'SELECT first_name,last_name,photo,role FROM users where id:id';
+        $sql = 'SELECT first_name,last_name,photo,role FROM users where id=:id';
         $pdost = $this->cx->prepare($sql);
         $pdost->execute([':id' => $id]);
         return $pdost->fetch();
@@ -59,6 +59,7 @@ class User extends Model implements UserRepositoryInterface
     }
     public function create($obj)
     {
+
         $sql = '
               INSERT INTO users (first_name,last_name,username,password,email,question,answer)
               VALUES (:first_name,:last_name,:username,:password,:email,:question,:answer)';
