@@ -190,6 +190,25 @@ class Book extends Model implements BookRepositoryInterface
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
+    public function getReservedBooksFromUser($user_id)
+    {
+
+        $sql = 'SELECT
+                DISTINCT
+                books.id AS book_id,
+                title,
+                presentation_cover,
+                summary,
+                reserved_from,
+                reserved_to
+                FROM
+                book_reserved
+                JOIN books on books.id=book_id
+                WHERE book_reserved.user_id=:user_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(['user_id'=>$user_id]);
+        return $pdost->fetchAll();
+    }
 
     public function getAllLanguages()
     {
@@ -331,6 +350,20 @@ class Book extends Model implements BookRepositoryInterface
 
     public function reserveBook($obj)
     {
+        $sql = 'INSERT INTO book_reserved
+              (book_id,user_id,reserved_from,reserved_to)
+              VALUES(:book_id,:user_id,:reserved_from,:reserved_to)';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([
+            ':book_id' => $obj->book_id,
+            ':user_id' => $obj->user_id,
+            ':reserved_from' => $obj->from,
+            ':reserved_to' => $obj->to
+        ]);
+    }
+    public function updateReserveBook($obj)
+    {
+        die('il faut updater');
         $sql = 'INSERT INTO book_reserved
               (book_id,user_id,reserved_from,reserved_to)
               VALUES(:book_id,:user_id,:reserved_from,:reserved_to)';
