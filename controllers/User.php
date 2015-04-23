@@ -5,13 +5,15 @@ namespace Controllers;
 use Components\Session;
 use Helpers\validate;
 use Models\UserRepositoryInterface as UserRepository;
+use Models\BookRepositoryInterface as BookRepository;
 
 class User extends Base
 {
-    function __construct(Request $request, UserRepository $modelUser)
+    function __construct(Request $request, UserRepository $modelUser,BookRepository $modelBook)
     {
         parent::__construct($request);
         $this->modelUser = $modelUser;
+        $this->modelBook=$modelBook;
     }
 
     function login($register = false)
@@ -64,6 +66,11 @@ class User extends Base
             $this->request->errors['email'] = 'Oups, mail nom valide';
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST" && empty($this->request->errors)) {
+            if( $this->modelUser->userNameExist($this->request->sent->username)){
+                Session::setMessage('Malheursement ce nom d’utilisateur existe déjà.','error');
+                header('Location:' . $_SERVER['PHP_SELF'].'?m=user&a=create');
+                die();
+            }
             $this->modelUser->create($this->request->sent);
             $this->login(true);
         } else {
@@ -71,11 +78,9 @@ class User extends Base
             $data['sent'] = $this->request->sent;
         }
         if (isset($data['errors'])) {
-            $view = 'create.php';
             $title = 'formulaire d’inscription';
             return [
                 'data' => $data,
-                'view' => $view,
                 'title' => $title
             ];
         } else {
@@ -96,7 +101,20 @@ class User extends Base
         header('Location:' . $_SERVER['PHP_SELF']);
         die();
     }
-    public function admin_index()
+
+    public function user_userIndex()
+    {
+
+        $data['user']=$this->modelUser->getUserInfo($this->request->id);
+        $data['books']=$this->modelBook->getReservedBooksFromUser($this->request->id);
+        $title='Mon compte';
+        return[
+            'data'=>$data,
+            'title'=>$title
+
+        ];
+    }
+    public function admin_usersIndex()
     {
         die('ok je suis dans le controleur ');
     }
