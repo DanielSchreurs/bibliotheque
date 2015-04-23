@@ -158,22 +158,24 @@ class Page extends Base
     public function admin_editQuestion()
     {
         $data = '';
-        if(isset($this->request->error["answer"])){
-            die('on modifie juste la question');
-            $this->Modelhelp->createQuestion($this->request->sent);
-            Session::setMessage('Merci, votre question a été demandé');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=help');
-            die();
-        };
-        if ($_SERVER['REQUEST_METHOD'] === "POST" && empty($this->request->errors)) {
-            die('ok on modifie la question et la réponse');
-            $this->Modelhelp->createQuestion($this->request->sent);
-            Session::setMessage('Merci, votre question a été demandé');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=help');
-            die();
-        } else {
+
+        if(!empty($this->request->errors)) {
             $data['errors'] = $this->request->errors;
             $data['sent'] = $this->request->sent;
+
+        }
+        elseif ($_SERVER['REQUEST_METHOD'] === "POST" && empty($this->request->sent->answer)) {
+            $this->Modelhelp->updateQuestion($this->request->sent);
+            Session::setMessage('Merci, la question a été modifier');
+            header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=admin_indexHelp');
+            die();
+        }
+        elseif($_SERVER['REQUEST_METHOD'] === "POST" && !empty($this->request->sent->answer)) {
+            $this->Modelhelp->updateQuestion($this->request->sent);
+            $this->Modelhelp->updateAnswer($this->request->sent);
+            Session::setMessage('Merci, la question et la réponse ont été modifiés');
+            header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=admin_indexHelp');
+            die();
         }
         $data['data'] = $this->Modelhelp->getQuestionAndAnswer($this->request->id);
         $title = 'Modifer une question et ca réponse';
