@@ -21,6 +21,8 @@ interface BookRepositoryInterface
 
     public function getLatestBook($limit);
 
+    public function getReservedBooksFromUser($user_id);
+
     public function getAllLanguages();
 
     public function delete($book_id);
