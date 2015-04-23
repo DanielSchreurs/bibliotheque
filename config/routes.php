@@ -38,6 +38,9 @@ $routes['page_user_answer'] = 'page/user_createAnswer';
 $routes['pageuser_createQuestion'] = 'page/user_createQuestion';
 
 
+$routes['useruser_userIndex'] = 'user/user_userIndex';
+
+
 /*
  * Routes pour l'administration
  * */
