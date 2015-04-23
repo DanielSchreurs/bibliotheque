@@ -22,9 +22,14 @@ interface HelpRepositoryInterface
 
     public function createQuestion($oQuestion);
 
-    public function deleteQuestion($question_id);
-    public function deleteAnswer($question_id);
+    public function updateQuestion($oQuestion);
 
+    public function updateAnswer($oAnswer);
+
+
+    public function deleteQuestion($question_id);
+
+    public function deleteAnswer($question_id);
 
 
 }
