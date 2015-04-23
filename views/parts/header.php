@@ -74,9 +74,12 @@
                 <?php if (Session::isUserLogged()): ?>
                     <a href="<?php echo($html->createLink('user', 'logout')); ?>" class="btnVert">Se
                         déconnecter</a>
-                    <?php if (Session::isAdmin()): ?>
+                        <?php if (Session::isAdmin()): ?>
                         <a href="<?php echo($html->createLink('book', 'admin_index')); ?>"
                            class="btnVert">Administration</a>
+                        <?php else: ?>
+                        <a href="<?php echo($html->createLink('user', 'user_userIndex',['id'=>isset($_SESSION['userId'])?$_SESSION['userId']:$_COOKIE['userId']])); ?>"
+                           class="btnVert">Mes livres</a>
                     <?php endif; ?>
                 <?php endif; ?>
                 <?php if ($controller->view == 'user/create.php'): ?>

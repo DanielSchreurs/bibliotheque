@@ -9,13 +9,14 @@
     $data = $data['data']['data'];
     ?>
     <form class="form-create form-create--large"
-          action="<?php echo($html->createLink('page', 'admin_editQuestion')); ?>" method="post">
+          action="<?php echo($html->createLink('page', 'admin_editQuestion',['id'=>$data->question_id])); ?>" method="post">
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
         <input name="user_id" type="hidden"
                value="<?php echo(isset($_SESSION['userId']) ? $_SESSION['userId'] : $_COOKIE['userId']); ?>"/>
         <input name="create_at" type="hidden" value="<?php setlocale(LC_TIME, 'fra_fra');
         echo strftime('%Y-%m-%d-%H-%M'); ?>"/>
+        <input name="question_id" type="hidden" value="<?php echo($data->question_id); ?>"/>
         <label for="question">La question&nbsp;:<strong
                 class="form-create--obligatoire">*</strong></label>
        <textarea class="form-create__long-text" id="question" name="question" cols="30" rows="10">
