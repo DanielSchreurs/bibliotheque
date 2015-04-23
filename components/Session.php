@@ -32,4 +32,8 @@ class Session
     {
         return (isset($_SESSION['role']) && $_SESSION['role'] == 'administrateur') || (isset($_COOKIE['role']) && $_COOKIE['role'] == 'administrateur');
     }
+    public static function isUser()
+    {
+        return (isset($_SESSION['role']) && $_SESSION['role'] == 'utilisateur') || (isset($_COOKIE['role']) && $_COOKIE['role'] == 'utilisateur');
+    }
 }
