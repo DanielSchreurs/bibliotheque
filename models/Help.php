@@ -118,6 +118,40 @@ class Help extends Model implements HelpRepositoryInterface
             ]
         );
     }
+    public function updateQuestion($oQuestion)
+    {
+        $sql = 'UPDATE questions
+                SET question=:question,user_id=:user_id,update_at=:update_at
+                WHERE id=:question_id';
+        $pdost = $this->cx->prepare($sql);
+
+        $pdost->execute(
+            [
+                ':question' => $oQuestion->question,
+                ':user_id' => $oQuestion->user_id,
+                ':update_at' => $oQuestion->create_at,
+                ':question_id' => $oQuestion->question_id
+            ]
+        );
+    }
+    public function updateAnswer($oAnswer)
+    {
+
+        $sql = 'UPDATE answers
+                SET answer=:answer,user_id=:user_id,question_id=:question_id,update_at=:update_at
+                WHERE question_id=:question_id';
+        $pdost = $this->cx->prepare($sql);
+
+        $pdost->execute(
+            [
+                ':answer' => $oAnswer->answer,
+                ':user_id' => $oAnswer->user_id,
+                ':question_id' => $oAnswer->question_id,
+                ':update_at' => $oAnswer->create_at,
+                ':question_id' => $oAnswer->question_id
+            ]
+        );
+    }
     public function deleteQuestion($question_id)
     {
         $this->deleteAnswer($question_id);
