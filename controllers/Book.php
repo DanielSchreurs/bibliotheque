@@ -156,7 +156,7 @@ class Book extends Base
 
     public function admin_index()
     {
-        $title = 'Administrer, en quelques clicks';
+        $title = 'Administrer les livres, en quelques clicks';
         $data['books'] = $this->modelBook->all();
         return [
             'data' => $data,
