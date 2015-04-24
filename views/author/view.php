@@ -18,7 +18,8 @@ use Helpers\Date;
                 <abbr></p>
         <?php if ($author->datedeath != "" && $author->datedeath !== '0000-00-00'): ?>
             <p> Mort le: <abbr title="<?php echo($html->birthToString($author->datedeath)); ?>"
-                               class="dtstart"><?php echo ($html->birthToString($author->datedeath)) . '&nbsp;(&nbsp;'.Date::getAge($author->datebirth,$author->datedeath).' ans &nbsp;)'; ?>
+                               class="dtstart"><?php echo ($html->birthToString($author->datedeath)) . '&nbsp;(&nbsp;' . Date::getAge($author->datebirth,
+                            $author->datedeath) . ' ans &nbsp;)'; ?>
                     <abbr></p>
 
         <?php endif; ?>
@@ -26,8 +27,8 @@ use Helpers\Date;
             <?php echo($author->bio_text); ?>
         </p>
     </div>
-
-    <?php if (isset($author->book_title)): ?>
+    <aside>
+        <h2 class="header-block-one">Les livres de l'auteur</h2>
         <ul class="book-liste">
             <?php foreach ($data['data'] as $book): ?>
             <li>
@@ -43,6 +44,8 @@ use Helpers\Date;
                     du livre</a>
                 <?php endforeach; ?>
         </ul>
+    </aside>
+    <?php if (isset($author->book_title)): ?>
     <?php endif; ?>
 </main>
 
