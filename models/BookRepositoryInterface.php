@@ -23,6 +23,8 @@ interface BookRepositoryInterface
 
     public function getReservedBooksFromUser($user_id);
 
+    public function getReservedInfo($Reserved_id);
+
     public function getAllLanguages();
 
     public function delete($book_id);
@@ -34,6 +36,8 @@ interface BookRepositoryInterface
     public function isDispo($book_id);
 
     public function reserveBook($obj);
+
+    public function updateReserveBook($obj);
 
     public function removeOneCopy($book_id);
 
