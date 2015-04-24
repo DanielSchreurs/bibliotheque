@@ -190,12 +190,14 @@ class Book extends Model implements BookRepositoryInterface
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
+
     public function getReservedBooksFromUser($user_id)
     {
 
         $sql = 'SELECT
                 DISTINCT
                 books.id AS book_id,
+                book_reserved.id as book_reserved_id,
                 title,
                 presentation_cover,
                 summary,
@@ -206,7 +208,7 @@ class Book extends Model implements BookRepositoryInterface
                 JOIN books on books.id=book_id
                 WHERE book_reserved.user_id=:user_id';
         $pdost = $this->cx->prepare($sql);
-        $pdost->execute(['user_id'=>$user_id]);
+        $pdost->execute(['user_id' => $user_id]);
         return $pdost->fetchAll();
     }
 
@@ -322,7 +324,7 @@ class Book extends Model implements BookRepositoryInterface
     public function isDispo($book_id, $to = 'todayAnd15days')
     {
         $maxCopy = $this->getNbCopyOfCopyOfBook($book_id)->nb_copy;
-        $reserved_info = $this->getReservedInfo($book_id);
+        $reserved_info = $this->getReservedInfoFromBooks($book_id);
         $try = 0;
         if ($maxCopy > count($reserved_info)) {
             return true;
@@ -361,18 +363,18 @@ class Book extends Model implements BookRepositoryInterface
             ':reserved_to' => $obj->to
         ]);
     }
+
     public function updateReserveBook($obj)
     {
-        die('il faut updater');
-        $sql = 'INSERT INTO book_reserved
-              (book_id,user_id,reserved_from,reserved_to)
-              VALUES(:book_id,:user_id,:reserved_from,:reserved_to)';
+        $sql = 'UPDATE book_reserved
+                SET reserved_from=:reserved_from,
+                reserved_to=:reserved_to
+                WHERE id=:reserved_id';
         $pdost = $this->cx->prepare($sql);
         $pdost->execute([
-            ':book_id' => $obj->book_id,
-            ':user_id' => $obj->user_id,
             ':reserved_from' => $obj->from,
-            ':reserved_to' => $obj->to
+            ':reserved_to' => $obj->to,
+            ':reserved_id' => $obj->reserved_id
         ]);
     }
 
@@ -398,13 +400,22 @@ class Book extends Model implements BookRepositoryInterface
         return $pdost->fetch();
     }
 
-    private function getReservedInfo($book_id)
+    private function getReservedInfoFromBooks($book_id)
     {
 
         $sql = 'SELECT reserved_from,reserved_to FROM book_reserved WHERE book_id=:book_id';
         $pdost = $this->cx->prepare($sql);
         $pdost->execute(['book_id' => $book_id]);
         return $pdost->fetchAll();
+    }
+
+    public function getReservedInfo($Reserved_id)
+    {
+
+        $sql = 'SELECT reserved_from,reserved_to,book_id,id as reserved_id FROM book_reserved WHERE id=:Reserved_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([':Reserved_id' => $Reserved_id]);
+        return $pdost->fetch();
     }
 
     private function newAuthorBook($author_id, $book_id)
