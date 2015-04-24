@@ -16,9 +16,8 @@
                     <p class="answer"><?php echo($article->answer); ?></p>
                     <footer>
                         <p class="big__blockquote__meta">Par <cite><?php echo($article->role.'&nbsp: '.$article->user_first_name.' '.$article->user_last_name); ?> ,</cite>
-                        <time><?php echo($html->dateToSTring($article->answers_update_at)) ?></time></p>
+                        <time>le <?php echo($html->dateToSTring($article->answers_update_at)) ?></time></p>
                     </footer>
-
                 </blockquote>
 
             <?php endif ?>
