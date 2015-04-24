@@ -311,5 +311,51 @@ class Book extends Base
             'data' => $data,
         ];
     }
+    public function user_UpdateReserve()
+    {
+
+
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+
+            if (!isset($this->request->errors['from'])) {
+                if (Date::isValidDate($this->request->sent->from, false) !== true) {
+                    $this->request->errors['from'] = Date::isValidDate($this->request->sent->from, false);
+                }
+            }
+            if (!isset($this->request->errors['to'])) {
+                if (Date::isValidDate($this->request->sent->to, false) !== true) {
+                    $this->request->errors['to'] = Date::isValidDate($this->request->sent->to, false);
+                }
+            }
+            if ((!isset($this->request->errors['to'])) && (!isset($this->request->errors['from']))) {
+                if (Date::getAge($this->request->sent->from, $this->request->sent->to, 'm') > 1) {
+                    $this->request->errors['to'] = 'Oups, vous ne pouvez pas réserver pour plus d’un mois';
+                }
+
+            }
+            if (empty($this->request->errors)) {
+                if ($this->modelBook->isDispo($this->request->sent->book_id,$this->request->sent->to)===true) {
+                    $this->modelBook->updateReserveBook($this->request->sent);
+                    Session::setMessage('La date de modification a été modifié avec succès.');
+                    header('Location:' . $_SERVER['PHP_SELF'].'?m=user&a=user_userIndex&id='.$this->request->sent->user_id);
+                    die();
+                }
+                else {
+                    Session::setMessage('Malheureusement ce livre n’est plus diposible à ce moment', 'error');
+                    header('Location:' . $_SERVER['PHP_SELF']);
+                    die();
+                }
+            } else {
+                $data['errors'] = $this->request->errors;
+                $data['sent'] = $this->request->sent;
+            }
+        }
+        $data['data'] = $this->modelBook->getReservedInfo($this->request->id);
+        $title = 'Modifier la date de réservation';
+        return [
+            'title' => $title,
+            'data' => $data,
+        ];
+    }
 
 }
