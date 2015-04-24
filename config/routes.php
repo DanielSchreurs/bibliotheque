@@ -34,9 +34,10 @@ $routes['pagesearch'] = 'page/search';
  * */
 
 $routes['bookuser_reserve'] = 'book/user_reserve';
+$routes['bookuser_UpdateReserve'] = 'book/user_UpdateReserve';
+
 $routes['page_user_answer'] = 'page/user_createAnswer';
 $routes['pageuser_createQuestion'] = 'page/user_createQuestion';
-
 
 $routes['useruser_userIndex'] = 'user/user_userIndex';
 
