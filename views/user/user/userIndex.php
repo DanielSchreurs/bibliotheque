@@ -29,9 +29,11 @@
                         ['id' => $book->book_id])); ?>"><?php echo($book->title); ?></a></h3>
 
                 <p class="book-presentation__text"><?php echo($html->cutText($book->summary, 200)); ?></p>
+                <p class="book-presentation__container__date"><time class="book-presentation__date"> Du <?php echo($html->dateToSTring($book->reserved_from)); ?></time>
+                    <time class="book-presentation__date">Au <?php echo($html->dateToSTring($book->reserved_to)); ?></time></p>
                 <a class="book-presentation__btn-link" title="Renvoie vers la fiche du livre"
-                   href="<?php echo($html->createLink('book', 'user_reserve',
-                       ['id' => $book->book_id])); ?>">Prolonger</a>
+                   href="<?php echo($html->createLink('book', 'user_UpdateReserve',
+                       ['id' => $book->book_reserved_id])); ?>">Modifier</a>
             </article>
         <?php endforeach; ?>
     </section>
