@@ -888,6 +888,14 @@ header li .header-main__form-connexion__userLog {
     color: #5b5b5b;
     background: #ffffff; }
 
+/* line 58, ../sass/import/book-presentation_Small.scss */
+.book-presentation__date {
+  display: block; }
+
+/* line 62, ../sass/import/book-presentation_Small.scss */
+.book-presentation__text {
+  margin-bottom: 1em; }
+
 /* line 1, ../sass/import/single-author_Smal.scss */
 .single-author {
   padding: 1em 10%; }
