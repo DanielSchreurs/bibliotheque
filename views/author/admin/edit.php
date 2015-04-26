@@ -71,7 +71,7 @@
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Vous devez insérer une image au format (.png) et qui fait 200 pixel de large et 200 pixel de haut.</p>
         </div>
-        <label for="bio_text">Résumé du livre<strong
+        <label for="bio_text">Petite biographie<strong
                 class="form-create--obligatoire">*</strong></label>
         <textarea class="form-create__long-text" name="bio_text" id="bio_text" cols="30"
                   rows="10"><?php echo(isset($errors['bio_text']) || $_GET ? $author->bio_text : $sent->bio_text); ?></textarea>
