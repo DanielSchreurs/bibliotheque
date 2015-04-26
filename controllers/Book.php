@@ -92,6 +92,11 @@ class Book extends Base
             ) {
                 $this->request->errors['nbpages'] = 'Le nombre de page doit être un nombre positif';
             }
+            if (!filter_var($_POST['nb_copy'], FILTER_VALIDATE_INT,
+                    array("min_range" => 2, "max_range" => 999999999)) === true
+            ) {
+                $this->request->errors['nb_copy'] = 'Le nombre de copie doit être un nombre positif';
+            }
 
             if (empty($_FILES['front_cover']['name'])) {
                 $this->request->errors['front_cover'][] = 'Oups vous n’avez pas mis d’image';
@@ -144,7 +149,7 @@ class Book extends Base
         }
         $title = 'Modifier un livre, en quelques clicks';
         $data['authors'] = $this->modelAuthor->getAllName();
-        $data['editors'] = $this->modelEditor->all();
+        $data['editors'] = $this->modelEditor->getSimpleInfoOffAll();
         $data['genres'] = $this->modelGenre->all();
         $data['langues'] = $this->modelBook->getAllLanguages();
         $data['book'] = $this->modelBook->find($this->request->id);
@@ -183,11 +188,16 @@ class Book extends Base
 
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-
+    
             if (!filter_var($_POST['nbpages'], FILTER_VALIDATE_INT,
                     array("min_range" => 2, "max_range" => 999999999)) === true
             ) {
                 $this->request->errors['nbpages'] = 'Le nombre de page doit être un nombre positif';
+            }
+            if (!filter_var($_POST['nb_copy'], FILTER_VALIDATE_INT,
+                    array("min_range" => 2, "max_range" => 999999999)) === true
+            ) {
+                $this->request->errors['nb_copy'] = 'Le nombre de copie doit être un nombre positif';
             }
 
             if (empty($_FILES['front_cover']['name'])) {
@@ -227,9 +237,8 @@ class Book extends Base
                 $this->request->sent->front_cover = $front_cover;
                 $this->request->sent->logo = $logo;
                 $this->request->sent->presentation_cover = $presentation_cover;
-                $this->request->sent->creat_at = date("Y-m-d");
                 isset($this->request->sent->vedette) ? '' : $this->request->sent->vedette = 0;
-                $this->modelBook->create($this->request->sent, $this->request->id);
+                $this->modelBook->create($this->request->sent);
                 Session::setMessage('Merci, votre livre a été ajouté');
                 header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
                 die();
@@ -244,7 +253,7 @@ class Book extends Base
         }
         $title = 'Ajouter un livre, en quelques clicks';
         $data['authors'] = $this->modelAuthor->getAllName();
-        $data['editors'] = $this->modelEditor->all();
+        $data['editors'] = $this->modelEditor->getSimpleInfoOffAll();
         $data['genres'] = $this->modelGenre->all();
         $data['langues'] = $this->modelBook->getAllLanguages();
         return [
