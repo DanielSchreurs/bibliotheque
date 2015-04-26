@@ -23,7 +23,8 @@
                 <desc>le symbole plus itégré dans un cercle</desc>
                 <path fill="#333333" d="M70.9,0C31.9,0,0,31.9,0,70.9s31.9,70.9,70.9,70.9s70.9-31.9,70.9-70.9S109.9,0,70.9,0z M106.3,77.9H78v28.3H63.8V77.9H35.4V63.7h28.3V35.4H78v28.3h28.3V77.9z"/>
             </svg> s'il n'est pas défini.</p>
-
+        <input name="create_at" type="hidden" value="<?php setlocale(LC_TIME, 'fra_fra'); echo strftime('%Y-%m-%d'); ?>"/>
+        <input name="user_id" type="hidden" value="<?php echo(isset($_SESSION['userId'])? $_SESSION['userId']:$_COOKIE['userId']); ?>"/>
         <label for="title">Titre du livre<strong
                 class="form-create--obligatoire">*</strong></label>
         <input type="text"
@@ -168,6 +169,18 @@
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Attention la date doit être dans le passé.</p>
         </div>
+        <label for="nb_copy">Le nombre de copies<strong
+                class="form-create--obligatoire">*</strong></label>
+        <input class="form-create__simple-imput <?php echo(isset($errors['nb_copy'])? 'error' :''); ?>" type="text" name="nb_copy" min="2" id="nb_copy"
+               title="Introduisez la date de publication" placeholder="ex:5"
+               value="<?php echo(isset($errors['nb_copy']) ||$_GET ? $book->nb_copy : $sent->nb_copy); ?>"/>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Attention ceci doit être un nombre</p>
+        </div>
+        <?php if (isset($errors['nb_copy'])): ?>
+            <p class="form-create__message--error"><?php echo($errors['nb_copy']); ?><span
+                    class="flash-box__btn">X</span></p>
+        <?php endif; ?>
         <label for="vedette">Mettre en vedette</label>
         <input type="checkbox" name="vedette" id="vedette" value="1"/>
         <input type="submit" value="Modifier le livre" class="btnVert"/>
