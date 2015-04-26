@@ -28,9 +28,8 @@ class Book extends Model implements BookRepositoryInterface
 
     public function all()
     {
-
         $sql = '
-                 SELECT
+                SELECT
                 books.id AS book_id,
                 genres.id AS genre_id,
                 editors.id AS editor_id,
@@ -40,6 +39,7 @@ class Book extends Model implements BookRepositoryInterface
                 title,
                 front_cover,
                 summary,
+                nb_copy,
                 authors.first_name AS author_first_name,
                 authors.last_name AS author_last_name,
                 editors.name AS editor_name,
@@ -134,6 +134,7 @@ class Book extends Model implements BookRepositoryInterface
                 librarys.id AS library_id,
                 authors.id as author_id,
                 title,
+                nb_copy,
                 front_cover,
                 summary,
                 authors.first_name AS author_first_name,
@@ -185,7 +186,7 @@ class Book extends Model implements BookRepositoryInterface
                 JOIN librarys on library_id=librarys.id
                 JOIN author_book on book_id=books.id
                 JOIN authors on author_id=authors.id
-                ORDER BY book_id
+                ORDER BY book_id DESC
                 LIMIT ' . $limit;
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
@@ -253,35 +254,37 @@ class Book extends Model implements BookRepositoryInterface
 
         $sql = 'UPDATE books
                 SET
+                logo = :logo,
+                presentation_cover = :presentation_cover,
                 title = :title,
                 front_cover = :front_cover,
-                logo = :logo,
                 summary = :summary,
                 isbn = :isbn,
-                presentation_cover = :presentation_cover,
                 nbpages = :nbpages,
                 datepub=:datepub,
                 language_id = :language_id,
                 library_id = :library_id,
                 editor_id=:editor_id,
                 update_at=:update_at,
+                nb_copy=:nb_copy,
                 vedette=:vedette
                 WHERE books.id = :book_id';
         $pdost = $this->cx->prepare($sql);
         $pdost->execute(
             [
+                ':logo' => $bookObj->logo,
+                ':presentation_cover' => $bookObj->presentation_cover,
                 ':title' => $bookObj->title,
                 ':front_cover' => $bookObj->front_cover,
-                ':logo' => $bookObj->logo,
                 ':summary' => $bookObj->summary,
                 ':isbn' => $bookObj->isbn,
-                ':presentation_cover' => $bookObj->presentation_cover,
                 ':nbpages' => $bookObj->nbpages,
                 ':datepub' => $bookObj->datepub,
                 ':language_id' => $bookObj->language_id,
                 ':library_id' => 1,
                 ':editor_id' => $bookObj->editor_id,
                 ':update_at' => $bookObj->update_at,
+                ':nb_copy'=>$bookObj->nb_copy,
                 ':vedette' => $bookObj->vedette,
                 ':book_id' => $book_id
             ]
@@ -291,13 +294,12 @@ class Book extends Model implements BookRepositoryInterface
 
     public function create($bookObj)
     {
-
-
         $sql = 'INSERT INTO books
-                (title,front_cover,logo,summary,isbn,presentation_cover,nbpages,datepub,genre_id,language_id,library_id,editor_id,creat_at,update_at,vedette)
-        VALUES  (:title,:front_cover,:logo,:summary,:isbn,:presentation_cover,:nbpages,:datepub,:genre_id,:language_id,:library_id,:editor_id,:creat_at,:update_at,:vedette)
+                (title,front_cover,logo,summary,isbn,presentation_cover,nbpages,datepub,genre_id,language_id,library_id,editor_id,creat_at,update_at,nb_copy,vedette)
+        VALUES  (:title,:front_cover,:logo,:summary,:isbn,:presentation_cover,:nbpages,:datepub,:genre_id,:language_id,:library_id,:editor_id,:create_at,:update_at,:nb_copy,:vedette)
 
         ';
+
         $pdost = $this->cx->prepare($sql);
         $pdost->execute(
             [
@@ -313,8 +315,9 @@ class Book extends Model implements BookRepositoryInterface
                 ':language_id' => $bookObj->language_id,
                 ':library_id' => 1,
                 ':editor_id' => $bookObj->editor_id,
-                ':creat_at' => $bookObj->creat_at,
-                ':update_at' => $bookObj->creat_at,
+                ':create_at' => $bookObj->create_at,
+                ':update_at' => $bookObj->create_at,
+                ':nb_copy' => $bookObj->nb_copy,
                 ':vedette' => $bookObj->vedette
             ]
         );
