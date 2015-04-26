@@ -1699,7 +1699,3 @@ Style form-create--large
     .main-footer li a {
       padding: .7142857143em 1.4035087719%;
       /*10px 20px*/ }
-
-/* line 108, ../sass/style.scss */
-header {
-  opacity: .5; }
