@@ -3,7 +3,7 @@
     <?php Components\Session::flash(); ?>
     <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
     <?php
-    $editor = $data['data']['editors'];
+    $editor = $data['data']['editor'];
     isset($data['data']['errors']) ? $errors = $data['data']['errors'] : '';
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';

@@ -1,5 +1,6 @@
 <main class="container">
     <?php $editors=$data['data'];
+
      ?>
     <?php Components\Session::flash(); ?>
     <div class="functions">
@@ -23,11 +24,11 @@
         <tbody>
         <?php foreach ($editors as $editor): ?>
             <tr>
-                <td><?php echo($editor->id); ?></td>
+                <td><?php echo($editor->editor_id); ?></td>
                 <td><?php echo($editor->editor_name); ?></td>
                 <td><a class="btnVert" href="<?php echo($editor->author_website); ?>">Page de l'éditeur</a></td>
                 <td><?php echo($html->cutText($editor->bio_text,100)); ?></td>
-                <td><a href="<?php echo($html->createLink('editor', 'admin_show_editor', ['id' => $editor->id])); ?>"
+                <td><a href="<?php echo($html->createLink('editor', 'admin_show_editor', ['id' => $editor->editor_id])); ?>"
                        class="svg-btn--absolute" title="Supprimer ce livre">
                         <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
                         <svg version="1.1"
@@ -50,7 +51,7 @@
 </svg>
 
                     </a></td>
-                <td><a href="<?php echo($html->createLink('editor', 'admin_edit_editor', ['id' => $editor->id])); ?>"
+                <td><a href="<?php echo($html->createLink('editor', 'admin_edit_editor', ['id' => $editor->editor_id])); ?>"
                        class="svg-btn--absolute" title="Editer ce livre">
                         <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
                         <svg version="1.1"

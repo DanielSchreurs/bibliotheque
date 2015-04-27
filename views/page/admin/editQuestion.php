@@ -24,12 +24,7 @@
        </textarea>
 
         <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Ici vous pouvez modifier la question.
-                <q cite="http://evene.lefigaro.fr/citations/mot.php?mot=politesse">
-                    &ldquo;&nbsp;La politesse n'est en elle-même qu'une ingénieuse contrefaçon de la bonté.&nbsp;&rdquo;
-                    <cite>Alexandre Vinet</cite>
-                </q>
-            </p>
+            <p class="form-create__example-box__text">Ici vous pouvez modifier la question.</p>
         </div>
         <?php if (isset($errors['question'])): ?>
             <p class="form-create__message--error"><?php echo($errors['question']); ?><span
@@ -44,13 +39,7 @@
            <?php echo(isset($errors['answer']) || $_GET ? $data->answer : $sent->answer); ?>
        </textarea>
             <div class="form-create__example-box">
-                <p class="form-create__example-box__text">Ici vous pouvez modifier la question.
-                    <q cite="http://evene.lefigaro.fr/citations/mot.php?mot=politesse">
-                        &ldquo;&nbsp;La politesse n'est en elle-même qu'une ingénieuse contrefaçon de la bonté.&nbsp;&rdquo;
-                        <cite>Alexandre Vinet</cite>
-                    </q>
-                </p>
-
+                <p class="form-create__example-box__text">Ici vous pouvez modifier la réponse.</p>
             </div>
             <?php if (isset($errors['answer'])): ?>
                 <p class="form-create__message--error"><?php echo($errors['answer']); ?><span

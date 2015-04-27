@@ -24,8 +24,6 @@
                     <?php endif; ?>
           " method="post"
           enctype="multipart/form-data">
-        <?php var_dump($langues[0]->language_id);
-        ?>
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
 
@@ -123,7 +121,7 @@
         <select class="form-create__select" name="genre_id" id="genre_id">
             <?php foreach ($genres as $genre): ?>
                 <option
-                    <?php echo(isset($sent->editor_id) && $sent->editor_id == $genre->id ? 'selected' : ''); ?>
+                    <?php echo(isset($sent->genre_id) && $sent->genre_id == $genre->id ? 'selected' : ''); ?>
                     value="<?php echo($genre->id); ?>"><?php echo($genre->name); ?></option>
             <?php endforeach; ?>
         </select>
@@ -152,6 +150,11 @@
             type="file" name="front_cover_presentation"
             id="front_cover_presentation"
             title="Chargez le couverture de votre livre"/>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Vous devez insérer une image au format (.jpg) et qui fait 270
+                pixel de large et 200 pixel de haut. Cette image peut apparaître sur la pagge accueil dans la section, 3
+                derniers livres ajoutés</p>
+        </div>
         <?php if (isset($errors['front_cover_presentation'])): ?>
             <p class="form-create__message--error">
                 <?php foreach ($errors['front_cover_presentation'] as $error): ?>
@@ -160,11 +163,6 @@
 
                 <span class="flash-box__btn">X</span></p>
         <?php endif; ?>
-        <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Vous devez insérer une image au format (.jpg) et qui fait 270
-                pixel de large et 200 pixel de haut. Cette image peut apparaître sur la pagge accueil dans la section, 3
-                derniers livres ajoutés</p>
-        </div>
         <label for="summary">Résumé du livre<strong
                 class="form-create--obligatoire">*</strong></label>
         <textarea class="form-create__long-text <?php echo(isset($errors['summary']) ? 'error' : ''); ?>" name="summary"

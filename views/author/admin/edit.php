@@ -1,6 +1,6 @@
 <main class="container">
     <?php
-    $author = $data['data']['authors'][0];
+    $author = $data['data']['authors'];
     isset($data['data']['errors']) ? $errors = $data['data']['errors'] : '';
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';
@@ -53,7 +53,7 @@
                 <span class="flash-box__btn">X</span></p>
         <?php endif; ?>
         <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Vous devez insérer une image au format (.jpg) et qui fait 300 pixel de large et 450 pixel de haut.</p>
+            <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.jpg) et qui fait 300 pixel de large et 450 pixel de haut.</p>
         </div>
         <label for="logo">Petite portrait 200/200px<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -69,7 +69,7 @@
                 <span class="flash-box__btn">X</span></p>
         <?php endif; ?>
         <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Vous devez insérer une image au format (.png) et qui fait 200 pixel de large et 200 pixel de haut.</p>
+            <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.png) et qui fait 200 pixel de large et 200 pixel de haut.</p>
         </div>
         <label for="bio_text">Petite biographie<strong
                 class="form-create--obligatoire">*</strong></label>
