@@ -50,23 +50,27 @@ class Editor extends Base
 
     public function admin_edit_editor()
     {
+        $title = 'Modifier un éditeur, en quelques clicks';
+        $data['editor'] = $this->modelEditor->getSimpleInfoOffOne($this->request->id);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            if (empty($_FILES['logo']['name'])) {
-                $this->request->errors['logo'][] = 'Oups vous n’avez pas mis d’image';
-            } else {
+           if(!empty($_FILES['logo']['name'])) {
                 $valideImage1 = Image::isvalidImage($_FILES['logo'], 200, 200, 'png');
                 if (!empty($valideImage1)) {
                     $this->request->errors['logo'] = $valideImage1;
                 }
             }
-
             if(filter_var($this->request->sent->website, FILTER_VALIDATE_URL) === false){
                 $this->request->errors['website']='Ooups c’est n’est pas une URL valide ';
             }
             if (empty($this->request->errors)) {
+                if(!empty($_FILES['logo']['name'])){
                 $logo = Image::renameFileName($this->request->sent->name);
                 Image::saveAs($_FILES['logo'], './img/editors_logos/', $logo);
                 $this->request->sent->logo = $logo;
+                }
+                else{
+                    $this->request->sent->logo=$data['editor']->logo;
+                }
                 $this->request->sent->update_at = date("Y-m-d");
                 $this->modelEditor->update($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, l’éditeur a été mis à jour');
@@ -77,9 +81,6 @@ class Editor extends Base
                 $data['sent'] = $this->request->sent;
             }
         }
-        $title = 'Modifier un éditeur, en quelques clicks';
-        $data['editors'] = $this->modelEditor->getSimpleInfoOffOne($this->request->id);
-
         return [
             'data' => $data,
             'title' => $title

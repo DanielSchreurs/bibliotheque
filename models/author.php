@@ -77,9 +77,11 @@ class Author extends Model implements AuthorRepositoryInterface
                 first_name,
                 last_name,
                 photo as author_photo,
+                logo,
                 datebirth,
                 datedeath,
-                bio_text
+                bio_text,
+                vedette
                 FROM authors
                 WHERE id=:id';
         $pds = $this->cx->prepare($sql);

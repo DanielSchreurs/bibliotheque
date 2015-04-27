@@ -136,6 +136,8 @@ class Book extends Model implements BookRepositoryInterface
                 title,
                 nb_copy,
                 front_cover,
+                presentation_cover,
+                books.logo,
                 summary,
                 authors.first_name AS author_first_name,
                 authors.last_name AS author_last_name,
