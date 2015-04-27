@@ -14,7 +14,7 @@
                 <input class="form-create__simple-imput <?php echo(isset($error['first_name']) ? 'error' : ''); ?>"
                        type="text" name="first_name"
                        id="first_name"
-                       value="<?php echo(isset($sent->first_name) ? $sent->first_name : ''); ?> "
+                       value="<?php echo(isset($sent->first_name) ? $sent->first_name : ''); ?>"
                        placeholder="Jane"
                        title="Introduisez votre prénom"/>
                 <?php if(isset($error['first_name'])): ?>

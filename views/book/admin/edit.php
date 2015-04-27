@@ -53,7 +53,7 @@
             <?php foreach ($authors as $author): ?>
                 <option
                     <?php echo($author->author_id == $book->author_id ? 'selected' : ''); ?>
-                    value="<?php echo($author->author_id); ?> "><?php echo($author->first_name . ' ' . $author->last_name); ?></option>
+                    value="<?php echo($author->author_id); ?>"><?php echo($author->first_name . ' ' . $author->last_name); ?></option>
             <?php endforeach; ?>
         </select>
         <label for="language_id">La langue du livre</label>
@@ -61,7 +61,7 @@
             <?php foreach ($langues as $langue): ?>
                 <option
                     <?php echo($langue->language_id == $book->language_id ? 'selected' : ''); ?>
-                    value="<?php echo($langue->language_id); ?> "><?php echo($langue->language); ?></option>
+                    value="<?php echo($langue->language_id); ?>"><?php echo($langue->language); ?></option>
             <?php endforeach; ?>
         </select>
         <label for="editor_id">Editeur du livre
@@ -79,7 +79,7 @@
             <?php foreach ($editors as $editor): ?>
                 <option
                     <?php echo($editor->editor_id == $book->editor_id ? 'selected' : ''); ?>
-                    value="<?php echo($editor->editor_id); ?> "><?php echo($editor->editor_name); ?></option>
+                    value="<?php echo($editor->editor_id); ?>"><?php echo($editor->editor_name); ?></option>
             <?php endforeach; ?>
         </select>
         <label for="genre_id">Genre du livre
@@ -97,7 +97,7 @@
             <?php foreach ($genres as $genre): ?>
                 <option
                     <?php echo($genre->id == $book->genre_id ? 'selected' : ''); ?>
-                    value="<?php echo($genre->id); ?> "><?php echo($genre->name); ?></option>
+                    value="<?php echo($genre->id); ?>"><?php echo($genre->name); ?></option>
             <?php endforeach; ?>
         </select>
         <label for="front_cover">Couverture du livre 300/450px<strong
