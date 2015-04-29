@@ -40,13 +40,13 @@
             <p class="form-create__message--info"><?php echo($errors['first_name']); ?><span class="flash-box__btn">X</span>
             </p>
         <?php endif; ?>
-        <label for="photo">Portrait 300/450px (.jpg)<strong
+        <label for="photo_edit">Portrait 300/450px (.jpg)<strong
                 class="form-create--obligatoire">*</strong></label>
-        <input class="form-create__simple-imput" type="file" name="photo" id="photo"
+        <input class="form-create__simple-imput" type="file" name="photo_edit" id="photo_edit"
                title="Chargez le portrait de l'auteur"/>
-        <?php if (isset($errors['photo'])): ?>
+        <?php if (isset($errors['photo_edit'])): ?>
             <p class="form-create__message--info">
-                <?php foreach ($errors['photo'] as $error): ?>
+                <?php foreach ($errors['photo_edit'] as $error): ?>
                     <?php echo($error); ?>
                 <?php endforeach; ?>
 
@@ -55,14 +55,14 @@
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.jpg) et qui fait 300 pixel de large et 450 pixel de haut.</p>
         </div>
-        <label for="logo">Petite portrait 200/200px<strong
+        <label for="logo_edit">Petite portrait 200/200px<strong
                 class="form-create--obligatoire">*</strong></label>
-        <input class="form-create__simple-imput" type="file" name="logo"
-               id="logo"
+        <input class="form-create__simple-imput" type="file" name="logo_edit"
+               id="logo_edit"
                title="Chargez le couverture de votre livre"/>
-        <?php if (isset($errors['logo'])): ?>
+        <?php if (isset($errors['logo_edit'])): ?>
             <p class="form-create__message--info">
-                <?php foreach ($errors['logo'] as $error): ?>
+                <?php foreach ($errors['logo_edit'] as $error): ?>
                     <?php echo($error); ?>
                 <?php endforeach; ?>
 
