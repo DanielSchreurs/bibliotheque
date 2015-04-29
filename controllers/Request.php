@@ -10,7 +10,6 @@ class Request
     public $page = null;
     public $year = null;
     public $sent = null;
-    public $errors = [];
 
     function __construct()
     {
@@ -29,7 +28,8 @@ class Request
         $route = $this->m . '/' . $this->a;//On formate la route selont le tableau existant
 
         if (!in_array($route, $routes)) {
-            var_dump($route); die();
+            var_dump($route);
+            die();
             header('Location:./index.php?m=error&a=error&error=404');
         }
 
@@ -53,12 +53,7 @@ class Request
         if (!empty($_POST)) {
             $this->sent = new \stdClass();
             foreach ($_POST as $c => $v) {
-                if (trim($v) == '') {
-                    $this->errors[$c] = 'Oups, ce champ est obligatoire';
-                    $this->sent->$c = '';
-                } else {
-                    $this->sent->$c = $v;
-                }
+                $this->sent->$c = $v;
             }
         }
 
