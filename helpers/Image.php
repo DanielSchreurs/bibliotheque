@@ -9,7 +9,7 @@ namespace Helpers;
 
 class Image
 {
-    public static function isvalidImage($image, $width, $height, $extension)
+    public static function isvalidImage($image, $width, $height)
     {
         $error = [];
         $imageInfo = getimagesize($image['tmp_name']);
@@ -19,11 +19,30 @@ class Image
         if ($imageInfo[3] != 'width="' . $width . '" height="' . $height . '"') {
             $error[] = 'Oups, les dimensions ne sont pas bonnes';
         }
-        if ($image['type'] != 'image/' . $extension) {
-            $error[] = 'Oups, ce n’est pas le bon format';
+        if (self::isValidExtension($image)) {
+            $error[] = 'Oups, format non valide';
         }
 
         return $error;
+    }
+
+    public static function isValidExtension($image)
+    {
+        $extentions = ['jpg', 'png'];
+        return in_array($image['type'], $extentions);
+
+    }
+
+    public static function isValidSize($image, $width, $height)
+    {
+        $imageInfo = getimagesize($image['tmp_name']);
+        return $imageInfo[3] != 'width="' . $width . '" height="' . $height . '"' ? false : true;
+    }
+
+    public static function isEmptyFile($image)
+    {
+
+        return ! empty($image['name']);
     }
 
     public static function saveAs($image, $chemin, $name)
@@ -35,10 +54,10 @@ class Image
         }
     }
 
-    public static function imageCopyResampled($image, $chemin, $name,$percentage)
+    public static function imageCopyResampled($image, $chemin, $name, $percentage)
     {
         $extension = '.' . explode('.', $image['name'])[1];
-        $oldImage =$image["tmp_name"];
+        $oldImage = $image["tmp_name"];
         $percent = $percentage;
         // Calcul des nouvelles dimensions
         list($width, $height) = getimagesize($oldImage);
@@ -50,7 +69,7 @@ class Image
         $image = imagecreatefromjpeg($oldImage);
         // Save it
         imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-        imagejpeg($image_p,$chemin.$name.$extension, 100);
+        imagejpeg($image_p, $chemin . $name . $extension, 100);
     }
 
     public static function renameFileName($old, $add = '')
