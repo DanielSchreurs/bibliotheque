@@ -12,6 +12,7 @@ use Models\AuthorRepositoryInterface as AuthorRepository;
 
 class Author extends Base
 {
+    private $errors=null;
     function __construct(Request $request, AuthorRepository $modelAuthor)
     {
         parent::__construct($request);
@@ -73,6 +74,7 @@ class Author extends Base
 
     public function admin_edit_author()
     {
+
         $title = 'Modifier une auteur';
         $data['authors'] = $this->modelAuthor->getAuthor($this->request->id);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -107,7 +109,6 @@ class Author extends Base
                     $photo = Image::renameFileName('photo');
                     Image::saveAs($_FILES['photo'], './img/authors_photo/', $photo);
                     $this->request->sent->photo = $photo;
-
                 } else {
                     $this->request->sent->photo = $data['authors']->author_photo;
                 }
@@ -145,62 +146,36 @@ class Author extends Base
             $data['step'] = $this->request->step;
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-
-
-            if (empty($_FILES['photo']['name'])) {
-                $this->request->errors['photo'][] = 'Oups vous n’avez pas mis d’image';
-            } else {
-                $valideImage1 = Image::isvalidImage($_FILES['photo'], 300, 450, 'jpeg');
-                if (!empty($valideImage1)) {
-                    $this->request->errors['photo'] = $valideImage1;
+            $this->errors=$this->modelAuthor->validate($this->request->sent,$_FILES);
+            if(!$this->modelAuthor->errors['photo']){
+                if(Image::isValidSize($_FILES['photo'],300,450)){
+                    $this->modelAuthor->errors['photo'][]='Oups les dimensions ne sont pas bonnes';
                 }
             }
-            if (empty($_FILES['logo']['name'])) {
-                $this->request->errors['logo'][] = 'Oups vous n’avez pas mis d’image';
-            } else {
-                $valideImage2 = Image::isvalidImage($_FILES['logo'], 200, 200, 'png');
-
-                if (!empty($valideImage2)) {
-                    $this->request->errors['logo'] = $valideImage2;
+            if(!$this->modelAuthor->errors['logo']){
+                if(Image::isValidSize($_FILES['logo'],200,200)){
+                    $this->modelAuthor->errors['logo'][]='Oups les dimensions ne sont pas bonnes';
                 }
             }
-            if (!isset($this->request->errors['datebirth'])) {
-                if (Date::isValidDate($this->request->sent->datebirth) !== true) {
-                    $this->request->errors['datebirth'] = Date::isValidDate($this->request->sent->datebirth);
-                }
-
-            }
-            if (isset($this->request->errors['datedeath'])) {
-                unset($this->request->errors['datedeath']);
-                $this->request->sent->datedeath = '0000-00-00';
-            } else {
-                if (Date::isValidDate($this->request->sent->datedeath) !== true) {
-                    $this->request->errors['datedeath'] = Date::isValidDate($this->request->sent->datedeath);
-                }
-            }
-            if (empty($this->request->errors)) {
+            if ($this->errors) {
+                die('valide');
                 $photo = Image::renameFileName('photo');
                 $logo = Image::renameFileName('logo');
-
                 Image::saveAs($_FILES['photo'], './img/authors_photo/', $photo);
                 Image::saveAs($_FILES['logo'], './img/authors_photo/logo/', $logo);
-
                 $this->request->sent->photo = $photo;
                 $this->request->sent->logo = $logo;
-                $this->request->sent->create_at = date("Y-m-d");
                 isset($this->request->sent->vedette) ? '' : $this->request->sent->vedette = 0;
                 $this->modelAuthor->create($this->request->sent);
                 Session::setMessage('Merci, l’auteur a été ajouté avec succès.');
                 header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step) ? '?m=editor&a=admin_create_editor&step=2' : '?m=author&a=admin_index_author'));
                 die();
             } else {
-                $data['errors'] = $this->request->errors;
+                $data['errors'] = $this->modelAuthor->errors;
                 $data['sent'] = $this->request->sent;
                 if (isset($this->request->step)) {
                     $data['step'] = $this->request->step;
-
                 }
-
             }
         }
         $title = 'Ajouter un  auteur';
