@@ -2,10 +2,52 @@
 
 namespace Models;
 
+use Components\Validator;
+
 class Author extends Model implements AuthorRepositoryInterface
 {
+    use Validator;
     protected $table = 'authors';
-
+    public $validatiRules=[
+        'create_at'=>[
+            ['ruleName'=>'isDate'],
+            ['ruleName'=>'dateIsPast']
+        ],
+        'last_name'=>[
+            ['ruleName'=>'notEmpty','error'=>'Le nom de famille est obligatoire.']
+        ],
+        'first_name'=>[
+            ['ruleName'=>'notEmpty','error'=>'Le prénom est obligatoire.']
+        ],
+        'photo'=>[
+            ['ruleName'=>'notEmptyFile'],
+            ['ruleName'=>'validExtension']
+        ],
+        'photo_edit'=>[
+            ['ruleName'=>'valideSize'],
+            ['ruleName'=>'validExtension']
+        ],
+        'logo'=>[
+            ['ruleName'=>'notEmptyFile'],
+            ['ruleName'=>'validExtension']
+        ],
+        'logo_edit'=>[
+            ['ruleName'=>'notEmpty'],
+            ['ruleName'=>'validExtension']
+        ],
+        'bio_text'=>[
+            ['ruleName'=>'notEmpty','error'=>'La biographhie est obligatoire.']
+        ],
+        'datebirth'=>[
+            ['ruleName'=>'notEmpty','error'=>'La date est obligatoire.'],
+            ['ruleName'=>'isDate','error'=>'La date n’est pas au bon format.'],
+            ['ruleName'=>'dateIsPast','error'=>'La date doit être dans le passé.']
+        ],
+        'datedeath'=>[
+            ['ruleName'=>'isDate','error'=>'La date n’est pas au bon format.'],
+            ['ruleName'=>'dateIsPast','error'=>'La date doit être dans le passé.']
+        ]
+    ];
     function __construct()
     {
         parent::__construct($this->table);
@@ -181,4 +223,5 @@ class Author extends Model implements AuthorRepositoryInterface
             [':author_id' => $author_id]
         );
     }
+
 }
