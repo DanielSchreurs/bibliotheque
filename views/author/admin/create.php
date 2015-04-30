@@ -89,26 +89,26 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <label for="datebirth">Date de naissance (jj/mm/aaaa)<strong
+        <label for="datebirth">Date de naissance (aaaa/mm/jj)<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput" type="text" name="datebirth" min="2" id="datebirth"
-               title="Introduisez la date de publication" placeholder="12/03/2014"
+               title="Introduisez la date de publication" placeholder="1900-02-02"
                value="<?php echo(isset($errors['datebirth']) || $_GET ? '' : $sent->datebirth); ?>"/>
         <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Attention la date doit être dans le passé.</p>
+            <p class="form-create__example-box__text">Attention la date doit être dans le passé. ex&nbsp;: 1900-02-02</p>
         </div>
         <?php if (isset($errors['datebirth'])): ?>
             <?php foreach ($errors['datebirth'] as $error): ?>
                 <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <label for="datedeath">Date de mort (jj/mm/aaaa)</label>
+        <label for="datedeath">Date de mort (aaaa/mm/jj)</label>
         <input class="form-create__simple-imput" type="text" name="datedeath" min="2" id="datedeath"
-               title="Introduisez la date de publication" placeholder="12/03/2014"
+               title="Introduisez la date de publication" placeholder="1970-02-02"
                value="<?php echo(isset($errors['datedeath']) || $_GET ? '' : $sent->datedeath); ?>"/>
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Ce champs est facultatif mais s'il est définit il doit également
-                être dans la passé.</p>
+                être dans la passé.ex&nbsp;: 1900-02-02</p>
         </div>
         <?php if (isset($errors['datedeath'])): ?>
             <?php foreach ($errors['datedeath'] as $error): ?>

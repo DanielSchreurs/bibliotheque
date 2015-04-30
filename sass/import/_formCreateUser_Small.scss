@@ -43,6 +43,12 @@
   font-size: .625em;
   border-radius: .3em;
 }
+.form-create__message--error+.form-create__message--error{
+  margin-top: 1em;
+}
+.form-create__message--info+.form-create__message--info{
+  margin-top: 1em;
+}
 .form-create__message--info{
   position: relative;
   margin: 1em 0;

@@ -20,7 +20,7 @@
           " method="post" >
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
-
+        <input name="create_at" value="<?php echo(date("Y-m-d")); ?>" type="hidden"/>
         <label for="name">Genre<strong
                 class="form-create--obligatoire">*</strong></label>
         <input type="text"
@@ -28,11 +28,12 @@
                name="name"
                id="name"
                value="<?php echo(isset($errors['name']) || $_GET ? '' : $sent->name); ?>"
-               placeholder="Madelaine"
+               placeholder="Policier"
                title="Introduisez le genre"/>
         <?php if (isset($errors['name'])): ?>
-            <p class="form-create__message--error"><?php echo($errors['name']); ?><span class="flash-box__btn">X</span>
-            </p>
+            <?php foreach ($errors['name'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <input type="submit" value="<?php echo(isset($data['data']['step'])?'Passer à l’étape suivante':'Ajouter un genre'); ?>" class="btnVert"/>
     </form>

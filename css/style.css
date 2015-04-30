@@ -645,6 +645,14 @@ header li .header-main__form-connexion__userLog {
   border-radius: .3em; }
 
 /* line 46, ../sass/import/_formCreateUser_Small.scss */
+.form-create__message--error + .form-create__message--error {
+  margin-top: 1em; }
+
+/* line 49, ../sass/import/_formCreateUser_Small.scss */
+.form-create__message--info + .form-create__message--info {
+  margin-top: 1em; }
+
+/* line 52, ../sass/import/_formCreateUser_Small.scss */
 .form-create__message--info {
   position: relative;
   margin: 1em 0;
@@ -654,7 +662,7 @@ header li .header-main__form-connexion__userLog {
   font-size: .625em;
   border-radius: .3em; }
 
-/* line 55, ../sass/import/_formCreateUser_Small.scss */
+/* line 61, ../sass/import/_formCreateUser_Small.scss */
 .form-create__example-box__text {
   color: #5b5b5b;
   -webkit-border-radius: .3em;
@@ -1026,7 +1034,7 @@ style pour les medium
 
 */
 @media screen and (min-width: 590px) {
-  /* line 49, ../sass/style.scss */
+  /* line 50, ../sass/style.scss */
   .container {
     width: 540px;
     margin: 80px auto;
@@ -1100,24 +1108,24 @@ Style form-create--large
 
 */
 @media screen and (min-width: 1190px) {
-  /* line 65, ../sass/style.scss */
+  /* line 66, ../sass/style.scss */
   .container {
     display: block;
     width: 75%;
     margin: 0 auto; }
 
-  /* line 70, ../sass/style.scss */
+  /* line 71, ../sass/style.scss */
   .container .container {
     width: 100%; }
 
-  /* line 74, ../sass/style.scss */
+  /* line 75, ../sass/style.scss */
   .container--without-form {
     display: block;
     width: 1080px;
     margin: 0 auto;
     margin-top: 9.375em; }
 
-  /* line 80, ../sass/style.scss */
+  /* line 81, ../sass/style.scss */
   main.container {
     margin-top: 8em; }
 
@@ -1702,3 +1710,8 @@ Style form-create--large
     .main-footer li a {
       padding: .7142857143em 1.4035087719%;
       /*10px 20px*/ }
+
+/* line 109, ../sass/style.scss */
+header {
+  display: none;
+  opacity: .5; }

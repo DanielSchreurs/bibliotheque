@@ -13,7 +13,7 @@
           enctype="multipart/form-data">
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
-
+        <input name="update_at" value="<?php echo(date("Y-m-d")); ?>" type="hidden"/>
         <label for="last_name">Nom de fammille<strong
                 class="form-create--obligatoire">*</strong></label>
         <input type="text"
@@ -24,8 +24,9 @@
                placeholder="Madelaine"
                title="Introduisez le titre de votre livre"/>
         <?php if (isset($errors['last_name'])): ?>
-            <p class="form-create__message--info"><?php echo($errors['last_name']); ?><span class="flash-box__btn">X</span>
-            </p>
+            <?php foreach ($errors['last_name'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <label for="first_name">Le prénom<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -37,20 +38,18 @@
                placeholder="Madelaine"
                title="Introduisez le titre de votre livre"/>
         <?php if (isset($errors['first_name'])): ?>
-            <p class="form-create__message--info"><?php echo($errors['first_name']); ?><span class="flash-box__btn">X</span>
-            </p>
+            <?php foreach ($errors['first_name'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <label for="photo_edit">Portrait 300/450px (.jpg)<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput" type="file" name="photo_edit" id="photo_edit"
                title="Chargez le portrait de l'auteur"/>
         <?php if (isset($errors['photo_edit'])): ?>
-            <p class="form-create__message--info">
-                <?php foreach ($errors['photo_edit'] as $error): ?>
-                    <?php echo($error); ?>
-                <?php endforeach; ?>
-
-                <span class="flash-box__btn">X</span></p>
+            <?php foreach ($errors['photo_edit'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.jpg) et qui fait 300 pixel de large et 450 pixel de haut.</p>
@@ -61,12 +60,9 @@
                id="logo_edit"
                title="Chargez le couverture de votre livre"/>
         <?php if (isset($errors['logo_edit'])): ?>
-            <p class="form-create__message--info">
-                <?php foreach ($errors['logo_edit'] as $error): ?>
-                    <?php echo($error); ?>
-                <?php endforeach; ?>
-
-                <span class="flash-box__btn">X</span></p>
+            <?php foreach ($errors['logo_edit'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.png) et qui fait 200 pixel de large et 200 pixel de haut.</p>
@@ -76,33 +72,36 @@
         <textarea class="form-create__long-text" name="bio_text" id="bio_text" cols="30"
                   rows="10"><?php echo(isset($errors['bio_text']) || $_GET ? $author->bio_text : $sent->bio_text); ?></textarea>
         <?php if (isset($errors['bio_text'])): ?>
-            <p class="form-create__message--info"><?php echo($errors['bio_text']); ?><span
-                    class="flash-box__btn">X</span></p>
+            <?php foreach ($errors['bio_text'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
 
-        <label for="datebirth">Date de naissance (jj/mm/aaaa)<strong
+        <label for="datebirth">Date de naissance (aaaa/mm/jj)<strong
                 class="form-create--obligatoire">*</strong></label>
-        <input class="form-create__simple-imput" type="date" name="datebirth" min="2" id="datebirth"
-               title="Introduisez la date de publication" placeholder="12/03/2014"
+        <input class="form-create__simple-imput" type="text" name="datebirth" min="2" id="datebirth"
+               title="Introduisez la date de publication" placeholder="1900-02-02"
                value="<?php echo(isset($errors['datebirth']) ||$_GET ? $author->datebirth : $sent->datebirth); ?>"/>
-        <?php if (isset($errors['datebirth'])): ?>
-            <p class="form-create__message--info"><?php echo($errors['datebirth']); ?><span
-                    class="flash-box__btn">X</span></p>
-        <?php endif; ?>
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Attention la date doit être dans le passé.</p>
         </div>
-        <label for="datedeath">Date de mort (jj/mm/aaaa)</label>
-        <input class="form-create__simple-imput" type="date" name="datedeath" min="2" id="datedeath"
-               title="Introduisez la date de publication" placeholder="12/03/2014"
-               value="<?php echo(isset($errors['datedeath']) ||$_GET ? $author->datedeath : $sent->datedeath); ?>"/>
-        <?php if (isset($errors['datedeath'])): ?>
-            <p class="form-create__message--info"><?php echo($errors['datedeath']); ?><span
-                    class="flash-box__btn">X</span></p>
+        <?php if (isset($errors['datebirth'])): ?>
+            <?php foreach ($errors['datebirth'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
+        <label for="datedeath">Date de mort (aaaa/mm/jj)</label>
+        <input class="form-create__simple-imput" type="text" name="datedeath" min="2" id="datedeath"
+               title="Introduisez la date de publication" placeholder="1970-02-02"
+               value="<?php echo(isset($errors['datedeath']) ||$_GET ? $author->datedeath : $sent->datedeath); ?>"/>
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Ce champs est facultatif mais s'il est définit il doit également être dans la passé.</p>
         </div>
+        <?php if (isset($errors['datedeath'])): ?>
+            <?php foreach ($errors['datedeath'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
+        <?php endif; ?>
         <label for="vedette">Mettre en vedette(un seul possible)</label>
         <input <?php echo($author->vedette==1?'checked':''); ?> type="checkbox" name="vedette" id="vedette" value="1"/>
         <input type="submit" value="Modifier le livre" class="btnVert"/>

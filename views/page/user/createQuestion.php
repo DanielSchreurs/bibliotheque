@@ -27,8 +27,9 @@
             </p>
         </div>
         <?php if (isset($errors['question'])): ?>
-            <p class="form-create__message--error"><?php echo($errors['question']); ?><span class="flash-box__btn">X</span>
-            </p>
+            <?php foreach ($errors['question'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <input type="submit" value="Envoyer la question" class="btnVert"/>
     </form>

@@ -6,7 +6,7 @@ use Helpers\Date;
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <h1 class="header-block-one"><?php echo($author->first_name . ' ' . $author->first_name); ?></h1>
+    <h1 class="header-block-one"><?php echo($author->first_name . ' ' . $author->last_name); ?></h1>
     <div class="threeColumnBlock">
         <a href="#"><img
                 src="./img/authors_photo/<?php echo($author->author_photo); ?>.jpg"
