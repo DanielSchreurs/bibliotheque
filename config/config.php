@@ -56,3 +56,5 @@ define('NBR_BOOKS', 1);
  * */
 
 define('LIVETIME', time() + (2 * 3600));
+
+define('ACCECTIMAGEDATAFORM','image/png;image/jpg;image/jpeg');
