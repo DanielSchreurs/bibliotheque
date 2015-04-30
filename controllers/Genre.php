@@ -10,6 +10,8 @@ use Models\GenreRepositoryInterface as GenreRepository;
 
 class Genre extends Base
 {
+    private $errors = null;
+
     function __construct(Request $request, GenreRepository $ModelGenre)
     {
         parent::__construct($request);
@@ -50,17 +52,23 @@ class Genre extends Base
             'title' => $title
         ];
     }
+
     public function admin_edit_genre()
     {
-        if ($_SERVER['REQUEST_METHOD'] === "POST" && empty($this->request->errors)) {
-            $this->request->sent->update_at = date("Y-m-d");
-            $this->modelGenre->update($this->request->sent,$this->request->id);
-            Session::setMessage('Merci ,&laquo;&nbsp' .$this->request->sent->name.'&nbsp;&raquo; a été mis à jour');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=genre&a=admin_index_genre');
-            die();
-        } else {
-            $data['errors'] = $this->request->errors;
-            $data['sent'] = $this->request->sent;
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $this->errors = $this->modelGenre->validate($this->request->sent, $_FILES);
+            if ($this->modelGenre->isValid()) {
+                var_dump($this->request->sent);
+                $this->modelGenre->update($this->request->sent,$this->request->id);
+                Session::setMessage('Merci, ce genre a été modifié avec succès');
+                header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step) ? '?m=book&a=admin_create_book&step=4' : '?m=genre&a=admin_index_genre'));
+            } else {
+                $data['errors'] = $this->modelGenre->getErrors();
+                $data['sent'] = $this->request->sent;
+                if (isset($this->request->step)) {
+                    $data['step'] = $this->request->step;
+                }
+            }
         }
         $title = 'Modifier le genre, en quelques clicks';
         $data['genre'] = $this->modelGenre->getName($this->request->id);
@@ -69,24 +77,27 @@ class Genre extends Base
             'title' => $title
         ];//attention il manque la date de modification !
     }
+
     public function admin_create_genre()
     {
-        $data='';
-        if(isset($this->request->step)){
+        $data = '';
+        if (isset($this->request->step)) {
             $data['step'] = $this->request->step;
-
         }
-        if ($_SERVER['REQUEST_METHOD'] === "POST" && empty($this->request->errors)) {
-            $this->request->sent->create_at = date("Y-m-d");
-            $this->modelGenre->create($this->request->sent);
-            Session::setMessage('Merci, ce genre a été ajouté avec succès');
-            header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step)?'?m=book&a=admin_create_book&step=4':'?m=genre&a=admin_index_genre'));
-        } else {
-            $data['errors'] = $this->request->errors;
-            $data['sent'] = $this->request->sent;
-            if(isset($this->request->step)){
-                $data['step'] = $this->request->step;
-
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $this->errors = $this->modelGenre->validate($this->request->sent, $_FILES);
+            if ($this->modelGenre->isValid()) {
+                var_dump($this->request->sent);
+                die('on envoie');
+                $this->modelGenre->create($this->request->sent);
+                Session::setMessage('Merci, ce genre a été ajouté avec succès');
+                header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step) ? '?m=book&a=admin_create_book&step=4' : '?m=genre&a=admin_index_genre'));
+            } else {
+                $data['errors'] = $this->modelGenre->getErrors();
+                $data['sent'] = $this->request->sent;
+                if (isset($this->request->step)) {
+                    $data['step'] = $this->request->step;
+                }
             }
         }
         $title = 'Ajouter un genre';
