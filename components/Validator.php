@@ -18,11 +18,11 @@ trait Validator
     public function validate($oSent, $aFiles = null)
     {
         foreach ($oSent as $field => $value) {
-            if (isset($this->validatiRules[$field])) {
+            if (isset($this->validationRules[$field])) {
                 //$k c'est le tableau qui contien le tableau des règles
-                foreach ($this->validatiRules[$field] as $k => $v) {
+                foreach ($this->validationRules[$field] as $k => $v) {
                     if ($v['ruleName'] == 'notEmpty') {
-                        $this->areRequired[] = $field;
+                        $this->areRequired[$field] = true;
                     }
                     $this->$v['ruleName']($field, $value, isset($v['error']) ? $v['error'] : null);
                 }
@@ -32,10 +32,10 @@ trait Validator
         if ($aFiles != null) {
             foreach ($aFiles as $file => $value) {
 
-                if (isset($this->validatiRules[$file])) {
-                    foreach ($this->validatiRules[$file] as $k => $v) {
-                        if ($v['ruleName'] == 'notEmptyFile') {
-                            $this->areRequired[] = $file;
+                if (isset($this->validationRules[$file])) {
+                    foreach ($this->validationRules[$file] as $k => $v) {
+                        if ($v['ruleName'] == 'isEmptyFile') {
+                            $this->areRequired[$file] = true;
                         }
                         $this->$v['ruleName']($file, $value, isset($v['error']) ? $v['error'] : null);
                     }
@@ -49,12 +49,17 @@ trait Validator
     {
         return $this->errors;
     }
+    public function isValid()
+    {
+        return empty($this->errors);
+    }
 
     private function notEmpty($field, $value, $error)
     {
-        if (trim($value) != '') {
+        if (trim($value) !== '') {
             return true;
-        } else {
+        }
+        else {
             $message = is_null($error) ? 'Le champ ' . $field . ' est obligatoire.' : $error;
             if (isset($this->errors[$field])) {
                 array_push($this->errors[$field][], $message);
@@ -65,36 +70,37 @@ trait Validator
         }
     }
 
-    private function notEmptyFile($field, $image, $error)
+    private function isEmptyFile($field, $image, $error)
     {
         return self::notEmpty($field, $image['name'], $error) ? true : false;
     }
 
-    private function validExtension($field, $image, $error)
+    private function isValidExtension($field, $image, $error)
     {
-        $isRequired = array_key_exists($field, $this->areRequired);
-        if (
-            ($isRequired && Image::isValidExtension($image)) ||
-            (!$isRequired && Image::isValidExtension($image) && !empty($value))
-        ) {
-
+        $isRequired = isset($this->areRequired[$field]);
+        if (!$isRequired && empty($image['name'])) {
             return true;
         } else {
-            $message = is_null($error) ? 'Ce n’est pas un format valide.' : $error;
-            if (isset($this->errors[$field])) {
-                array_push($this->errors[$field], $message);
+            if (
+                ($isRequired && Image::isValidExtension($image)) ||
+                (!$isRequired && Image::isValidExtension($image) && !empty($image['name']))
+            ) {
+                return true;
             } else {
-                $this->errors[$field][] = $message;
-
+                $message = is_null($error) ? 'Ce n’est pas un format valide.' : $error;
+                if (isset($this->errors[$field])) {
+                    array_push($this->errors[$field], $message);
+                } else {
+                    $this->errors[$field][] = $message;
+                }
+                return false;
             }
-
-            return false;
         }
     }
 
     public function isDate($field, $value, $error)
     {
-        $isRequired = array_key_exists($field, $this->areRequired);
+        $isRequired = isset($this->areRequired[$field]);
         if (!$isRequired && empty($value)) {
             return true;//si le champs n'est pas obligatoire
         }
@@ -107,7 +113,7 @@ trait Validator
         } else {
             $message = is_null($error) ? $field . ' n’est pas au bon format.' : $error;
             if (isset($this->errors[$field])) {
-                array_push($this->errors[$field][], $message);
+                array_push($this->errors[$field], $message);
             } else {
                 $this->errors[$field][] = $message;
             }
@@ -118,8 +124,7 @@ trait Validator
 
     public function dateIsPast($field, $value, $error)
     {
-
-        $isRequired = array_key_exists($field, $this->areRequired);
+        $isRequired = isset($this->areRequired[$field]);
         if (!$isRequired && empty($value)) {
             return true;
         } elseif (Date::isValiddateFormat($value) && !empty($value)) {
@@ -130,6 +135,30 @@ trait Validator
                 return true;
             } else {
                 $message = is_null($error) ? $field . ' doit être dans le passé.' : $error;
+                if (isset($this->errors[$field])) {
+                    array_push($this->errors[$field][], $message);
+                } else {
+                    $this->errors[$field][] = $message;
+                }
+                return false;
+            }
+        }
+    }
+
+    public function isValidUrl($field, $value, $error)
+    {
+
+        $isRequired = isset($this->areRequired[$field]);
+        if (!$isRequired && empty($value)) {
+            return true;
+        } else {
+            if (
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_URL) === true)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_URL) === true) && !empty($value))
+            ) {
+                return true;
+            } else {
+                $message = is_null($error) ? 'Ce n’est pas un format d’URL valide.' : $error;
                 if (isset($this->errors[$field])) {
                     array_push($this->errors[$field], $message);
                 } else {
