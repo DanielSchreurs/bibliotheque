@@ -11,6 +11,7 @@ use Models\EditorRepositoryInterface as EditorRepository;
 
 class Editor extends Base
 {
+    private $errors = null;
     function __construct(Request $request, EditorRepository $modelEditor)
     {
         parent::__construct($request);
@@ -53,31 +54,28 @@ class Editor extends Base
         $title = 'Modifier un éditeur, en quelques clicks';
         $data['editor'] = $this->modelEditor->getSimpleInfoOffOne($this->request->id);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-           if(!empty($_FILES['logo']['name'])) {
-                $valideImage1 = Image::isvalidImage($_FILES['logo'], 200, 200, 'png');
-                if (!empty($valideImage1)) {
-                    $this->request->errors['logo'] = $valideImage1;
+            $this->errors = $this->modelEditor->validate($this->request->sent, $_FILES);
+            if (!isset($this->modelEditor->errors['logo_edit']) && !empty($_FILES['logo_edit']['name'])) {
+                if (!Image::isValidSize($_FILES['logo_edit'], 200, 200)) {
+                    $this->modelEditor->errors['logo_edit'][] = 'Les dimensions ne sont pas bonnes';
                 }
             }
-            if(filter_var($this->request->sent->website, FILTER_VALIDATE_URL) === false){
-                $this->request->errors['website']='Ooups c’est n’est pas une URL valide ';
-            }
-            if (empty($this->request->errors)) {
-                if(!empty($_FILES['logo']['name'])){
-                $logo = Image::renameFileName($this->request->sent->name);
-                Image::saveAs($_FILES['logo'], './img/editors_logos/', $logo);
-                $this->request->sent->logo = $logo;
+            if ($this->modelEditor->isValid()) {
+                if (!empty($_FILES['logo']['name'])) {
+                    $logo = Image::renameFileName($this->request->sent->name);
+                    Image::saveAs($_FILES['logo'], './img/editors_logos/', $logo);
+                    $this->request->sent->logo = $logo;
+                } else {
+                    $this->request->sent->logo = $data['editor']->logo;
                 }
-                else{
-                    $this->request->sent->logo=$data['editor']->logo;
-                }
-                $this->request->sent->update_at = date("Y-m-d");
+                die('ok on envoie');
+                
                 $this->modelEditor->update($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, l’éditeur a été mis à jour');
                 header('Location:' . $_SERVER['PHP_SELF'] . '?m=editor&a=admin_index_editor');
                 die();
             } else {
-                $data['errors'] = $this->request->errors;
+                $data['errors'] = $this->modelEditor->errors;
                 $data['sent'] = $this->request->sent;
             }
         }
@@ -86,39 +84,33 @@ class Editor extends Base
             'title' => $title
         ];
     }
+
     public function admin_create_editor()
     {
         $data='';
-        if(isset($this->request->step)){
+        if (isset($this->request->step)) {
             $data['step'] = $this->request->step;
 
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            if (empty($_FILES['logo']['name'])) {
-                $this->request->errors['logo'][] = 'Oups vous n’avez pas mis d’image';
-            } else {
-                $valideImage1 = Image::isvalidImage($_FILES['logo'], 200, 200, 'png');
-                if (!empty($valideImage1)) {
-                    $this->request->errors['logo'] = $valideImage1;
+            $this->errors = $this->modelEditor->validate($this->request->sent, $_FILES);
+            if (!isset($this->modelEditor->errors['logo']) && !empty($_FILES['logo']['name'])) {
+                if (!Image::isValidSize($_FILES['logo'], 200, 200)) {
+                    $this->modelEditor->errors['logo'][] = 'Les dimensions ne sont pas bonnes';
                 }
             }
 
-            if(filter_var($this->request->sent->website, FILTER_VALIDATE_URL) === false){
-                $this->request->errors['website']='Ooups c’est n’est pas une URL valide ';
-            }
-            if (empty($this->request->errors)) {
-                $logo = Image::renameFileName($this->request->sent->name);
-                Image::saveAs($_FILES['logo'], './img/editors_logos/', $logo);
-                $this->request->sent->logo = $logo;
-                $this->request->sent->create_at = date("Y-m-d");
+            if ($this->modelEditor->isValid()) {
+                $this->request->sent->logo = Image::renameFileName($this->request->sent->name,$_FILES['logo']);
+                Image::saveAs($_FILES['logo'], './img/editors_logos/', $this->request->sent->logo);
                 $this->modelEditor->create($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, l’éditeur a été ajouté avec succès.');
-                header('Location:' . $_SERVER['PHP_SELF'] .(isset($this->request->step)?'?m=genre&a=admin_create_genre&step=3' :'?m=editor&a=admin_index_editor'));
+                header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step) ? '?m=genre&a=admin_create_genre&step=3' : '?m=editor&a=admin_index_editor'));
                 die();
             } else {
-                $data['errors'] = $this->request->errors;
+                $data['errors'] = $this->modelEditor->errors;
                 $data['sent'] = $this->request->sent;
-                if(isset($this->request->step)){
+                if (isset($this->request->step)) {
                     $data['step'] = $this->request->step;
 
                 }
