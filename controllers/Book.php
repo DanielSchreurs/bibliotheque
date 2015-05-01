@@ -19,6 +19,7 @@ class Book extends Base
     private $modelEditor = null;
     private $modelGenre = null;
     private $modelLibrary = null;
+    private $errors = null;
 
 
     public function __construct(
@@ -93,79 +94,51 @@ class Book extends Base
         $data['langues'] = $this->modelBook->getAllLanguages();
         $data['book'] = $this->modelBook->find($this->request->id);
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-            if (!filter_var($_POST['nbpages'], FILTER_VALIDATE_INT,
-                    array("min_range" => 2, "max_range" => 999999999)) === true
-            ) {
-                $this->request->errors['nbpages'] = 'Le nombre de page doit être un nombre positif';
-            }
-            if (!filter_var($_POST['nb_copy'], FILTER_VALIDATE_INT,
-                    array("min_range" => 2, "max_range" => 999999999)) === true
-            ) {
-                $this->request->errors['nb_copy'] = 'Le nombre de copie doit être un nombre positif';
-            }
+            $this->errors = $this->modelBook->validate($this->request->sent, $_FILES);
 
-            if (!empty($_FILES['front_cover']['name'])) {
-                $valideImage1 = Image::isvalidImage($_FILES['front_cover'], 300, 450, 'jpeg');
-                if (!empty($valideImage1)) {
-                    $this->request->errors['front_cover'] = $valideImage1;
+            if (!isset($this->modelAuthor->errors['front_cover_edit']) && !empty($_FILES['front_cover_edit']['name'])) {
+                if (!Image::isValidSize($_FILES['front_cover_edit'], 300, 450)) {
+                    $this->modelAuthor->errors['front_cover_edit'][] = 'Oups les dimensions ne sont pas bonnes';
                 }
             }
-            if (!empty($_FILES['front_cover_presentation']['name'])) {
-                $valideImage2 = Image::isvalidImage($_FILES['front_cover_presentation'], 270, 200, 'jpeg');
-
-                if (!empty($valideImage2)) {
-                    $this->request->errors['front_cover_presentation'] = $valideImage2;
+            if (!isset($this->modelAuthor->errors['front_cover_presentation_edit']) && !empty($_FILES['front_cover_presentation_edit']['name'])) {
+                if (!Image::isValidSize($_FILES['front_cover_presentation_edit'], 270, 200)) {
+                    $this->modelAuthor->errors['front_cover_presentation_edit'][] = 'Oups les dimensions ne sont pas bonnes';
                 }
             }
-            if (!isset($this->request->errors['datepub'])) {
-                if (Date::isValidDate($this->request->sent->datepub) !== true) {
-                    $this->request->errors['datepub'] = Date::isValidDate($this->request->sent->datepub);
-                }
-            } else {
-                $this->request->errors['datepub'] = 'La date n’est pas au bon format';
-            }
-
-            if (empty($this->request->errors)) {
-                if (!empty($_FILES['front_cover']['name'])) {
-                    $front_cover = Image::renameFileName('book');
-                    $presentation_cover = Image::renameFileName('book', '_presentation_cover');
-                    Image::saveAs($_FILES['front_cover'], './img/books_covers/', $front_cover);
-                    Image::saveAs($_FILES['front_cover_presentation'], './img/books_covers/presentation/',
-                        $presentation_cover);
-                    $this->request->sent->front_cover = $front_cover;
-                    $this->request->sent->presentation_cover = $presentation_cover;
-
+            if ($this->modelBook->isValid()) {
+                if (!empty($_FILES['front_cover_edit']['name'])) {
+                    $this->request->sent->front_cover_edit = Image::renameFileName('book');
+                    $this->request->sent->front_cover_presentation_edit = Image::renameFileName('book', '_presentation_cover');
+                    Image::saveAs($_FILES['front_cover_edit'], './img/books_covers/', $this->request->sent->front_cover_edit);
+                    Image::saveAs($_FILES['front_cover_presentation_edit'], './img/books_covers/presentation/',
+                        $this->request->sent->presentation_cover);
                 } else {
-                    $this->request->sent->front_cover=$data['book']->front_cover;
-                    $this->request->sent->presentation_cover=$data['book']->presentation_cover;
+                    $this->request->sent->front_cover_edit = $data['book']->front_cover;
+                    $this->request->sent->front_cover_presentation_edit = $data['book']->presentation_cover;
                 }
                 if (!empty($_FILES['front_cover_presentation']['name'])) {
                     $logo = Image::renameFileName('book', '_small');
                     Image::imageCopyResampled($_FILES['front_cover'], './img/books_covers/logo/', $logo, 0.5);
                     $this->request->sent->logo = $logo;
+                } else {
+                    $this->request->sent->logo = $data['book']->logo;
                 }
-                else{
-                    $this->request->sent->logo=$data['book']->logo;
-                }
-
-                $this->request->sent->update_at = date("Y-m-d");
                 isset($this->request->sent->vedette) ? '' : $this->request->sent->vedette = 0;
                 $this->modelBook->update($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, votre livre a été mis à jour');
                 header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
                 die();
             } else {
-                $data['errors'] = $this->request->errors;
+                $data['errors'] = $this->modelBook->errors;
                 $data['sent'] = $this->request->sent;
             }
         }
-
         return [
             'data' => $data,
             'title' => $title
         ];
     }
-
     public function admin_index()
     {
         $title = 'Administrer les livres, en quelques clicks';
@@ -174,7 +147,6 @@ class Book extends Base
             'data' => $data,
             'title' => $title
         ];
-
     }
 
     public function admin_show_book()
@@ -189,86 +161,54 @@ class Book extends Base
 
     public function admin_create_book()
     {
-        $data = '';
+        $title = 'Ajouter un livre, en quelques clicks';
+        $data['authors'] = $this->modelAuthor->getAllName();
+        $data['editors'] = $this->modelEditor->getSimpleInfoOffAll();
+        $data['genres'] = $this->modelGenre->all();
+        $data['langues'] = $this->modelBook->getAllLanguages();
         if (isset($this->request->step)) {
             $data['step'] = $this->request->step;
 
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-
-            if (!filter_var($_POST['nbpages'], FILTER_VALIDATE_INT,
-                    array("min_range" => 2, "max_range" => 999999999)) === true
-            ) {
-                $this->request->errors['nbpages'] = 'Le nombre de page doit être un nombre positif';
-            }
-            if (!filter_var($_POST['nb_copy'], FILTER_VALIDATE_INT,
-                    array("min_range" => 2, "max_range" => 999999999)) === true
-            ) {
-                $this->request->errors['nb_copy'] = 'Le nombre de copie doit être un nombre positif';
-            }
-
-            if (empty($_FILES['front_cover']['name'])) {
-                $this->request->errors['front_cover'][] = 'Oups vous n’avez pas mis d’image';
-            } else {
-                $valideImage1 = Image::isvalidImage($_FILES['front_cover'], 300, 450, 'jpeg');
-                if (!empty($valideImage1)) {
-                    $this->request->errors['front_cover'] = $valideImage1;
+            $this->errors = $this->modelBook->validate($this->request->sent, $_FILES);
+            if (!isset($this->modelBook->errors['front_cover'])) {
+                if (!Image::isValidSize($_FILES['front_cover'], 300, 450)) {
+                    $this->modelBook->errors['front_cover'][] = 'Oups les dimensions ne sont pas bonnes';
                 }
             }
-            if (empty($_FILES['front_cover_presentation']['name'])) {
-                $this->request->errors['front_cover_presentation'][] = 'Oups vous n’avez pas mis d’image';
-            } else {
-                $valideImage2 = Image::isvalidImage($_FILES['front_cover_presentation'], 270, 200, 'jpeg');
-
-                if (!empty($valideImage2)) {
-                    $this->request->errors['front_cover_presentation'] = $valideImage2;
+            if (!isset($this->modelBook->errors['front_cover_presentation'])) {
+                if (!Image::isValidSize($_FILES['front_cover_presentation'], 270, 200)) {
+                    $this->modelBook->errors['front_cover_presentation'][] = 'Oups les dimensions ne sont pas bonnes';
                 }
             }
-            if (!isset($this->request->errors['datepub'])) {
-                if (Date::isValidDate($this->request->sent->datepub) !== true) {
-                    $this->request->errors['datepub'] = Date::isValidDate($this->request->sent->datepub);
-                }
-            } else {
-                $this->request->errors['datepub'] = 'La date n’est pas au bon format';
-            }
-            if (empty($this->request->errors)) {
-                $front_cover = Image::renameFileName($this->request->sent->title);
-                $logo = Image::renameFileName($this->request->sent->title, '_small');
-                $presentation_cover = Image::renameFileName($this->request->sent->title, '_presentation_cover');
-
-                Image::imageCopyResampled($_FILES['front_cover'], './img/books_covers/logo/', $logo, 0.5);
-                Image::saveAs($_FILES['front_cover'], './img/books_covers/', $front_cover);
-                Image::saveAs($_FILES['front_cover_presentation'], './img/books_covers/presentation/',
-                    $presentation_cover);
-
-                $this->request->sent->front_cover = $front_cover;
+            if ($this->modelBook->isValid()) {
+                $this->request->sent->front_cover = Image::renameFileName('book');
+                $logo = Image::renameFileName('book', '_small');
+                $this->request->sent->presentation_cover = Image::renameFileName('book', '_presentation_cover');
                 $this->request->sent->logo = $logo;
-                $this->request->sent->presentation_cover = $presentation_cover;
+                Image::imageCopyResampled($_FILES['front_cover'], './img/books_covers/logo/', $logo, 0.5);
+                Image::saveAs($_FILES['front_cover'], './img/books_covers/', $this->request->sent->front_cover);
+                Image::saveAs($_FILES['front_cover_presentation'], './img/books_covers/presentation/',
+                    $this->request->sent->presentation_cover);
                 isset($this->request->sent->vedette) ? '' : $this->request->sent->vedette = 0;
                 $this->modelBook->create($this->request->sent);
                 Session::setMessage('Merci, votre livre a été ajouté');
                 header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
                 die();
             } else {
-                $data['errors'] = $this->request->errors;
+                $data['errors'] = $this->modelBook->errors;
                 $data['sent'] = $this->request->sent;
                 if (isset($this->request->step)) {
                     $data['step'] = $this->request->step;
-
                 }
             }
         }
-        $title = 'Ajouter un livre, en quelques clicks';
-        $data['authors'] = $this->modelAuthor->getAllName();
-        $data['editors'] = $this->modelEditor->getSimpleInfoOffAll();
-        $data['genres'] = $this->modelGenre->all();
-        $data['langues'] = $this->modelBook->getAllLanguages();
         return [
             'data' => $data,
             'title' => $title
         ];
     }
-
     public function admin_delete_book()
     {
         if ($this->modelBook->delete($this->request->id)) {
