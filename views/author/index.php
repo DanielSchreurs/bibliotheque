@@ -10,7 +10,7 @@
                         ['id' => $author->author_id])); ?>"><?php echo($author->first_name . ' ' . $author->last_name) ?></a>
                 </h2>
                 <a href="<?php echo($html->createLink('author', 'view', ['id' => $author->author_id])); ?>"><img
-                        src="./img/authors_photo/logo/<?php echo($author->logo . '.png'); ?>"
+                        src="./img/authors_photo/logo/<?php echo($author->logo); ?>"
                         alt="Image de <?php echo($author->first_name . ' ' . $author->last_name); ?> "/></a>
 
                 <p><?php echo($html->cutText($author->bio_text, 200)); ?></p>

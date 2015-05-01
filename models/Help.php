@@ -6,9 +6,34 @@
 
 namespace Models;
 
+use Components\Validator;
+
 class Help extends Model implements HelpRepositoryInterface
 {
+    use Validator;
     protected $table = 'help';
+    public $validationRules = [
+        'create_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
+        ],
+        'update_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
+        ],
+        'question' => [
+            ['ruleName' => 'notEmpty', 'error' => 'La question est obligatoire.']
+        ],
+        'answer' => [
+            ['ruleName' => 'notEmpty', 'error' => 'La réponse est obligatoire.']
+        ],
+        'user_id' => [
+            ['ruleName' => 'isValidId']
+        ],
+        'question_id' => [
+            ['ruleName' => 'isValidId']
+        ]
+    ];
 
     function __construct()
     {

@@ -37,8 +37,7 @@
             </svg>
             s'il n'est pas défini.
         </p>
-        <input name="create_at" type="hidden" value="<?php setlocale(LC_TIME, 'fra_fra');
-        echo strftime('%Y-%m-%d'); ?>"/>
+        <input name="create_at" value="<?php echo(date("Y-m-d")); ?>" type="hidden"/>
         <input name="user_id" type="hidden"
                value="<?php echo(isset($_SESSION['userId']) ? $_SESSION['userId'] : $_COOKIE['userId']); ?>"/>
         <label for="title">Titre du livre<strong
@@ -51,8 +50,9 @@
                placeholder="Titre du livre"
                title="Introduisez le titre de votre livre"/>
         <?php if (isset($errors['title'])): ?>
-            <p class="form-create__message--error"><?php echo($errors['title']); ?><span class="flash-box__btn">X</span>
-            </p>
+            <?php foreach ($errors['title'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <label for="author_id">Auteur du livre
             <a class="form-create__add-btn" href="<?php echo($html->createLink('author', 'admin_create_author')); ?>"
@@ -136,12 +136,9 @@
                 pixel de large et 450 pixel de haut. C’est l’image de base.</p>
         </div>
         <?php if (isset($errors['front_cover'])): ?>
-            <p class="form-create__message--error">
-                <?php foreach ($errors['front_cover'] as $error): ?>
-                    <?php echo($error); ?>
-                <?php endforeach; ?>
-
-                <span class="flash-box__btn">X</span></p>
+            <?php foreach ($errors['front_cover'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <label for="front_cover_presentation">Petite couverture 270/200px (.jpg)<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -156,12 +153,9 @@
                 derniers livres ajoutés</p>
         </div>
         <?php if (isset($errors['front_cover_presentation'])): ?>
-            <p class="form-create__message--error">
-                <?php foreach ($errors['front_cover_presentation'] as $error): ?>
-                    <?php echo($error); ?>
-                <?php endforeach; ?>
-
-                <span class="flash-box__btn">X</span></p>
+            <?php foreach ($errors['front_cover_presentation'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <label for="summary">Résumé du livre<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -169,8 +163,9 @@
                   id="summary" cols="30"
                   rows="10"><?php echo(isset($errors['summary']) || $_GET ? '' : $sent->summary); ?></textarea>
         <?php if (isset($errors['summary'])): ?>
-            <p class="form-create__message--error"><?php echo($errors['summary']); ?><span
-                    class="flash-box__btn">X</span></p>
+            <?php foreach ($errors['summary'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <label for="isbn">ISBN du livre<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -179,8 +174,9 @@
                title="Introduisez votre ISBN"
                value="<?php echo(isset($errors['isbn']) || $_GET ? '' : $sent->isbn); ?>" placeholder="ex:2259221556"/>
         <?php if (isset($errors['isbn'])): ?>
-            <p class="form-create__message--error"><?php echo($errors['isbn']); ?><span class="flash-box__btn">X</span>
-            </p>
+            <?php foreach ($errors['isbn'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <label for="nbpages">Nombre de page<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -189,10 +185,11 @@
                title="Introduisez le nombre de page du livre"
                value="<?php echo(isset($errors['nbpages']) || $_GET ? '' : $sent->nbpages); ?>" placeholder="ex:200"/>
         <?php if (isset($errors['nbpages'])): ?>
-            <p class="form-create__message--error"><?php echo($errors['nbpages']); ?><span
-                    class="flash-box__btn">X</span></p>
+            <?php foreach ($errors['nbpages'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
-        <label for="datepub">Date de publication (jj/mm/aaaa)<strong
+        <label for="datepub">Date de publication (aaaa/mm/jj)<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput <?php echo(isset($errors['datepub']) ? 'error' : ''); ?>" type="date"
                name="datepub" min="2" id="datepub"
@@ -203,8 +200,9 @@
             <p class="form-create__example-box__text">Attention la date doit être dans le passé.</p>
         </div>
         <?php if (isset($errors['datepub'])): ?>
-            <p class="form-create__message--error"><?php echo($errors['datepub']); ?><span
-                    class="flash-box__btn">X</span></p>
+            <?php foreach ($errors['datepub'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <label for="nb_copy">Le nombre de copies<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -212,13 +210,13 @@
                name="nb_copy" min="2" id="nb_copy"
                title="Introduisez la date de publication" placeholder="ex:5"
                value="<?php echo(isset($errors['nb_copy']) || $_GET ? '' : $sent->nb_copy); ?>"/>
-
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Attention ceci doit être un nombre</p>
         </div>
         <?php if (isset($errors['nb_copy'])): ?>
-            <p class="form-create__message--error"><?php echo($errors['nb_copy']); ?><span
-                    class="flash-box__btn">X</span></p>
+            <?php foreach ($errors['nb_copy'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <label for="vedette">Mettre en vedette</label>
         <input type="checkbox" name="vedette" id="vedette" value="1"/>

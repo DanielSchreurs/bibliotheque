@@ -8,46 +8,49 @@ class Author extends Model implements AuthorRepositoryInterface
 {
     use Validator;
     protected $table = 'authors';
-    public $validatiRules=[
-        'create_at'=>[
-            ['ruleName'=>'isDate'],
-            ['ruleName'=>'dateIsPast']
+    public $validationRules = [
+        'create_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
         ],
-        'last_name'=>[
-            ['ruleName'=>'notEmpty','error'=>'Le nom de famille est obligatoire.']
+        'update_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
         ],
-        'first_name'=>[
-            ['ruleName'=>'notEmpty','error'=>'Le prénom est obligatoire.']
+        'last_name' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le nom de famille est obligatoire.']
         ],
-        'photo'=>[
-            ['ruleName'=>'notEmptyFile'],
-            ['ruleName'=>'validExtension']
+        'first_name' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le prénom est obligatoire.']
         ],
-        'photo_edit'=>[
-            ['ruleName'=>'valideSize'],
-            ['ruleName'=>'validExtension']
+        'photo' => [
+            ['ruleName' => 'isEmptyFile'],
+            ['ruleName' => 'isValidExtension']
         ],
-        'logo'=>[
-            ['ruleName'=>'notEmptyFile'],
-            ['ruleName'=>'validExtension']
+        'photo_edit' => [
+            ['ruleName' => 'isValidExtension']
         ],
-        'logo_edit'=>[
-            ['ruleName'=>'notEmpty'],
-            ['ruleName'=>'validExtension']
+        'logo' => [
+            ['ruleName' => 'isEmptyFile'],
+            ['ruleName' => 'isValidExtension']
         ],
-        'bio_text'=>[
-            ['ruleName'=>'notEmpty','error'=>'La biographhie est obligatoire.']
+        'logo_edit' => [
+            ['ruleName' => 'isValidExtension']
         ],
-        'datebirth'=>[
-            ['ruleName'=>'notEmpty','error'=>'La date est obligatoire.'],
-            ['ruleName'=>'isDate','error'=>'La date n’est pas au bon format.'],
-            ['ruleName'=>'dateIsPast','error'=>'La date doit être dans le passé.']
+        'bio_text' => [
+            ['ruleName' => 'notEmpty', 'error' => 'La biographhie est obligatoire.']
         ],
-        'datedeath'=>[
-            ['ruleName'=>'isDate','error'=>'La date n’est pas au bon format.'],
-            ['ruleName'=>'dateIsPast','error'=>'La date doit être dans le passé.']
+        'datebirth' => [
+            ['ruleName' => 'notEmpty', 'error' => 'La date est obligatoire.'],
+            ['ruleName' => 'isDate', 'error' => 'La date n’est pas au bon format.'],
+            ['ruleName' => 'dateIsPast', 'error' => 'La date doit être dans le passé.']
+        ],
+        'datedeath' => [
+            ['ruleName' => 'isDate', 'error' => 'La date n’est pas au bon format.'],
+            ['ruleName' => 'dateIsPast', 'error' => 'La date doit être dans le passé.']
         ]
     ];
+
     function __construct()
     {
         parent::__construct($this->table);
@@ -56,7 +59,7 @@ class Author extends Model implements AuthorRepositoryInterface
     public function all()
     {
         $sql = 'SELECT
-                author_id,
+                authors.id as author_id,
                 book_id,
                 first_name,
                 last_name,
@@ -70,6 +73,7 @@ class Author extends Model implements AuthorRepositoryInterface
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
+
     public function getAllName()
     {
 
@@ -87,12 +91,12 @@ class Author extends Model implements AuthorRepositoryInterface
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
+
     function find($id)
     {
         $sql = '
                 SELECT
-                DISTINCT
-                author_id,
+                authors.id as author_id,
                 book_id,
                 first_name,
                 last_name,
@@ -105,12 +109,13 @@ class Author extends Model implements AuthorRepositoryInterface
                 summary
                 FROM authors
                 LEFT JOIN author_book ON authors.id=author_id
-                JOIN books ON book_id=books.id
-                WHERE author_id=:id';
+                LEFT JOIN books ON book_id=books.id
+                WHERE authors.id=:id';
         $pds = $this->cx->prepare($sql);
         $pds->execute([':id' => $id]);
         return $pds->fetchAll();
     }
+
     function getAuthor($id)
     {
         $sql = '
@@ -156,6 +161,7 @@ class Author extends Model implements AuthorRepositoryInterface
         $pdost = $this->cx->query($sql);
         return $pdost->fetch();
     }
+
     public function update($authorObj, $author_id)
     {
 
@@ -182,12 +188,13 @@ class Author extends Model implements AuthorRepositoryInterface
                 ':vedette' => $authorObj->vedette,
                 ':photo' => $authorObj->photo,
                 ':logo' => $authorObj->logo,
-                ':update_at' => $authorObj->create_at,
+                ':update_at' => $authorObj->update_at,
                 ':author_id' => $author_id
             ]
         );
 
     }
+
     public function create($authorObj)
     {
 

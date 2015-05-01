@@ -9,11 +9,11 @@ use Models\BookRepositoryInterface as BookRepository;
 
 class User extends Base
 {
-    function __construct(Request $request, UserRepository $modelUser,BookRepository $modelBook)
+    function __construct(Request $request, UserRepository $modelUser, BookRepository $modelBook)
     {
         parent::__construct($request);
         $this->modelUser = $modelUser;
-        $this->modelBook=$modelBook;
+        $this->modelBook = $modelBook;
     }
 
     function login($register = false)
@@ -28,7 +28,7 @@ class User extends Base
                         setcookie('userId', $this->modelUser->getUserId($this->request->sent->username,
                             sha1($this->request->sent->password))->id, LIVETIME);
                         setcookie('role', $this->modelUser->getUserRole($_COOKIE['userId'])->role, LIVETIME);
-                        
+
                     } else {
                         $_SESSION['userId'] = $this->modelUser->getUserId($this->request->sent->username,
                             sha1($this->request->sent->password))->id;
@@ -61,33 +61,30 @@ class User extends Base
 
     public function create()
     {
-        unset($this->request->errors['question'], $this->request->errors['answer']);
-        if ($_SERVER['REQUEST_METHOD'] === "POST" && !filter_var($this->request->sent->email, FILTER_VALIDATE_EMAIL)) {
-            $this->request->errors['email'] = 'Oups, mail nom valide';
-        }
-        if ($_SERVER['REQUEST_METHOD'] === "POST" && empty($this->request->errors)) {
-            if( $this->modelUser->userNameExist($this->request->sent->username)){
-                Session::setMessage('Malheursement ce nom d’utilisateur existe déjà.','error');
-                header('Location:' . $_SERVER['PHP_SELF'].'?m=user&a=create');
-                die();
+        $data = '';
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $this->errors = $this->modelUser->validate($this->request->sent, $_FILES);
+            if ($this->request->sent->username) {
+                if ($this->modelUser->userNameExist($this->request->sent->username)) {
+                    $this->modelUser->errors['username'][] = 'Ce nom d’utilisateur existe déjà.';
+                }
             }
-            $this->modelUser->create($this->request->sent);
-            $this->login(true);
-        } else {
-            $data['errors'] = $this->request->errors;
-            $data['sent'] = $this->request->sent;
+            if ($this->modelUser->isValid()) {
+                $this->modelUser->create($this->request->sent);
+                $this->login(true);
+                Session::setMessage('Merci, pour votre inscription. Vous pouvez vous connecter.');
+                header('Location:' . $_SERVER['PHP_SELF']);
+                die();
+            } else {
+                $data['errors'] = $this->modelUser->errors;
+                $data['sent'] = $this->request->sent;
+            }
         }
-        if (isset($data['errors'])) {
-            $title = 'formulaire d’inscription';
-            return [
-                'data' => $data,
-                'title' => $title
-            ];
-        } else {
-            Session::setMessage('Merci, pour votre inscription. Vous pouvez vous connecter.');
-            header('Location:' . $_SERVER['PHP_SELF']);
-            die();
-        }
+        $title = 'formulaire d’inscription';
+        return [
+            'data' => $data,
+            'title' => $title
+        ];
 
     }
 
@@ -104,16 +101,26 @@ class User extends Base
 
     public function user_userIndex()
     {
-
-        $data['user']=$this->modelUser->getUserInfo($this->request->id);
-        $data['books']=$this->modelBook->getReservedBooksFromUser($this->request->id);
-        $title='Mon compte';
-        return[
-            'data'=>$data,
-            'title'=>$title
+        $data['user'] = $this->modelUser->getUserInfo($this->request->id);
+        $data['books'] = $this->modelBook->getReservedBooksFromUser($this->request->id);
+        $title = 'Mon compte';
+        return [
+            'data' => $data,
+            'title' => $title
 
         ];
     }
+    public function user_userForgot()
+    {
+        $data ='';
+        $title = 'Mon compte';
+        return [
+            'data' => $data,
+            'title' => $title
+
+        ];
+    }
+
     public function admin_usersIndex()
     {
         die('ok je suis dans le controleur ');

@@ -142,7 +142,9 @@ h3.noBoook {
 }
 
 .form-create--obligatoire {
-  color: $myGray;
+
+  padding-left: .3em;
+  color: $error;
   font-weight: bold;
 }
 .header-block-one{
@@ -151,6 +153,7 @@ h3.noBoook {
   padding-bottom: .5em;
   display: block;
   text-align: right;
+  max-width: 1100px;
 }
 .header-block-two{
   font-size:1.6em;
@@ -168,4 +171,7 @@ h3.noBoook {
   font-weight: bold;
   font-size: 1.1em;
   color: $myGray;
+}
+i{
+  font-style: italic;
 }

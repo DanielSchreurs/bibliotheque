@@ -3,28 +3,88 @@
 namespace Models;
 
 use Carbon\Carbon;
+use Components\Validator;
 use Helpers\Date;
 
 class Book extends Model implements BookRepositoryInterface
 {
-    /**
-     * @var string
-     */
+    use Validator;
     protected $table = 'books';
+    public $validationRules = [
+        'create_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
+        ],
+        'update_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
+        ],
+        'title' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le titre est obligatoire.']
+        ],
+        'user_id' => [
+            ['ruleName' => 'isValidId']
+        ],
+        'author_id' => [
+            ['ruleName' => 'isValidId']
+        ],
+        'language_id' => [
+            ['ruleName' => 'isValidId']
+        ],
+        'editor_id' => [
+            ['ruleName' => 'isValidId']
+        ],
+        'genre_id' => [
+            ['ruleName' => 'isValidId']
+        ],
 
-    /**
-     *
-     */
+        'front_cover' => [
+            ['ruleName' => 'isEmptyFile','error'=>'La couverture est obligatoire.'],
+            ['ruleName' => 'isValidExtension']
+        ],
+        'front_cover_edit' => [
+            ['ruleName' => 'isValidExtension']
+        ],
+        'front_cover_presentation' => [
+            ['ruleName' => 'isEmptyFile','error'=>'La petite couverture est obligatoire.'],
+            ['ruleName' => 'isValidExtension']
+        ],
+        'front_cover_presentation_edit' => [
+            ['ruleName' => 'isValidExtension']
+        ],
+        'summary' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le titre est obligatoire.']
+        ],
+        'isbn' => [
+            ['ruleName' => 'notEmpty', 'error' => 'L’ISBN est obligatoire.'],
+            ['ruleName' => 'isValidIsbn','L’ISBN n’est as au bon format.']
+        ],
+        'nbpages' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le nombre de page est obligatoire.'],
+            ['ruleName' => 'isValidNbPage','error'=>'Le nombre de page doit être un entier supérieur à 3.']
+        ],
+        'nb_copy' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le nombre de copies est obligatoire.'],
+            ['ruleName' => 'isValidInt','error'=>'Le nombre de copies doit être un entier positif.']
+        ],
+        'datepub' => [
+            ['ruleName' => 'notEmpty', 'error' => 'La date  de pubication est obligatoire.'],
+            ['ruleName' => 'isDate', 'error' => 'La date n’est pas au bon format.'],
+            ['ruleName' => 'dateIsPast', 'error' => 'La date doit être dans le passé.']
+        ],
+        'vedette' => [
+            ['ruleName' => 'isValidInt']
+        ]
+    ];
+
+
+
+
     function __construct()
     {
         parent::__construct($this->table);
     }
 
-
-    /**
-     * @param $id
-     * @return array
-     */
 
     public function all()
     {

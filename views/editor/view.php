@@ -20,7 +20,7 @@
                 <h2><a class="book-liste__header" href="<?php echo($html->createLink('book', 'view',
                         ['id' => $book->book_id])); ?>"><?php echo($book->book_title); ?></a></h2>
                 <a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
-                        src="./img/books_covers/logo/<?php echo($book->book_cover); ?>.jpg" height="225" width="150"
+                        src="./img/books_covers/logo/<?php echo($book->book_cover); ?>" height="225" width="150"
                         alt="Image de la première de couverture du livre <?php echo($book->book_title) ?>"/></a>
 
                 <p><?php echo($html->cutText($book->summary, 200)); ?></p>

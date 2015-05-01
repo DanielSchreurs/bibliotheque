@@ -2,9 +2,25 @@
 
 namespace Models;
 
+use Components\Validator;
+
 class Genre extends Model implements GenreRepositoryInterface
 {
+    use Validator;
     protected $table = 'genres';
+    public $validationRules = [
+        'create_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
+        ],
+        'update_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
+        ],
+        'name' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le genre est obligatoire.']
+        ]
+    ];
 
     function __construct()
     {

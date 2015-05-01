@@ -63,8 +63,9 @@
                                    placeholder="Votre mot de passe" class="showedpassword">
 
                             <div>
-                                <label class="smallInfo" for="remember">Se souvenir de moi</label>
+                                <label class="smallInfo" for="remember">Rester connceter</label>
                                 <input type="checkbox" name="remember" value="remember" id="remember"/>
+                                <a href="#" class="smallInfo">Oublié le mot de passe ?</a>
                             </div>
                             <a href="<?php echo($html->createLink('user', 'create')); ?>" class="btnVert">S’inscrire</a>
                             <input class="btnVert" type="submit" value="Se connecter">

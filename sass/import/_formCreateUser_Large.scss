@@ -93,6 +93,18 @@
   margin-bottom: 1em;
 }
 
+.form-create--large{
+  .form-create__message--error {
+    left: percentage(388/660);
+  }
+}
+
+.form-create--large{
+  .form-create__message--info {
+    left: percentage(388/660);
+  }
+}
+
 .form-create__message--error {
   width: 40%;
   margin: 0;

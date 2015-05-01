@@ -6,14 +6,15 @@
     isset($data['data']['errors']) ? $errors = $data['data']['errors'] : '';
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';
+    $question=$data['data']['question'];
     ?>
     <form class="form-create form-create--large"
           action="<?php echo($html->createLink('page','user_createAnswer',['id'=>$data['data']['question']->question_id])); ?>" method="post" >
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
         <input name="user_id" type="hidden" value="<?php echo(isset($_SESSION['userId'])? $_SESSION['userId']:$_COOKIE['userId']); ?>"/>
-        <input name="create_at" type="hidden" value="<?php setlocale(LC_TIME, 'fra_fra'); echo strftime('%Y-%m-%d-%H-%M'); ?>"/>
-
+        <input name="create_at" value="<?php echo(date("Y-m-d")); ?>" type="hidden"/>
+        <input name="question_id" value="<?php echo($question->question_id); ?>" type="hidden"/>
         <label for="answer">Votre réponse&nbsp;:<strong
                 class="form-create--obligatoire">*</strong></label>
        <textarea class="form-create__long-text" id="answer" name="answer" cols="30" rows="10">
@@ -29,8 +30,9 @@
 
         </div>
         <?php if (isset($errors['answer'])): ?>
-            <p class="form-create__message--error"><?php echo($errors['answer']); ?><span class="flash-box__btn">X</span>
-            </p>
+            <?php foreach ($errors['answer'] as $error): ?>
+                <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+            <?php endforeach; ?>
         <?php endif; ?>
         <input type="submit" value="Envoyer la réponse" class="btnVert"/>
     </form>

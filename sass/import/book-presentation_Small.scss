@@ -5,23 +5,14 @@
   padding: .9375em percentage(15/300) 4em;
   position: relative;
   &:hover{
-    .book-presentation__picture{
-      opacity: .2;
-
-    }
     .book-presentation__inline-link{
       top: 2em;
       font-size: 2.5em;
     }
-  }
 }
+}
+
 .book-presentation__inline-link{
-  text-align: center;
-  position: absolute;
-  top:-2em;
-  left: 0;
-  right: 0;
-  font-size: 0;
 }
 .book-presentation__header{
   display: block;
@@ -62,3 +53,57 @@
 .book-presentation__text{
   margin-bottom: 1em;
 }
+.book-presentation__container{
+  position: relative;
+}
+.book-presentation__picture__btn{
+  position: absolute;
+  top: -95px;
+  left: percentage(101/250);
+  z-index: 1;
+  &:before{
+    font-size:30px;
+    content: "\e601";
+    color: transparent;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+
+    padding: .3em;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    //z-index: 1;
+
+
+  }
+}
+
+.book-presentation__container{
+  &:before{
+    content: "";
+    display: block;
+    width: 250px;
+    height: 200px;
+    background: transparent;
+    position: absolute;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+
+  }}
+.book-presentation:hover .book-presentation__container:before{
+  background: rgba(0,0,0,.6);
+}
+.book-presentation:hover {
+  .book-presentation__picture__btn:before {
+    color: #ffffff !important;
+    border-color: #ffffff;
+  }
+}
+

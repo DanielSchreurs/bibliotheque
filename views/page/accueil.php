@@ -19,13 +19,11 @@
         <h2 class="header-block-one">Les livres du mois</h2>
         <?php foreach ($data['data']['book_month'] as $book): ?>
             <article class="book-presentation">
-                <a title="Renvoie vers la fiche du livre"
-                   href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
+                <a title="Réserver ce livre"
+                   href="<?php echo($html->createLink('book', 'user_reserve', ['id' => $book->book_id])); ?>" class="book-presentation__container"><img
                         class="book-presentation__picture" width="270" height="200"
-                        src="./img/books_covers/presentation/<?php echo($book->presentation_cover); ?>.jpg"
-                        alt="andre_breton_anthologie_de_lhumour_noir"/></a>
-                <!--<a class="book-presentation__inline-link" href="">Réserver</a>-->
-
+                        src="./img/books_covers/presentation/<?php echo($book->presentation_cover); ?>"
+                        alt="andre_breton_anthologie_de_lhumour_noir"/><span class="icon book-presentation__picture__btn hidden">Réserver</span></a>
                 <h3><a title="Renvoie vers la fiche du livre"
                        class="book-presentation__header" href="<?php echo($html->createLink('book', 'view',
                         ['id' => $book->book_id])); ?>"><?php echo($book->title); ?></a></h3>
@@ -37,6 +35,7 @@
             </article>
         <?php endforeach; ?>
     </section>
+
     <article class="single-author container clearBoth">
         <?php $author = $data['data']['author_month']; ?>
         <h2 class="header-block-one"><a title="Renvoie vers la fiche de l'auteur"
@@ -45,7 +44,7 @@
         <figure class="single-author__figure">
             <a class="single-author__figure__picture" title="Renvoie vers la fiche de l'auteur"
                href="<?php echo($html->createLink('author', 'view', ['id' => $author->author_id])); ?>"><img
-                    src="./img/authors_photo/andre_breton_big.jpg"
+                    src="./img/authors_photo/<?php echo($author->photo); ?>"
                     alt="Portrait de l'auteur<?php echo($html->createLink('author', 'view',
                         ['id' => $author->author_id])); ?>"/></a>
             <figcatiion>

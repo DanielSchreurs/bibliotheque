@@ -12,7 +12,7 @@
                        title="Renvoie vers une page avec uniquement le livres Anthologie de <?php echo($book->title); ?>"><?php echo($book->title); ?></a>
                 </h2>
                 <a href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
-                        src="./img/books_covers/<?php echo($book->front_cover); ?>.jpg"
+                        src="./img/books_covers/<?php echo($book->front_cover); ?>"
                         alt="première du <?php echo($book->title); ?>" width="180" height="270"></a>
 
                 <p><?php echo($html->cutText($book->summary, 200)); ?> <a class="btnVert"

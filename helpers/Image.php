@@ -6,7 +6,6 @@
 
 namespace Helpers;
 
-
 class Image
 {
     public static function isvalidImage($image, $width, $height)
@@ -28,9 +27,8 @@ class Image
 
     public static function isValidExtension($image)
     {
-        $extentions = ['jpg', 'png'];
+        $extentions = explode(';', ACCECTIMAGEDATAFORM);
         return in_array($image['type'], $extentions);
-
     }
 
     public static function isValidSize($image, $width, $height)
@@ -42,7 +40,7 @@ class Image
     public static function isEmptyFile($image)
     {
 
-        return ! empty($image['name']);
+        return !empty($image['name']);
     }
 
     public static function saveAs($image, $chemin, $name)
@@ -69,12 +67,14 @@ class Image
         $image = imagecreatefromjpeg($oldImage);
         // Save it
         imagecopyresampled($image_p, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-        imagejpeg($image_p, $chemin . $name . $extension, 100);
+        imagejpeg($image_p, $chemin . $name, 100);
     }
 
-    public static function renameFileName($old, $add = '')
+    public static function renameFileName($old,$image = null,$add='')
     {
-        return strtolower(str_replace(' ', '_', $old)) . $add . rand(99999999999999999, 999999999999999999999999);
+        $extension = $image !== null ? '.' . explode('.', $image['name'])[1] : null;
+        return strtolower(str_replace(' ', '_', $old)) . $add . rand(99999999999999999,
+            999999999999999999999999).($image !== null ? $extension:'');
     }
 
 }

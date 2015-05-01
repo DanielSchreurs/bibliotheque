@@ -1,9 +1,38 @@
 <?php
 namespace Models;
 
+use Components\Validator;
+
 class Editor extends Model implements EditorRepositoryInterface
 {
+    use Validator;
     protected $table = 'editors';
+    public $validationRules=[
+        'create_at'=>[
+            ['ruleName'=>'isDate'],
+            ['ruleName'=>'dateIsPast']
+        ],
+        'update_at'=>[
+            ['ruleName'=>'isDate'],
+            ['ruleName'=>'dateIsPast']
+        ],
+        'name'=>[
+            ['ruleName'=>'notEmpty','error'=>'Le nom de l’éditeur est obligatoire.']
+        ],
+        'website'=>[
+            ['ruleName'=>'notEmpty','error'=>'Le site de l’éditeur est obligatoire']
+        ],
+        'logo'=>[
+            ['ruleName'=>'isEmptyFile'],
+            ['ruleName'=>'isValidExtension']
+        ],
+        'logo_edit'=>[
+            ['ruleName'=>'isValidExtension']
+        ],
+        'bio_text'=>[
+            ['ruleName'=>'notEmpty','error'=>'La description est obligatoire.']
+        ]
+    ];
 
     function __construct()
     {
@@ -20,8 +49,10 @@ class Editor extends Model implements EditorRepositoryInterface
 
     public function all()
     {
+
         $sql = '
               SELECT
+              DISTINCT
               editor_id,
               books.id as book_id,
               name as editor_name,
@@ -30,7 +61,8 @@ class Editor extends Model implements EditorRepositoryInterface
               editors.logo as editor_logo,
               title as book_title,
               books.logo as book_logo,
-              summary FROM editors
+              summary
+              FROM editors
               LEFT JOIN books on editors.id=editor_id
               ORDER BY name';
         $pdost = $this->cx->query($sql);
@@ -41,8 +73,10 @@ class Editor extends Model implements EditorRepositoryInterface
     {
         $sql = '
               SELECT
+              DISTINCT
               id as editor_id,
               name as editor_name,
+              logo as editor_logo,
               bio_text,
               logo,
               website as author_website

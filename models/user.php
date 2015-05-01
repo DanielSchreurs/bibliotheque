@@ -2,9 +2,39 @@
 
 namespace Models;
 
+use Components\Validator;
+
 class User extends Model implements UserRepositoryInterface
 {
+    use Validator;
     protected $table = 'users';
+    public $validationRules = [
+        'create_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
+        ],
+        'update_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
+        ],
+        'first_name' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le prénom est obligatoire.']
+        ],
+        'last_name' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le nom de famille est obligatoire.']
+        ],
+        'username' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le nom d’utilisateur est obligatoire.']
+        ],
+        'email' => [
+            ['ruleName' => 'notEmpty', 'error' => 'L’e-mail est obligatoire.'],
+            ['ruleName' => 'isValidEmail', 'error' => 'L’e-mail n’est pas au bon format.']
+        ],
+        'password' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le mot de passe est obligatoire.'],
+            ['ruleName' => 'isValidPassWord', 'error' => 'Le mot de passe n’est pas au format demandé.']
+        ]
+    ];
 
     public function __construct()
     {
@@ -15,7 +45,7 @@ class User extends Model implements UserRepositoryInterface
     {
         $sql = 'SELECT password FROM users where username=:username AND password=:password';
         $pds = $this->cx->prepare($sql);
-        $pds->execute([':username' => $username,':password'=>$password]);
+        $pds->execute([':username' => $username, ':password' => $password]);
         $res = $pds->fetch();
         if ($res == null) {
             return false;
@@ -43,13 +73,14 @@ class User extends Model implements UserRepositoryInterface
         return $pdost->fetch();
     }
 
-    public function getUserId($username,$password)
+    public function getUserId($username, $password)
     {
         $sql = 'SELECT id FROM users where username=:username AND password=:password';
         $pdost = $this->cx->prepare($sql);
-        $pdost->execute([':username'=>$username,':password' => $password]);
+        $pdost->execute([':username' => $username, ':password' => $password]);
         return $pdost->fetch();
     }
+
     public function getUserRole($id)
     {
         $sql = 'SELECT role FROM users where id=:id';
@@ -57,6 +88,7 @@ class User extends Model implements UserRepositoryInterface
         $pdost->execute([':id' => $id]);
         return $pdost->fetch();
     }
+
     public function create($obj)
     {
 
