@@ -21,7 +21,7 @@ class Editor extends Base
     function index()
     {
 
-        $data = $this->modelEditor->all();
+        $data = $this->modelEditor->getSimpleInfoOffAll();
         $title = 'Liste de tous les éditeurs';
         return [
             'data' => $data,
