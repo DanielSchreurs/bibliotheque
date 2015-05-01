@@ -153,12 +153,158 @@ trait Validator
             return true;
         } else {
             if (
-                ($isRequired && (filter_var($value, FILTER_VALIDATE_URL) === true)) ||
-                (!$isRequired && (filter_var($value, FILTER_VALIDATE_URL) === true) && !empty($value))
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_URL) ==$value)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_URL) ==$value) && !empty($value))
             ) {
                 return true;
             } else {
                 $message = is_null($error) ? 'Ce n’est pas un format d’URL valide.' : $error;
+                if (isset($this->errors[$field])) {
+                    array_push($this->errors[$field], $message);
+                } else {
+                    $this->errors[$field][] = $message;
+                }
+                return false;
+            }
+        }
+    }
+    public function isValidId($field, $value, $error)
+    {
+        $range=array( 'min_range' => 0);
+        $isRequired = isset($this->areRequired[$field]);
+        if (!$isRequired && empty($value)) {
+            return true;
+        } else {
+            if (
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false) && !empty($value))
+            ) {
+                return true;
+            } else {
+                $message = is_null($error) ? 'Ce n’est pas un id valid' : $error;
+                if (isset($this->errors[$field])) {
+                    array_push($this->errors[$field], $message);
+                } else {
+                    $this->errors[$field][] = $message;
+                }
+                return false;
+            }
+        }
+    }
+    public function isValidInt($field, $value, $error)
+    {
+
+        $isRequired = isset($this->areRequired[$field]);
+        if (!$isRequired && empty($value)) {
+            return true;
+        } else {
+            if (
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT) !==false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT) !==false) && !empty($value))
+            ) {
+                return true;
+            } else {
+                $message = is_null($error) ? 'Ce n’est pas un nombre valid' : $error;
+                if (isset($this->errors[$field])) {
+                    array_push($this->errors[$field], $message);
+                } else {
+                    $this->errors[$field][] = $message;
+                }
+                return false;
+            }
+        }
+    }
+    public function isValidIsbn($field, $value, $error)
+    {
+        $range=array(
+            'options' => array(
+                'min_range' => 9999999,
+                'max_range' => 99999999999999
+            )
+        );
+        $isRequired = isset($this->areRequired[$field]);
+        if (!$isRequired && empty($value)) {
+            return true;
+        } else {
+            if (
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false) && !empty($value))
+            ) {
+                return true;
+            } else {
+                $message = is_null($error) ? 'Ce n’est pas un ISBN valid' : $error;
+                if (isset($this->errors[$field])) {
+                    array_push($this->errors[$field], $message);
+                } else {
+                    $this->errors[$field][] = $message;
+                }
+                return false;
+            }
+        }
+    }
+    public function isValidNbPage($field, $value, $error)
+    {
+        $range=array(
+            'options' => array(
+                'min_range' => 3
+            )
+        );
+        $isRequired = isset($this->areRequired[$field]);
+        if (!$isRequired && empty($value)) {
+            return true;
+        } else {
+            if (
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false) && !empty($value))
+            ) {
+                return true;
+            } else {
+                $message = is_null($error) ? 'Ce n’est pas un ISBN valid' : $error;
+                if (isset($this->errors[$field])) {
+                    array_push($this->errors[$field], $message);
+                } else {
+                    $this->errors[$field][] = $message;
+                }
+                return false;
+            }
+        }
+    }
+    public function isValidEmail($field, $value, $error)
+    {
+        $isRequired = isset($this->areRequired[$field]);
+        if (!$isRequired && empty($value)) {
+            return true;
+        } else {
+            if (
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_EMAIL) !==false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_EMAIL) !==false) && !empty($value))
+            ) {
+                return true;
+            } else {
+                $message = is_null($error) ? 'Ce n’est pas un e-mail valid' : $error;
+                if (isset($this->errors[$field])) {
+                    array_push($this->errors[$field], $message);
+                } else {
+                    $this->errors[$field][] = $message;
+                }
+                return false;
+            }
+        }
+    }
+    public function isValidPassWord($field, $value, $error)
+    {
+        $pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\da-zA-Z]{8,20}$/';
+        $isRequired = isset($this->areRequired[$field]);
+        if (!$isRequired && empty($value)) {
+            return true;
+        } else {
+            if (
+                ($isRequired && preg_match($pattern, $value) ===1) ||
+                (!$isRequired && preg_match($pattern, $value) ===1) && !empty($value)
+            ) {
+                return true;
+            } else {
+                $message = is_null($error) ? 'Ce n’est pas un e-mail valid' : $error;
                 if (isset($this->errors[$field])) {
                     array_push($this->errors[$field], $message);
                 } else {
