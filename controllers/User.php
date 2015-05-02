@@ -110,14 +110,30 @@ class User extends Base
 
         ];
     }
-    public function user_userForgot()
-    {
-        $data ='';
-        $title = 'Mon compte';
-        return [
-            'data' => $data,
-            'title' => $title
 
+    public function forgot()
+    {
+        $title = 'Réinitialiser son mot de passe';
+        $data['step'] = $this->request->step;
+        if(isset($_SESSION['userId'])||isset($_COOKIE['userId'])){
+            Session::setMessage('Mais...vous êtes déjà connecté.');
+            header('Location:' . $_SERVER['PHP_SELF']);
+            die();
+        }
+        elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
+            $this->modelUser->validate($this->request->sent);
+            if (empty($this->modelUser->errors)&&($this->request->step==1)) {
+
+                    die("ok");
+
+            } else {
+                $data['errors'] = $this->modelUser->errors;
+                $data['sent'] = $this->request->sent;
+            }
+        }
+        return [
+            'title' => $title,
+            'data' => $data
         ];
     }
 
