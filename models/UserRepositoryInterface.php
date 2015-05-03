@@ -15,6 +15,10 @@ interface UserRepositoryInterface
 
     public function getUserInfo($id);
 
+    public function getUserQuestion($userName);
+
+    public function getUserByQuestionAndAnswer($question, $answer);
+
     public function getUserId($username, $password);
 
     public function getUserRole($id);
