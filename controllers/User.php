@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Components\Session;
+use Helpers\Server;
 use Helpers\validate;
 use Models\UserRepositoryInterface as UserRepository;
 use Models\BookRepositoryInterface as BookRepository;
@@ -114,19 +115,33 @@ class User extends Base
     public function forgot()
     {
         $title = 'Réinitialiser son mot de passe';
-        $data['step'] = $this->request->step;
-        if(isset($_SESSION['userId'])||isset($_COOKIE['userId'])){
+        $data['step'] = 1;
+        $userIP = filter_var(Server::getServeur(), FILTER_SANITIZE_NUMBER_INT);
+        if (isset($_SESSION['userId']) || isset($_COOKIE['userId'])) {
             Session::setMessage('Mais...vous êtes déjà connecté.');
             header('Location:' . $_SERVER['PHP_SELF']);
             die();
-        }
-        elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
+        } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->modelUser->validate($this->request->sent);
-            if (empty($this->modelUser->errors)&&($this->request->step==1)) {
-
-                    die("ok");
-
+            // TODO:
+            if ($this->modelUser->userNameExist($this->request->sent->username) && empty($this->modelUser->errors)) {//le username exist
+                $data['question'] = $this->modelUser->getUserQuestion($this->request->sent->username)->question;
+                if ($data['question'] === '') {
+                    Session::setMessage('Il n’existe pas de question pour cet identifiant', 'error');
+                    header('Location:' . $_SERVER['PHP_SELF']);
+                    die();
+                }
+                $_SERVER['question']=$data['question'];
+                var_dump($_SERVER['question']);
+                $user=($this->modelUser->getUserByQuestionAndAnswer($_SERVER['question'],$this->request->sent->answer));
+                if($data['step']&&!empty($user)){
+                    $data['step']=3;
+                }else{
+                    $this->modelUser->errors='Ce n’est pas la bonne réponse.';
+                }
+                //
             } else {
+                $this->modelUser->errors['username'][] = 'Cet identifiant n’existe pas.';
                 $data['errors'] = $this->modelUser->errors;
                 $data['sent'] = $this->request->sent;
             }
