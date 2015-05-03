@@ -53,6 +53,7 @@ class User extends Model implements UserRepositoryInterface
         return true;
     }
 
+
     public function userNameExist($username)
     {
         $sql = 'SELECT id FROM users WHERE username=:username ';
@@ -72,6 +73,21 @@ class User extends Model implements UserRepositoryInterface
         $pdost->execute([':id' => $id]);
         return $pdost->fetch();
     }
+    public function getUserQuestion($userName)
+    {
+        $sql = 'SELECT question FROM users where username=:userName';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([':userName' => $userName]);
+        return $pdost->fetch();
+    }
+    public function getUserByQuestionAndAnswer($question,$answer)
+    {
+        $sql = 'SELECT id FROM users where question=:question AND answer=:answer';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([':question' => $question,':answer'=>$answer]);
+        return $pdost->fetch();
+    }
+
 
     public function getUserId($username, $password)
     {
