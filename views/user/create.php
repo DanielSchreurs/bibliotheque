@@ -7,12 +7,12 @@
 
     ?>
         <form class="form-create" action="<?php $html->createLink('user', 'create'); ?>" method="post">
-            <p class="form-create__infos"> Les champs précédés d’un <strong class="form-create-user__obligatoire">(*)</strong> sont obligatoires!
+            <p class="form-create__infos"> Les champs précédés d’un <strong class="form-create--obligatoire">(*)</strong> sont obligatoires!
             </p>
             <input name="create_at" value="<?php echo(date("Y-m-d")); ?>" type="hidden"/>
             <fieldset>
                 <legend>Qui êtes vous ?</legend>
-                <label for="first_name">Votre prénom <strong class="form-create-user__obligatoire">*</strong></label>
+                <label for="first_name">Votre prénom <strong class="form-create--obligatoire">*</strong></label>
                 <input class="form-create__simple-imput <?php echo(isset($error['first_name']) ? 'error' : ''); ?>"
                        type="text" name="first_name"
                        id="first_name"
@@ -25,7 +25,7 @@
                     <?php endforeach; ?>
                 <?php endif; ?>
                 <label for="last_name">Votre nom de famille <strong
-                        class="form-create-user__obligatoire">*</strong></label>
+                        class="form-create--obligatoire">*</strong></label>
                 <input class="form-create__simple-imput <?php echo(isset($error['last_name']) ? 'error' : ''); ?>"
                        type="text" name="last_name"
                        id="last_name"
@@ -41,7 +41,7 @@
             <fieldset>
                 <legend>Votre compte</legend>
                 <label for="username">Votre nom d'utilisateur <strong
-                        class="form-create-user__obligatoire">*</strong></label>
+                        class="form-create--obligatoire">*</strong></label>
                 <input class="form-create__simple-imput <?php echo(isset($error['username']) ? 'error' : ''); ?>"
                        type="text" name="username"
                        id="username"
@@ -56,7 +56,7 @@
                         <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
                     <?php endforeach; ?>
                 <?php endif; ?>
-                <label for="email">Votre adresse mail <strong class="form-create-user__obligatoire">*</strong></label>
+                <label for="email">Votre adresse mail <strong class="form-create--obligatoire">*</strong></label>
                 <input class="form-create__simple-imput <?php echo(isset($error['email']) ? 'error' : ''); ?>"
                        type="text" name="email" id="email"
                        value="<?php echo(isset($sent->email) ? $sent->email : ''); ?>"
@@ -72,7 +72,7 @@
                 <?php endif; ?>
                 <span id="linkShowPassword" title="Afficher les mots de pass" class="smallInfo icon ouvrir">Montrer le mot de pass</span>
                 <label for="password">Votre mot de passe<strong
-                        class="form-create-user__obligatoire">*</strong></label>
+                        class="form-create--obligatoire">*</strong></label>
                 <input
                     class="form-create__simple-imput showedpassword <?php echo(isset($error['password'])? 'error' : ''); ?>"
                     type="password" name="password" id="password"
@@ -97,7 +97,7 @@
                 <?php endif; ?>
             </fieldset>
             <fieldset>
-                <legend>Sécurité</legend>
+                <legend>Sécurité <bold class="form-create--obligatoire">(fortement recommendé)</bold></legend>
                 <label for="question">Question de sécurité</label>
                 <input
                     class="form-create__simple-imput"
