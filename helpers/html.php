@@ -11,12 +11,12 @@ class Html
     public function createLink($modele, $action, $param = null)
     {
         if (!is_null($param)) {
-            $param = '&' . http_build_query($param);
+            $param = '&amp;' . http_build_query($param);
         } else {
             $param = '';
 
         }
-        return $_SERVER['PHP_SELF'] . '?m=' . $modele . '&a=' . $action . $param;
+        return $_SERVER['PHP_SELF'] . '?m=' . $modele . '&amp;a=' . $action . $param;
 
     }
 
