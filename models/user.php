@@ -104,6 +104,17 @@ class User extends Model implements UserRepositoryInterface
         $pdost->execute([':id' => $id]);
         return $pdost->fetch();
     }
+    public function resetPasseword($password,$id)
+    {
+        $sql = 'UPDATE users
+                SET password=:password,
+                WHERE id=:id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([
+            ':passwword' => $password,
+            ':id' => $id
+        ]);
+    }
 
     public function create($obj)
     {
