@@ -115,36 +115,50 @@ class User extends Base
     public function forgot()
     {
         $title = 'Réinitialiser son mot de passe';
-        $data['step'] = 1;
-        $userIP = filter_var(Server::getServeur(), FILTER_SANITIZE_NUMBER_INT);
-        if (isset($_SESSION['userId']) || isset($_COOKIE['userId'])) {
-            Session::setMessage('Mais...vous êtes déjà connecté.');
-            header('Location:' . $_SERVER['PHP_SELF']);
-            die();
-        } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $_SESSION['step'] = isset($_SESSION['step']) ? $_SESSION['step'] : 1;
+        $data['step'] = $_SESSION['step'];
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            var_dump($this->request->sent);
             $this->modelUser->validate($this->request->sent);
-            // TODO:
-            if ($this->modelUser->userNameExist($this->request->sent->username) && empty($this->modelUser->errors)) {//le username exist
-                $data['question'] = $this->modelUser->getUserQuestion($this->request->sent->username)->question;
-                if ($data['question'] === '') {
-                    Session::setMessage('Il n’existe pas de question pour cet identifiant', 'error');
-                    header('Location:' . $_SERVER['PHP_SELF']);
+            if (empty($this->modelUser->errors)) {
+                if ($_SESSION['step'] == 1) {
+                    if ($this->modelUser->userNameExist($this->request->sent->username)) {
+                        $data['question'] = $this->modelUser->getUserQuestion($this->request->sent->username)->question;
+                        $_SESSION['question'] = $data['question'];
+                        if ($_SESSION['question'] === null) {
+                            Session::setMessage('Il n’existe pas de question pour cet identifiant', 'error');
+                            header('Location:' . $_SERVER['PHP_SELF']);
+                            die();
+                        } else {
+                            $_SESSION['step'] = 2;
+                        }
+                    } else {
+                        $this->modelUser->errors['username'][] = 'Cet identifiant n’existe pas.';
+
+                    }
+                } elseif ($_SESSION['step'] == 2) {
+                    $user = ($this->modelUser->getUserByQuestionAndAnswer($_SESSION['question'],
+                        $this->request->sent->answer));
+                    if (!empty($user)) {
+                        $_SESSION['step'] = 3;
+                        $_SESSION['forgotId']=$user->id;
+                    } else {
+                        $_SESSION['step'] = 2;
+                        $data['question']= $_SESSION['question'];
+                        $this->modelUser->errors['answer'][] = 'Ce n’est pas la bonne réponse.';
+                    }
+                }elseif($_SESSION['step'] == 3){
+                    die('ok');
+                    $this->modelUser->resetPasseword($this->request->sent->password,$_SESSION['forgotId']);
+                    unset($_SESSION['question'],$_SESSION['forgotId']);
+                    Session::setMessage('Votre mot de passe à été mis à jour.');
+                    header('Location:' . $_SESSION['PHP_SELF']);
                     die();
                 }
-                $_SERVER['question']=$data['question'];
-                var_dump($_SERVER['question']);
-                $user=($this->modelUser->getUserByQuestionAndAnswer($_SERVER['question'],$this->request->sent->answer));
-                if($data['step']&&!empty($user)){
-                    $data['step']=3;
-                }else{
-                    $this->modelUser->errors='Ce n’est pas la bonne réponse.';
-                }
-                //
-            } else {
-                $this->modelUser->errors['username'][] = 'Cet identifiant n’existe pas.';
-                $data['errors'] = $this->modelUser->errors;
-                $data['sent'] = $this->request->sent;
             }
+            $data['step'] = $_SESSION['step'];
+            $data['errors'] = $this->modelUser->errors;
+            $data['sent'] = $this->request->sent;
         }
         return [
             'title' => $title,
@@ -152,7 +166,8 @@ class User extends Base
         ];
     }
 
-    public function admin_usersIndex()
+    public
+    function admin_usersIndex()
     {
         die('ok je suis dans le controleur ');
     }
