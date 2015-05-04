@@ -6,7 +6,7 @@
 /*
  * Définition de la langue par défaut
  */
-$language = 'fr_BE';
+$language = 'fr';
 define('CHARSET', 'UTF-8');
 define('TITLE', 'bookme');// le titre générale du site
 

@@ -1,9 +1,9 @@
 <head>
     <meta charset="<?php echo(CHARSET); ?>">
     <meta name="description"
-          content="Innovent dans sa manière de présenter l’information, les services que vous propose le nouveau site, la joie de livre, vous laissera sans mots. Vous pourrez aisément rechercher un livre depuis plusieurs bibliothèques. ">
+          content="Innovent dans sa manière de présenter l’information, les services que vous propose le nouveau site, bookme, vous laissera sans mots. Vous pourrez aisément échanger, partager, rechercher et emprunter tous les livres que vous aimez. ">
     <meta name="keywords"
-          content="la joie de livre,LA JOIE DE LIVRE,bibliothèques,Bibliothèques,Bibliothèque, livres,Livres, nationnal, belge, Belgique">
+          content="Bookme,BOOKME,BookMe,bibliothèques,livres,emprunter, échanger, chercher, réserver, Belge, Belgique">
     <meta name="author" content="Daniel schreurs">
     <meta name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

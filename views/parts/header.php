@@ -49,15 +49,15 @@
             <span class="header-main__nav__nav_items" id="showFrom">Mon compte</span>
 
             <div class="header-main__form-connexion__userLog">
-                <?php if (!Session::isUserLogged() && $controller->view != 'user/create.php'): ?>
-                    <form action="<?php echo($_SERVER['PHP_SELF']); ?>?m=user&a=login" method="post"
+                <?php if (!Session::isUserLogged() && $controller->view != 'user/create.php' && $controller->view != 'user/forgot.php'): ?>
+                    <form action="<?php echo($html->createLink('user','login')); ?>" method="post"
                           id="connexion"
                         >
                         <fieldset>
                             <label for="username">Nom d'utilisateur&nbsp;</label>
                             <input type="text" name="username" id="username" required placeholder="Votre login">
                             <label for="password" class="inline">Mot de passe&nbsp;</label>
-                            <span id="linkShowPassword" class="smallInfo" href="#" title="Afficher le mot de pass">
+                            <span id="linkShowPassword" class="smallInfo" title="Afficher le mot de pass">
                                 Montrer le mot de passe</span>
                             <input type="password" name="password" id="password" required
                                    placeholder="Votre mot de passe" class="showedpassword">

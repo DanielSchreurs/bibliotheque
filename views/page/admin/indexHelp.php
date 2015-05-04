@@ -1,7 +1,5 @@
 <main class="container">
-    <?php $questions=$data['data'];
-    
-     ?>
+    <?php $questions=$data['data'];?>
     <?php Components\Session::flash(); ?>
         <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
     <?php include(VIEW_DIR . '/parts/main_nav_admin.php'); ?>
