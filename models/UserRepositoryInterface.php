@@ -23,6 +23,8 @@ interface UserRepositoryInterface
 
     public function getUserRole($id);
 
+    public function resetPasseword($password, $id);
+
 
     public function create($obj);
 }
