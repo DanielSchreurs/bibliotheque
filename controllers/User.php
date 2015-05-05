@@ -114,11 +114,11 @@ class User extends Base
 
     public function forgot()
     {
+        var_dump($_SESSION);
         $title = 'Réinitialiser son mot de passe';
         $_SESSION['step'] = isset($_SESSION['step']) ? $_SESSION['step'] : 1;
         $data['step'] = $_SESSION['step'];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            var_dump($this->request->sent);
             $this->modelUser->validate($this->request->sent);
             if (empty($this->modelUser->errors)) {
                 if ($_SESSION['step'] == 1) {
@@ -148,11 +148,12 @@ class User extends Base
                         $this->modelUser->errors['answer'][] = 'Ce n’est pas la bonne réponse.';
                     }
                 }elseif($_SESSION['step'] == 3){
-                    die('ok');
                     $this->modelUser->resetPasseword($this->request->sent->password,$_SESSION['forgotId']);
-                    unset($_SESSION['question'],$_SESSION['forgotId']);
+                    unset($_SESSION['question']);
+                    unset($_SESSION['forgotId']);
+                    unset($_SESSION['step']);
                     Session::setMessage('Votre mot de passe à été mis à jour.');
-                    header('Location:' . $_SESSION['PHP_SELF']);
+                    header('Location:' . $_SERVER['PHP_SELF']);
                     die();
                 }
             }
