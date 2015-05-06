@@ -8,7 +8,7 @@
     <div class="threeColumnBlock">
         <img
             src="./img/editors_logos/<?php echo($editor->editor_logo); ?>"
-            alt="photo de  <?php echo($editor->editor_logo);?>" width="200"
+            alt="photo de  <?php echo($editor->editor_logo); ?>" width="200"
             height="200">
 
         <p class="">
