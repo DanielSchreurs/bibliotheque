@@ -6,13 +6,15 @@
     isset($data['data']['errors']) ? $errors = $data['data']['errors'] : '';
     isset($data['data']['sent']) ? $sent = $data['data']['sent'] : '';
     $_GET = $_SERVER['REQUEST_METHOD'] == 'GET';
-    $question=$data['data']['question'];
+    $question = $data['data']['question'];
     ?>
     <form class="form-create form-create--large"
-          action="<?php echo($html->createLink('page','user_createAnswer',['id'=>$data['data']['question']->question_id])); ?>" method="post" >
+          action="<?php echo($html->createLink('page', 'user_createAnswer',
+              ['id' => $data['data']['question']->question_id])); ?>" method="post">
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
-        <input name="user_id" type="hidden" value="<?php echo(isset($_SESSION['userId'])? $_SESSION['userId']:$_COOKIE['userId']); ?>"/>
+        <input name="user_id" type="hidden"
+               value="<?php echo(isset($_SESSION['userId']) ? $_SESSION['userId'] : $_COOKIE['userId']); ?>"/>
         <input name="create_at" value="<?php echo(date("Y-m-d")); ?>" type="hidden"/>
         <input name="question_id" value="<?php echo($question->question_id); ?>" type="hidden"/>
         <label for="answer">Votre réponse&nbsp;:<strong
@@ -20,6 +22,7 @@
        <textarea class="form-create__long-text" id="answer" name="answer" cols="30" rows="10">
            <?php echo(isset($errors['answer']) || $_GET ? '' : $sent->answer); ?>
        </textarea>
+
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Ici vous pouvez répondre à la question.
                 <q cite="http://evene.lefigaro.fr/citations/mot.php?mot=politesse">

@@ -7,9 +7,11 @@
     ?>
     <?php include('./views/parts/main_nav_admin.php'); ?>
     <?php Components\Session::flash(); ?>
-    <h1 class="header-block-one"><?php echo($data['title'].' &laquo;&nbsp;'.$author->first_name.'-'.$author->last_name.'&nbsp;&raquo;');?></h1>
+    <h1 class="header-block-one"><?php echo($data['title'] . ' &laquo;&nbsp;' . $author->first_name . '-' . $author->last_name . '&nbsp;&raquo;'); ?></h1>
+
     <form class="form-create form-create--large"
-          action="<?php echo($html->createLink('author', 'admin_edit_author', ['id' => $author->author_id])); ?>" method="post"
+          action="<?php echo($html->createLink('author', 'admin_edit_author', ['id' => $author->author_id])); ?>"
+          method="post"
           enctype="multipart/form-data">
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
@@ -52,7 +54,8 @@
             <?php endforeach; ?>
         <?php endif; ?>
         <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.jpg) et qui fait 300 pixel de large et 450 pixel de haut.</p>
+            <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.jpg) et qui fait 300
+                pixel de large et 450 pixel de haut.</p>
         </div>
         <label for="logo_edit">Petite portrait 200/200px<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -65,7 +68,8 @@
             <?php endforeach; ?>
         <?php endif; ?>
         <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.png) et qui fait 200 pixel de large et 200 pixel de haut.</p>
+            <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.png) et qui fait 200
+                pixel de large et 200 pixel de haut.</p>
         </div>
         <label for="bio_text">Petite biographie<strong
                 class="form-create--obligatoire">*</strong></label>
@@ -81,7 +85,8 @@
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput" type="text" name="datebirth" min="2" id="datebirth"
                title="Introduisez la date de publication" placeholder="1900-02-02"
-               value="<?php echo(isset($errors['datebirth']) ||$_GET ? $author->datebirth : $sent->datebirth); ?>"/>
+               value="<?php echo(isset($errors['datebirth']) || $_GET ? $author->datebirth : $sent->datebirth); ?>"/>
+
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Attention la date doit être dans le passé.</p>
         </div>
@@ -93,9 +98,11 @@
         <label for="datedeath">Date de mort (aaaa/mm/jj)</label>
         <input class="form-create__simple-imput" type="text" name="datedeath" min="2" id="datedeath"
                title="Introduisez la date de publication" placeholder="1970-02-02"
-               value="<?php echo(isset($errors['datedeath']) ||$_GET ? $author->datedeath : $sent->datedeath); ?>"/>
+               value="<?php echo(isset($errors['datedeath']) || $_GET ? $author->datedeath : $sent->datedeath); ?>"/>
+
         <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Ce champs est facultatif mais s'il est définit il doit également être dans la passé.</p>
+            <p class="form-create__example-box__text">Ce champs est facultatif mais s'il est définit il doit également
+                être dans la passé.</p>
         </div>
         <?php if (isset($errors['datedeath'])): ?>
             <?php foreach ($errors['datedeath'] as $error): ?>
@@ -103,7 +110,8 @@
             <?php endforeach; ?>
         <?php endif; ?>
         <label for="vedette">Mettre en vedette(un seul possible)</label>
-        <input <?php echo($author->vedette==1?'checked':''); ?> type="checkbox" name="vedette" id="vedette" value="1"/>
+        <input <?php echo($author->vedette == 1 ? 'checked' : ''); ?> type="checkbox" name="vedette" id="vedette"
+                                                                      value="1"/>
         <input type="submit" value="Modifier le livre" class="btnVert"/>
     </form>
 </main>

@@ -1,4 +1,4 @@
-<?php use \Components\Session; ?>
+<?php use Components\Session; ?>
 <main class="<?php echo((Session::isUserLogged()) ? 'container' : 'home') ?>">
     <h1 class="hidden"><i>Bookme,</i> La plus grande commauté de livres</h1>
     <?php if (!Session::isUserLogged()): ?>
@@ -20,10 +20,13 @@
         <?php foreach ($data['data']['book_month'] as $book): ?>
             <article class="book-presentation">
                 <a title="Réserver ce livre"
-                   href="<?php echo($html->createLink('book', 'user_reserve', ['id' => $book->book_id])); ?>" class="book-presentation__container"><img
+                   href="<?php echo($html->createLink('book', 'user_reserve', ['id' => $book->book_id])); ?>"
+                   class="book-presentation__container"><img
                         class="book-presentation__picture" width="270" height="200"
                         src="./img/books_covers/presentation/<?php echo($book->presentation_cover); ?>"
-                        alt="andre_breton_anthologie_de_lhumour_noir"/><span class="icon book-presentation__picture__btn hidden">Réserver</span></a>
+                        alt="andre_breton_anthologie_de_lhumour_noir"/><span
+                        class="icon book-presentation__picture__btn hidden">Réserver</span></a>
+
                 <h3><a title="Renvoie vers la fiche du livre"
                        class="book-presentation__header" href="<?php echo($html->createLink('book', 'view',
                         ['id' => $book->book_id])); ?>"><?php echo($book->title); ?></a></h3>

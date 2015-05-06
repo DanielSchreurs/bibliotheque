@@ -96,7 +96,7 @@ class Page extends Base
                 header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=help');
                 die();
             } else {
-                $data['errors'] =$this->modelHelp->getErrors();
+                $data['errors'] = $this->modelHelp->getErrors();
                 $data['sent'] = $this->request->sent;
             }
         }
@@ -110,7 +110,7 @@ class Page extends Base
     public function user_createQuestion()
     {
 
-        $data='';
+        $data = '';
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $this->modelHelp->validate($this->request->sent);
 
@@ -177,7 +177,7 @@ class Page extends Base
                 header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=admin_indexHelp');
                 die();
             } else {
-                $data['errors'] =$this->modelHelp->getErrors();
+                $data['errors'] = $this->modelHelp->getErrors();
                 $data['sent'] = $this->request->sent;
             }
         }

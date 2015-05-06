@@ -9,7 +9,7 @@
       "Controllers\\": "controllers/",
       "Models\\": "models",
       "Helpers\\": "helpers",
-      "Components\\":"components"
+      "Components\\": "components"
     }
   },
   "authors": [

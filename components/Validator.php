@@ -49,6 +49,7 @@ trait Validator
     {
         return $this->errors;
     }
+
     public function isValid()
     {
         return empty($this->errors);
@@ -58,8 +59,7 @@ trait Validator
     {
         if (trim($value) !== '') {
             return true;
-        }
-        else {
+        } else {
             $message = is_null($error) ? 'Le champ ' . $field . ' est obligatoire.' : $error;
             if (isset($this->errors[$field])) {
                 array_push($this->errors[$field][], $message);
@@ -153,8 +153,8 @@ trait Validator
             return true;
         } else {
             if (
-                ($isRequired && (filter_var($value, FILTER_VALIDATE_URL) ==$value)) ||
-                (!$isRequired && (filter_var($value, FILTER_VALIDATE_URL) ==$value) && !empty($value))
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_URL) == $value)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_URL) == $value) && !empty($value))
             ) {
                 return true;
             } else {
@@ -168,16 +168,17 @@ trait Validator
             }
         }
     }
+
     public function isValidId($field, $value, $error)
     {
-        $range=array( 'min_range' => 0);
+        $range = array('min_range' => 0);
         $isRequired = isset($this->areRequired[$field]);
         if (!$isRequired && empty($value)) {
             return true;
         } else {
             if (
-                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false)) ||
-                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false) && !empty($value))
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT, $range) !== false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT, $range) !== false) && !empty($value))
             ) {
                 return true;
             } else {
@@ -191,6 +192,7 @@ trait Validator
             }
         }
     }
+
     public function isValidInt($field, $value, $error)
     {
 
@@ -199,8 +201,8 @@ trait Validator
             return true;
         } else {
             if (
-                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT) !==false)) ||
-                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT) !==false) && !empty($value))
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT) !== false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT) !== false) && !empty($value))
             ) {
                 return true;
             } else {
@@ -214,9 +216,10 @@ trait Validator
             }
         }
     }
+
     public function isValidIsbn($field, $value, $error)
     {
-        $range=array(
+        $range = array(
             'options' => array(
                 'min_range' => 9999999,
                 'max_range' => 99999999999999
@@ -227,8 +230,8 @@ trait Validator
             return true;
         } else {
             if (
-                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false)) ||
-                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false) && !empty($value))
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT, $range) !== false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT, $range) !== false) && !empty($value))
             ) {
                 return true;
             } else {
@@ -242,9 +245,10 @@ trait Validator
             }
         }
     }
+
     public function isValidNbPage($field, $value, $error)
     {
-        $range=array(
+        $range = array(
             'options' => array(
                 'min_range' => 3
             )
@@ -254,8 +258,8 @@ trait Validator
             return true;
         } else {
             if (
-                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false)) ||
-                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT,$range) !==false) && !empty($value))
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_INT, $range) !== false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_INT, $range) !== false) && !empty($value))
             ) {
                 return true;
             } else {
@@ -269,6 +273,7 @@ trait Validator
             }
         }
     }
+
     public function isValidEmail($field, $value, $error)
     {
         $isRequired = isset($this->areRequired[$field]);
@@ -276,8 +281,8 @@ trait Validator
             return true;
         } else {
             if (
-                ($isRequired && (filter_var($value, FILTER_VALIDATE_EMAIL) !==false)) ||
-                (!$isRequired && (filter_var($value, FILTER_VALIDATE_EMAIL) !==false) && !empty($value))
+                ($isRequired && (filter_var($value, FILTER_VALIDATE_EMAIL) !== false)) ||
+                (!$isRequired && (filter_var($value, FILTER_VALIDATE_EMAIL) !== false) && !empty($value))
             ) {
                 return true;
             } else {
@@ -291,16 +296,17 @@ trait Validator
             }
         }
     }
+
     public function isValidPassWord($field, $value, $error)
     {
-        $pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\da-zA-Z]{8,20}$/';
+        $pattern = '/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\da-zA-Z]{8,20}$/';
         $isRequired = isset($this->areRequired[$field]);
         if (!$isRequired && empty($value)) {
             return true;
         } else {
             if (
-                ($isRequired && preg_match($pattern, $value) ===1) ||
-                (!$isRequired && preg_match($pattern, $value) ===1) && !empty($value)
+                ($isRequired && preg_match($pattern, $value) === 1) ||
+                (!$isRequired && preg_match($pattern, $value) === 1) && !empty($value)
             ) {
                 return true;
             } else {

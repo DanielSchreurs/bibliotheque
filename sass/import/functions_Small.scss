@@ -1,7 +1,8 @@
-.functions{
-  
+.functions {
+
 }
-.delete-book_btn{
+
+.delete-book_btn {
   border: 1px solid transparent;
   -webkit-border-radius: .4em;
   -moz-border-radius: .4em;
@@ -10,15 +11,16 @@
   font-size: 1.3em;
   display: block;
   margin-bottom: 1em;
-    background: red;
-    color: #ffffff;
-  &:hover{
+  background: red;
+  color: #ffffff;
+  &:hover {
     color: red;
     border: 1px solid red;
     background: #ffffff;
   }
 }
-.edit-book_btn{
+
+.edit-book_btn {
   border: 1px solid blue;
   -webkit-border-radius: .4em;
   -moz-border-radius: .4em;
@@ -28,13 +30,14 @@
   font-size: 1.3em;
   display: block;
   margin-bottom: 1em;
-  &:hover{
+  &:hover {
     background: blue;
     color: #ffffff;
   }
 
 }
-.back-btn{
+
+.back-btn {
   border: 1px solid $myGray;
   -webkit-border-radius: .4em;
   -moz-border-radius: .4em;
@@ -44,7 +47,7 @@
   font-size: 1.3em;
   display: block;
   margin-bottom: 1em;
-  &:hover{
+  &:hover {
     background: $myGray;
     color: #ffffff;
   }

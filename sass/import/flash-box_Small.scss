@@ -1,24 +1,28 @@
-.flash-box{
+.flash-box {
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;
   border-radius: .5em;
   margin: 2em 0;
   position: relative;
 }
-.flash-box__btn{
+
+.flash-box__btn {
   display: inline-block;
   cursor: pointer;
   padding: .1em 1em;
 }
-.flash-box.success{
+
+.flash-box.success {
   background: $successBCG;
   color: $success;
 }
-.flash-box.information{
+
+.flash-box.information {
   background: $informationBCG;
   color: $information;
 }
-.flash-box.error{
+
+.flash-box.error {
   background: $errorBCG;
   color: $error;
 }

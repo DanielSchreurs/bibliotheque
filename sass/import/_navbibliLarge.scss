@@ -1,15 +1,17 @@
-.main-nav__item,.main-nav__item--small{
+.main-nav__item, .main-nav__item--small {
   padding-left: 0;
 }
-.main-nav__item--small{
-  padding-right: percentage(20/1080) ;
+
+.main-nav__item--small {
+  padding-right: percentage(20/1080);
 }
 
-.home .main-nav{
+.home .main-nav {
   width: percentage(1080/1440);
   margin: 0 auto;
   margin-top: 1em;
 }
-.main-nav__item{
-  padding-right:2.9em;
+
+.main-nav__item {
+  padding-right: 2.9em;
 }

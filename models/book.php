@@ -4,12 +4,10 @@ namespace Models;
 
 use Carbon\Carbon;
 use Components\Validator;
-use Helpers\Date;
 
 class Book extends Model implements BookRepositoryInterface
 {
     use Validator;
-    protected $table = 'books';
     public $validationRules = [
         'create_at' => [
             ['ruleName' => 'isDate'],
@@ -37,16 +35,15 @@ class Book extends Model implements BookRepositoryInterface
         'genre_id' => [
             ['ruleName' => 'isValidId']
         ],
-
         'front_cover' => [
-            ['ruleName' => 'isEmptyFile','error'=>'La couverture est obligatoire.'],
+            ['ruleName' => 'isEmptyFile', 'error' => 'La couverture est obligatoire.'],
             ['ruleName' => 'isValidExtension']
         ],
         'front_cover_edit' => [
             ['ruleName' => 'isValidExtension']
         ],
         'front_cover_presentation' => [
-            ['ruleName' => 'isEmptyFile','error'=>'La petite couverture est obligatoire.'],
+            ['ruleName' => 'isEmptyFile', 'error' => 'La petite couverture est obligatoire.'],
             ['ruleName' => 'isValidExtension']
         ],
         'front_cover_presentation_edit' => [
@@ -57,15 +54,15 @@ class Book extends Model implements BookRepositoryInterface
         ],
         'isbn' => [
             ['ruleName' => 'notEmpty', 'error' => 'L’ISBN est obligatoire.'],
-            ['ruleName' => 'isValidIsbn','L’ISBN n’est as au bon format.']
+            ['ruleName' => 'isValidIsbn', 'L’ISBN n’est as au bon format.']
         ],
         'nbpages' => [
             ['ruleName' => 'notEmpty', 'error' => 'Le nombre de page est obligatoire.'],
-            ['ruleName' => 'isValidNbPage','error'=>'Le nombre de page doit être un entier supérieur à 3.']
+            ['ruleName' => 'isValidNbPage', 'error' => 'Le nombre de page doit être un entier supérieur à 3.']
         ],
         'nb_copy' => [
             ['ruleName' => 'notEmpty', 'error' => 'Le nombre de copies est obligatoire.'],
-            ['ruleName' => 'isValidInt','error'=>'Le nombre de copies doit être un entier positif.']
+            ['ruleName' => 'isValidInt', 'error' => 'Le nombre de copies doit être un entier positif.']
         ],
         'datepub' => [
             ['ruleName' => 'notEmpty', 'error' => 'La date  de pubication est obligatoire.'],
@@ -76,9 +73,7 @@ class Book extends Model implements BookRepositoryInterface
             ['ruleName' => 'isValidInt']
         ]
     ];
-
-
-
+    protected $table = 'books';
 
     function __construct()
     {
@@ -296,14 +291,6 @@ class Book extends Model implements BookRepositoryInterface
         $this->detachAuthorFromBook($book_id);
     }
 
-    private function updateAuthorFromBook($author_id, $book_id)
-    {
-        $sql = "UPDATE author_book
-                SET author_id = $author_id
-                WHERE book_id = $book_id";
-        $this->cx->query($sql);
-    }
-
     private function detachAuthorFromBook($book_id)
     {
         $sql = 'DELETE FROM author_book
@@ -346,12 +333,20 @@ class Book extends Model implements BookRepositoryInterface
                 ':library_id' => 1,
                 ':editor_id' => $bookObj->editor_id,
                 ':update_at' => $bookObj->update_at,
-                ':nb_copy'=>$bookObj->nb_copy,
+                ':nb_copy' => $bookObj->nb_copy,
                 ':vedette' => $bookObj->vedette,
                 ':book_id' => $book_id
             ]
         );
         $this->updateAuthorFromBook($bookObj->author_id, $book_id);
+    }
+
+    private function updateAuthorFromBook($author_id, $book_id)
+    {
+        $sql = "UPDATE author_book
+                SET author_id = $author_id
+                WHERE book_id = $book_id";
+        $this->cx->query($sql);
     }
 
     public function create($bookObj)
@@ -386,6 +381,14 @@ class Book extends Model implements BookRepositoryInterface
         $this->newAuthorBook($bookObj->author_id, $this->cx->lastInsertId());
     }
 
+    private function newAuthorBook($author_id, $book_id)
+    {
+        $sql = "INSERT INTO author_book(author_id, book_id)
+                VALUES (" . $author_id . ' , ' . $book_id . ' )';
+        $this->cx->query($sql);
+
+    }
+
     public function isDispo($book_id, $to = 'todayAnd15days')
     {
         $maxCopy = $this->getNbCopyOfCopyOfBook($book_id)->nb_copy;
@@ -413,6 +416,23 @@ class Book extends Model implements BookRepositoryInterface
             return $try >= $maxCopy ? false : true;
         }
 
+    }
+
+    private function getNbCopyOfCopyOfBook($book_id)
+    {
+        $sql = 'SELECT nb_copy FROM books WHERE id=:book_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(['book_id' => $book_id]);
+        return $pdost->fetch();
+    }
+
+    private function getReservedInfoFromBooks($book_id)
+    {
+
+        $sql = 'SELECT reserved_from,reserved_to FROM book_reserved WHERE book_id=:book_id';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(['book_id' => $book_id]);
+        return $pdost->fetchAll();
     }
 
     public function reserveBook($obj)
@@ -457,23 +477,6 @@ class Book extends Model implements BookRepositoryInterface
 
     }
 
-    private function getNbCopyOfCopyOfBook($book_id)
-    {
-        $sql = 'SELECT nb_copy FROM books WHERE id=:book_id';
-        $pdost = $this->cx->prepare($sql);
-        $pdost->execute(['book_id' => $book_id]);
-        return $pdost->fetch();
-    }
-
-    private function getReservedInfoFromBooks($book_id)
-    {
-
-        $sql = 'SELECT reserved_from,reserved_to FROM book_reserved WHERE book_id=:book_id';
-        $pdost = $this->cx->prepare($sql);
-        $pdost->execute(['book_id' => $book_id]);
-        return $pdost->fetchAll();
-    }
-
     public function getReservedInfo($Reserved_id)
     {
 
@@ -481,14 +484,6 @@ class Book extends Model implements BookRepositoryInterface
         $pdost = $this->cx->prepare($sql);
         $pdost->execute([':Reserved_id' => $Reserved_id]);
         return $pdost->fetch();
-    }
-
-    private function newAuthorBook($author_id, $book_id)
-    {
-        $sql = "INSERT INTO author_book(author_id, book_id)
-                VALUES (" . $author_id . ' , ' . $book_id . ' )';
-        $this->cx->query($sql);
-
     }
 
 

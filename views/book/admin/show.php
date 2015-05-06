@@ -3,14 +3,17 @@
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/main_nav_admin.php'); ?>
     <div class="functions">
-        <a class="delete-book_btn" href="<?php echo($html->createLink('book', 'admin_delete_book',['id' => $book->book_id])); ?>"
+        <a class="delete-book_btn"
+           href="<?php echo($html->createLink('book', 'admin_delete_book', ['id' => $book->book_id])); ?>"
            title="Ajouter un livre">Supprimer le livre</a>
-        <a class="edit-book_btn" href="<?php echo($html->createLink('book', 'admin_edit_book', ['id' => $book->book_id])); ?>"
+        <a class="edit-book_btn"
+           href="<?php echo($html->createLink('book', 'admin_edit_book', ['id' => $book->book_id])); ?>"
            title="Ajouter un livre">Modifier le livre</a>
         <a class="back-btn" href="<?php echo($html->createLink('book', 'admin_index')); ?>"
            title="Ajouter un livre">Retour à l'administartion</a>
     </div>
     <h1 class="header-block-one "><?php echo($book->title); ?></h1>
+
     <div>
         <a class="float_left" href="#"><img
                 src="./img/books_covers/<?php echo($book->front_cover); ?>.jpg"

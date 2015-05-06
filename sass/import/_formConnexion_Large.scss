@@ -16,12 +16,15 @@
 .header-main__form-connexion:hover .header-main__form-connexion__userLog {
   top: 80px;
 }
-.header-main.scroll:hover .header-main__form-connexion__userLog{
-  top:66px;
+
+.header-main.scroll:hover .header-main__form-connexion__userLog {
+  top: 66px;
 }
-.header-main__form-connexion .header-main__nav__nav_items.hover+.header-main__form-connexion__userLog {
+
+.header-main__form-connexion .header-main__nav__nav_items.hover + .header-main__form-connexion__userLog {
   top: 80px;
 }
-.header-main.scroll .header-main__nav__nav_items.hover+.header-main__form-connexion__userLog{
-  top:66px;
+
+.header-main.scroll .header-main__nav__nav_items.hover + .header-main__form-connexion__userLog {
+  top: 66px;
 }

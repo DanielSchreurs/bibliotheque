@@ -10,7 +10,7 @@ $current = $data['currentPage'];
         </li>
     <?php endif; ?>
     <?php for ($i = 1; $i <= $c; $i++): ?>
-        <?php if ($c > 3 && $i==$c): ?>
+        <?php if ($c > 3 && $i == $c): ?>
             <li class="site-pagination__number"><span class="site-pagination__link"> ... </span></li>
         <?php endif; ?>
         <li class="site-pagination__number">

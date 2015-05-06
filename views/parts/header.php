@@ -1,8 +1,8 @@
-<?php use \Components\Session; ?>
+<?php use Components\Session; ?>
 <header class="header-main">
     <a class="header-main__box-logo" href="<?php echo($_SERVER['PHP_SELF']) ?>" title="<?php echo(TITLE); ?>">
         <svg version="1.1"
-             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             xmlns="http://www.w3.org/2000/svg"
              x="0px" y="0px" width="132.9px" height="27.6px" viewBox="0 0 44.3 9.2" enable-background="new 0 0 44.3 9.2"
              xml:space="preserve"
             >
@@ -50,7 +50,7 @@
 
             <div class="header-main__form-connexion__userLog">
                 <?php if (!Session::isUserLogged() && $controller->view != 'user/create.php' && $controller->view != 'user/forgot.php'): ?>
-                    <form action="<?php echo($html->createLink('user','login')); ?>" method="post"
+                    <form action="<?php echo($html->createLink('user', 'login')); ?>" method="post"
                           id="connexion"
                         >
                         <fieldset>
@@ -65,7 +65,8 @@
                             <div>
                                 <label class="smallInfo" for="remember">Rester connceter</label>
                                 <input type="checkbox" name="remember" value="remember" id="remember"/>
-                                <a href="<?php echo($html->createLink('user','forgot')) ?>" class="smallInfo">Oublié le mot de passe ?</a>
+                                <a href="<?php echo($html->createLink('user', 'forgot')) ?>" class="smallInfo">Oublié le
+                                    mot de passe ?</a>
                             </div>
                             <a href="<?php echo($html->createLink('user', 'create')); ?>" class="btnVert">S’inscrire</a>
                             <input class="btnVert" type="submit" value="Se connecter">
@@ -75,11 +76,12 @@
                 <?php if (Session::isUserLogged()): ?>
                     <a href="<?php echo($html->createLink('user', 'logout')); ?>" class="btnVert">Se
                         déconnecter</a>
-                        <?php if (Session::isAdmin()): ?>
+                    <?php if (Session::isAdmin()): ?>
                         <a href="<?php echo($html->createLink('book', 'admin_index')); ?>"
                            class="btnVert">Administration</a>
-                        <?php else: ?>
-                        <a href="<?php echo($html->createLink('user', 'user_userIndex',['id'=>isset($_SESSION['userId'])?$_SESSION['userId']:$_COOKIE['userId']])); ?>"
+                    <?php else: ?>
+                        <a href="<?php echo($html->createLink('user', 'user_userIndex',
+                            ['id' => isset($_SESSION['userId']) ? $_SESSION['userId'] : $_COOKIE['userId']])); ?>"
                            class="btnVert">Mes livres</a>
                     <?php endif; ?>
                 <?php endif; ?>

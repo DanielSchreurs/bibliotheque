@@ -19,5 +19,6 @@ interface EditorRepositoryInterface
     public function delete($editor_id);
 
     public function update($bookObj, $editor_id);
+
     public function create($bookObj);
 }

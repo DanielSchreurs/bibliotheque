@@ -6,33 +6,33 @@ use Components\Validator;
 class Editor extends Model implements EditorRepositoryInterface
 {
     use Validator;
-    protected $table = 'editors';
-    public $validationRules=[
-        'create_at'=>[
-            ['ruleName'=>'isDate'],
-            ['ruleName'=>'dateIsPast']
+    public $validationRules = [
+        'create_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
         ],
-        'update_at'=>[
-            ['ruleName'=>'isDate'],
-            ['ruleName'=>'dateIsPast']
+        'update_at' => [
+            ['ruleName' => 'isDate'],
+            ['ruleName' => 'dateIsPast']
         ],
-        'name'=>[
-            ['ruleName'=>'notEmpty','error'=>'Le nom de l’éditeur est obligatoire.']
+        'name' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le nom de l’éditeur est obligatoire.']
         ],
-        'website'=>[
-            ['ruleName'=>'notEmpty','error'=>'Le site de l’éditeur est obligatoire']
+        'website' => [
+            ['ruleName' => 'notEmpty', 'error' => 'Le site de l’éditeur est obligatoire']
         ],
-        'logo'=>[
-            ['ruleName'=>'isEmptyFile'],
-            ['ruleName'=>'isValidExtension']
+        'logo' => [
+            ['ruleName' => 'isEmptyFile'],
+            ['ruleName' => 'isValidExtension']
         ],
-        'logo_edit'=>[
-            ['ruleName'=>'isValidExtension']
+        'logo_edit' => [
+            ['ruleName' => 'isValidExtension']
         ],
-        'bio_text'=>[
-            ['ruleName'=>'notEmpty','error'=>'La description est obligatoire.']
+        'bio_text' => [
+            ['ruleName' => 'notEmpty', 'error' => 'La description est obligatoire.']
         ]
     ];
+    protected $table = 'editors';
 
     function __construct()
     {

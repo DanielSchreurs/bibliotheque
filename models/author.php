@@ -7,7 +7,6 @@ use Components\Validator;
 class Author extends Model implements AuthorRepositoryInterface
 {
     use Validator;
-    protected $table = 'authors';
     public $validationRules = [
         'create_at' => [
             ['ruleName' => 'isDate'],
@@ -50,6 +49,7 @@ class Author extends Model implements AuthorRepositoryInterface
             ['ruleName' => 'dateIsPast', 'error' => 'La date doit être dans le passé.']
         ]
     ];
+    protected $table = 'authors';
 
     function __construct()
     {

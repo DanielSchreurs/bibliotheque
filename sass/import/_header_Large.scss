@@ -8,7 +8,7 @@ header {
   border-bottom: 5px solid $myGray;
   background-color: #ffffff;
   padding: 1em percentage(175/1430);
-  &:after{
+  &:after {
     content: "";
     display: block;
     clear: both;
@@ -23,20 +23,24 @@ header {
   font-size: 22px;
   vertical-align: middle;
 }
+
 .header-main__box-logo {
   border: none;
-  padding:  0;
+  padding: 0;
   float: left;
   position: relative;
   top: 11px;
 }
-.header-main__nav{
+
+.header-main__nav {
   float: right;
 }
-.header-main.scroll{
+
+.header-main.scroll {
   background: rgba(255, 255, 255, 0.9);
 }
-.header-main.scroll{
+
+.header-main.scroll {
   padding: 0 12%;
 }
 
@@ -45,10 +49,12 @@ header {
   position: relative;
 
 }
-.header-main__nav{
+
+.header-main__nav {
   display: inline-block;
   vertical-align: middle;
 }
+
 .show_form_connexion:hover .header-main__form-connexion__userLog {
   top: 132px;
 }

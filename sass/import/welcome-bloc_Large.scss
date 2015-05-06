@@ -1,22 +1,24 @@
-.welcome-bloc{
+.welcome-bloc {
 
   padding: 9.375em percentage(175/1340) 7em;
   background: $grisClair;
   margin: 4em 0 3em;
-  &:hover{
-    .welcome-bloc__header{
-      -webkit-animation: goRight 2s ease ;
-      -moz-animation: goRight 2s ease ;
-      -o-animation: goRight 2s ease ;
-      animation: goRight 2s ease ;
+  &:hover {
+    .welcome-bloc__header {
+      -webkit-animation: goRight 2s ease;
+      -moz-animation: goRight 2s ease;
+      -o-animation: goRight 2s ease;
+      animation: goRight 2s ease;
     }
   }
 
 }
-.welcome-bloc__header{
+
+.welcome-bloc__header {
   position: relative;
 
 }
-.welcome-bloc__sub-heading{
+
+.welcome-bloc__sub-heading {
 
 }

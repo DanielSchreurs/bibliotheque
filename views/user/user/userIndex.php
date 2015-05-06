@@ -11,7 +11,7 @@
         <h2 class="header-block-one">
             <?php if (isset($books[1])): ?>
                 Vos livres réservés
-                <?php else: ?>
+            <?php else: ?>
                 Votre livre réservé
             <?php endif; ?>
         </h2>
@@ -29,8 +29,13 @@
                         ['id' => $book->book_id])); ?>"><?php echo($book->title); ?></a></h3>
 
                 <p class="book-presentation__text"><?php echo($html->cutText($book->summary, 200)); ?></p>
-                <p class="book-presentation__container__date"><time class="book-presentation__date"> Du <?php echo($html->dateToSTring($book->reserved_from)); ?></time>
-                    <time class="book-presentation__date">Au <?php echo($html->dateToSTring($book->reserved_to)); ?></time></p>
+
+                <p class="book-presentation__container__date">
+                    <time class="book-presentation__date">
+                        Du <?php echo($html->dateToSTring($book->reserved_from)); ?></time>
+                    <time class="book-presentation__date">
+                        Au <?php echo($html->dateToSTring($book->reserved_to)); ?></time>
+                </p>
                 <a class="book-presentation__btn-link" title="Renvoie vers la fiche du livre"
                    href="<?php echo($html->createLink('book', 'user_UpdateReserve',
                        ['id' => $book->book_reserved_id])); ?>">Modifier</a>

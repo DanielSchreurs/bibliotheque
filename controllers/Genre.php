@@ -59,7 +59,7 @@ class Genre extends Base
             $this->errors = $this->modelGenre->validate($this->request->sent, $_FILES);
             if ($this->modelGenre->isValid()) {
                 var_dump($this->request->sent);
-                $this->modelGenre->update($this->request->sent,$this->request->id);
+                $this->modelGenre->update($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, ce genre a été modifié avec succès');
                 header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step) ? '?m=book&a=admin_create_book&step=4' : '?m=genre&a=admin_index_genre'));
             } else {

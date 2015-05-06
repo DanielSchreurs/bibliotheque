@@ -2,16 +2,17 @@
   padding: 1em 0;
   padding-bottom: 4em;
 }
-.main-nav__item,.main-nav__item--small{
+
+.main-nav__item, .main-nav__item--small {
   display: block;
-  padding:.5em percentage(20/300);
+  padding: .5em percentage(20/300);
   color: $myGray;
   font-size: 20px;
   letter-spacing: .01em;
-  &:first-letter{
+  &:first-letter {
     text-transform: uppercase;
   }
-  &:after{
+  &:after {
     content: "";
     display: block;
     width: 0;
@@ -23,7 +24,7 @@
     -o-transition: all .3s;
     transition: all .3s;
   }
-  &:hover:after{
+  &:hover:after {
     width: 100%;
   }
 }

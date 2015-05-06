@@ -10,11 +10,12 @@
     $step = $data['data']['step'];
     ?>
     <form class="form-create form-create--large"
-          action="<?php echo($html->createLink('user','forgot'));?>"
-          method="post" >
+          action="<?php echo($html->createLink('user', 'forgot')); ?>"
+          method="post">
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
-        <label for="<?php switch ($step): case 1: ?>username<?php break; ?><?php case 2: ?>answer<?php break; ?><?php case 3: ?>password<?php break; ?>
+        <label
+            for="<?php switch ($step): case 1: ?>username<?php break; ?><?php case 2: ?>answer<?php break; ?><?php case 3: ?>password<?php break; ?>
                 <?php endswitch; ?>">
             <?php switch ($step): case 1: ?>Votre identifiant<?php break; ?>
             <?php case 2: ?>Répondre à&nbsp;: <?php echo($data['data']['question']); ?><?php break; ?>
@@ -38,7 +39,7 @@
                 <?php case 3: ?>Votre mot de passe<?php break; ?>
                 <?php endswitch; ?>"
                title="Introduisez le genre"/>
-        <?php if($step==3): ?>
+        <?php if ($step == 3): ?>
             <div class="form-create__example-box">
                 <div class="form-create__example-box__text">
                     <p>Ici vous devez insérer votre mot de passe. Avec&nbsp;:</p>
@@ -46,7 +47,9 @@
                         <li class="form-create__example-box__order-liste__item">Une lettre non accentuée majuscule</li>
                         <li class="form-create__example-box__order-liste__item">Une lettre non accentuée minuscule</li>
                         <li class="form-create__example-box__order-liste__item">Un chiffre minimum</li>
-                        <li class="form-create__example-box__order-liste__item">Et doit-être compris entre 8 et 20 caractère.</li>
+                        <li class="form-create__example-box__order-liste__item">Et doit-être compris entre 8 et 20
+                            caractère.
+                        </li>
                     </ol>
                 </div>
             </div>

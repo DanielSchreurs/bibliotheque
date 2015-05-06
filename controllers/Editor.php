@@ -12,6 +12,7 @@ use Models\EditorRepositoryInterface as EditorRepository;
 class Editor extends Base
 {
     private $errors = null;
+
     function __construct(Request $request, EditorRepository $modelEditor)
     {
         parent::__construct($request);
@@ -69,7 +70,7 @@ class Editor extends Base
                     $this->request->sent->logo = $data['editor']->logo;
                 }
                 die('ok on envoie');
-                
+
                 $this->modelEditor->update($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, l’éditeur a été mis à jour');
                 header('Location:' . $_SERVER['PHP_SELF'] . '?m=editor&a=admin_index_editor');
@@ -87,7 +88,7 @@ class Editor extends Base
 
     public function admin_create_editor()
     {
-        $data='';
+        $data = '';
         if (isset($this->request->step)) {
             $data['step'] = $this->request->step;
 
@@ -101,7 +102,7 @@ class Editor extends Base
             }
 
             if ($this->modelEditor->isValid()) {
-                $this->request->sent->logo = Image::renameFileName($this->request->sent->name,$_FILES['logo']);
+                $this->request->sent->logo = Image::renameFileName($this->request->sent->name, $_FILES['logo']);
                 Image::saveAs($_FILES['logo'], './img/editors_logos/', $this->request->sent->logo);
                 $this->modelEditor->create($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, l’éditeur a été ajouté avec succès.');

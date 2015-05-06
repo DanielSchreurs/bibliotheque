@@ -1,8 +1,8 @@
-<?php use \Components\Session; ?>
+<?php ?>
 <header class="header-main">
     <a class="header-main__box-logo" href="<?php echo($_SERVER['PHP_SELF']) ?>" title="<?php echo(TITLE); ?>">
         <svg version="1.1"
-             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             xmlns="http://www.w3.org/2000/svg"
              x="0px" y="0px" width="132.9px" height="27.6px" viewBox="0 0 44.3 9.2" enable-background="new 0 0 44.3 9.2"
              xml:space="preserve"
             >
@@ -44,5 +44,5 @@
         <a class="header-main__nav__nav_items" href="<?php echo($html->createLink('user', 'logout')); ?>"
            title="Se déconnecter">Déconnecter</a>
 
-      </div>
+    </div>
 </header>

@@ -13,11 +13,12 @@
     <form class="form-create form-create--large"
           action="
                     <?php if (isset($data['data']['step'])): ?>
-                        <?php echo($html->createLink('genre', 'admin_create_genre',['step'=>$data['data']['step']])); ?>
+                        <?php echo($html->createLink('genre', 'admin_create_genre',
+              ['step' => $data['data']['step']])); ?>
                     <?php else: ?>
                         <?php echo($html->createLink('genre', 'admin_create_genre')); ?>
                     <?php endif; ?>
-          " method="post" >
+          " method="post">
         <p class="form-create__infos"> Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
         <input name="create_at" value="<?php echo(date("Y-m-d")); ?>" type="hidden"/>
@@ -35,6 +36,8 @@
                 <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <input type="submit" value="<?php echo(isset($data['data']['step'])?'Passer à l’étape suivante':'Ajouter un genre'); ?>" class="btnVert"/>
+        <input type="submit"
+               value="<?php echo(isset($data['data']['step']) ? 'Passer à l’étape suivante' : 'Ajouter un genre'); ?>"
+               class="btnVert"/>
     </form>
 </main>

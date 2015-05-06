@@ -48,7 +48,6 @@ class Html
             'novembre',
             'décembre'
         ];
-
         return date('j', $date) . ' ' . $mois[date('m', $date) - 1] . ' ' . date('Y', $date);
 
 

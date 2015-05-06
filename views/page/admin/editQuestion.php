@@ -9,7 +9,8 @@
     $data = $data['data']['data'];
     ?>
     <form class="form-create form-create--large"
-          action="<?php echo($html->createLink('page', 'admin_editQuestion',['id'=>$data->question_id])); ?>" method="post">
+          action="<?php echo($html->createLink('page', 'admin_editQuestion', ['id' => $data->question_id])); ?>"
+          method="post">
         <p class="form-create__infos">Les champs précédés d’un <strong
                 class="form-create--obligatoire">(*)</strong> sont obligatoires!</p>
         <input name="user_id" type="hidden"
@@ -21,6 +22,7 @@
        <textarea class="form-create__long-text" id="question" name="question" cols="30" rows="10">
            <?php echo(isset($errors['question']) || $_GET ? $data->question : $sent->question); ?>
        </textarea>
+
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Ici vous pouvez modifier la question.</p>
         </div>
@@ -40,7 +42,8 @@
             </div>
             <?php if (isset($errors['answer'])): ?>
                 <?php foreach ($errors['answer'] as $error): ?>
-                    <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
+                    <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span>
+                    </p>
                 <?php endforeach; ?>
             <?php endif; ?>
         <?php endif; ?>

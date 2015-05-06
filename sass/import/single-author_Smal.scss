@@ -1,13 +1,15 @@
-.single-author{
+.single-author {
   padding: 1em percentage(30/300);
 }
-.single-author__figure{
+
+.single-author__figure {
   position: relative;
   display: block;
   float: left;
   margin: 0 percentage(30/300) 1em 0;
 }
-.single-author__figure__header{
+
+.single-author__figure__header {
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
   color: #ffffff;
@@ -16,10 +18,11 @@
   right: 0;
   padding: .5em percentage(30/300);
   font-size: 2.5em;
-  a{
+  a {
     color: #ffffff;
   }
 }
-.single-author__text{
+
+.single-author__text {
   width: 100%;
 }

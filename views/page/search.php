@@ -3,7 +3,8 @@
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <?php if (empty($data['data']['books']) && empty($data['data']['authors']) && empty($data['data']['editors'])): ?>
-        <h1  class=" header-block-one error">Nous n'avons pas trouvé de résultats pour : <?php echo($data['title']); ?></h1>
+        <h1 class=" header-block-one error">Nous n'avons pas trouvé de résultats pour
+            : <?php echo($data['title']); ?></h1>
         <a class="btnVert" href="<?php echo($_SERVER['PHP_SELF']); ?>"
            title="Vous renvois vers la page d'acceuil"> Retour à la page d'acceuil</a>
     <?php else: ?>

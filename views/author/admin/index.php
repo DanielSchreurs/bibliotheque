@@ -4,6 +4,7 @@
         <a class="create-book_btn float_left" href="<?php echo($html->createLink('author', 'admin_create_author')); ?>"
            title="Ajouter un auteur">Ajouter
             un Auteur</a>
+
         <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
     </div>
     <?php include(VIEW_DIR . '/parts/main_nav_admin.php'); ?>
@@ -29,8 +30,9 @@
                 <td><?php echo($author->first_name); ?></td>
                 <td><?php echo($author->datebirth); ?></td>
                 <td><?php echo($author->datedeath); ?></td>
-                <td><?php echo($html->cutText($author->bio_text,100)); ?></td>
-                <td><a href="<?php echo($html->createLink('author', 'admin_show_author', ['id' => $author->author_id])); ?>"
+                <td><?php echo($html->cutText($author->bio_text, 100)); ?></td>
+                <td><a href="<?php echo($html->createLink('author', 'admin_show_author',
+                        ['id' => $author->author_id])); ?>"
                        class="svg-btn--absolute" title="Supprimer ce livre">
                         <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
                         <svg version="1.1"
@@ -53,7 +55,8 @@
 </svg>
 
                     </a></td>
-                <td><a href="<?php echo($html->createLink('author', 'admin_edit_author', ['id' => $author->author_id])); ?>"
+                <td><a href="<?php echo($html->createLink('author', 'admin_edit_author',
+                        ['id' => $author->author_id])); ?>"
                        class="svg-btn--absolute" title="Editer ce livre">
                         <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
                         <svg version="1.1"

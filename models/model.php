@@ -11,13 +11,21 @@ class model implements ModelRepositoryInterface
         global $options;
         //Je me connecte au SGBD
         try {
-            $this->cx= new \PDO(DSN,USERNAME,PASSWORD,$options);
+            $this->cx = new \PDO(DSN, USERNAME, PASSWORD, $options);
             $this->cx->query('SET CHARACTER SET UTF8');
             $this->cx->query('SET NAMES UTF8');
         } catch (\PDOException $e) {
             die($e->getMessage());
         }
         $this->table = $table;
+    }
+
+    public function searchAll(Array $research)
+    {
+        foreach ($research as $table => $info) {
+            $resultats[$table] = $this->search($table, $info['get'], $info['where'], $info['what']);
+        }
+        return $resultats;
     }
 
     public function search($table, $get, Array $where, $what)
@@ -32,14 +40,6 @@ class model implements ModelRepositoryInterface
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
 
-    }
-
-    public function searchAll(Array $research)
-    {
-        foreach ($research as $table => $info) {
-            $resultats[$table] = $this->search($table, $info['get'], $info['where'], $info['what']);
-        }
-        return $resultats;
     }
 
     public function all()

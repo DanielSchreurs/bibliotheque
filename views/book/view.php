@@ -5,15 +5,22 @@ $book = $data['data']['data'];
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-        <h1 class="header-block-one "><?php echo($book->title); ?></h1>
+    <h1 class="header-block-one "><?php echo($book->title); ?></h1>
+
     <div>
-        <a class="float_left book-book" href="<?php echo($html->createLink('book', 'user_reserve', ['id' => $book->book_id])); ?>" title="Réserver <?php echo($book->title); ?>"><img
+        <a class="float_left book-book"
+           href="<?php echo($html->createLink('book', 'user_reserve', ['id' => $book->book_id])); ?>"
+           title="Réserver <?php echo($book->title); ?>"><img
                 src="./img/books_covers/<?php echo($book->front_cover); ?>"
-                alt="première du <?php echo($book->title); ?>" width="300" height="450" class="book-book__img"><p class="book-book__text inline-link">Réserver</p></a>
+                alt="première du <?php echo($book->title); ?>" width="300" height="450" class="book-book__img">
+
+            <p class="book-book__text inline-link">Réserver</p></a>
 
         <p class="column"><?php echo($book->summary); ?> </p>
-        <?php if($data['data']['isDispo']): ?>
-        <a class="btnVert btnVert--block" href="<?php echo($html->createLink('book','user_reserve',['id'=>$book->book_id])) ?>">Réserver ce livre</a>
+        <?php if ($data['data']['isDispo']): ?>
+            <a class="btnVert btnVert--block"
+               href="<?php echo($html->createLink('book', 'user_reserve', ['id' => $book->book_id])) ?>">Réserver ce
+                livre</a>
         <?php endif; ?>
         <dl class="info_Livre clearfix">
             <dt>Auteur</dt>

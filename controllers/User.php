@@ -3,10 +3,9 @@
 namespace Controllers;
 
 use Components\Session;
-use Helpers\Server;
 use Helpers\validate;
-use Models\UserRepositoryInterface as UserRepository;
 use Models\BookRepositoryInterface as BookRepository;
+use Models\UserRepositoryInterface as UserRepository;
 
 class User extends Base
 {
@@ -114,7 +113,6 @@ class User extends Base
 
     public function forgot()
     {
-        var_dump($_SESSION);
         $title = 'Réinitialiser son mot de passe';
         $_SESSION['step'] = isset($_SESSION['step']) ? $_SESSION['step'] : 1;
         $data['step'] = $_SESSION['step'];
@@ -141,14 +139,14 @@ class User extends Base
                         $this->request->sent->answer));
                     if (!empty($user)) {
                         $_SESSION['step'] = 3;
-                        $_SESSION['forgotId']=$user->id;
+                        $_SESSION['forgotId'] = $user->id;
                     } else {
                         $_SESSION['step'] = 2;
-                        $data['question']= $_SESSION['question'];
+                        $data['question'] = $_SESSION['question'];
                         $this->modelUser->errors['answer'][] = 'Ce n’est pas la bonne réponse.';
                     }
-                }elseif($_SESSION['step'] == 3){
-                    $this->modelUser->resetPasseword($this->request->sent->password,$_SESSION['forgotId']);
+                } elseif ($_SESSION['step'] == 3) {
+                    $this->modelUser->resetPasseword($this->request->sent->password, $_SESSION['forgotId']);
                     unset($_SESSION['question']);
                     unset($_SESSION['forgotId']);
                     unset($_SESSION['step']);

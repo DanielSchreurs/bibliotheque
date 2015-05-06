@@ -13,7 +13,8 @@
     <form class="form-create form-create--large"
           action="
                     <?php if (isset($data['data']['step'])): ?>
-                        <?php echo($html->createLink('editor', 'admin_create_editor',['step'=>$data['data']['step']])); ?>
+                        <?php echo($html->createLink('editor', 'admin_create_editor',
+              ['step' => $data['data']['step']])); ?>
                     <?php else: ?>
                          <?php echo($html->createLink('editor', 'admin_create_editor')); ?>
                     <?php endif; ?>
@@ -46,8 +47,12 @@
                value="<?php echo(isset($errors['website']) || $_GET ? '' : $sent->website); ?>"
                placeholder="http://www.livredepoche.com"
                title="Introduisez le titre de votre livre"/>
+
         <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Vous devez insérer l'url du site officiel de la maison d'édition. Quelque chose comme ceci:&nbsp;<bold>&nbsp;&laquo;https://www.nomDuSite.be&nbsp;&raquo;.</bold></p>
+            <p class="form-create__example-box__text">Vous devez insérer l'url du site officiel de la maison d'édition.
+                Quelque chose comme ceci:&nbsp;
+                <bold>&nbsp;&laquo;https://www.nomDuSite.be&nbsp;&raquo;.</bold>
+            </p>
         </div>
         <?php if (isset($errors['website'])): ?>
             <?php foreach ($errors['website'] as $error): ?>
@@ -58,8 +63,10 @@
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput" type="file" name="logo" id="logo"
                title="Chargez le couverture de votre livre"/>
+
         <div class="form-create__example-box">
-            <p class="form-create__example-box__text">Vous devez insérer une image au format (.png) et qui fait 200 pixel de large et 200 pixel de haut.</p>
+            <p class="form-create__example-box__text">Vous devez insérer une image au format (.png) et qui fait 200
+                pixel de large et 200 pixel de haut.</p>
         </div>
         <?php if (isset($errors['logo'])): ?>
             <?php foreach ($errors['logo'] as $error): ?>
@@ -75,6 +82,8 @@
                 <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <input type="submit" value="<?php echo(isset($data['data']['step'])?'Passer à l’étape suivante':'Ajouter un éditeur'); ?>" class="btnVert"/>
+        <input type="submit"
+               value="<?php echo(isset($data['data']['step']) ? 'Passer à l’étape suivante' : 'Ajouter un éditeur'); ?>"
+               class="btnVert"/>
     </form>
 </main>

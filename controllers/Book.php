@@ -109,8 +109,10 @@ class Book extends Base
             if ($this->modelBook->isValid()) {
                 if (!empty($_FILES['front_cover_edit']['name'])) {
                     $this->request->sent->front_cover_edit = Image::renameFileName('book');
-                    $this->request->sent->front_cover_presentation_edit = Image::renameFileName('book', '_presentation_cover');
-                    Image::saveAs($_FILES['front_cover_edit'], './img/books_covers/', $this->request->sent->front_cover_edit);
+                    $this->request->sent->front_cover_presentation_edit = Image::renameFileName('book',
+                        '_presentation_cover');
+                    Image::saveAs($_FILES['front_cover_edit'], './img/books_covers/',
+                        $this->request->sent->front_cover_edit);
                     Image::saveAs($_FILES['front_cover_presentation_edit'], './img/books_covers/presentation/',
                         $this->request->sent->presentation_cover);
                 } else {
@@ -139,6 +141,7 @@ class Book extends Base
             'title' => $title
         ];
     }
+
     public function admin_index()
     {
         $title = 'Administrer les livres, en quelques clicks';
@@ -209,6 +212,7 @@ class Book extends Base
             'title' => $title
         ];
     }
+
     public function admin_delete_book()
     {
         if ($this->modelBook->delete($this->request->id)) {

@@ -16,6 +16,7 @@ interface AuthorRepositoryInterface
     function find($id);
 
     function getAuthor($id);
+
     function books($id);
 
     public function getAuthorMonth();

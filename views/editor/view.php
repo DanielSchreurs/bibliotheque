@@ -4,11 +4,13 @@
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <h1 class="header-block-one"><?php echo($editor->editor_name); ?></h1>
+
     <div class="threeColumnBlock">
         <img
-            src="./img/editors_logos/<?php echo($editor->editor_logo); ?>.png"
-            alt="photo de  <?php echo($editor->editor_logo); ?>" width="200"
+            src="./img/editors_logos/<?php echo($editor->editor_logo); ?>"
+            alt="photo de  <?php echo($editor->editor_logo);?>" width="200"
             height="200">
+
         <p class="">
             <?php echo($editor->bio_text); ?>
         </p>

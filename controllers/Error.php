@@ -19,8 +19,8 @@ class Error extends Base
 
         $data['view'] = 'error.php';
 
-        if($this->request->error==404){
-            $data['title']='Oups, vous semblez demander une page qui n’existe pas.';
+        if ($this->request->error == 404) {
+            $data['title'] = 'Oups, vous semblez demander une page qui n’existe pas.';
         }
 
         return $data;

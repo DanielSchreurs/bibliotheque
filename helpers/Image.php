@@ -70,11 +70,11 @@ class Image
         imagejpeg($image_p, $chemin . $name, 100);
     }
 
-    public static function renameFileName($old,$image = null,$add='')
+    public static function renameFileName($old, $image = null, $add = '')
     {
         $extension = $image !== null ? '.' . explode('.', $image['name'])[1] : null;
         return strtolower(str_replace(' ', '_', $old)) . $add . rand(99999999999999999,
-            999999999999999999999999).($image !== null ? $extension:'');
+            999999999999999999999999) . ($image !== null ? $extension : '');
     }
 
 }

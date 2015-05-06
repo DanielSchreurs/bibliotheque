@@ -17,14 +17,17 @@
   }
   margin-bottom: 3em;
 }
-.form-create-user--happy{
+
+.form-create-user--happy {
   font-size: 26px;
   color: forestgreen;
 }
-.form-create__long-text{
+
+.form-create__long-text {
   resize: vertical;
 }
-.form-create__simple-imput{
+
+.form-create__simple-imput {
   display: block;
   width: 100%;
   font-size: 21px;
@@ -34,7 +37,8 @@
   border-radius: 5px;
   border: 1px solid $myGray;
 }
-.form-create__message--error{
+
+.form-create__message--error {
   position: relative;
   margin: 1em 0;
   padding-left: percentage(30/300);
@@ -43,13 +47,16 @@
   font-size: .625em;
   border-radius: .3em;
 }
-.form-create__message--error+.form-create__message--error{
+
+.form-create__message--error + .form-create__message--error {
   margin-top: 1em;
 }
-.form-create__message--info+.form-create__message--info{
+
+.form-create__message--info + .form-create__message--info {
   margin-top: 1em;
 }
-.form-create__message--info{
+
+.form-create__message--info {
   position: relative;
   margin: 1em 0;
   padding-left: percentage(30/300);
@@ -58,21 +65,25 @@
   font-size: .625em;
   border-radius: .3em;
 }
-.form-create__example-box__text{
+
+.form-create__example-box__text {
   color: $myGray;
   -webkit-border-radius: .3em;
   -moz-border-radius: .3em;
   border-radius: .3em;
   background: rgba(222, 222, 222, 0.47);
 }
-.form-create__example-box__order-liste{
+
+.form-create__example-box__order-liste {
   list-style-type: decimal;
   list-style-position: inside;
 
 }
-.form-create__example-box__order-liste__item{
+
+.form-create__example-box__order-liste__item {
   margin-bottom: 1em;
 }
-.form-create__infos{
+
+.form-create__infos {
   margin-bottom: 2em;
 }

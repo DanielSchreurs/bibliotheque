@@ -32,11 +32,11 @@
     cursor: pointer;
   }
   .ouvrir:before {
-    content: "\e990";
+    content: "\e601";
     margin-right: 5px;
   }
   .fermer:before {
-    content: "\e601";
+    content: "\e990";
     margin-right: 5px;
 
   }
@@ -69,9 +69,10 @@
 .form-create__infos {
   //margin-bottom: 2em;
 }
-.form-create__infos+.form-create__infos {
+
+.form-create__infos + .form-create__infos {
   margin-bottom: 2em;
-  svg{
+  svg {
     position: relative;
     top: 10px;
   }
@@ -93,13 +94,13 @@
   margin-bottom: 1em;
 }
 
-.form-create--large{
+.form-create--large {
   .form-create__message--error {
     left: percentage(388/660);
   }
 }
 
-.form-create--large{
+.form-create--large {
   .form-create__message--info {
     left: percentage(388/660);
   }
@@ -148,16 +149,19 @@ label:hover {
   }
 
 }
-.form-create__example-box{
+
+.form-create__example-box {
   position: relative;
 
 }
-.form-create--large .form-create__example-box__text{
-  right:-(percentage(424/660));
+
+.form-create--large .form-create__example-box__text {
+  right: -(percentage(424/660));
 
 }
-.form-create__example-box__text{
-  right:-(percentage(369/560));
+
+.form-create__example-box__text {
+  right: -(percentage(369/560));
   width: percentage(300/660);
   position: absolute;
   top: -67px;
@@ -170,23 +174,26 @@ label:hover {
   transition: .3s;
 }
 
-input:hover+.form-create__example-box{
-  .form-create__example-box__text{
+input:hover + .form-create__example-box {
+  .form-create__example-box__text {
     opacity: 1;
   }
 }
-textarea:hover+.form-create__example-box{
-  .form-create__example-box__text{
+
+textarea:hover + .form-create__example-box {
+  .form-create__example-box__text {
     opacity: 1;
   }
 }
-label:hover+input+.form-create__example-box{
-  .form-create__example-box__text{
+
+label:hover + input + .form-create__example-box {
+  .form-create__example-box__text {
     opacity: 1;
   }
 }
-label:hover+textarea+.form-create__example-box{
-  .form-create__example-box__text{
+
+label:hover + textarea + .form-create__example-box {
+  .form-create__example-box__text {
     opacity: 1;
   }
 }

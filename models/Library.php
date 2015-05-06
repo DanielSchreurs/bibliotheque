@@ -36,7 +36,7 @@ class Library extends Model implements LibraryRepositoryInterface
               director
               FROM librarys where id=:id_library';
         $pdost = $this->cx->prepare($sql);
-        $pdost->execute([':id_library'=>$id_library]);
+        $pdost->execute([':id_library' => $id_library]);
         return $pdost->fetch();
     }
 }

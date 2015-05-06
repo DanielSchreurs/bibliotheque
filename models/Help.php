@@ -11,7 +11,6 @@ use Components\Validator;
 class Help extends Model implements HelpRepositoryInterface
 {
     use Validator;
-    protected $table = 'help';
     public $validationRules = [
         'create_at' => [
             ['ruleName' => 'isDate'],
@@ -34,6 +33,7 @@ class Help extends Model implements HelpRepositoryInterface
             ['ruleName' => 'isValidId']
         ]
     ];
+    protected $table = 'help';
 
     function __construct()
     {
@@ -58,6 +58,7 @@ class Help extends Model implements HelpRepositoryInterface
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
+
     function getQuestionAndAnswer($question_id)
     {
         $sql = '
@@ -75,7 +76,7 @@ class Help extends Model implements HelpRepositoryInterface
             WHERE  questions.id=:question_id
             ORDER BY question_id DESC';
         $pdost = $this->cx->prepare($sql);
-        $pdost->execute([':question_id'=>$question_id]);
+        $pdost->execute([':question_id' => $question_id]);
         return $pdost->fetch();
     }
 
@@ -92,6 +93,7 @@ class Help extends Model implements HelpRepositoryInterface
         $pdost->execute(['id_question' => $id_question]);
         return $pdost->fetch();
     }
+
     public function getAnswer($id_question)
     {
         $sql = '
@@ -128,6 +130,7 @@ class Help extends Model implements HelpRepositoryInterface
             ]
         );
     }
+
     public function createQuestion($oQuestion)
     {
         $sql = 'INSERT INTO questions
@@ -143,6 +146,7 @@ class Help extends Model implements HelpRepositoryInterface
             ]
         );
     }
+
     public function updateQuestion($oQuestion)
     {
         $sql = 'UPDATE questions
@@ -159,6 +163,7 @@ class Help extends Model implements HelpRepositoryInterface
             ]
         );
     }
+
     public function updateAnswer($oAnswer)
     {
 
@@ -177,6 +182,7 @@ class Help extends Model implements HelpRepositoryInterface
             ]
         );
     }
+
     public function deleteQuestion($question_id)
     {
         $this->deleteAnswer($question_id);
@@ -189,6 +195,7 @@ class Help extends Model implements HelpRepositoryInterface
             ]
         );
     }
+
     public function deleteAnswer($question_id)
     {
 

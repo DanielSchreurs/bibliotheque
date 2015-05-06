@@ -69,7 +69,7 @@ table {
   src: url("fonts/icomoon.eot"); }
 @font-face {
   font-family: 'icomoon';
-  src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg8SBzoAAAC8AAAAYGNtYXADcLcCAAABHAAAAFxnYXNwAAAAEAAAAXgAAAAIZ2x5Zh9VmekAAAGAAAABQGhlYWQF0/97AAACwAAAADZoaGVhB8IDyAAAAvgAAAAkaG10eA4AAEAAAAMcAAAAHGxvY2EAtAEMAAADOAAAABBtYXhwAAoAKgAAA0gAAAAgbmFtZVcZpu4AAANoAAABRXBvc3QAAwAAAAAEsAAAACAAAwQAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADqEAPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEAEgAAAAOAAgAAgAGAAEAIOYB6ZDqEP/9//8AAAAAACDmAemQ6hD//f//AAH/4xoDFnUV9gADAAEAAAAAAAAAAAAAAAAAAAABAAH//wAPAAEAAAAAAAAAAAACAAA3OQEAAAAAAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAIAQP/AA8ADwAAdACcAAAUhIiY1ETQ2OwE1ND4CMzIeAh0BMzIWFREUBiMDNCYjIgYdASE1A6D8wA0TEw1gMld1QkJ1VzJgDRMTDeBwUFBwAYBAEw0CAA0TgEJ1VzIyV3VCgBMN/gANEwLQSWdnSZCQAAAAAQAA/8ADwAOAACQAAAEyFh0BIzU0JisBIgYdATMyFhURFAYjISImNRE0NjMhNTQ2OwEDAE9xgCYagBomEBQcHBT94BQcHBQBkHFPgAOAcU/AwBomJhrAHBT+IBQcHBQB4BQcwE9xAAABAAAAIAQAA0AABQAACQEnBwkBA2D+IOCgAYACgANA/iDgoP6AAoAAAQAAAAEAAPOkEahfDzz1AAsEAAAAAADRWl1/AAAAANFaXX8AAP/ABAADwAAAAAgAAgAAAAAAAAABAAADwP/AAAAEAAAAAAAEAAABAAAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAAAIAAAAEAABABAAAAAQAAAAAAAAAAAoAFAAeAFgAjACgAAEAAAAHACgAAgAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAOAK4AAQAAAAAAAQAOAAAAAQAAAAAAAgAOAEcAAQAAAAAAAwAOACQAAQAAAAAABAAOAFUAAQAAAAAABQAWAA4AAQAAAAAABgAHADIAAQAAAAAACgA0AGMAAwABBAkAAQAOAAAAAwABBAkAAgAOAEcAAwABBAkAAwAOACQAAwABBAkABAAOAFUAAwABBAkABQAWAA4AAwABBAkABgAOADkAAwABBAkACgA0AGMAaQBjAG8AbQBvAG8AbgBWAGUAcgBzAGkAbwBuACAAMQAuADAAaQBjAG8AbQBvAG8Abmljb21vb24AaQBjAG8AbQBvAG8AbgBSAGUAZwB1AGwAYQByAGkAYwBvAG0AbwBvAG4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format("truetype");
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAALAIAAAwAwT1MvMg8SBzoAAAC8AAAAYGNtYXDT59CrAAABHAAAAGRnYXNwAAAAEAAAAYAAAAAIZ2x5ZmEE+skAAAGIAAAB/GhlYWQF/gKbAAADhAAAADZoaGVhB8IDyQAAA7wAAAAkaG10eBIAAEAAAAPgAAAAIGxvY2EBsgFWAAAEAAAAABJtYXhwAA0ARwAABBQAAAAgbmFtZVcZpu4AAAQ0AAABRXBvc3QAAwAAAAAFfAAAACAAAwQAAZAABQAAApkCzAAAAI8CmQLMAAAB6wAzAQkAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAAAAAAAABAAADqEAPA/8AAQAPAAEAAAAABAAAAAAAAAAAAAAAgAAAAAAACAAAAAwAAABQAAwABAAAAFAAEAFAAAAAQABAAAwAAAAEAIOYB6ZDqDOoQ//3//wAAAAAAIOYB6ZDqDOoQ//3//wAB/+MaAxZ1FfoV9wADAAEAAAAAAAAAAAAAAAAAAAAAAAEAAf//AA8AAQAAAAAAAAAAAAIAADc5AQAAAAABAAAAAAAAAAAAAgAANzkBAAAAAAEAAAAAAAAAAAACAAA3OQEAAAAAAgBA/8ADwAPAAB0AJwAABSEiJjURNDY7ATU0PgIzMh4CHQEzMhYVERQGIwM0JiMiBh0BITUDoPzADRMTDWAyV3VCQnVXMmANExMN4HBQUHABgEATDQIADROAQnVXMjJXdUKAEw3+AA0TAtBJZ2dJkJAAAAABAAD/wAPAA4AAJAAAATIWHQEjNTQmKwEiBh0BMzIWFREUBiMhIiY1ETQ2MyE1NDY7AQMAT3GAJhqAGiYQFBwcFP3gFBwcFAGQcU+AA4BxT8DAGiYmGsAcFP4gFBwcFAHgFBzAT3EAAAQAAP/ABAADwAAQABoALwBEAAABNDY7ATIWHQEUBisBIiY9ARMhNTM1IzUzETMDIg4CFRQeAjMyPgI1NC4CIxEiLgI1ND4CMzIeAhUUDgIjAcAcFCAUHBwUIBQcwP8AQEDAQIBqu4tQUIu7amq7i1BQi7tqVphxQUFxmFZWmHFBQXGYVgKQFBwcFCAUHBwUIP4wQMBA/wACwFCLu2pqu4tQUIu7amq7i1D8YEFxmFZWmHFBQXGYVlaYcUEAAQAAACAEAANAAAUAAAkBJwcJAQNg/iDgoAGAAoADQP4g4KD+gAKAAAEAAAABAADFAQ80Xw889QALBAAAAAAA0W9fDwAAAADRb18PAAD/wAQAA8AAAAAIAAIAAAAAAAAAAQAAA8D/wAAABAAAAAAABAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAACAAAABAAAQAQAAAAEAAAABAAAAAAAAAAACgAUAB4AWACMAOoA/gAAAAEAAAAIAEUABAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAOAK4AAQAAAAAAAQAOAAAAAQAAAAAAAgAOAEcAAQAAAAAAAwAOACQAAQAAAAAABAAOAFUAAQAAAAAABQAWAA4AAQAAAAAABgAHADIAAQAAAAAACgA0AGMAAwABBAkAAQAOAAAAAwABBAkAAgAOAEcAAwABBAkAAwAOACQAAwABBAkABAAOAFUAAwABBAkABQAWAA4AAwABBAkABgAOADkAAwABBAkACgA0AGMAaQBjAG8AbQBvAG8AbgBWAGUAcgBzAGkAbwBuACAAMQAuADAAaQBjAG8AbQBvAG8Abmljb21vb24AaQBjAG8AbQBvAG8AbgBSAGUAZwB1AGwAYQByAGkAYwBvAG0AbwBvAG4ARgBvAG4AdAAgAGcAZQBuAGUAcgBhAHQAZQBkACAAYgB5ACAASQBjAG8ATQBvAG8AbgAuAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=) format("truetype");
   font-weight: normal;
   font-style: normal; }
 /* line 13, ../sass/import/_general.scss */
@@ -81,33 +81,32 @@ table {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* line 27, ../sass/import/_general.scss */
+/* line 25, ../sass/import/_general.scss */
 html {
   background-color: white;
   min-height: 100%;
   position: relative; }
 
-/* line 34, ../sass/import/_general.scss */
+/* line 32, ../sass/import/_general.scss */
 body {
-  font: 14px/1.8 "Avenir", "Helvetica Neue", Helvetica, sans-serif;
+  font: 14px/1.8 "Avenir", 'Helvetica Neue', Helvetica, sans-serif;
   min-height: 100%;
   font-weight: 100; }
 
-/* line 41, ../sass/import/_general.scss */
+/* line 39, ../sass/import/_general.scss */
 img {
   max-width: 100%; }
 
-/* line 45, ../sass/import/_general.scss */
+/* line 43, ../sass/import/_general.scss */
 a {
   text-decoration: none;
   cursor: pointer;
   color: #3f3f3f; }
 
-/* line 51, ../sass/import/_general.scss */
+/* line 49, ../sass/import/_general.scss */
 p {
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -115,17 +114,17 @@ p {
   hyphens: auto;
   word-wrap: break-word; }
 
-/* line 60, ../sass/import/_general.scss */
+/* line 58, ../sass/import/_general.scss */
 .clearfix {
   clear: both; }
 
-/* line 64, ../sass/import/_general.scss */
+/* line 62, ../sass/import/_general.scss */
 .clearfix:after {
   content: "";
   display: block;
   clear: both; }
 
-/* line 70, ../sass/import/_general.scss */
+/* line 69, ../sass/import/_general.scss */
 .clearBoth:after {
   content: "";
   display: block;
@@ -179,33 +178,33 @@ body .error {
   color: red;
   border-color: red !important; }
 
-/* line 124, ../sass/import/_general.scss */
+/* line 125, ../sass/import/_general.scss */
 body .success {
   color: green;
   border-color: green; }
 
-/* line 129, ../sass/import/_general.scss */
+/* line 130, ../sass/import/_general.scss */
 h3.noBoook {
   color: red;
   font-size: 1.7em; }
 
-/* line 134, ../sass/import/_general.scss */
+/* line 135, ../sass/import/_general.scss */
 .column {
   -webkit-columns: 2;
   -moz-columns: 2;
   columns: 2; }
 
-/* line 140, ../sass/import/_general.scss */
+/* line 141, ../sass/import/_general.scss */
 .form-create-user--error {
   color: red; }
 
-/* line 144, ../sass/import/_general.scss */
+/* line 145, ../sass/import/_general.scss */
 .form-create--obligatoire {
   padding-left: .3em;
   color: #e60013;
   font-weight: bold; }
 
-/* line 150, ../sass/import/_general.scss */
+/* line 152, ../sass/import/_general.scss */
 .header-block-one {
   font-size: 2.5em;
   color: #5b5b5b;
@@ -214,27 +213,27 @@ h3.noBoook {
   text-align: right;
   max-width: 1100px; }
 
-/* line 158, ../sass/import/_general.scss */
+/* line 161, ../sass/import/_general.scss */
 .header-block-two {
   font-size: 1.6em;
   color: #5b5b5b;
   padding-bottom: .3em;
   display: block; }
 
-/* line 164, ../sass/import/_general.scss */
+/* line 168, ../sass/import/_general.scss */
 .create_book__btn {
   position: relative;
   left: 92px;
   top: 20px; }
 
-/* line 169, ../sass/import/_general.scss */
+/* line 174, ../sass/import/_general.scss */
 .inline-link {
   text-decoration: underline;
   font-weight: bold;
   font-size: 1.1em;
   color: #5b5b5b; }
 
-/* line 175, ../sass/import/_general.scss */
+/* line 181, ../sass/import/_general.scss */
 i {
   font-style: italic; }
 
@@ -353,17 +352,17 @@ header {
   padding: 1em 0;
   padding-bottom: 4em; }
 
-/* line 5, ../sass/import/_navbibliSmall.scss */
+/* line 6, ../sass/import/_navbibliSmall.scss */
 .main-nav__item, .main-nav__item--small {
   display: block;
   padding: 0.5em 6.6666666667%;
   color: #5b5b5b;
   font-size: 20px;
   letter-spacing: .01em; }
-  /* line 11, ../sass/import/_navbibliSmall.scss */
+  /* line 12, ../sass/import/_navbibliSmall.scss */
   .main-nav__item:first-letter, .main-nav__item--small:first-letter {
     text-transform: uppercase; }
-  /* line 14, ../sass/import/_navbibliSmall.scss */
+  /* line 15, ../sass/import/_navbibliSmall.scss */
   .main-nav__item:after, .main-nav__item--small:after {
     content: "";
     display: block;
@@ -375,7 +374,7 @@ header {
     -webkit-transition: all .3s;
     -o-transition: all .3s;
     transition: all .3s; }
-  /* line 26, ../sass/import/_navbibliSmall.scss */
+  /* line 27, ../sass/import/_navbibliSmall.scss */
   .main-nav__item:hover:after, .main-nav__item--small:hover:after {
     width: 100%; }
 
@@ -413,20 +412,20 @@ header {
 .book-liste p {
   margin-bottom: 30px; }
 
-/* line 41, ../sass/import/_liste_livres_small.scss */
+/* line 42, ../sass/import/_liste_livres_small.scss */
 .book-liste__header {
   margin-bottom: 30px; }
 
-/* line 47, ../sass/import/_liste_livres_small.scss */
+/* line 48, ../sass/import/_liste_livres_small.scss */
 .info_Livre dd a, .info_Livre dt {
   font-size: 20px;
   vertical-align: middle;
   display: block; }
-/* line 52, ../sass/import/_liste_livres_small.scss */
+/* line 53, ../sass/import/_liste_livres_small.scss */
 .info_Livre dt {
   background-color: #f0f0f0;
   color: #3f3f3f; }
-/* line 56, ../sass/import/_liste_livres_small.scss */
+/* line 57, ../sass/import/_liste_livres_small.scss */
 .info_Livre dd a {
   background-color: #3f3f3f;
   color: #f0f0f0; }
@@ -621,16 +620,16 @@ header li .header-main__form-connexion__userLog {
     width: 100%;
     padding: 10px; }
 
-/* line 20, ../sass/import/_formCreateUser_Small.scss */
+/* line 21, ../sass/import/_formCreateUser_Small.scss */
 .form-create-user--happy {
   font-size: 26px;
   color: forestgreen; }
 
-/* line 24, ../sass/import/_formCreateUser_Small.scss */
+/* line 26, ../sass/import/_formCreateUser_Small.scss */
 .form-create__long-text {
   resize: vertical; }
 
-/* line 27, ../sass/import/_formCreateUser_Small.scss */
+/* line 30, ../sass/import/_formCreateUser_Small.scss */
 .form-create__simple-imput {
   display: block;
   width: 100%;
@@ -641,7 +640,7 @@ header li .header-main__form-connexion__userLog {
   border-radius: 5px;
   border: 1px solid #5b5b5b; }
 
-/* line 37, ../sass/import/_formCreateUser_Small.scss */
+/* line 41, ../sass/import/_formCreateUser_Small.scss */
 .form-create__message--error {
   position: relative;
   margin: 1em 0;
@@ -651,15 +650,15 @@ header li .header-main__form-connexion__userLog {
   font-size: .625em;
   border-radius: .3em; }
 
-/* line 46, ../sass/import/_formCreateUser_Small.scss */
+/* line 51, ../sass/import/_formCreateUser_Small.scss */
 .form-create__message--error + .form-create__message--error {
   margin-top: 1em; }
 
-/* line 49, ../sass/import/_formCreateUser_Small.scss */
+/* line 55, ../sass/import/_formCreateUser_Small.scss */
 .form-create__message--info + .form-create__message--info {
   margin-top: 1em; }
 
-/* line 52, ../sass/import/_formCreateUser_Small.scss */
+/* line 59, ../sass/import/_formCreateUser_Small.scss */
 .form-create__message--info {
   position: relative;
   margin: 1em 0;
@@ -669,7 +668,7 @@ header li .header-main__form-connexion__userLog {
   font-size: .625em;
   border-radius: .3em; }
 
-/* line 61, ../sass/import/_formCreateUser_Small.scss */
+/* line 69, ../sass/import/_formCreateUser_Small.scss */
 .form-create__example-box__text {
   color: #5b5b5b;
   -webkit-border-radius: .3em;
@@ -677,16 +676,16 @@ header li .header-main__form-connexion__userLog {
   border-radius: .3em;
   background: rgba(222, 222, 222, 0.47); }
 
-/* line 68, ../sass/import/_formCreateUser_Small.scss */
+/* line 77, ../sass/import/_formCreateUser_Small.scss */
 .form-create__example-box__order-liste {
   list-style-type: decimal;
   list-style-position: inside; }
 
-/* line 73, ../sass/import/_formCreateUser_Small.scss */
+/* line 83, ../sass/import/_formCreateUser_Small.scss */
 .form-create__example-box__order-liste__item {
   margin-bottom: 1em; }
 
-/* line 76, ../sass/import/_formCreateUser_Small.scss */
+/* line 87, ../sass/import/_formCreateUser_Small.scss */
 .form-create__infos {
   margin-bottom: 2em; }
 
@@ -698,7 +697,7 @@ header li .header-main__form-connexion__userLog {
   .book-book:hover .book-book__text {
     top: -37px; }
 
-/* line 11, ../sass/import/_single_author_Small.scss */
+/* line 12, ../sass/import/_single_author_Small.scss */
 .book-book__text {
   top: -500px;
   background: rgba(0, 0, 0, 0.54);
@@ -785,38 +784,38 @@ header li .header-main__form-connexion__userLog {
   margin: 2em 0;
   position: relative; }
 
-/* line 8, ../sass/import/flash-box_Small.scss */
+/* line 9, ../sass/import/flash-box_Small.scss */
 .flash-box__btn {
   display: inline-block;
   cursor: pointer;
   padding: .1em 1em; }
 
-/* line 13, ../sass/import/flash-box_Small.scss */
+/* line 15, ../sass/import/flash-box_Small.scss */
 .flash-box.success {
   background: rgba(101, 204, 88, 0.7);
   color: #1a7413; }
 
-/* line 17, ../sass/import/flash-box_Small.scss */
+/* line 20, ../sass/import/flash-box_Small.scss */
 .flash-box.information {
   background: rgba(0, 149, 223, 0.8);
   color: #00329c; }
 
-/* line 21, ../sass/import/flash-box_Small.scss */
+/* line 25, ../sass/import/flash-box_Small.scss */
 .flash-box.error {
   background: rgba(246, 181, 196, 0.8);
   color: #e60013; }
 
-/* line 4, ../sass/import/about-bloc_Small.scss */
+/* line 5, ../sass/import/about-bloc_Small.scss */
 .big-logo {
   font-weight: bold;
   color: #5b5b5b;
   font-size: 3em; }
 
-/* line 9, ../sass/import/about-bloc_Small.scss */
+/* line 11, ../sass/import/about-bloc_Small.scss */
 .big-logo__me {
   font-weight: 100; }
 
-/* line 12, ../sass/import/about-bloc_Small.scss */
+/* line 15, ../sass/import/about-bloc_Small.scss */
 .big-slogant {
   font-weight: 100;
   color: #3f3f3f;
@@ -829,17 +828,17 @@ header li .header-main__form-connexion__userLog {
   margin-top: 4em;
   display: block; }
 
-/* line 6, ../sass/import/welcome-bloc_Small.scss */
+/* line 7, ../sass/import/welcome-bloc_Small.scss */
 .welcome-bloc__header {
   font-size: 2.9375em;
   font-weight: 100;
   font-family: "Avenir Lither", Helvetica, Arial, sans-serif; }
 
-/* line 11, ../sass/import/welcome-bloc_Small.scss */
+/* line 13, ../sass/import/welcome-bloc_Small.scss */
 .welcome-bloc__sub-heading {
   font-size: 1.5em; }
 
-/* line 14, ../sass/import/welcome-bloc_Small.scss */
+/* line 17, ../sass/import/welcome-bloc_Small.scss */
 .welcome-bloc__link {
   display: inline-block;
   font-size: 1.5em;
@@ -854,7 +853,7 @@ header li .header-main__form-connexion__userLog {
   -ms-transition: .2s;
   -o-transition: .2s;
   transition: .2s; }
-  /* line 29, ../sass/import/welcome-bloc_Small.scss */
+  /* line 32, ../sass/import/welcome-bloc_Small.scss */
   .welcome-bloc__link:hover {
     background: #5b5b5b;
     color: #ffffff; }
@@ -871,7 +870,7 @@ header li .header-main__form-connexion__userLog {
     top: 2em;
     font-size: 2.5em; }
 
-/* line 17, ../sass/import/book-presentation_Small.scss */
+/* line 18, ../sass/import/book-presentation_Small.scss */
 .book-presentation__header {
   display: block;
   font-size: 1.5em;
@@ -879,7 +878,7 @@ header li .header-main__form-connexion__userLog {
   margin-bottom: 1em;
   border-bottom: 1px solid black; }
 
-/* line 24, ../sass/import/book-presentation_Small.scss */
+/* line 26, ../sass/import/book-presentation_Small.scss */
 .book-presentation__btn-link {
   text-align: center;
   display: block;
@@ -898,31 +897,31 @@ header li .header-main__form-connexion__userLog {
   -ms-transition: .2s;
   -o-transition: .2s;
   transition: .2s; }
-  /* line 42, ../sass/import/book-presentation_Small.scss */
+  /* line 44, ../sass/import/book-presentation_Small.scss */
   .book-presentation__btn-link:hover {
     border: 1px solid #5b5b5b;
     color: #5b5b5b;
     background: #ffffff; }
 
-/* line 49, ../sass/import/book-presentation_Small.scss */
+/* line 51, ../sass/import/book-presentation_Small.scss */
 .book-presentation__date {
   display: block; }
 
-/* line 53, ../sass/import/book-presentation_Small.scss */
+/* line 55, ../sass/import/book-presentation_Small.scss */
 .book-presentation__text {
   margin-bottom: 1em; }
 
-/* line 56, ../sass/import/book-presentation_Small.scss */
+/* line 59, ../sass/import/book-presentation_Small.scss */
 .book-presentation__container {
   position: relative; }
 
-/* line 59, ../sass/import/book-presentation_Small.scss */
+/* line 63, ../sass/import/book-presentation_Small.scss */
 .book-presentation__picture__btn {
   position: absolute;
   top: -95px;
   left: 40.4%;
   z-index: 1; }
-  /* line 64, ../sass/import/book-presentation_Small.scss */
+  /* line 68, ../sass/import/book-presentation_Small.scss */
   .book-presentation__picture__btn:before {
     font-size: 30px;
     content: "\e601";
@@ -938,7 +937,7 @@ header li .header-main__form-connexion__userLog {
     border-radius: 50%;
     border: 1px solid transparent; }
 
-/* line 86, ../sass/import/book-presentation_Small.scss */
+/* line 89, ../sass/import/book-presentation_Small.scss */
 .book-presentation__container:before {
   content: "";
   display: block;
@@ -952,11 +951,11 @@ header li .header-main__form-connexion__userLog {
   -o-transition: .3s;
   transition: .3s; }
 
-/* line 100, ../sass/import/book-presentation_Small.scss */
+/* line 105, ../sass/import/book-presentation_Small.scss */
 .book-presentation:hover .book-presentation__container:before {
   background: rgba(0, 0, 0, 0.6); }
 
-/* line 104, ../sass/import/book-presentation_Small.scss */
+/* line 110, ../sass/import/book-presentation_Small.scss */
 .book-presentation:hover .book-presentation__picture__btn:before {
   color: #ffffff !important;
   border-color: #ffffff; }
@@ -965,14 +964,14 @@ header li .header-main__form-connexion__userLog {
 .single-author {
   padding: 1em 10%; }
 
-/* line 4, ../sass/import/single-author_Smal.scss */
+/* line 5, ../sass/import/single-author_Smal.scss */
 .single-author__figure {
   position: relative;
   display: block;
   float: left;
   margin: 0 10% 1em 0; }
 
-/* line 10, ../sass/import/single-author_Smal.scss */
+/* line 12, ../sass/import/single-author_Smal.scss */
 .single-author__figure__header {
   position: absolute;
   background: rgba(0, 0, 0, 0.8);
@@ -982,11 +981,11 @@ header li .header-main__form-connexion__userLog {
   right: 0;
   padding: 0.5em 10%;
   font-size: 2.5em; }
-  /* line 19, ../sass/import/single-author_Smal.scss */
+  /* line 21, ../sass/import/single-author_Smal.scss */
   .single-author__figure__header a {
     color: #ffffff; }
 
-/* line 23, ../sass/import/single-author_Smal.scss */
+/* line 26, ../sass/import/single-author_Smal.scss */
 .single-author__text {
   width: 100%; }
 
@@ -994,12 +993,12 @@ header li .header-main__form-connexion__userLog {
 .table-book {
   font-size: 1.125em; }
 
-/* line 5, ../sass/import/table-book_Small.scss */
+/* line 6, ../sass/import/table-book_Small.scss */
 .table-book__header {
   background: #5b5b5b;
   color: #ffffff; }
 
-/* line 9, ../sass/import/table-book_Small.scss */
+/* line 11, ../sass/import/table-book_Small.scss */
 .table-book th, td {
   display: block;
   text-align: left;
@@ -1007,15 +1006,15 @@ header li .header-main__form-connexion__userLog {
   border-bottom: 1px solid #ffffff;
   position: relative; }
 
-/* line 17, ../sass/import/table-book_Small.scss */
+/* line 20, ../sass/import/table-book_Small.scss */
 tbody tr:nth-child(odd) {
   background: #f0f0f0; }
 
-/* line 21, ../sass/import/table-book_Small.scss */
+/* line 25, ../sass/import/table-book_Small.scss */
 .svg-btn--absolute {
   left: 50px; }
 
-/* line 4, ../sass/import/create-book_Small.scss */
+/* line 5, ../sass/import/create-book_Small.scss */
 .create-book_btn {
   border: 1px solid transparent;
   padding: .3em 1em;
@@ -1030,13 +1029,13 @@ tbody tr:nth-child(odd) {
   -ms-transition: .2s;
   -o-transition: .2s;
   transition: .2s; }
-  /* line 18, ../sass/import/create-book_Small.scss */
+  /* line 19, ../sass/import/create-book_Small.scss */
   .create-book_btn:hover {
     border: 1px solid #5b5b5b;
     background: #ffffff;
     color: #5b5b5b; }
 
-/* line 4, ../sass/import/functions_Small.scss */
+/* line 5, ../sass/import/functions_Small.scss */
 .delete-book_btn {
   border: 1px solid transparent;
   -webkit-border-radius: .4em;
@@ -1048,13 +1047,13 @@ tbody tr:nth-child(odd) {
   margin-bottom: 1em;
   background: red;
   color: #ffffff; }
-  /* line 15, ../sass/import/functions_Small.scss */
+  /* line 16, ../sass/import/functions_Small.scss */
   .delete-book_btn:hover {
     color: red;
     border: 1px solid red;
     background: #ffffff; }
 
-/* line 21, ../sass/import/functions_Small.scss */
+/* line 23, ../sass/import/functions_Small.scss */
 .edit-book_btn {
   border: 1px solid blue;
   -webkit-border-radius: .4em;
@@ -1065,12 +1064,12 @@ tbody tr:nth-child(odd) {
   font-size: 1.3em;
   display: block;
   margin-bottom: 1em; }
-  /* line 31, ../sass/import/functions_Small.scss */
+  /* line 33, ../sass/import/functions_Small.scss */
   .edit-book_btn:hover {
     background: blue;
     color: #ffffff; }
 
-/* line 37, ../sass/import/functions_Small.scss */
+/* line 40, ../sass/import/functions_Small.scss */
 .back-btn {
   border: 1px solid #5b5b5b;
   -webkit-border-radius: .4em;
@@ -1081,7 +1080,7 @@ tbody tr:nth-child(odd) {
   font-size: 1.3em;
   display: block;
   margin-bottom: 1em; }
-  /* line 47, ../sass/import/functions_Small.scss */
+  /* line 50, ../sass/import/functions_Small.scss */
   .back-btn:hover {
     background: #5b5b5b;
     color: #ffffff; }
@@ -1190,17 +1189,17 @@ Style form-create--large
   .main-nav__item, .main-nav__item--small {
     padding-left: 0; }
 
-  /* line 4, ../sass/import/_navbibliLarge.scss */
+  /* line 5, ../sass/import/_navbibliLarge.scss */
   .main-nav__item--small {
     padding-right: 1.8518518519%; }
 
-  /* line 8, ../sass/import/_navbibliLarge.scss */
+  /* line 9, ../sass/import/_navbibliLarge.scss */
   .home .main-nav {
     width: 75%;
     margin: 0 auto;
     margin-top: 1em; }
 
-  /* line 13, ../sass/import/_navbibliLarge.scss */
+  /* line 15, ../sass/import/_navbibliLarge.scss */
   .main-nav__item {
     padding-right: 2.9em; }
 
@@ -1223,15 +1222,15 @@ Style form-create--large
   .header-main__form-connexion:hover .header-main__form-connexion__userLog {
     top: 80px; }
 
-  /* line 19, ../sass/import/_formConnexion_Large.scss */
+  /* line 20, ../sass/import/_formConnexion_Large.scss */
   .header-main.scroll:hover .header-main__form-connexion__userLog {
     top: 66px; }
 
-  /* line 22, ../sass/import/_formConnexion_Large.scss */
+  /* line 24, ../sass/import/_formConnexion_Large.scss */
   .header-main__form-connexion .header-main__nav__nav_items.hover + .header-main__form-connexion__userLog {
     top: 80px; }
 
-  /* line 25, ../sass/import/_formConnexion_Large.scss */
+  /* line 28, ../sass/import/_formConnexion_Large.scss */
   .header-main.scroll .header-main__nav__nav_items.hover + .header-main__form-connexion__userLog {
     top: 66px; }
 
@@ -1261,7 +1260,7 @@ Style form-create--large
     font-size: 22px;
     vertical-align: middle; }
 
-  /* line 26, ../sass/import/_header_Large.scss */
+  /* line 27, ../sass/import/_header_Large.scss */
   .header-main__box-logo {
     border: none;
     padding: 0;
@@ -1269,29 +1268,29 @@ Style form-create--large
     position: relative;
     top: 11px; }
 
-  /* line 33, ../sass/import/_header_Large.scss */
+  /* line 35, ../sass/import/_header_Large.scss */
   .header-main__nav {
     float: right; }
 
-  /* line 36, ../sass/import/_header_Large.scss */
+  /* line 39, ../sass/import/_header_Large.scss */
   .header-main.scroll {
     background: rgba(255, 255, 255, 0.9); }
 
-  /* line 39, ../sass/import/_header_Large.scss */
+  /* line 43, ../sass/import/_header_Large.scss */
   .header-main.scroll {
     padding: 0 12%; }
 
-  /* line 43, ../sass/import/_header_Large.scss */
+  /* line 47, ../sass/import/_header_Large.scss */
   .header-main__form-connexion {
     display: inline-block;
     position: relative; }
 
-  /* line 48, ../sass/import/_header_Large.scss */
+  /* line 53, ../sass/import/_header_Large.scss */
   .header-main__nav {
     display: inline-block;
     vertical-align: middle; }
 
-  /* line 52, ../sass/import/_header_Large.scss */
+  /* line 58, ../sass/import/_header_Large.scss */
   .show_form_connexion:hover .header-main__form-connexion__userLog {
     top: 132px; }
 
@@ -1320,7 +1319,7 @@ Style form-create--large
     .form_recherche input[type="search"] {
       font-size: 20px; }
 
-  /* line 11, ../sass/import/_formRecherche_Large.scss */
+  /* line 12, ../sass/import/_formRecherche_Large.scss */
   .home .form_recherche {
     width: 75%;
     margin: 0 auto;
@@ -1361,11 +1360,11 @@ Style form-create--large
       cursor: pointer; }
     /* line 34, ../sass/import/_formCreateUser_Large.scss */
     .form-create .ouvrir:before {
-      content: "\e990";
+      content: "\e601";
       margin-right: 5px; }
     /* line 38, ../sass/import/_formCreateUser_Large.scss */
     .form-create .fermer:before {
-      content: "\e601";
+      content: "\e990";
       margin-right: 5px; }
 
   /* line 45, ../sass/import/_formCreateUser_Large.scss */
@@ -1392,19 +1391,19 @@ Style form-create--large
     width: 53%;
     margin-bottom: 3em; }
 
-  /* line 72, ../sass/import/_formCreateUser_Large.scss */
+  /* line 73, ../sass/import/_formCreateUser_Large.scss */
   .form-create__infos + .form-create__infos {
     margin-bottom: 2em; }
-    /* line 74, ../sass/import/_formCreateUser_Large.scss */
+    /* line 75, ../sass/import/_formCreateUser_Large.scss */
     .form-create__infos + .form-create__infos svg {
       position: relative;
       top: 10px; }
 
-  /* line 80, ../sass/import/_formCreateUser_Large.scss */
+  /* line 81, ../sass/import/_formCreateUser_Large.scss */
   .form-create__long-text {
     width: 53%; }
 
-  /* line 84, ../sass/import/_formCreateUser_Large.scss */
+  /* line 85, ../sass/import/_formCreateUser_Large.scss */
   .form-create__simple-imput {
     width: 50%;
     display: inline-block;
@@ -1416,15 +1415,15 @@ Style form-create--large
     border: 1px solid #5b5b5b;
     margin-bottom: 1em; }
 
-  /* line 97, ../sass/import/_formCreateUser_Large.scss */
+  /* line 98, ../sass/import/_formCreateUser_Large.scss */
   .form-create--large .form-create__message--error {
     left: 58.7878787879%; }
 
-  /* line 103, ../sass/import/_formCreateUser_Large.scss */
+  /* line 104, ../sass/import/_formCreateUser_Large.scss */
   .form-create--large .form-create__message--info {
     left: 58.7878787879%; }
 
-  /* line 108, ../sass/import/_formCreateUser_Large.scss */
+  /* line 109, ../sass/import/_formCreateUser_Large.scss */
   .form-create__message--error {
     width: 40%;
     margin: 0;
@@ -1432,7 +1431,7 @@ Style form-create--large
     left: 60.5357142857%;
     top: -2.27272727272727em; }
 
-  /* line 117, ../sass/import/_formCreateUser_Large.scss */
+  /* line 118, ../sass/import/_formCreateUser_Large.scss */
   .form-create__message--info {
     width: 40%;
     margin: 0;
@@ -1440,13 +1439,13 @@ Style form-create--large
     left: 60.5357142857%;
     top: -2.27272727272727em; }
 
-  /* line 126, ../sass/import/_formCreateUser_Large.scss */
+  /* line 127, ../sass/import/_formCreateUser_Large.scss */
   .form-create__add-btn {
     position: relative;
     top: 8px;
     left: 16px; }
 
-  /* line 135, ../sass/import/_formCreateUser_Large.scss */
+  /* line 136, ../sass/import/_formCreateUser_Large.scss */
   label:hover .form-create__add-btn svg {
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
@@ -1454,19 +1453,19 @@ Style form-create--large
     -o-transform: rotate(180deg);
     transform: rotate(180deg); }
 
-  /* line 146, ../sass/import/_formCreateUser_Large.scss */
+  /* line 147, ../sass/import/_formCreateUser_Large.scss */
   .form-create__add-btn svg {
     transition: .5s; }
 
-  /* line 151, ../sass/import/_formCreateUser_Large.scss */
+  /* line 153, ../sass/import/_formCreateUser_Large.scss */
   .form-create__example-box {
     position: relative; }
 
-  /* line 155, ../sass/import/_formCreateUser_Large.scss */
+  /* line 158, ../sass/import/_formCreateUser_Large.scss */
   .form-create--large .form-create__example-box__text {
     right: -64.2424242424%; }
 
-  /* line 159, ../sass/import/_formCreateUser_Large.scss */
+  /* line 163, ../sass/import/_formCreateUser_Large.scss */
   .form-create__example-box__text {
     right: -65.8928571429%;
     width: 45.4545454545%;
@@ -1480,19 +1479,19 @@ Style form-create--large
     -o-transition: .3s;
     transition: .3s; }
 
-  /* line 174, ../sass/import/_formCreateUser_Large.scss */
+  /* line 178, ../sass/import/_formCreateUser_Large.scss */
   input:hover + .form-create__example-box .form-create__example-box__text {
     opacity: 1; }
 
-  /* line 179, ../sass/import/_formCreateUser_Large.scss */
+  /* line 184, ../sass/import/_formCreateUser_Large.scss */
   textarea:hover + .form-create__example-box .form-create__example-box__text {
     opacity: 1; }
 
-  /* line 184, ../sass/import/_formCreateUser_Large.scss */
+  /* line 190, ../sass/import/_formCreateUser_Large.scss */
   label:hover + input + .form-create__example-box .form-create__example-box__text {
     opacity: 1; }
 
-  /* line 189, ../sass/import/_formCreateUser_Large.scss */
+  /* line 196, ../sass/import/_formCreateUser_Large.scss */
   label:hover + textarea + .form-create__example-box .form-create__example-box__text {
     opacity: 1; }
 
@@ -1510,7 +1509,7 @@ Style form-create--large
   .single_book .btnVert {
     margin-left: 17px; }
 
-  /* line 18, ../sass/import/_single_book_Large.scss */
+  /* line 19, ../sass/import/_single_book_Large.scss */
   .btnVert.btnVert--block {
     margin: 0;
     display: block;
@@ -1563,24 +1562,24 @@ Style form-create--large
     color: white;
     padding: .5em 2%; }
 
-  /* line 7, ../sass/import/flash-box_Large.scss */
+  /* line 8, ../sass/import/flash-box_Large.scss */
   .flash-box__btn {
     position: absolute;
     top: 0.1em;
     right: 0%;
     font-size: 1.25em; }
 
-  /* line 4, ../sass/import/about-bloc_Large.scss */
+  /* line 5, ../sass/import/about-bloc_Large.scss */
   .big-logo {
     font-size: 7em;
     text-align: left; }
 
-  /* line 8, ../sass/import/about-bloc_Large.scss */
+  /* line 10, ../sass/import/about-bloc_Large.scss */
   .big-slogant {
     margin-top: -2em;
     margin-bottom: 3em; }
 
-  /* line 12, ../sass/import/about-bloc_Large.scss */
+  /* line 15, ../sass/import/about-bloc_Large.scss */
   .about-bloc__paragraphe {
     background: url("./img/about2.png") no-repeat 230px 0 #ffffff;
     background-size: contain;
@@ -1628,7 +1627,7 @@ Style form-create--large
       -o-animation: goRight 2s ease;
       animation: goRight 2s ease; }
 
-  /* line 16, ../sass/import/welcome-bloc_Large.scss */
+  /* line 17, ../sass/import/welcome-bloc_Large.scss */
   .welcome-bloc__header {
     position: relative; }
 
@@ -1639,19 +1638,19 @@ Style form-create--large
     width: 23.1481481481%;
     padding: 2em 2.7777777778% 4em; }
 
-  /* line 8, ../sass/import/book-presentation_Large.scss */
+  /* line 9, ../sass/import/book-presentation_Large.scss */
   .book-presentation:not(:nth-child(3n+4)) {
     margin-right: 6.4814814815%; }
 
-  /* line 4, ../sass/import/single-author_Large.scss */
+  /* line 5, ../sass/import/single-author_Large.scss */
   .single-author__figure {
     margin: 0 2.7777777778% 2em 0; }
 
-  /* line 7, ../sass/import/single-author_Large.scss */
+  /* line 9, ../sass/import/single-author_Large.scss */
   .container .single-author {
     padding: 1em 0; }
 
-  /* line 4, ../sass/import/table-book_Large.scss */
+  /* line 5, ../sass/import/table-book_Large.scss */
   .table-book th, td {
     display: table-cell; }
 
@@ -1659,17 +1658,17 @@ Style form-create--large
   .functions {
     margin-top: 3em; }
 
-  /* line 4, ../sass/import/functions_Large.scss */
+  /* line 5, ../sass/import/functions_Large.scss */
   .delete-book_btn {
     display: inline-block;
     margin-right: 1em; }
 
-  /* line 10, ../sass/import/functions_Large.scss */
+  /* line 11, ../sass/import/functions_Large.scss */
   .edit-book_btn {
     display: inline-block;
     margin-right: 1em; }
 
-  /* line 16, ../sass/import/functions_Large.scss */
+  /* line 17, ../sass/import/functions_Large.scss */
   .back-btn {
     display: inline-block;
     margin-right: 1em; }
@@ -1689,7 +1688,7 @@ Style form-create--large
       top: 5.5em;
       z-index: -1; }
 
-  /* line 16, ../sass/import/admin_nav_steps_Large.scss */
+  /* line 17, ../sass/import/admin_nav_steps_Large.scss */
   .admin_nav_steps__item {
     display: block;
     font-size: 2em;
@@ -1704,7 +1703,7 @@ Style form-create--large
     -o-transition: .2s;
     transition: .2s; }
 
-  /* line 32, ../sass/import/admin_nav_steps_Large.scss */
+  /* line 34, ../sass/import/admin_nav_steps_Large.scss */
   .admin_nav_steps__item--numerique {
     color: rgba(60, 60, 60, 0.33);
     border: 1px solid rgba(60, 60, 60, 0.33);
@@ -1714,33 +1713,33 @@ Style form-create--large
     font-weight: bold;
     position: relative;
     background: #ffffff; }
-    /* line 42, ../sass/import/admin_nav_steps_Large.scss */
+    /* line 44, ../sass/import/admin_nav_steps_Large.scss */
     .admin_nav_steps__item--numerique:hover {
       border-color: #5b5b5b;
       color: #5b5b5b; }
 
-  /* line 47, ../sass/import/admin_nav_steps_Large.scss */
+  /* line 50, ../sass/import/admin_nav_steps_Large.scss */
   .admin_nav_steps__item--active {
     border-color: #5b5b5b;
     color: #5b5b5b; }
 
-  /* line 51, ../sass/import/admin_nav_steps_Large.scss */
+  /* line 55, ../sass/import/admin_nav_steps_Large.scss */
   .admin_nav_steps__item--success {
     color: rgba(101, 204, 88, 0.7);
     border-color: rgba(101, 204, 88, 0.7); }
-    /* line 54, ../sass/import/admin_nav_steps_Large.scss */
+    /* line 58, ../sass/import/admin_nav_steps_Large.scss */
     .admin_nav_steps__item--success:after {
       display: block;
       content: "\ea10";
       position: absolute;
       left: 66px;
       top: 101px; }
-    /* line 61, ../sass/import/admin_nav_steps_Large.scss */
+    /* line 65, ../sass/import/admin_nav_steps_Large.scss */
     .admin_nav_steps__item--success:hover {
       color: #00cc09;
       border-color: #00cc09; }
 
-  /* line 67, ../sass/import/admin_nav_steps_Large.scss */
+  /* line 72, ../sass/import/admin_nav_steps_Large.scss */
   .admin_nav_steps__info {
     margin-bottom: 3em;
     background: #f0f0f0;
@@ -1749,7 +1748,11 @@ Style form-create--large
     -webkit-border-radius: .4em;
     -moz-border-radius: .4em;
     border-radius: .4em;
-    padding: .5em; } }
+    padding: .5em; }
+
+  /* line 83, ../sass/import/admin_nav_steps_Large.scss */
+  .admin_nav_steps__item--smal {
+    margin: 0 99px; } }
 /* line 1, ../sass/import/_footer.scss */
 .main-footer {
   position: absolute;

@@ -7,7 +7,6 @@ use Components\Validator;
 class User extends Model implements UserRepositoryInterface
 {
     use Validator;
-    protected $table = 'users';
     public $validationRules = [
         'create_at' => [
             ['ruleName' => 'isDate'],
@@ -35,6 +34,7 @@ class User extends Model implements UserRepositoryInterface
             ['ruleName' => 'isValidPassWord', 'error' => 'Le mot de passe n’est pas au format demandé.']
         ]
     ];
+    protected $table = 'users';
 
     public function __construct()
     {
@@ -73,6 +73,7 @@ class User extends Model implements UserRepositoryInterface
         $pdost->execute([':id' => $id]);
         return $pdost->fetch();
     }
+
     public function getUserQuestion($userName)
     {
         $sql = 'SELECT question FROM users where username=:userName';
@@ -80,11 +81,12 @@ class User extends Model implements UserRepositoryInterface
         $pdost->execute([':userName' => $userName]);
         return $pdost->fetch();
     }
-    public function getUserByQuestionAndAnswer($question,$answer)
+
+    public function getUserByQuestionAndAnswer($question, $answer)
     {
         $sql = 'SELECT id FROM users where question=:question AND answer=:answer';
         $pdost = $this->cx->prepare($sql);
-        $pdost->execute([':question' => $question,':answer'=>$answer]);
+        $pdost->execute([':question' => $question, ':answer' => $answer]);
         return $pdost->fetch();
     }
 
@@ -104,7 +106,8 @@ class User extends Model implements UserRepositoryInterface
         $pdost->execute([':id' => $id]);
         return $pdost->fetch();
     }
-    public function resetPasseword($password,$id)
+
+    public function resetPasseword($password, $id)
     {
         $sql = 'UPDATE users
                 SET password=:password

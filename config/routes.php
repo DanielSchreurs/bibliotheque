@@ -73,7 +73,6 @@ $routes['genreadmin_show_genre'] = 'genre/admin_show_genre';
 $routes['genreadmin_create_genre'] = 'genre/admin_create_genre';
 
 
-
 $routes['pageadmin_index_help'] = 'page/admin_indexHelp';
 $routes['pageadmin_showQuestion'] = 'page/admin_showQuestion';
 $routes['pageadmin_deleteQuestion'] = 'page/admin_deleteQuestion';

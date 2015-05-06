@@ -147,6 +147,7 @@
             type="file" name="front_cover_presentation"
             id="front_cover_presentation"
             title="Chargez le couverture de votre livre"/>
+
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Vous devez insérer une image au format (.jpg) et qui fait 270
                 pixel de large et 200 pixel de haut. Cette image peut apparaître sur la pagge accueil dans la section, 3
@@ -210,6 +211,7 @@
                name="nb_copy" min="2" id="nb_copy"
                title="Introduisez la date de publication" placeholder="ex:5"
                value="<?php echo(isset($errors['nb_copy']) || $_GET ? '' : $sent->nb_copy); ?>"/>
+
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Attention ceci doit être un nombre</p>
         </div>

@@ -1,10 +1,11 @@
-.book-presentation{
-    border: 1px solid $grisClair;
+.book-presentation {
+  border: 1px solid $grisClair;
   float: left;
   width: percentage(250/1080);
   padding: 2em percentage(30/1080) 4em;
 
 }
-.book-presentation:not(:nth-child(3n+4)){
+
+.book-presentation:not(:nth-child(3n+4)) {
   margin-right: percentage(70/1080);
 }

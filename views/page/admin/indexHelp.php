@@ -1,7 +1,7 @@
 <main class="container">
-    <?php $questions=$data['data'];?>
+    <?php $questions = $data['data']; ?>
     <?php Components\Session::flash(); ?>
-        <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
+    <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
     <?php include(VIEW_DIR . '/parts/main_nav_admin.php'); ?>
     <table class="table-book">
         <thead class="table-book__header">
@@ -16,17 +16,19 @@
         <tbody>
         <?php foreach ($questions as $question): ?>
             <?php //var_dump($question->answer); die();
-             ?>
+            ?>
             <tr>
                 <td><?php echo($question->question_id); ?></td>
                 <td><?php echo($question->question); ?></td>
                 <td>
-                    <?php if($question->answer===null): ?>
-                        <a class="btnVert" href="<?php echo($html->createLink('page','user_createAnswer',['id' => $question->question_id])) ?>">Répondre</a>
-                        <?php else: ?>
-                        <?php echo($html->cutText($question->answer,100)); ?>
+                    <?php if ($question->answer === null): ?>
+                        <a class="btnVert" href="<?php echo($html->createLink('page', 'user_createAnswer',
+                            ['id' => $question->question_id])) ?>">Répondre</a>
+                    <?php else: ?>
+                        <?php echo($html->cutText($question->answer, 100)); ?>
                     <?php endif; ?>
-                <td><a href="<?php echo($html->createLink('page', 'admin_showQuestion', ['id' => $question->question_id])); ?>"
+                <td><a href="<?php echo($html->createLink('page', 'admin_showQuestion',
+                        ['id' => $question->question_id])); ?>"
                        class="svg-btn--absolute" title="Supprimer la question et sa réponse">
                         <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
                         <svg version="1.1"
@@ -49,7 +51,8 @@
 </svg>
 
                     </a></td>
-                <td><a href="<?php echo($html->createLink('page', 'admin_editQuestion', ['id' => $question->question_id])); ?>"
+                <td><a href="<?php echo($html->createLink('page', 'admin_editQuestion',
+                        ['id' => $question->question_id])); ?>"
                        class="svg-btn--absolute" title="Editer ce livre">
                         <!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In  -->
                         <svg version="1.1"

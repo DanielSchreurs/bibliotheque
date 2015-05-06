@@ -7,7 +7,6 @@ use Components\Validator;
 class Genre extends Model implements GenreRepositoryInterface
 {
     use Validator;
-    protected $table = 'genres';
     public $validationRules = [
         'create_at' => [
             ['ruleName' => 'isDate'],
@@ -21,6 +20,7 @@ class Genre extends Model implements GenreRepositoryInterface
             ['ruleName' => 'notEmpty', 'error' => 'Le genre est obligatoire.']
         ]
     ];
+    protected $table = 'genres';
 
     function __construct()
     {
@@ -49,7 +49,7 @@ class Genre extends Model implements GenreRepositoryInterface
               WHERE id=:genre_id';
         $pdost = $this->cx->prepare($sql);
         $pdost->execute(
-            [':genre_id'=>$genre_id]
+            [':genre_id' => $genre_id]
         );
         return $pdost->fetch();
     }
@@ -80,24 +80,29 @@ class Genre extends Model implements GenreRepositoryInterface
               WHERE id=:genre_id';
         $pdost = $this->cx->prepare($sql);
         $pdost->execute(
-            [':genre_id'=>$genre_id]
+            [':genre_id' => $genre_id]
         );
 
     }
 
-    public function update($genreObj,$genre_id)
+    public function update($genreObj, $genre_id)
     {
-        $sql='UPDATE genres SET
+        $sql = 'UPDATE genres SET
                 name=:name,
                  update_at=:update_at
                  WHERE id=:genre_id';
-        $pdost=$this->cx->prepare($sql);
-        $pdost->execute([':genre_id'=>$genre_id,':name'=>$genreObj->name,':update_at'=>$genreObj->update_at]);
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([':genre_id' => $genre_id, ':name' => $genreObj->name, ':update_at' => $genreObj->update_at]);
     }
+
     public function create($genreObj)
     {
-        $sql='INSERT INTO genres (name,create_at,update_at) VALUES (:name,:create_at,:update_at) ';
-        $pdost=$this->cx->prepare($sql);
-        $pdost->execute([':name'=>$genreObj->name,':create_at'=>$genreObj->create_at,':update_at'=>$genreObj->create_at]);
+        $sql = 'INSERT INTO genres (name,create_at,update_at) VALUES (:name,:create_at,:update_at) ';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([
+            ':name' => $genreObj->name,
+            ':create_at' => $genreObj->create_at,
+            ':update_at' => $genreObj->create_at
+        ]);
     }
 }
