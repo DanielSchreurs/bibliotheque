@@ -108,8 +108,7 @@ class Author extends Base
                 }
                 $this->modelAuthor->update($this->request->sent, $this->request->id);
                 Session::setMessage('L’auteur a été modifié avec succès.');
-                header('Location:' . $_SERVER['PHP_SELF'] . '?m=author&a=admin_index_author');
-                die();
+                $this->headerLocation('author','admin_index_author');
             } else {
                 $data['errors'] = $this->modelAuthor->errors;
                 $data['sent'] = $this->request->sent;
@@ -151,8 +150,7 @@ class Author extends Base
                 Image::saveAs($_FILES['logo'], './img/authors_photo/logo/', $this->request->sent->logo);
                 $this->modelAuthor->create($this->request->sent);
                 Session::setMessage('Merci, l’auteur a été ajouté avec succès.');
-                header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step) ? '?m=editor&a=admin_create_editor&step=2' : '?m=author&a=admin_index_author'));
-                die();
+                $this->headerLocation((isset($this->request->step)?'editor':'author'),(isset($this->request->step)?'admin_create_editor':'admin_index_author'),(isset($this->request->step)?['step'=>2]:null));
             } else {
                 $data['errors'] = $this->modelAuthor->errors;
                 $data['sent'] = $this->request->sent;
@@ -175,18 +173,14 @@ class Author extends Base
         if (empty($this->modelAuthor->find($this->request->id)[0]->book_id)) {
             $this->modelAuthor->delete($this->request->id);
             Session::setMessage('L’auteur a été supprimé avec succès.');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=author&a=admin_index_author');
-            die();
         } else {
             foreach ($this->modelAuthor->find($this->request->id) as $book) {
                 $books .= ' - &laquo;&nbsp;' . $book->book_title . '&nbsp;&raquo;';
             }
             Session::setMessage('Cet auteur est encore définit pour : ' . $books, 'error');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=author&a=admin_index_author');
-            die();
+
         }
-
-
+        $this->headerLocation('author','admin_index_author');
     }
 
 }

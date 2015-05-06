@@ -125,8 +125,7 @@ class User extends Base
                         $_SESSION['question'] = $data['question'];
                         if ($_SESSION['question'] === null) {
                             Session::setMessage('Il n’existe pas de question pour cet identifiant', 'error');
-                            header('Location:' . $_SERVER['PHP_SELF']);
-                            die();
+                            $this->headerLocation();
                         } else {
                             $_SESSION['step'] = 2;
                         }
@@ -151,8 +150,7 @@ class User extends Base
                     unset($_SESSION['forgotId']);
                     unset($_SESSION['step']);
                     Session::setMessage('Votre mot de passe à été mis à jour.');
-                    header('Location:' . $_SERVER['PHP_SELF']);
-                    die();
+                  $this->headerLocation();
                 }
             }
             $data['step'] = $_SESSION['step'];

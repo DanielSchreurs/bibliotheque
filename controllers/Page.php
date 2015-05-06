@@ -93,8 +93,7 @@ class Page extends Base
                 $this->request->sent->question_id = $this->request->id;
                 $this->modelHelp->createAnwser($this->request->sent);
                 Session::setMessage('Merci, d’avoir répondu à cette question');
-                header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=help');
-                die();
+                $this->headerLocation('page','help');
             } else {
                 $data['errors'] = $this->modelHelp->getErrors();
                 $data['sent'] = $this->request->sent;
@@ -117,7 +116,7 @@ class Page extends Base
             if ($this->modelHelp->isValid()) {
                 $this->modelHelp->createQuestion($this->request->sent);
                 Session::setMessage('Merci, la question a été posé avec succès');
-                header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=help');
+                $this->headerLocation('page','help');
             } else {
                 $data['errors'] = $this->modelHelp->getErrors();
                 $data['sent'] = $this->request->sent;
@@ -159,9 +158,7 @@ class Page extends Base
     {
         $this->modelHelp->deleteQuestion($this->request->id);
         Session::setMessage('La question et reponse ont été supprimés avec succès.');
-        header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=admin_indexHelp');
-        die();
-
+        $this->headerLocation('page','admin_indexHelp');
     }
 
     public function admin_editQuestion()
@@ -174,8 +171,7 @@ class Page extends Base
                 $this->modelHelp->updateQuestion($this->request->sent);
                 $this->modelHelp->updateAnswer($this->request->sent);
                 Session::setMessage('Merci, la question et la réponse ont été modifiés');
-                header('Location:' . $_SERVER['PHP_SELF'] . '?m=page&a=admin_indexHelp');
-                die();
+                $this->headerLocation('page','admin_indexHelp');
             } else {
                 $data['errors'] = $this->modelHelp->getErrors();
                 $data['sent'] = $this->request->sent;

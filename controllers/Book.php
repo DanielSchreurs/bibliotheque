@@ -129,8 +129,7 @@ class Book extends Base
                 isset($this->request->sent->vedette) ? '' : $this->request->sent->vedette = 0;
                 $this->modelBook->update($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, votre livre a été mis à jour');
-                header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
-                die();
+                $this->headerLocation('book', 'admin_index');
             } else {
                 $data['errors'] = $this->modelBook->errors;
                 $data['sent'] = $this->request->sent;
@@ -197,8 +196,7 @@ class Book extends Base
                 isset($this->request->sent->vedette) ? '' : $this->request->sent->vedette = 0;
                 $this->modelBook->create($this->request->sent);
                 Session::setMessage('Merci, votre livre a été ajouté');
-                header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
-                die();
+                $this->headerLocation('book', 'admin_index');
             } else {
                 $data['errors'] = $this->modelBook->errors;
                 $data['sent'] = $this->request->sent;
@@ -217,12 +215,10 @@ class Book extends Base
     {
         if ($this->modelBook->delete($this->request->id)) {
             Session::setMessage('Votre livre à été supprimé avec succès');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
-            die();
+            $this->headerLocation('book', 'admin_index');
         } else {
             Session::setMessage('Votre livre a été supprimé avec succes');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=book&a=admin_index');
-            die();
+            $this->headerLocation('book', 'admin_index');
         }
 
     }
@@ -251,12 +247,10 @@ class Book extends Base
                 if ($this->modelBook->isDispo($this->request->id, $this->request->sent->to) === true) {
                     $this->modelBook->reserveBook($this->request->sent);
                     Session::setMessage('Ce livre a été réservé pour vous avec succès. Vous pouver modifier la date depuis votre compte.');
-                    header('Location:' . $_SERVER['PHP_SELF']);
-                    die();
+                    $this->headerLocation();
                 } else {
                     Session::setMessage('Malheureusement ce livre n’est plus diposible à ce moment', 'error');
-                    header('Location:' . $_SERVER['PHP_SELF']);
-                    die();
+                    $this->headerLocation();
                 }
             } else {
                 $data['errors'] = $this->request->errors;
@@ -297,12 +291,10 @@ class Book extends Base
                 if ($this->modelBook->isDispo($this->request->sent->book_id, $this->request->sent->to) === true) {
                     $this->modelBook->updateReserveBook($this->request->sent);
                     Session::setMessage('La date de modification a été modifié avec succès.');
-                    header('Location:' . $_SERVER['PHP_SELF'] . '?m=user&a=user_userIndex&id=' . $this->request->sent->user_id);
-                    die();
+                    $this->headerLocation('user', 'user_userIndex', ['id' => $this->request->sent->user_id]);
                 } else {
                     Session::setMessage('Malheureusement ce livre n’est plus diposible à ce moment', 'error');
-                    header('Location:' . $_SERVER['PHP_SELF']);
-                    die();
+                    $this->headerLocation();
                 }
             } else {
                 $data['errors'] = $this->request->errors;

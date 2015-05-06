@@ -17,7 +17,6 @@ class Html
 
         }
         return $_SERVER['PHP_SELF'] . '?m=' . $modele . '&amp;a=' . $action . $param;
-
     }
 
     public function cutText($chaine, $long)

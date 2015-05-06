@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Components\Session;
+use Helpers\Html;
 
 class Base
 {
@@ -28,5 +29,22 @@ class Base
             header('Location:' . $_SERVER['PHP_SELF']);
             die();
         }
+    }
+
+    public function headerLocation($modele = null, $action = null, $param = null)
+    {
+
+        if (!is_null($param)) {
+            $param = '&' . http_build_query($param);
+        } else {
+            $param = '';
+
+        }
+        if (!is_null($modele) && !is_null($action)) {
+            header('Location:' . $_SERVER['PHP_SELF'] . '?m=' . $modele . '&a=' . $action . $param);
+        } else {
+            header('Location:' . $_SERVER['PHP_SELF']);
+        }
+        exit();
     }
 }

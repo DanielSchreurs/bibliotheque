@@ -69,12 +69,9 @@ class Editor extends Base
                 } else {
                     $this->request->sent->logo = $data['editor']->logo;
                 }
-                die('ok on envoie');
-
                 $this->modelEditor->update($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, l’éditeur a été mis à jour');
-                header('Location:' . $_SERVER['PHP_SELF'] . '?m=editor&a=admin_index_editor');
-                die();
+                $this->headerLocation('editor','admin_index_editor');
             } else {
                 $data['errors'] = $this->modelEditor->errors;
                 $data['sent'] = $this->request->sent;
@@ -106,8 +103,7 @@ class Editor extends Base
                 Image::saveAs($_FILES['logo'], './img/editors_logos/', $this->request->sent->logo);
                 $this->modelEditor->create($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, l’éditeur a été ajouté avec succès.');
-                header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step) ? '?m=genre&a=admin_create_genre&step=3' : '?m=editor&a=admin_index_editor'));
-                die();
+                $this->headerLocation((isset($this->request->step)?'genre':'editor'),(isset($this->request->step)?'admin_create_genre':'admin_index_editor'),(isset($this->request->step)?['step'=>3]:null));
             } else {
                 $data['errors'] = $this->modelEditor->errors;
                 $data['sent'] = $this->request->sent;
@@ -142,15 +138,13 @@ class Editor extends Base
         if (empty($this->modelEditor->find($this->request->id)[0]->book_id)) {
             $this->modelEditor->delete($this->request->id);
             Session::setMessage('L’éditeur a été supprimé avec succès.');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=editor&a=admin_index_editor');
-            die();
+            $this->headerLocation('editor','admin_index_editor');
         } else {
             foreach ($this->modelEditor->find($this->request->id) as $book) {
                 $books .= ' - &laquo;&nbsp;' . $book->book_title . '&nbsp;&raquo;';
             }
             Session::setMessage('Cet éditeur éxiste encore pour : ' . $books, 'error');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=editor&a=admin_index_editor');
-            die();
+            $this->headerLocation('editor','admin_index_editor');
         }
     }
 

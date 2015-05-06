@@ -26,13 +26,11 @@ class Request
             $this->a = $_REQUEST['a'];
         }
         $route = $this->m . '/' . $this->a;//On formate la route selont le tableau existant
-
         if (!in_array($route, $routes)) {
             var_dump($route);
-            die();
+            die('La route n’existe pas.');
             header('Location:./index.php?m=error&a=error&error=404');
         }
-
         if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
             $this->id = $_REQUEST['id'];
         }

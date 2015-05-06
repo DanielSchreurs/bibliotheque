@@ -58,10 +58,10 @@ class Genre extends Base
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $this->errors = $this->modelGenre->validate($this->request->sent, $_FILES);
             if ($this->modelGenre->isValid()) {
-                var_dump($this->request->sent);
                 $this->modelGenre->update($this->request->sent, $this->request->id);
                 Session::setMessage('Merci, ce genre a été modifié avec succès');
-                header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step) ? '?m=book&a=admin_create_book&step=4' : '?m=genre&a=admin_index_genre'));
+                $this->headerLocation('genre','admin_index_genre',(isset($this->request->step)?['step'=>4]:null));
+                $this->headerLocation('genre','admin_index_genre');
             } else {
                 $data['errors'] = $this->modelGenre->getErrors();
                 $data['sent'] = $this->request->sent;
@@ -78,6 +78,9 @@ class Genre extends Base
         ];//attention il manque la date de modification !
     }
 
+    /**
+     * @return array
+     */
     public function admin_create_genre()
     {
         $data = '';
@@ -86,14 +89,15 @@ class Genre extends Base
         }
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $this->errors = $this->modelGenre->validate($this->request->sent, $_FILES);
+            if($this->modelGenre->exist($this->request->sent->name)){
+                $this->modelGenre->errors['name'][]='Ce genre existe déjà.';
+            }
             if ($this->modelGenre->isValid()) {
-                var_dump($this->request->sent);
-                die('on envoie');
                 $this->modelGenre->create($this->request->sent);
                 Session::setMessage('Merci, ce genre a été ajouté avec succès');
-                header('Location:' . $_SERVER['PHP_SELF'] . (isset($this->request->step) ? '?m=book&a=admin_create_book&step=4' : '?m=genre&a=admin_index_genre'));
+                $this->headerLocation((isset($this->request->step)?'book':'genre'),(isset($this->request->step)?'admin_create_book':'admin_index_genre'),(isset($this->request->step)?['step'=>4]:null));
             } else {
-                $data['errors'] = $this->modelGenre->getErrors();
+                $data['errors'] = $this->modelGenre->errors;
                 $data['sent'] = $this->request->sent;
                 if (isset($this->request->step)) {
                     $data['step'] = $this->request->step;
@@ -114,15 +118,13 @@ class Genre extends Base
         if (empty($this->modelGenre->find($this->request->id)[0]->book_id)) {
             $this->modelGenre->delete($this->request->id);
             Session::setMessage('Votre genre a été supprimé avec succe.');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=genre&a=admin_index_genre');
-            die();
+
         } else {
             foreach ($this->modelGenre->find($this->request->id) as $book) {
                 $books .= ' - &laquo;&nbsp;' . $book->book_title . '&nbsp;&raquo;';
             }
             Session::setMessage('Ce genre est encore définit pour : ' . $books, 'error');
-            header('Location:' . $_SERVER['PHP_SELF'] . '?m=genre&a=admin_index_genre');
-            die();
         }
+        $this->headerLocation('genre','admin_index_genre');
     }
 }

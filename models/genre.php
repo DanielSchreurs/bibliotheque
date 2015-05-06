@@ -53,6 +53,22 @@ class Genre extends Model implements GenreRepositoryInterface
         );
         return $pdost->fetch();
     }
+    public function exist($name)
+    {
+        $sql = '
+               SELECT
+              name,
+              id
+              FROM genres
+              WHERE name=:name';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute(
+            [':name' => $name]
+        );
+
+        return !!$pdost->fetch();
+
+    }
 
     public function find($id_genre)
     {
