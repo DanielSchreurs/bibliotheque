@@ -73,8 +73,7 @@ class User extends Base
                 $this->modelUser->create($this->request->sent);
                 $this->login(true);
                 Session::setMessage('Merci, pour votre inscription. Vous pouvez vous connecter.');
-                header('Location:' . $_SERVER['PHP_SELF']);
-                die();
+               $this->headerLocation();
             } else {
                 $data['errors'] = $this->modelUser->errors;
                 $data['sent'] = $this->request->sent;
@@ -145,7 +144,7 @@ class User extends Base
                         $this->modelUser->errors['answer'][] = 'Ce n’est pas la bonne réponse.';
                     }
                 } elseif ($_SESSION['step'] == 3) {
-                    $this->modelUser->resetPasseword($this->request->sent->password, $_SESSION['forgotId']);
+                    $this->modelUser->resetPasseword(sha1($this->request->sent->password), $_SESSION['forgotId']);
                     unset($_SESSION['question']);
                     unset($_SESSION['forgotId']);
                     unset($_SESSION['step']);
