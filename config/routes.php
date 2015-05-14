@@ -19,8 +19,6 @@ $routes['genreview'] = 'genre/view';
 $routes['genreindex'] = 'genre/index';
 $routes['yearsindex'] = 'year/index';
 $routes['libraryview'] = 'library/view';
-$routes['not_found'] = 'error/error ';
-$routes['db_error'] = 'error/e_database';
 $routes['userlogin'] = 'user/login';
 $routes['userlogout'] = 'user/logout';
 $routes['usercreate'] = 'user/create';
@@ -29,6 +27,9 @@ $routes['pagehelp'] = 'page/help';
 $routes['pageabout'] = 'page/about';
 $routes['pagesearch'] = 'page/search';
 
+
+$routes['db_error'] = 'error/e_database';
+$routes['not_found'] = 'error/error ';
 /*
  * Routes pour le user
  * */
