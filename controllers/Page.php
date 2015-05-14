@@ -23,35 +23,41 @@ class Page extends Base
 
     public function help()
     {
-        $date = $this->modelHelp->getAllQuestions();
+        $data = $this->modelHelp->getAllQuestions();
         $title = 'Comment ça marche';
         return [
-            'data' => $date,
+            'data' => $data,
             'title' => $title
         ];
     }
 
     public function search()
     {
-        $data = $this->modelHelp->searchALL([
-                'books' => [
-                    'get' => 'title, id',
-                    'where' => ['title', 'datepub'],
-                    'what' => $_POST['search']
-                ],
-                'authors' => [
-                    'get' => 'first_name, last_name, id',
-                    'where' => ['first_name', 'last_name'],
-                    'what' => $_POST['search']
-                ],
-                'editors' => [
-                    'get' => 'name, id',
-                    'where' => ['website', 'name'],
-                    'what' => $_POST['search']
+        $this->modelHelp->validate($_GET);
+        if (empty($this->modelHelp->errors)) {
+            $this->modelHelp->sanitize($_GET);
+            $data = $this->modelHelp->searchALL([
+                    'books' => [
+                        'get' => 'title, id',
+                        'where' => ['title', 'datepub'],
+                        'what' => $this->modelHelp->sanitize['search']
+                    ],
+                    'authors' => [
+                        'get' => 'first_name, last_name, id',
+                        'where' => ['first_name', 'last_name'],
+                        'what' => $this->modelHelp->sanitize['search']
+                    ],
+                    'editors' => [
+                        'get' => 'name, id',
+                        'where' => ['website', 'name'],
+                        'what' =>  $this->modelHelp->sanitize['search']
+                    ]
                 ]
-            ]
-        );
-        $title = $_POST['search'];
+            );
+        } else {
+            $data['error'] = 'Oups, vous n’avez pas mis de mot.';
+        }
+        $title = 'Recherche';
         return [
             'data' => $data,
             'title' => $title
@@ -93,7 +99,7 @@ class Page extends Base
                 $this->request->sent->question_id = $this->request->id;
                 $this->modelHelp->createAnwser($this->request->sent);
                 Session::setMessage('Merci, d’avoir répondu à cette question');
-                $this->headerLocation('page','help');
+                $this->headerLocation('page', 'help');
             } else {
                 $data['errors'] = $this->modelHelp->getErrors();
                 $data['sent'] = $this->request->sent;
@@ -116,7 +122,7 @@ class Page extends Base
             if ($this->modelHelp->isValid()) {
                 $this->modelHelp->createQuestion($this->request->sent);
                 Session::setMessage('Merci, la question a été posé avec succès');
-                $this->headerLocation('page','help');
+                $this->headerLocation('page', 'help');
             } else {
                 $data['errors'] = $this->modelHelp->getErrors();
                 $data['sent'] = $this->request->sent;
@@ -132,10 +138,10 @@ class Page extends Base
     public function admin_indexHelp()
     {
         {
-            $date = $this->modelHelp->getAllQuestions();
+            $data = $this->modelHelp->getAllQuestions();
             $title = 'Administrer les questions et réponses';
             return [
-                'data' => $date,
+                'data' => $data,
                 'title' => $title
             ];
         }
@@ -153,12 +159,11 @@ class Page extends Base
             ];
         }
     }
-
     public function admin_deleteQuestion()
     {
         $this->modelHelp->deleteQuestion($this->request->id);
         Session::setMessage('La question et reponse ont été supprimés avec succès.');
-        $this->headerLocation('page','admin_indexHelp');
+        $this->headerLocation('page', 'admin_indexHelp');
     }
 
     public function admin_editQuestion()
@@ -171,7 +176,7 @@ class Page extends Base
                 $this->modelHelp->updateQuestion($this->request->sent);
                 $this->modelHelp->updateAnswer($this->request->sent);
                 Session::setMessage('Merci, la question et la réponse ont été modifiés');
-                $this->headerLocation('page','admin_indexHelp');
+                $this->headerLocation('page', 'admin_indexHelp');
             } else {
                 $data['errors'] = $this->modelHelp->getErrors();
                 $data['sent'] = $this->request->sent;
