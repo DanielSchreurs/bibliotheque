@@ -2,7 +2,7 @@
 
 namespace Controllers;
 
-class Request
+class Request extends Base
 {
     public $m = null;
     public $a = null;
@@ -27,26 +27,52 @@ class Request
         }
         $route = $this->m . '/' . $this->a;//On formate la route selont le tableau existant
         if (!in_array($route, $routes)) {
-            var_dump($route);
-            die('La route n’existe pas.');
-            header('Location:./index.php?m=error&a=error&error=404');
+            $this->m = 'error';
+            $this->a = 'error';
+            $this->error = '404';
         }
-        if (isset($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
-            $this->id = $_REQUEST['id'];
+        if (isset($_REQUEST['id'])) {
+            if (is_numeric($_REQUEST['id'])) {
+                $this->id = $_REQUEST['id'];
+            } else {
+                $this->m = 'error';
+                $this->a = 'error';
+                $this->error = '403';
+            }
         }
-        if (isset($_REQUEST['page']) && is_numeric($_REQUEST['page'])) {
-            $this->page = $_REQUEST['page'];
+        if (isset($_REQUEST['page'])) {
+            if (is_numeric($_REQUEST['page'])) {
+                $this->page = $_REQUEST['page'];
+            }
         } else {
             $this->page = 1;
         }
-        if (isset($_REQUEST['year']) && is_numeric($_REQUEST['year'])) {
-            $this->year = $_REQUEST['year'];
+        if (isset($_REQUEST['year'])) {
+            if (is_numeric($_REQUEST['year'])) {
+                $this->year = $_REQUEST['year'];
+            } else {
+                $this->m = 'error';
+                $this->a = 'error';
+                $this->error = '403';
+            }
         }
-        if (isset($_REQUEST['step']) && is_numeric($_REQUEST['step'])) {
-            $this->step = $_REQUEST['step'];
+        if (isset($_REQUEST['step'])) {
+            if (is_numeric($_REQUEST['step'])) {
+                $this->step = $_REQUEST['step'];
+            } else {
+                $this->m = 'error';
+                $this->a = 'error';
+                $this->error = '403';
+            }
         }
-        if (isset($_REQUEST['error']) && is_numeric($_REQUEST['error'])) {
-            $this->error = $_REQUEST['error'];
+        if (isset($_REQUEST['error'])) {
+            if (is_numeric($_REQUEST['error'])) {
+                $this->error = $_REQUEST['error'];
+            } else {
+                $this->m = 'error';
+                $this->a = 'error';
+                $this->error = '403';
+            }
         }
         if (!empty($_POST)) {
             $this->sent = new \stdClass();
