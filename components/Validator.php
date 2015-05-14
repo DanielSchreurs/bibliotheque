@@ -310,11 +310,29 @@ trait Validator
             ) {
                 return true;
             } else {
-                $message = is_null($error) ? 'Ce n’est pas un e-mail valid' : $error;
+                if (!preg_match('/[A-Z]/', $value)) {
+                    $messages[] = 'Il manque une lettre majuscule';
+                }
+                if (!preg_match('/[a-z]/', $value)) {
+                    $messages[] = 'Il manque une lettre minuscule';
+                }
+                if (!preg_match('/[0-9]/', $value)) {
+                    $messages[] = 'Il manque un nombre';
+                }
+                if (strlen($value) < 8) {
+                    $messages[] = 'Le mot de passe doit au moins contenir 8 caractères';
+                }
+                if (strlen($value) > 21) {
+                    $messages[] = 'Le mot de passe ne peux pas dépasser 20 caractères';
+                }
                 if (isset($this->errors[$field])) {
-                    array_push($this->errors[$field], $message);
+                    foreach ($messages as $message) {
+                        array_push($this->errors[$field], $message);
+                    }
                 } else {
-                    $this->errors[$field][] = $message;
+                    foreach ($messages as $message) {
+                        $this->errors[$field][] = $message;
+                    }
                 }
                 return false;
             }

@@ -179,7 +179,17 @@ input:hover + .form-create__example-box {
     opacity: 1;
   }
 }
+input:focus + .form-create__example-box {
+  .form-create__example-box__text {
+    opacity: 1;
+  }
+}
 
+textarea:focus + .form-create__example-box {
+  .form-create__example-box__text {
+    opacity: 1;
+  }
+}
 textarea:hover + .form-create__example-box {
   .form-create__example-box__text {
     opacity: 1;
@@ -187,6 +197,11 @@ textarea:hover + .form-create__example-box {
 }
 
 label:hover + input + .form-create__example-box {
+  .form-create__example-box__text {
+    opacity: 1;
+  }
+}
+label:focus + input + .form-create__example-box {
   .form-create__example-box__text {
     opacity: 1;
   }
