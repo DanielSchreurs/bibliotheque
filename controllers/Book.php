@@ -41,7 +41,7 @@ class Book extends Base
     public function index()
     {
         $data = $this->modelBook->paginate($this->request->page);
-        $title = 'acceuil';
+        $title = 'Tous nos livres';
         $nbrPage = ceil(($this->modelBook->getNbrelements() / NBR_BOOKS));
         return [
             'data' => $data,
@@ -226,7 +226,6 @@ class Book extends Base
     public function user_reserve()
     {
         if ($_SERVER['REQUEST_METHOD'] === "POST") {
-
             if (!isset($this->request->errors['from'])) {
                 if (Date::isValidDate($this->request->sent->from, false) !== true) {
                     $this->request->errors['from'] = Date::isValidDate($this->request->sent->from, false);
@@ -244,13 +243,18 @@ class Book extends Base
 
             }
             if (empty($this->request->errors)) {
-                if ($this->modelBook->isDispo($this->request->id, $this->request->sent->to) === true) {
-                    $this->modelBook->reserveBook($this->request->sent);
-                    Session::setMessage('Ce livre a été réservé pour vous avec succès. Vous pouver modifier la date depuis votre compte.');
+                if (!$this->modelBook->isBookReservedFromUser($this->request->sent->user_id,$this->request->sent->book_id)) {
+                    Session::setMessage('Vous ne pouvez pas réserver plusieur fois le même livre.', 'error');
                     $this->headerLocation();
                 } else {
-                    Session::setMessage('Malheureusement ce livre n’est plus diposible à ce moment', 'error');
-                    $this->headerLocation();
+                    if ($this->modelBook->isDispo($this->request->id, $this->request->sent->to) === true) {
+                        $this->modelBook->reserveBook($this->request->sent);
+                        Session::setMessage('Ce livre a été réservé pour vous avec succès. Vous pouver modifier la date depuis votre compte.');
+                        $this->headerLocation();
+                    } else {
+                        Session::setMessage('Malheureusement ce livre n’est plus diposible à ce moment', 'error');
+                        $this->headerLocation();
+                    }
                 }
             } else {
                 $data['errors'] = $this->request->errors;
@@ -290,7 +294,7 @@ class Book extends Base
             if (empty($this->request->errors)) {
                 if ($this->modelBook->isDispo($this->request->sent->book_id, $this->request->sent->to) === true) {
                     $this->modelBook->updateReserveBook($this->request->sent);
-                    Session::setMessage('La date de modification a été modifié avec succès.');
+                    Session::setMessage('La date de réservation a été modifié avec succès.');
                     $this->headerLocation('user', 'user_userIndex', ['id' => $this->request->sent->user_id]);
                 } else {
                     Session::setMessage('Malheureusement ce livre n’est plus diposible à ce moment', 'error');
