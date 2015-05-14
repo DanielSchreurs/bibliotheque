@@ -41,5 +41,7 @@ interface BookRepositoryInterface
 
     public function removeOneCopy($book_id);
 
+    public function isBookReservedFromUser($userId, $bookId);
+
 
 }
