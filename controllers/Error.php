@@ -1,8 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: danielschreurs
- */
 
 namespace Controllers;
 
@@ -16,13 +12,17 @@ class Error extends Base
 
     public function error()
     {
-
-        $data['view'] = 'error.php';
-
-        if ($this->request->error == 404) {
-            $data['title'] = 'Oups, vous semblez demander une page qui n’existe pas.';
+        switch($this->request->error){
+            case 404:
+                $data['title'] = 'Oups, vous semblez demander une page qui n’existe pas.';
+                break;
+            case 403:
+                $data['title']='Vous n’avez pas le droit de faire ça';
+                break;
+            default:
+                $data['title']='Oups, une erreur s’est produite';
+                break;
         }
-
         return $data;
     }
 
