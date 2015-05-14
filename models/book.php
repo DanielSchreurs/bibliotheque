@@ -487,4 +487,12 @@ class Book extends Model implements BookRepositoryInterface
     }
 
 
+    public function isBookReservedFromUser($userId, $bookId)
+    {
+        $sql = 'SELECT COUNT(user_id) as users FROM book_reserved where user_id=:userId AND book_id=:bookId';
+        $pdost = $this->cx->prepare($sql);
+        $pdost->execute([':userId' => $userId,':bookId'=>$bookId]);
+        return $pdost->fetch()->users==0;
+    }
+
 }
