@@ -6,11 +6,13 @@
 
 namespace Models;
 
+use Components\Sanitize;
 use Components\Validator;
 
 class Help extends Model implements HelpRepositoryInterface
 {
     use Validator;
+    use Sanitize;
     public $validationRules = [
         'create_at' => [
             ['ruleName' => 'isDate'],
@@ -31,6 +33,20 @@ class Help extends Model implements HelpRepositoryInterface
         ],
         'question_id' => [
             ['ruleName' => 'isValidId']
+        ],
+        'm' => [
+            ['ruleName' => 'notEmpty']
+        ],
+        'a' => [
+            ['ruleName' => 'notEmpty']
+        ],
+        'search' => [
+            ['ruleName' => 'notEmpty']
+        ]
+    ];
+    public $sanitizeRule=[
+        'search'=>[
+            ['ruleName'=>'string']
         ]
     ];
     protected $table = 'help';
