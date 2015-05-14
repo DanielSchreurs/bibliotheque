@@ -1,8 +1,8 @@
 <main class="container">
-    <h1 class="hidden"><?php echo(TITLE . ' | ' . $data['title']) ?></h1>
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
+    <h1 class="header-block-one"><?php echo($data['title']) ?></h1>
     <ul class="liste_Bibliotheques">
         <?php foreach ($data['data'] as $author): ?>
             <li>

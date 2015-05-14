@@ -26,7 +26,6 @@ interface HelpRepositoryInterface
 
     public function updateAnswer($oAnswer);
 
-
     public function deleteQuestion($question_id);
 
     public function deleteAnswer($question_id);

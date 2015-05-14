@@ -50,12 +50,12 @@
                     src="./img/authors_photo/<?php echo($author->photo); ?>"
                     alt="Portrait de l'auteur<?php echo($html->createLink('author', 'view',
                         ['id' => $author->author_id])); ?>"/></a>
-            <figcatiion>
+            <figcaption>
                 <h3 class="single-author__figure__header"><a title="Renvoie vers la fiche de l'auteur"
                                                              href="<?php echo($html->createLink('author', 'view',
                                                                  ['id' => $author->author_id])); ?>"><?php echo($author->first_name . ' ' . $author->last_name); ?></a>
                 </h3>
-            </figcatiion>
+            </figcaption>
         </figure>
         <p class="single-author__text"><?php echo($html->cutText($author->bio_text, 500)); ?></p>
         <a title="Renvoie vers la fiche de l'auteur" class="btnVert"

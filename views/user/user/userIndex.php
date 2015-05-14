@@ -20,7 +20,7 @@
                 <a title="Renvoie vers la fiche du livre"
                    href="<?php echo($html->createLink('book', 'view', ['id' => $book->book_id])); ?>"><img
                         class="book-presentation__picture" width="270" height="200"
-                        src="./img/books_covers/presentation/<?php echo($book->presentation_cover); ?>.jpg"
+                        src="./img/books_covers/presentation/<?php echo($book->presentation_cover); ?>"
                         alt="andre_breton_anthologie_de_lhumour_noir"/></a>
                 <!--<a class="book-presentation__inline-link" href="">Réserver</a>-->
 

@@ -3,7 +3,7 @@
     <?php //var_dump($data); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <h1 class="header-block-one">Derniers livres ajoutés</h1>
+    <h1 class="header-block-one"><?php echo($data['title']) ?></h1>
     <ul class="book-liste">
         <?php foreach ($data['data'] as $book): ?>
             <li>
@@ -33,7 +33,7 @@
                            title="Renvoie vers une page qui reprend tous les livres du genre <?php echo($book->genre_name); ?>"><?php echo($book->genre_name); ?></a>
                     </dd>
                     <dt>Année</dt>
-                    <dd><a href="<?php echo($html->createLink('book', 'liste',
+                    <dd><a href="<?php echo($html->createLink('book', 'allBooksFromYear',
                             ['year' => date('Y', strtotime($book->datepub))])); ?>"
                            title="Renvoie vers une page qui reprend tous les livres de l'année <?php echo($book->datepub); ?>"><?php echo(date('Y',
                                 strtotime($book->datepub))); ?></a>

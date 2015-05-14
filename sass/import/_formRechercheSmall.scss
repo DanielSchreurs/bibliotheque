@@ -59,6 +59,44 @@
 
 }
 
-.form_recherche {
-
+.form_recherche__message{
+    text-align: center;
+  font-size: 1.2em;
+  width: percentage(400/1080);
+  margin: 0 auto;
+  border:1px solid $grisFonce ;
+  background: $grisClair;
+  color: $grisFonce;
+  margin-top: 0.3em;
+  -webkit-border-radius: .2em;
+  -moz-border-radius: .2em;
+  border-radius: .2em;
+  position: relative;
+  &:before{
+  z-index: -1;
+   content: "";
+    display: block;
+    width: 25px;
+    height: 25px;
+    top: -12.5px;
+    left: 50%;
+    position: absolute;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: $grisClair;
+    border-top: 1px solid $grisFonce;
+    border-left: 1px solid $grisFonce;
+  }
+}
+.form_recherche__message--error{
+  border: 1px solid $error;
+ color: $error;
+background:$errorBCG;
+  &:before{
+    background-color: $errorBCG;
+    border-color:$error;
+  }
 }

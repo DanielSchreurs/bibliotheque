@@ -2,7 +2,7 @@
     <?php Components\Session::flash(); ?>
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
-    <h1 class="hidden"><?php echo($data['title']); ?></h1>
+    <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
     <ul class="simple-liste">
         <?php foreach ($data['data'] as $genre): ?>
             <li>

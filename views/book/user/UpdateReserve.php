@@ -1,10 +1,6 @@
 <main class="container">
     <?php Components\Session::flash();
-    $reserve = $data['data']['data'];
-    var_dump($reserve);
-
-
-    ?>
+    $reserve = $data['data']['data']; ?>
     <h1 class="header-block-one"><?php echo($data['title']); ?></h1>
 
     <?php
