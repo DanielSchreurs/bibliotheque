@@ -3,7 +3,7 @@
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <h1 class="hidden"><?php echo($data['title']); ?></h1>
-    <?php $about = $data['data']; ?>
+    <?php $about = $data['data'][0]; ?>
     <article class="about-bloc">
         <h2 class="big-logo">book<span class="big-logo__me">me</span></h2>
 

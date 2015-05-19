@@ -5,5 +5,5 @@
     <input type="submit" value="Rechercher !">
 </form>
 <?php if(isset($data['data']['error'])):?>
-    <p class="form_recherche__message form_recherche__message--error"><?php //echo($data['data']['error']); ?></p>
+    <p class="form_recherche__message form_recherche__message--error"><?php echo($data['data']['error']); ?></p>
 <?php endif; ?>

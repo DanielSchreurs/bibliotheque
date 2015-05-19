@@ -8,13 +8,20 @@ $book = $data['data']['data'];
     <h1 class="header-block-one "><?php echo($book->title); ?></h1>
 
     <div>
-        <a class="float_left book-book"
-           href="<?php echo($html->createLink('book', 'user_reserve', ['id' => $book->book_id])); ?>"
-           title="Réserver <?php echo($book->title); ?>"><img
+        <?php if ($data['data']['isDispo']): ?>
+            <a class="float_left book-book"
+               href="<?php echo($html->createLink('book', 'user_reserve', ['id' => $book->book_id])); ?>"
+               title="Réserver <?php echo($book->title); ?>"><img
+                    src="./img/books_covers/<?php echo($book->front_cover); ?>"
+                    alt="première du <?php echo($book->title); ?>" width="300" height="450" class="book-book__img">
+
+                <p class="book-book__text inline-link">Réserver</p></a>
+        <?php else: ?>
+            <img
+                class="float_left book-book"
                 src="./img/books_covers/<?php echo($book->front_cover); ?>"
                 alt="première du <?php echo($book->title); ?>" width="300" height="450" class="book-book__img">
-
-            <p class="book-book__text inline-link">Réserver</p></a>
+        <?php endif; ?>
 
         <p class="column"><?php echo($book->summary); ?> </p>
         <?php if ($data['data']['isDispo']): ?>

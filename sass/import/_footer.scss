@@ -5,7 +5,7 @@
   right: 0;
   .copy {
     text-align: center;
-    font-size: 1.5em; /*21px*/
+    font-size: 1.1em; /*21px*/
   }
   a {
     color: inherit;
@@ -18,5 +18,16 @@
     a {
       padding: .7142857143em 1.4035087719%; /*10px 20px*/
     }
+  }
+}
+.footer__list{
+}
+
+.footer__lits__item{
+  margin-top: .5em;
+  text-decoration: underline;
+  margin-right: 5em;
+  &:hover{
+    color: $grisClair;
   }
 }

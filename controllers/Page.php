@@ -33,6 +33,7 @@ class Page extends Base
 
     public function search()
     {
+        $data = '';
         $this->modelHelp->validate($_GET);
         if (empty($this->modelHelp->errors)) {
             $this->modelHelp->sanitize($_GET);
@@ -50,14 +51,14 @@ class Page extends Base
                     'editors' => [
                         'get' => 'name, id',
                         'where' => ['website', 'name'],
-                        'what' =>  $this->modelHelp->sanitize['search']
+                        'what' => $this->modelHelp->sanitize['search']
                     ]
                 ]
             );
         } else {
             $data['error'] = 'Oups, vous n’avez pas mis de mot.';
         }
-        $title = 'Recherche';
+        $title = $_GET['search'];
         return [
             'data' => $data,
             'title' => $title
@@ -79,7 +80,7 @@ class Page extends Base
 
     public function about()
     {
-        $data = $this->modelLibrary->view(1);
+        $data[] = $this->modelLibrary->view(1);
         $title = 'Tout savoir sur nous';
         return [
             'data' => $data,
@@ -159,6 +160,7 @@ class Page extends Base
             ];
         }
     }
+
     public function admin_deleteQuestion()
     {
         $this->modelHelp->deleteQuestion($this->request->id);

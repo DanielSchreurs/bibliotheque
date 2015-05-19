@@ -5,6 +5,6 @@
 <?php include(VIEW_DIR . 'parts/' . $controller->header . '.php'); ?>
 <?php include($controller->view); ?>
 <?php include(VIEW_DIR . 'parts/footer.php'); ?>
-<script type="text/javascript" src="./js/app.js"></script>
+<script type="text/javascript" src="./js/min/app-min.js"></script>
 </body>
 </html>
