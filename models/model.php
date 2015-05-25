@@ -15,7 +15,8 @@ class model implements ModelRepositoryInterface
             $this->cx->query('SET CHARACTER SET UTF8');
             $this->cx->query('SET NAMES UTF8');
         } catch (\PDOException $e) {
-            die($e->getMessage());
+            header('Location:'.$_SERVER['PHP_SELF'].'?m=error&a=sql&error=404');
+            die('ok');
         }
         $this->table = $table;
     }

@@ -15,19 +15,19 @@ var showedpassword = document.getElementsByClassName('showedpassword');
 var flash = document.getElementsByClassName('flash-box__btn');
 var showFromElement = document.getElementById('showFrom');
 
-if (linkShowPassword != null) {
+if (linkShowPassword !== null) {
     linkShowPassword.addEventListener('click', function () {
         show(showedpassword, linkShowPassword);
     }, false);
 }
-if (flash != null) {
+if (flash !== null) {
     for (i = 0, c = flash.length; i < c; i++) {
         flash[i].addEventListener('click', removeParent, false);
     }
 }
 function show(elements, link) {
     for (i = 0; i < elements.length; i++) {
-        elements[i].type == 'password' ? elements[i].type = 'text' : elements[i].type = 'password';
+        elements[i].type = elements[i].type == 'password' ?  'text' :'password';
     }
     link.childNodes[0].nodeValue = (elements[0].type == 'password' ? 'Montrer ' : 'Cacher ') + 'le mot de passe';
     link.className = (elements[0].type == 'password' ? 'ouvrir ' : 'fermer ') + 'icon smallInfo';
@@ -44,7 +44,7 @@ function op(evt) {
 
 function addClass(newClass) {
     var oldClass = event.target.className;
-    event.target.className = oldClass != 0 ? oldClass + " " + newClass : newClass;
+    event.target.className = oldClass !== 0 ? oldClass + " " + newClass : newClass;
 }
 function removeClass(newClass) {
     var oldClass = event.target.className;
@@ -66,4 +66,3 @@ if (showFromElement) {
 
 document.getElementsByTagName('body')[0].style.marginBottom = (document.getElementsByClassName('main-footer')[0].offsetHeight * 1.6) + 'px';
 window.addEventListener("scroll", op, false);
-

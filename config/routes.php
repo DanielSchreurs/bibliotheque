@@ -28,7 +28,7 @@ $routes['pageabout'] = 'page/about';
 $routes['pagesearch'] = 'page/search';
 
 
-$routes['db_error'] = 'error/e_database';
+$routes['db_error'] = 'error/sql';
 $routes['not_found'] = 'error/error ';
 /*
  * Routes pour le user
