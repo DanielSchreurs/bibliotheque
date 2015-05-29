@@ -11,7 +11,7 @@ $current = $data['currentPage'];
     <?php endif; ?>
     <?php for ($i = 1; $i <= $c; $i++): ?>
         <?php if ($c > 3 && $i == $c): ?>
-            <li class="site-pagination__number"><span class="site-pagination__link"> ... </span></li>
+            <li class="site-pagination__number"><span class="site-pagination__link--nohover"> ... </span></li>
         <?php endif; ?>
         <li class="site-pagination__number">
             <a class=" <?php echo($i == $current ? 'site-pagination__link--current' : 'site-pagination__link'); ?>"

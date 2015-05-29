@@ -77,7 +77,7 @@ class Book extends Base
     {
 
         $data = $this->modelBook->getBookFromYear($this->request->year);
-        $title = 'Nos livres selon une année';
+        $title = $this->request->year;
         return [
             'data' => $data,
             'title' => $title

@@ -4,6 +4,9 @@
     width: 44.444444444%; /*480px*/
     margin-right: 2.7777777778%; /*30px*/
   }
+  p{
+    max-width: 500px;
+  }
 }
 
 .book-liste:after {
@@ -11,4 +14,24 @@
   display: block;
   clear: both;
 
+}
+.single_book--small{
+  .info_Livre{
+    margin-top: 2em;
+  }
+}
+
+.book-cover-img{
+  display: inline-block;
+  position: relative;
+  box-shadow: 0 10px 20px -8px;
+  &:after{
+      content: '';
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      box-shadow: inset 1px 0 rgba(0,0,0,.25), 0 1px rgba(0,0,0,.25);
+  }
 }

@@ -11,7 +11,7 @@
 
         <p class="about-bloc__paragraphe"><?php echo($about->about); ?></p>
 
-        <p>Vous pouvre nous contacter par <a class="text_link" href="mailto:<?php echo($about->email); ?>">email</a> ou
-            par téléphone au <?php echo($about->phone); ?></p>
+        <p class="about-bloc__paragraphe--contact">Vous pouvre nous contacter par <a class="inline-link" href="mailto:<?php echo($about->email); ?>">email</a> ou
+            par téléphone, au <i><?php echo($about->phone); ?></i>.</p>
     </article>
 </main>

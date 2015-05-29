@@ -3,7 +3,7 @@
     <?php include('./views/parts/form_recherche.php'); ?>
     <?php include('./views/parts/main_nav_bibli.php'); ?>
     <h1 class="header-block-one"><?php echo($data['title']) ?></h1>
-    <ul class="liste_Bibliotheques">
+    <ul class="book-liste">
         <?php foreach ($data['data'] as $author): ?>
             <li>
                 <h2><a class="header-block-two" href="<?php echo($html->createLink('author', 'view',

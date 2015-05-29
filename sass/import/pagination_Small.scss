@@ -3,7 +3,7 @@
   font-size: 1.2em;
 }
 
-.site-pagination__link {
+.site-pagination__link,.site-pagination__link--nohover {
   display: block;
   background: $grisClair;
   text-align: center;
@@ -20,14 +20,13 @@
   -ms-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
-  &:hover {
-    border: 1px solid $myGray;
-    background: transparent;
-    color: $myGray;
-  }
 }
-
-.site-pagination__link--current {
+.site-pagination__link:hover{
+  border: 1px solid $myGray;
+  background: transparent;
+  color: $myGray;
+}
+.site-pagination__link--current{
   display: block;
   background: $myGray;
   text-align: center;
@@ -44,9 +43,9 @@
   -ms-transition: .2s;
   -o-transition: .2s;
   transition: .2s;
-  &:hover {
-    border: 1px solid $myGray;
-    background: transparent;
-    color: $myGray;
-  }
+}
+.site-pagination__link--current:hover{
+  border: 1px solid $myGray;
+  background: transparent;
+  color: $myGray;
 }
