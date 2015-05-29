@@ -71,7 +71,7 @@
 
             <div class="form-create__example-box">
                 <p class="form-create__example-box__text">Ici vous devez insérer votre adresse mail dans un format
-                    valide. Quelque chose comme ceci, <i>nom@domaine.com</i>.</p>
+                    valide. Quelque chose comme ceci, <i>nom@domaine.com</i></p>
             </div>
             <?php if (isset($errors['email'])): ?>
                 <?php foreach ($errors['email'] as $error): ?>
@@ -122,7 +122,7 @@
                 placeholder="Question"/>
 
             <div class="form-create__example-box">
-                <p class="form-create__example-box__text">Ensérez une question à laquel vous aurez toujours réponse.</p>
+                <p class="form-create__example-box__text">Ensérez une question à laquelle vous aurez toujours réponse.</p>
             </div>
             <?php if (isset($errors['question'])): ?>
                 <?php foreach ($errors['question'] as $error): ?>

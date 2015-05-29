@@ -8,10 +8,10 @@ ini_set('display_errors', 1);
 // Définition du chemin d’inclusion pour y ajouter le dossier des classes controleurs et modèles
 set_include_path(
     get_include_path() .
-    ':' . dirname(__FILE__) . ROUTE_DELIMITER . CONTROLLERS_DIR .
-    ':' . dirname(__FILE__) . ROUTE_DELIMITER . MODELS_DIR .
-    ':' . dirname(__FILE__) . ROUTE_DELIMITER . HELPERS_DIR .
-    ':' . dirname(__FILE__) . ROUTE_DELIMITER . CARBON_DIR
+    PATH_SEPARATOR . dirname(__FILE__) . ROUTE_DELIMITER . CONTROLLERS_DIR .
+    PATH_SEPARATOR . dirname(__FILE__) . ROUTE_DELIMITER . MODELS_DIR .
+    PATH_SEPARATOR . dirname(__FILE__) . ROUTE_DELIMITER . HELPERS_DIR .
+    PATH_SEPARATOR . dirname(__FILE__) . ROUTE_DELIMITER . CARBON_DIR
 );
 // Mise en place de l’auto-chargement des classes
 
