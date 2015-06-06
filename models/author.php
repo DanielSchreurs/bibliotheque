@@ -157,7 +157,8 @@ class Author extends Model implements AuthorRepositoryInterface
                 photo,
                 bio_text
                 FROM authors
-                WHERE vedette=1';
+                WHERE vedette=1
+                ORDER BY update_at DESC';
         $pdost = $this->cx->query($sql);
         return $pdost->fetch();
     }
