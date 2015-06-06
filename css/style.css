@@ -1189,31 +1189,27 @@ style pour les medium
   .header-main__form-connexion__userLog label {
     text-align: left;
     font-size: 20px; } }
-/*
-Style form-create--large
-
-*/
 @media screen and (min-width: 1190px) {
-  /* line 67, ../sass/style.scss */
+  /* line 62, ../sass/style.scss */
   .container {
     display: block;
     width: 75%;
     margin: 0 auto; }
 
-  /* line 72, ../sass/style.scss */
+  /* line 67, ../sass/style.scss */
   .container .container {
     width: 100%; }
 
-  /* line 76, ../sass/style.scss */
+  /* line 71, ../sass/style.scss */
   .container--without-form {
     display: block;
     width: 1080px;
     margin: 0 auto;
     margin-top: 9.375em; }
 
-  /* line 82, ../sass/style.scss */
+  /* line 77, ../sass/style.scss */
   main.container {
-    margin-top: 8em; }
+    margin-top: 13em; }
 
   /* line 1, ../sass/import/_navbibliLarge.scss */
   .main-nav__item, .main-nav__item--small {
