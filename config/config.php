@@ -44,7 +44,6 @@ define('LANGUAGES_DIR', 'languages/');
 define('HELPERS_DIR', 'helpers/');
 define('IMAGES_DIR', 'images/');
 define('CARBON_DIR', 'vendor/Carbon/');
-define('NBR_BOOKS', 1);
 
 /*
  * Initialisation éventuelles de diverses variables comme par exemple,
@@ -58,3 +57,6 @@ define('NBR_BOOKS', 1);
 define('LIVETIME', time() + (2 * 3600));
 
 define('ACCECTIMAGEDATAFORM', 'image/png;image/jpg;image/jpeg');
+
+define('MAX_NB_BOOKS', 1);
+define('MAX_NB_PAGE',3);

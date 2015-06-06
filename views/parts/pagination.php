@@ -1,6 +1,7 @@
 <?php $i = 1;
 $c = $data['nbrPage'];
 $current = $data['currentPage'];
+var_dump($current, $c);
 ?>
 <ul class="site-pagination">
     <?php if ($current > 1): ?>
@@ -9,15 +10,24 @@ $current = $data['currentPage'];
                href="<?php echo($html->createLink('book', 'index', ['page' => $current - 1])) ?>">Précédent</a>
         </li>
     <?php endif; ?>
-    <?php for ($i = 1; $i <= $c; $i++): ?>
-        <?php if ($c > 3 && $i == $c): ?>
+
+    <?php for ($i = $current == 1 ? 1 : $current; $i <= $c; $i++): ?>
+        <?php if ($c > MAX_NB_PAGE && $i == $c): ?>
             <li class="site-pagination__number"><span class="site-pagination__link--nohover"> ... </span></li>
+        <?php elseif ($i < ($current+MAX_NB_PAGE) ): ?>
+            <li class="site-pagination__number">
+                <a class=" <?php echo($i == $current ? 'site-pagination__link--current' : 'site-pagination__link'); ?>"
+                   href="<?php echo($html->createLink('book', 'index', ['page' => $i])) ?>">
+                    <?php echo($i); ?></a>
+            </li>
         <?php endif; ?>
-        <li class="site-pagination__number">
-            <a class=" <?php echo($i == $current ? 'site-pagination__link--current' : 'site-pagination__link'); ?>"
-               href="<?php echo($html->createLink('book', 'index', ['page' => $i])) ?>">
-                <?php echo($i); ?></a>
-        </li>
+        <?php if ($i == $c): ?>
+            <li class="site-pagination__number">
+                <a class=" <?php echo($i == $current ? 'site-pagination__link--current' : 'site-pagination__link'); ?>"
+                   href="<?php echo($html->createLink('book', 'index', ['page' => $i])) ?>">
+                    <?php echo($i); ?></a>
+            </li>
+        <?php endif; ?>
     <?php endfor ?>
     <?php if ($current < $c): ?>
         <li class="site-pagination__number">
