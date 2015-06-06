@@ -235,7 +235,7 @@ trait Validator
             ) {
                 return true;
             } else {
-                $message = is_null($error) ? 'Ce n’est pas un ISBN valid' : $error;
+                $message = is_null($error) ? 'Ce n’est pas un ISBN valid, min 8 chiffres' : $error;
                 if (isset($this->errors[$field])) {
                     array_push($this->errors[$field], $message);
                 } else {
