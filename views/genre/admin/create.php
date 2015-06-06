@@ -31,6 +31,9 @@
                value="<?php echo(isset($errors['name']) || $_GET ? '' : $sent->name); ?>"
                placeholder="Policier"
                title="Introduisez le genre"/>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">Assurez-vous qu'il n'existe pas déjà <a class="inline-link" href="<?php echo($html->createLink('genre', 'index')); ?>">ici</a></p>
+        </div>
         <?php if (isset($errors['name'])): ?>
             <?php foreach ($errors['name'] as $error): ?>
                 <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
