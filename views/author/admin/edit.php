@@ -57,7 +57,7 @@
             <p class="form-create__example-box__text">Vous pouvez insérer une image au format (.jpg) et qui fait 300
                 pixel de large et 450 pixel de haut.</p>
         </div>
-        <label for="logo_edit">Petite portrait 200/200px<strong
+        <label for="logo_edit">Petite portrait 200/200px (.png)<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput" type="file" name="logo_edit"
                id="logo_edit"
@@ -112,6 +112,6 @@
         <label for="vedette">Mettre en vedette(un seul possible)</label>
         <input <?php echo($author->vedette == 1 ? 'checked' : ''); ?> type="checkbox" name="vedette" id="vedette"
                                                                       value="1"/>
-        <input type="submit" value="Modifier le livre" class="btnVert"/>
+        <input type="submit" value="Modifier l'auteur" class="btnVert"/>
     </form>
 </main>
