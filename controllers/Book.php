@@ -42,7 +42,7 @@ class Book extends Base
     {
         $data = $this->modelBook->paginate($this->request->page);
         $title = 'Tous nos livres';
-        $nbrPage = ceil(($this->modelBook->getNbrelements() / NBR_BOOKS));
+        $nbrPage = ceil(($this->modelBook->getNbrelements() / MAX_NB_BOOKS));
         return [
             'data' => $data,
             'title' => $title,

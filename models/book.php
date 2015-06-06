@@ -118,7 +118,7 @@ class Book extends Model implements BookRepositoryInterface
     public function paginate($page)
     {
 
-        $page = NBR_BOOKS * ($page - 1);
+        $page = MAX_NB_BOOKS * ($page - 1);
 
         $sql = '
                  SELECT
@@ -146,7 +146,7 @@ class Book extends Model implements BookRepositoryInterface
                 JOIN author_book on book_id=books.id
                 JOIN authors on author_id=authors.id
                 ORDER BY book_id
-                LIMIT ' . NBR_BOOKS . ' OFFSET ' . $page;
+                LIMIT ' . MAX_NB_BOOKS . ' OFFSET ' . $page;
         $pdost = $this->cx->query($sql);
         return $pdost->fetchAll();
     }
