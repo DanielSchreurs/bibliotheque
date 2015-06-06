@@ -92,16 +92,16 @@ class Author extends Base
             if ($this->modelAuthor->isValid()) {
                 isset($this->request->sent->vedette) ? '' : $this->request->sent->vedette = 0;
                 $this->request->sent->datedeath = $this->request->sent->datedeath === '' ? '0000-00-00' : $this->request->sent->datedeath;
-                if (!empty($_FILES['photo']['name'])) {
+                if (!empty($_FILES['photo_edit']['name'])) {
                     $photo = Image::renameFileName('photo');
-                    Image::saveAs($_FILES['photo'], './img/authors_photo/', $photo);
+                    Image::saveAs($_FILES['photo_edit'], './img/authors_photo/', $photo);
                     $this->request->sent->photo = $photo;
                 } else {
                     $this->request->sent->photo = $data['authors']->author_photo;
                 }
-                if (!empty($_FILES['logo']['name'])) {
+                if (!empty($_FILES['logo_edit']['name'])) {
                     $logo = Image::renameFileName('logo');
-                    Image::saveAs($_FILES['logo'], './img/authors_photo/logo/', $logo);
+                    Image::saveAs($_FILES['logo_edit'], './img/authors_photo/logo/', $logo);
                     $this->request->sent->logo = $logo;
                 } else {
                     $this->request->sent->logo = $data['authors']->logo;
