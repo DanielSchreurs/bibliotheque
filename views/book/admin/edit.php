@@ -178,7 +178,7 @@
                 <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <label for="datepub">Date de publication (jj/mm/aaaa)<strong
+        <label for="datepub">Date de publication (jj-mm-aaaa)<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput" type="date" name="datepub" min="2" id="datepub"
                title="Introduisez la date de publication" placeholder="12/03/2014"

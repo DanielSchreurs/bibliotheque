@@ -17,7 +17,7 @@
         <input name="book_id" type="hidden" value="<?php echo($book->book_id); ?>"/>
         <input name="user_id" type="hidden"
                value="<?php echo(isset($_SESSION['userId']) ? $_SESSION['userId'] : $_COOKIE['userId']); ?>"/>
-        <label for="from">Date du début<strong
+        <label for="from">Date du début (aaaa-mm-jj)<strong
                 class="form-create-user__obligatoire">*</strong></label>
         <input class="form-create__simple-imput <?php echo(isset($error['from']) ? 'error' : ''); ?>"
                type="date" name="from"
@@ -34,7 +34,7 @@
             <p class="form-create__message--error"><?php echo($error['from']); ?><span class="flash-box__btn">X</span>
             </p>
         <?php endif; ?>
-        <label for="to">Date de fin ( max 1 mois)<strong class="form-create-user__obligatoire">*</strong></label>
+        <label for="to">Date de fin (aaaa-mm-jj)<strong class="form-create-user__obligatoire">*</strong></label>
         <input class="form-create__simple-imput <?php echo(isset($error['to']) ? 'error' : ''); ?>"
                type="date" name="to" id="to"
                value="<?php echo(isset($sent->to) ? $sent->to : ''); ?>"

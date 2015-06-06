@@ -91,7 +91,7 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <label for="datebirth">Date de naissance (aaaa/mm/jj)<strong
+        <label for="datebirth">Date de naissance (aaaa-mm-jj)<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput" type="text" name="datebirth" min="2" id="datebirth"
                title="Introduisez la date de publication" placeholder="1900-02-02"

@@ -81,7 +81,7 @@
             <?php endforeach; ?>
         <?php endif; ?>
 
-        <label for="datebirth">Date de naissance (aaaa/mm/jj)<strong
+        <label for="datebirth">Date de naissance (aaaa-mm-jj)<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput" type="text" name="datebirth" min="2" id="datebirth"
                title="Introduisez la date de publication" placeholder="1900-02-02"
@@ -95,7 +95,7 @@
                 <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <label for="datedeath">Date de mort (aaaa/mm/jj)</label>
+        <label for="datedeath">Date de mort (aaaa-mm-jj)</label>
         <input class="form-create__simple-imput" type="text" name="datedeath" min="2" id="datedeath"
                title="Introduisez la date de publication" placeholder="1970-02-02"
                value="<?php echo(isset($errors['datedeath']) || $_GET ? $author->datedeath : $sent->datedeath); ?>"/>

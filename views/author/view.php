@@ -7,10 +7,10 @@ use Helpers\Date; ?>
     <h1 class="header-block-one"><?php echo($author->first_name . ' ' . $author->last_name); ?></h1>
 
     <div class="threeColumnBlock">
-        <a href="#"><img
+        <img
                 src="./img/authors_photo/<?php echo($author->author_photo); ?>"
                 alt="photo de  <?php echo($author->first_name . ' ' . $author->first_name); ?>" width="300"
-                height="450"></a>
+                height="450">
 
         <p> Né le: <abbr title="<?php echo($html->birthToString($author->datebirth)); ?>"
                          class="dtstart"><?php echo($html->birthToString($author->datebirth)); ?>

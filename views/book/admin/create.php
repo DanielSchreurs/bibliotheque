@@ -193,7 +193,7 @@
                 <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
             <?php endforeach; ?>
         <?php endif; ?>
-        <label for="datepub">Date de publication (aaaa/mm/jj)<strong
+        <label for="datepub">Date de publication (aaaa-mm-jj)<strong
                 class="form-create--obligatoire">*</strong></label>
         <input class="form-create__simple-imput <?php echo(isset($errors['datepub']) ? 'error' : ''); ?>" type="date"
                name="datepub" min="2" id="datepub"
