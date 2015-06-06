@@ -160,6 +160,9 @@
         <input class="form-create__simple-imput" type="text" name="isbn" id="isbn"
                title="Introduisez votre ISBN"
                value="<?php echo(isset($errors['isbn']) || $_GET ? $book->isbn : $sent->isbn); ?>"/>
+        <div class="form-create__example-box">
+            <p class="form-create__example-box__text">L’<i>ISB</i> est un nombre de minmum 8 chiffres sans caractères spéciaux</p>
+        </div>
         <?php if (isset($errors['isbn'])): ?>
             <?php foreach ($errors['isbn'] as $error): ?>
                 <p class="form-create__message--error"><?php echo($error); ?><span class="flash-box__btn">X</span></p>
