@@ -96,9 +96,13 @@
             <?php endforeach; ?>
         <?php endif; ?>
         <label for="datedeath">Date de mort (aaaa-mm-jj)</label>
+        <!--
+             Je demande pardon pour cette ligne.
+             Mais les retours à la lignes, ajoutent des esapces dans la value qui invalident le format...
+         -->
         <input class="form-create__simple-imput" type="text" name="datedeath" min="2" id="datedeath"
                title="Introduisez la date de publication" placeholder="1970-02-02"
-               value="<?php echo(isset($errors['datedeath']) || $_GET ? $author->datedeath : $sent->datedeath); ?>"/>
+               value="<?php if( ($_GET || isset($errors['datedeath'])) && ($author->datedeath!=='0000-00-00') ):?><?php echo(($author->datedeath)); ?><?php elseif(isset($sent->datedeath)): ?><?php echo($author->datedeath); ?><?php endif; ?>"/>
 
         <div class="form-create__example-box">
             <p class="form-create__example-box__text">Ce champs est facultatif mais s'il est définit il doit également
